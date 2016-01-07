@@ -412,7 +412,7 @@ public class Steuerung {
         //Alle Ausgänge des Moduls abfragen
         for (int i = anfangsAdresse; i < (anfangsAdresse + 8); i++) {
             try {
-                Thread.sleep(10); //10ms warten
+                Thread.sleep(50); //50ms warten
                 dieDaten[8] = (byte) i; //Kontaktkennung //Adresse 1
                 dieAnlage.schreibeAufCAN(dieDaten);
             } catch (InterruptedException ex) {
