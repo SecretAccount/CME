@@ -192,7 +192,7 @@ public class Anlage {
                     System.out.println("Daten auf CAN verfügbar!");
                     //Lese die Daten vom CAN Bus ein und übergib sie der Steuerung
                     dieSteuerung.holeDaten(holeVonCAN());
-//                    dieSteuerung.findeWeichenPosition();
+                    dieSteuerung.findeWeichenPosition();
                     dieSteuerung.sucheRMK();
                     break;
                 case SerialPortEvent.BI:

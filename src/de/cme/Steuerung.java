@@ -1,4 +1,3 @@
-
 package de.cme;
 
 import java.util.List;
@@ -232,13 +231,13 @@ public class Steuerung {
                 mTestAdresse = 0x3000 + 13 - 1; //1. Adresse Modul 5: 13 (12)
                 break;
             case 6:
-                mTestAdresse = 0x3000 + 22 - 1; // //1. Adresse Modul 6: 22 (21)
+                mTestAdresse = 0x3000 + 22 - 1; //1. Adresse Modul 6: 22 (21)
                 break;
         }
         mTestAdresse += weichenAdresse; //WeichenAdresse dazurechnen
         System.out.println("Weiche stellen");
         dieDaten[0] = 0x0;
-        dieDaten[1] = 0x16; //CAN-ID: 0x16
+        dieDaten[1] = 0x16; //CAN-ID: 0x16 = 22d (Zubehör Schalten)
         dieDaten[2] = 0x03;
         dieDaten[3] = 0x00;
         dieDaten[4] = 6;    //DLC:6
@@ -256,21 +255,20 @@ public class Steuerung {
         } catch (InterruptedException ex) {
             Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Nocheinmal senden
+        //Nocheinmal senden ohne Strom
         dieDaten[9] = stellung;
         dieDaten[10] = (byte) 0; //Strom aus
         dieAnlage.schreibeAufCAN(dieDaten);
 
         //weiterer Befehl einstellen
-        dieDaten[0] = (byte) 0;
-        dieDaten[1] = (byte) 70;
-        dieDaten[2] = (byte) 42;
-        //TO-DO: Adresse ändern
-        dieDaten[3] = (byte) mTestAdresse; //0x3005; //adresse + 128
-        dieDaten[4] = (byte) 4;
+//        dieDaten[0] = (byte) 0;
+//        dieDaten[1] = (byte) 70;
+//        dieDaten[2] = (byte) 42;
+//        //TO-DO: Adresse ändern
+//        dieDaten[3] = (byte) mTestAdresse; //0x3005; //adresse + 128
+//        dieDaten[4] = (byte) 4;
     }
 
-    //Ende Methoden
     public void holeDaten(byte[] datenVonCAN) {
         //Daten vom CAN speichern
         empfangeneDaten = datenVonCAN;
@@ -306,127 +304,33 @@ public class Steuerung {
          ** Modul-Nr.: empfangeneDaten[3] - 128
          ** Weichen-Chef-Adresse: 4, 5, 6
          */
-        int adr1, adr2, adr3, adr4;
-        //Adressen der vier einzeln angeschlossenen Weichen herausfinden
-        if (!(empfangeneDaten[5] >= 56)) {
-            adr1 = empfangeneDaten[5] << 8;
-            adr1 += empfangeneDaten[6] - 12288 + 1;
-        }
-        if (!(empfangeneDaten[7] >= 56)) {
-            adr2 = empfangeneDaten[7] << 8;
-            adr2 += empfangeneDaten[8] - 12288 + 1;
-        }
-        if (!(empfangeneDaten[9] >= 56)) {
-            adr3 = empfangeneDaten[9] << 8;
-            adr3 += empfangeneDaten[10] - 12288 + 1;
-        }
-        if (!(empfangeneDaten[11] >= 56)) {
-            adr4 = empfangeneDaten[11] << 8;
-            adr4 += empfangeneDaten[12] - 12288 + 1;
-        }
+
         int position = 2; //Sandardwert 2:Fehler
-        int mAdresse1 = 0, mAdresse2 = 0, mAdresse3 = 0, mAdresse4 = 0;
-        //Erste Adresse auslesen (kann durch "private int leseWeichenAdresse(int nummer)" ersetzt werden
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 69
-                && (empfangeneDaten[2] == 42 && empfangeneDaten[3] == modulAdresse)
-                && (empfangeneDaten[6] == 6 && empfangeneDaten[5] == 1)) {
-            mAdresse1 = empfangeneDaten[8] << 8;
-            mAdresse1 += empfangeneDaten[7];
-        }
-        //Zweite Adresse setzen
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 69
-                && (empfangeneDaten[2] == 42 && empfangeneDaten[3] == modulAdresse)
-                && (empfangeneDaten[6] == 6 && empfangeneDaten[5] == 2)) {
-            mAdresse2 = empfangeneDaten[8] << 8;
-            mAdresse2 += empfangeneDaten[7];
-        }
-        //Dritte Adresse setzen
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 69
-                && (empfangeneDaten[2] == 42 && empfangeneDaten[3] == modulAdresse)
-                && (empfangeneDaten[6] == 6 && empfangeneDaten[5] == 3)) {
-            mAdresse3 = empfangeneDaten[8] << 8;
-            mAdresse3 += empfangeneDaten[7];
-        }
-        //Vierte Adresse setzen
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 69
-                && (empfangeneDaten[2] == 42 && empfangeneDaten[3] == modulAdresse)
-                && (empfangeneDaten[6] == 6 && empfangeneDaten[5] == 4)) {
-            mAdresse4 = empfangeneDaten[8] << 8;
-            mAdresse4 += empfangeneDaten[7];
-        }
+
         //Weichenmodul-Adresse
         wAdresse = empfangeneDaten[7] << 8;
         wAdresse += empfangeneDaten[8];
 
         //Überprüfe erste angeschlossene Weiche
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                && (empfangeneDaten[3] == 0x3000 /*(modulAdresse - 128)*/
-                && mAdresse1 == 0x3000 /* (mAdresse1 == wAdresse) jeweilige Adresse der einzelnen Ausgänge (hier vom 1.) (1. Modul, 1. Adresse: 0x3000/12288d)*/)) {
-            if (empfangeneDaten[9] == 253) {
-                //position = 1; //Grün/rechts/1 /nicht benötigt
-                dieGUI.positionRechts(1);
-            }
-            if (empfangeneDaten[9] == 254) {
-                // position = 0; //Rot/links/0 /nicht benötigt
-                dieGUI.positionLinks(1);
-            }
-            if (empfangeneDaten[9] == 255) {
-                //position = 2; //Gelb Fehler
-                dieGUI.positionFehler(1);
-            }
-        }
-
-        //Überprüfe zweite angeschlossene Weiche
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                && (empfangeneDaten[3] == 0x3000/*(modulAdresse - 128) */
-                && mAdresse2 == 0x3001 /* (mAdresse2 == wAdresse) jeweilige Adresse der einzelnen Ausgänge (hier vom 2.)*/)) {
-            if (empfangeneDaten[9] == 253) {
-                position = 1; //Grün/rechts/1
-                dieGUI.positionRechts(2);
-            }
-            if (empfangeneDaten[9] == 254) {
-                position = 0; //Rot/links/0
-                dieGUI.positionLinks(2);
-            }
-            if (empfangeneDaten[9] == 255) {
-                position = 2; //Gelb Fehler
-                dieGUI.positionFehler(2);
-            }
-        }
-
-        //Überprüfe dritte angeschlossene Weiche
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                && (empfangeneDaten[3] == (modulAdresse - 128)
-                && mAdresse3/*jeweilige Adresse der einzelnen Ausgänge (hier vom 3.)*/ == wAdresse)) {
-            if (empfangeneDaten[9] == 253) {
-                position = 1; //Grün/rechts/1
-                dieGUI.positionRechts(3);
-            }
-            if (empfangeneDaten[9] == 254) {
-                position = 0; //Rot/links/0
-                dieGUI.positionLinks(3);
-            }
-            if (empfangeneDaten[9] == 255) {
-                position = 2; //Gelb Fehler
-                dieGUI.positionFehler(3);
-            }
-        }
-
-        //Überprüfe vierte angeschlossene Weiche
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                && (empfangeneDaten[3] == (modulAdresse - 128)
-                && mAdresse4/*jeweilige Adresse der einzelnen Ausgänge (hier vom 4.)*/ == wAdresse)) {
-            if (empfangeneDaten[9] == 253) {
-                position = 1; //Grün/rechts/1
-                dieGUI.positionRechts(4);
-            }
-            if (empfangeneDaten[9] == 254) {
-                position = 0; //Rot/links/0
-                dieGUI.positionLinks(4);
-            }
-            if (empfangeneDaten[9] == 255) {
-                position = 2; //Gelb Fehler
-                dieGUI.positionFehler(4);
+        //0 23 19 5 6 0 0 48 14 1 1 0 0
+        // Durch die vier Ausgänge der WeichenChefs durchiterieren (1-4)
+        for (int i = 0; i < 4; i++) {
+            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (12 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
+//                if (empfangeneDaten[9] == 253) { //richtig
+                if (empfangeneDaten[9] == 1) { //Test
+                    //position = 1; //Grün/rechts/1 /nicht benötigt
+                    dieGUI.positionRechts(i + 1);
+                }
+//                if (empfangeneDaten[9] == 254) { //richtig
+                if (empfangeneDaten[9] == 0) { //Test
+                    // position = 0; //Rot/links/0 /nicht benötigt
+                    dieGUI.positionLinks(i + 1);
+                }
+                if (empfangeneDaten[9] == 255) {
+                    //position = 2; //Gelb Fehler
+                    dieGUI.positionFehler(i + 1);
+                }
             }
         }
     }
@@ -461,80 +365,81 @@ public class Steuerung {
         dieDaten[10] = 0;
         dieDaten[11] = 0;
         dieDaten[12] = 0;
-        int anfangsAdresse = (gewRMKModul * 8 - 7);
+        int anfangsAdresse = (gewRMKModul * 8 - 7); //Anfangsadresse des gewählten RMK-Moduls
+        //Alle Ausgänge des Moduls abfragen
         for (int i = anfangsAdresse; i < (anfangsAdresse + 8); i++) {
             try {
                 Thread.sleep(10); //10ms warten
                 dieDaten[8] = (byte) i; //Kontaktkennung //Adresse 1
                 dieAnlage.schreibeAufCAN(dieDaten);
             } /*
-            try {
-            int adresse = gewRMKModul;
-            //Adresse der einzelnen Eingänge des aktuellen GleisReporters
-            int rmk = adresse * 8 - 8;
-            //Eingangsnummern setzen auf GUI
-            for (int i = 1; i < 9; i++) {
-            dieGUI.setzeRMKEingangNr(i, rmk + i);
-            }
-            adresse += 128;
-            dieDaten[3] = (byte) adresse;
-            dieDaten[1] = (byte) 4;
-            dieDaten[4] = (byte) 2;
-            dieDaten[5] = (byte) 0;
-            dieDaten[6] = (byte) 1;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            Thread.sleep(2);
-            dieDaten[1] = (byte) 4;
-            dieDaten[4] = (byte) 2;
-            dieDaten[5] = (byte) 0;
-            dieDaten[6] = (byte) 16;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            Thread.sleep(2);
-            dieDaten[1] = (byte) 4;
-            dieDaten[4] = (byte) 2;
-            dieDaten[5] = (byte) 0;
-            dieDaten[6] = (byte) 17;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            Thread.sleep(2);
-            dieDaten[1] = (byte) 4;
-            dieDaten[4] = (byte) 2;
-            dieDaten[5] = (byte) 0;
-            dieDaten[6] = (byte) 18;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            for (byte i = (byte) 1; (int) i < 9; ++i) {
-            Thread.sleep(2);
-            dieDaten[5] = i;
-            dieDaten[6] = (byte) 2;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            }
-            for (byte i = (byte) 1; (int) i < 9; ++i) {
-            Thread.sleep(2);
-            dieDaten[5] = i;
-            dieDaten[6] = (byte) 3;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            }
-            Thread.sleep(2);
-            dieDaten[5] = (byte) 0;
-            dieDaten[6] = (byte) 238;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            Thread.sleep(2);
-            dieDaten[1] = (byte) 32;
-            dieDaten[2] = (byte) 3;
-            dieDaten[3] = (byte) 0;
-            dieDaten[4] = (byte) 5;
-            dieDaten[5] = (byte) 1;
-            dieDaten[6] = (byte) 2;
-            dieDaten[7] = (byte) 3;
-            dieDaten[8] = (byte) 4;
-            dieAnlage.schreibeAufCAN(dieDaten);
-            dieDaten[0] = (byte) 0;
-            dieDaten[1] = (byte) 0;
-            dieDaten[2] = (byte) 218;
-            dieDaten[3] = (byte) adresse;
-            dieDaten[4] = (byte) 0;
-            } catch (InterruptedException ex) {
-            Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
-            }
+             try {
+             int adresse = gewRMKModul;
+             //Adresse der einzelnen Eingänge des aktuellen GleisReporters
+             int rmk = adresse * 8 - 8;
+             //Eingangsnummern setzen auf GUI
+             for (int i = 1; i < 9; i++) {
+             dieGUI.setzeRMKEingangNr(i, rmk + i);
+             }
+             adresse += 128;
+             dieDaten[3] = (byte) adresse;
+             dieDaten[1] = (byte) 4;
+             dieDaten[4] = (byte) 2;
+             dieDaten[5] = (byte) 0;
+             dieDaten[6] = (byte) 1;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             Thread.sleep(2);
+             dieDaten[1] = (byte) 4;
+             dieDaten[4] = (byte) 2;
+             dieDaten[5] = (byte) 0;
+             dieDaten[6] = (byte) 16;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             Thread.sleep(2);
+             dieDaten[1] = (byte) 4;
+             dieDaten[4] = (byte) 2;
+             dieDaten[5] = (byte) 0;
+             dieDaten[6] = (byte) 17;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             Thread.sleep(2);
+             dieDaten[1] = (byte) 4;
+             dieDaten[4] = (byte) 2;
+             dieDaten[5] = (byte) 0;
+             dieDaten[6] = (byte) 18;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             for (byte i = (byte) 1; (int) i < 9; ++i) {
+             Thread.sleep(2);
+             dieDaten[5] = i;
+             dieDaten[6] = (byte) 2;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             }
+             for (byte i = (byte) 1; (int) i < 9; ++i) {
+             Thread.sleep(2);
+             dieDaten[5] = i;
+             dieDaten[6] = (byte) 3;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             }
+             Thread.sleep(2);
+             dieDaten[5] = (byte) 0;
+             dieDaten[6] = (byte) 238;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             Thread.sleep(2);
+             dieDaten[1] = (byte) 32;
+             dieDaten[2] = (byte) 3;
+             dieDaten[3] = (byte) 0;
+             dieDaten[4] = (byte) 5;
+             dieDaten[5] = (byte) 1;
+             dieDaten[6] = (byte) 2;
+             dieDaten[7] = (byte) 3;
+             dieDaten[8] = (byte) 4;
+             dieAnlage.schreibeAufCAN(dieDaten);
+             dieDaten[0] = (byte) 0;
+             dieDaten[1] = (byte) 0;
+             dieDaten[2] = (byte) 218;
+             dieDaten[3] = (byte) adresse;
+             dieDaten[4] = (byte) 0;
+             } catch (InterruptedException ex) {
+             Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+             }
              */ catch (InterruptedException ex) {
                 Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -637,4 +542,5 @@ public class Steuerung {
     void clearPortList() {
         dieGUI.clearPortList();
     }
+    //Ende Methoden
 }

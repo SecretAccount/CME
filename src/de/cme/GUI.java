@@ -855,7 +855,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
-        dijkstra.findeWeg(1, 46);
+        dijkstra.findeWeg(1, 7);
         dijkstra.showList();
     }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
 
