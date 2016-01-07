@@ -316,7 +316,45 @@ public class Steuerung {
         // Durch die vier Ausgänge der WeichenChefs durchiterieren (1-4)
         for (int i = 0; i < 4; i++) {
             if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (0 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
+//                if (empfangeneDaten[9] == 253) { //richtig
+                if (empfangeneDaten[9] == 1) { //Test
+                    //position = 1; //Grün/rechts/1 /nicht benötigt
+                    dieGUI.positionRechts(i + 1);
+                }
+//                if (empfangeneDaten[9] == 254) { //richtig
+                if (empfangeneDaten[9] == 0) { //Test
+                    // position = 0; //Rot/links/0 /nicht benötigt
+                    dieGUI.positionLinks(i + 1);
+                }
+                if (empfangeneDaten[9] == 255) {
+                    //position = 2; //Gelb Fehler
+                    dieGUI.positionFehler(i + 1);
+                }
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
                     && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (12 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
+//                if (empfangeneDaten[9] == 253) { //richtig
+                if (empfangeneDaten[9] == 1) { //Test
+                    //position = 1; //Grün/rechts/1 /nicht benötigt
+                    dieGUI.positionRechts(i + 1);
+                }
+//                if (empfangeneDaten[9] == 254) { //richtig
+                if (empfangeneDaten[9] == 0) { //Test
+                    // position = 0; //Rot/links/0 /nicht benötigt
+                    dieGUI.positionLinks(i + 1);
+                }
+                if (empfangeneDaten[9] == 255) {
+                    //position = 2; //Gelb Fehler
+                    dieGUI.positionFehler(i + 1);
+                }
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (21 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
 //                if (empfangeneDaten[9] == 253) { //richtig
                 if (empfangeneDaten[9] == 1) { //Test
                     //position = 1; //Grün/rechts/1 /nicht benötigt
@@ -372,7 +410,10 @@ public class Steuerung {
                 Thread.sleep(10); //10ms warten
                 dieDaten[8] = (byte) i; //Kontaktkennung //Adresse 1
                 dieAnlage.schreibeAufCAN(dieDaten);
-            } /*
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            /*
              try {
              int adresse = gewRMKModul;
              //Adresse der einzelnen Eingänge des aktuellen GleisReporters
@@ -440,9 +481,7 @@ public class Steuerung {
              } catch (InterruptedException ex) {
              Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
              }
-             */ catch (InterruptedException ex) {
-                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
-            }
+             */ 
         }
 
     }
