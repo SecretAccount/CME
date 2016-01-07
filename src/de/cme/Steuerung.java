@@ -314,63 +314,68 @@ public class Steuerung {
         //Überprüfe erste angeschlossene Weiche
         //0 23 19 5 6 0 0 48 14 1 1 0 0
         // Durch die vier Ausgänge der WeichenChefs durchiterieren (1-4)
-        for (int i = 0; i < 4; i++) {
-            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (0 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
+        for (int weichenModul = 0; weichenModul < 25; weichenModul += 12) {
+            if (weichenModul == 24) { //die erste Weiche des Weichenmoduls mit Adresse 6 beginnt bei 21
+                weichenModul = 21;
+            }
+            for (int weichenAnschluss = 0; weichenAnschluss < 4; weichenAnschluss++) {
+                if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+                        && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (weichenModul + weichenAnschluss) /* (hier vom 1./2./3. Modul mit Adresse 4/5/6 | 1. Adresse: 0x3000/12288d)*/)) {
 //                if (empfangeneDaten[9] == 253) { //richtig
-                if (empfangeneDaten[9] == 1) { //Test
-                    //position = 1; //Grün/rechts/1 /nicht benötigt
-                    dieGUI.positionRechts(i + 1);
-                }
+                    if (empfangeneDaten[9] == 1) { //Test
+                        //position = 1; //Grün/rechts/1 /nicht benötigt
+                        dieGUI.positionRechts(weichenAnschluss + 1);
+                    }
 //                if (empfangeneDaten[9] == 254) { //richtig
-                if (empfangeneDaten[9] == 0) { //Test
-                    // position = 0; //Rot/links/0 /nicht benötigt
-                    dieGUI.positionLinks(i + 1);
-                }
-                if (empfangeneDaten[9] == 255) {
-                    //position = 2; //Gelb Fehler
-                    dieGUI.positionFehler(i + 1);
+                    if (empfangeneDaten[9] == 0) { //Test
+                        // position = 0; //Rot/links/0 /nicht benötigt
+                        dieGUI.positionLinks(weichenAnschluss + 1);
+                    }
+                    if (empfangeneDaten[9] == 255) {
+                        //position = 2; //Gelb Fehler
+                        dieGUI.positionFehler(weichenAnschluss + 1);
+                    }
                 }
             }
         }
-        for (int i = 0; i < 4; i++) {
-            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (12 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
-//                if (empfangeneDaten[9] == 253) { //richtig
-                if (empfangeneDaten[9] == 1) { //Test
-                    //position = 1; //Grün/rechts/1 /nicht benötigt
-                    dieGUI.positionRechts(i + 1);
-                }
-//                if (empfangeneDaten[9] == 254) { //richtig
-                if (empfangeneDaten[9] == 0) { //Test
-                    // position = 0; //Rot/links/0 /nicht benötigt
-                    dieGUI.positionLinks(i + 1);
-                }
-                if (empfangeneDaten[9] == 255) {
-                    //position = 2; //Gelb Fehler
-                    dieGUI.positionFehler(i + 1);
-                }
-            }
-        }
-        for (int i = 0; i < 4; i++) {
-            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
-                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (21 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
-//                if (empfangeneDaten[9] == 253) { //richtig
-                if (empfangeneDaten[9] == 1) { //Test
-                    //position = 1; //Grün/rechts/1 /nicht benötigt
-                    dieGUI.positionRechts(i + 1);
-                }
-//                if (empfangeneDaten[9] == 254) { //richtig
-                if (empfangeneDaten[9] == 0) { //Test
-                    // position = 0; //Rot/links/0 /nicht benötigt
-                    dieGUI.positionLinks(i + 1);
-                }
-                if (empfangeneDaten[9] == 255) {
-                    //position = 2; //Gelb Fehler
-                    dieGUI.positionFehler(i + 1);
-                }
-            }
-        }
+//        for (int i = 0; i < 4; i++) {
+//            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+//                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (12 + i) /* (hier vom 2. Modul mit Adresse 5 | 1. Adresse: 0x3000/12288d)*/)) {
+////                if (empfangeneDaten[9] == 253) { //richtig
+//                if (empfangeneDaten[9] == 1) { //Test
+//                    //position = 1; //Grün/rechts/1 /nicht benötigt
+//                    dieGUI.positionRechts(i + 1);
+//                }
+////                if (empfangeneDaten[9] == 254) { //richtig
+//                if (empfangeneDaten[9] == 0) { //Test
+//                    // position = 0; //Rot/links/0 /nicht benötigt
+//                    dieGUI.positionLinks(i + 1);
+//                }
+//                if (empfangeneDaten[9] == 255) {
+//                    //position = 2; //Gelb Fehler
+//                    dieGUI.positionFehler(i + 1);
+//                }
+//            }
+//        }
+//        for (int i = 0; i < 4; i++) {
+//            if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 23
+//                    && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (21 + i) /* (hier vom 3. Modul mit Adresse 6 | 1. Adresse: 0x3000/12288d)*/)) {
+////                if (empfangeneDaten[9] == 253) { //richtig
+//                if (empfangeneDaten[9] == 1) { //Test
+//                    //position = 1; //Grün/rechts/1 /nicht benötigt
+//                    dieGUI.positionRechts(i + 1);
+//                }
+////                if (empfangeneDaten[9] == 254) { //richtig
+//                if (empfangeneDaten[9] == 0) { //Test
+//                    // position = 0; //Rot/links/0 /nicht benötigt
+//                    dieGUI.positionLinks(i + 1);
+//                }
+//                if (empfangeneDaten[9] == 255) {
+//                    //position = 2; //Gelb Fehler
+//                    dieGUI.positionFehler(i + 1);
+//                }
+//            }
+//        }
     }
 
     public void sendeRMK() {
@@ -481,7 +486,7 @@ public class Steuerung {
              } catch (InterruptedException ex) {
              Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
              }
-             */ 
+             */
         }
 
     }
