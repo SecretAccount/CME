@@ -203,8 +203,9 @@ public class Steuerung implements Befehle {
         dieAnlage.schreibeAufCAN(dieDaten);
     }
 
-    public void schalteLichtVonLok(int LokName, boolean lichtEin) {}
-    
+    public void schalteLichtVonLok(int LokName, boolean lichtEin) {
+    }
+
     public void schalteLichtVonLok(boolean lichtEin) {
         System.out.println("Licht-Funktion");
         if (lichtEin) {
@@ -593,7 +594,82 @@ public class Steuerung implements Befehle {
 
     @Override
     public void stelleWeiche(int weichenNummer, char stellung) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        byte weichenAdresse = 0;
+        byte stellungWert;
+        //Stellung rund: 0
+        if (stellung == 'r') {
+            stellungWert = 0;
+        } else if (stellung == 'g') {
+            stellungWert = 1;
+        } else {
+            stellungWert = 0;
+            System.out.println("Falscher Stellungswert: Stellung auf 0 gesetzt (rund)");
+        }
+        switch (weichenNummer) {
+            // Knoten 32 und 42 gleiche Weiche, aber Knoten 9 dazwischen
+            case 32:
+            case 42:
+                weichenAdresse = 24;
+                break;
+            case 33:
+                weichenAdresse = 23;
+                break;
+            case 34:
+                weichenAdresse = 15;
+                break;
+            case 35:
+                weichenAdresse = 3;
+                break;
+            case 36:
+                weichenAdresse = 2;
+                break;
+            case 37:
+                weichenAdresse = 1;
+                break;
+            case 38:
+                weichenAdresse = 0;
+                break;
+            case 39:
+                weichenAdresse = 13;
+                break;
+            case 40:
+                weichenAdresse = 12;
+                break;
+            case 41:
+                weichenAdresse = 21;
+                break;
+            case 43:
+                weichenAdresse = 22;
+                break;
+            case 44:
+                weichenAdresse = 14;
+                break;
+        }
+        
+        System.out.println("Weiche stellen");
+        dieDaten[0] = 0x0;  //Priorität 0
+        dieDaten[1] = 0x16; //CAN-ID: 0x16 = 22d (Zubehör Schalten)
+        dieDaten[2] = 0x03; //Hash
+        dieDaten[3] = 0x00; //Hash
+        dieDaten[4] = 6;    //DLC:6 Daten Bytes
+        dieDaten[5] = 0; 
+        dieDaten[6] = 0;
+        dieDaten[7] = (byte) 0x30; //0x3000; //MM1,2 Zubehörartikeldecoder (40 kHz, 320 & 1024 Adressen)
+        dieDaten[8] = (byte) weichenAdresse;
+        // 0: Rechts/Rund 1: Gerade (Doku S.37)
+        dieDaten[9] = stellungWert;
+        dieDaten[10] = (byte) 1; //Strom ein
+        dieAnlage.schreibeAufCAN(dieDaten);
+        //Halbe Sekunde warten
+        try {
+            Thread.sleep(500); //500ms warten
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Noch einmal senden ohne Strom
+        dieDaten[9] = stellungWert;
+        dieDaten[10] = (byte) 0; //Strom aus
+        dieAnlage.schreibeAufCAN(dieDaten);
     }
 
     @Override
