@@ -56,20 +56,20 @@ public class GUI extends javax.swing.JFrame {
         jLWeichenModulAuswahl = new javax.swing.JLabel();
         jCBWeichenChefAuswahl = new javax.swing.JComboBox();
         jLWeiche1 = new javax.swing.JLabel();
-        jBWeiche1Rechts = new javax.swing.JButton();
-        jBWeiche1Links = new javax.swing.JButton();
+        jBWeiche1Rund = new javax.swing.JButton();
+        jBWeiche1Gerade = new javax.swing.JButton();
         jBWeiche1Position = new javax.swing.JButton();
         jLWeiche2 = new javax.swing.JLabel();
-        jBWeiche2Rechts = new javax.swing.JButton();
-        jBWeiche2Links = new javax.swing.JButton();
+        jBWeiche2Rund = new javax.swing.JButton();
+        jBWeiche2Gerade = new javax.swing.JButton();
         jBWeiche2Position = new javax.swing.JButton();
         jLWeiche3 = new javax.swing.JLabel();
-        jBWeiche3Rechts = new javax.swing.JButton();
-        jBWeiche3Links = new javax.swing.JButton();
+        jBWeiche3Rund = new javax.swing.JButton();
+        jBWeiche3Gerade = new javax.swing.JButton();
         jBWeiche3Position = new javax.swing.JButton();
         jLWeiche4 = new javax.swing.JLabel();
-        jBWeiche4Rechts = new javax.swing.JButton();
-        jBWeiche4Links = new javax.swing.JButton();
+        jBWeiche4Rund = new javax.swing.JButton();
+        jBWeiche4Gerade = new javax.swing.JButton();
         jBWeiche4Position = new javax.swing.JButton();
         jPRMK = new javax.swing.JPanel();
         jLRMK = new javax.swing.JLabel();
@@ -340,19 +340,19 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche1.setText("Weiche 1");
 
-        jBWeiche1Rechts.setBackground(new java.awt.Color(0, 204, 0));
-        jBWeiche1Rechts.setText("rechts");
-        jBWeiche1Rechts.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche1Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche1Rund.setText("rund");
+        jBWeiche1Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche1RechtsActionPerformed(evt);
+                jBWeiche1RundActionPerformed(evt);
             }
         });
 
-        jBWeiche1Links.setBackground(new java.awt.Color(255, 0, 0));
-        jBWeiche1Links.setText("links");
-        jBWeiche1Links.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche1Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche1Gerade.setText("gerade");
+        jBWeiche1Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche1LinksActionPerformed(evt);
+                jBWeiche1GeradeActionPerformed(evt);
             }
         });
 
@@ -364,19 +364,19 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche2.setText("Weiche 2");
 
-        jBWeiche2Rechts.setBackground(new java.awt.Color(0, 204, 0));
-        jBWeiche2Rechts.setText("rechts");
-        jBWeiche2Rechts.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche2Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche2Rund.setText("rund");
+        jBWeiche2Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche2RechtsActionPerformed(evt);
+                jBWeiche2RundActionPerformed(evt);
             }
         });
 
-        jBWeiche2Links.setBackground(new java.awt.Color(255, 0, 0));
-        jBWeiche2Links.setText("links");
-        jBWeiche2Links.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche2Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche2Gerade.setText("gerade");
+        jBWeiche2Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche2LinksActionPerformed(evt);
+                jBWeiche2GeradeActionPerformed(evt);
             }
         });
 
@@ -386,19 +386,19 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche3.setText("Weiche 3");
 
-        jBWeiche3Rechts.setBackground(new java.awt.Color(0, 204, 0));
-        jBWeiche3Rechts.setText("rechts");
-        jBWeiche3Rechts.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche3Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche3Rund.setText("rund");
+        jBWeiche3Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche3RechtsActionPerformed(evt);
+                jBWeiche3RundActionPerformed(evt);
             }
         });
 
-        jBWeiche3Links.setBackground(new java.awt.Color(255, 0, 0));
-        jBWeiche3Links.setText("links");
-        jBWeiche3Links.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche3Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche3Gerade.setText("gerade");
+        jBWeiche3Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche3LinksActionPerformed(evt);
+                jBWeiche3GeradeActionPerformed(evt);
             }
         });
 
@@ -408,19 +408,19 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche4.setText("Weiche 4");
 
-        jBWeiche4Rechts.setBackground(new java.awt.Color(0, 204, 0));
-        jBWeiche4Rechts.setText("rechts");
-        jBWeiche4Rechts.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche4Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche4Rund.setText("rund");
+        jBWeiche4Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche4RechtsActionPerformed(evt);
+                jBWeiche4RundActionPerformed(evt);
             }
         });
 
-        jBWeiche4Links.setBackground(new java.awt.Color(255, 0, 0));
-        jBWeiche4Links.setText("links");
-        jBWeiche4Links.addActionListener(new java.awt.event.ActionListener() {
+        jBWeiche4Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche4Gerade.setText("gerade");
+        jBWeiche4Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBWeiche4LinksActionPerformed(evt);
+                jBWeiche4GeradeActionPerformed(evt);
             }
         });
 
@@ -446,27 +446,27 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(jPWeicheLayout.createSequentialGroup()
                                 .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLWeiche1)
-                                    .addComponent(jBWeiche1Rechts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche1Links, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche1Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche1Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBWeiche1Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLWeiche2)
-                                    .addComponent(jBWeiche2Rechts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche2Links, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche2Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche2Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBWeiche2Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLWeiche3)
-                                    .addComponent(jBWeiche3Rechts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche3Links, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche3Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche3Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBWeiche3Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jBWeiche4Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLWeiche4)
-                            .addComponent(jBWeiche4Rechts, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche4Links, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jBWeiche4Rund, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBWeiche4Gerade, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPWeicheLayout.setVerticalGroup(
@@ -487,7 +487,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLWeiche4)
                             .addComponent(jLWeiche1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBWeiche3Rechts)
+                        .addComponent(jBWeiche3Rund)
                         .addGap(47, 47, 47)
                         .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jBWeiche3Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -497,18 +497,18 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPWeicheLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBWeiche2Rechts)
+                            .addComponent(jBWeiche2Rund)
                             .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPWeicheLayout.createSequentialGroup()
-                                    .addComponent(jBWeiche1Rechts)
+                                    .addComponent(jBWeiche1Rund)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jBWeiche1Links)
-                                        .addComponent(jBWeiche2Links)
-                                        .addComponent(jBWeiche3Links)
-                                        .addComponent(jBWeiche4Links)))
+                                        .addComponent(jBWeiche1Gerade)
+                                        .addComponent(jBWeiche2Gerade)
+                                        .addComponent(jBWeiche3Gerade)
+                                        .addComponent(jBWeiche4Gerade)))
                                 .addGroup(jPWeicheLayout.createSequentialGroup()
-                                    .addComponent(jBWeiche4Rechts)
+                                    .addComponent(jBWeiche4Rund)
                                     .addGap(29, 29, 29))))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -738,62 +738,62 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTBSteuernActionPerformed
 
-    private void jBWeiche1RechtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1RechtsActionPerformed
+    private void jBWeiche1RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1RundActionPerformed
         //grün
         byte weichenAdresse = 0;
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
-    }//GEN-LAST:event_jBWeiche1RechtsActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
+    }//GEN-LAST:event_jBWeiche1RundActionPerformed
 
-    private void jBWeiche2RechtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2RechtsActionPerformed
+    private void jBWeiche2RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2RundActionPerformed
         //grün
         byte weichenAdresse = (byte) (1);
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
-    }//GEN-LAST:event_jBWeiche2RechtsActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
+    }//GEN-LAST:event_jBWeiche2RundActionPerformed
 
-    private void jBWeiche3RechtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3RechtsActionPerformed
+    private void jBWeiche3RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3RundActionPerformed
         //grün
         byte weichenAdresse = (byte) (2);
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
-    }//GEN-LAST:event_jBWeiche3RechtsActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
+    }//GEN-LAST:event_jBWeiche3RundActionPerformed
 
-    private void jBWeiche4RechtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4RechtsActionPerformed
+    private void jBWeiche4RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4RundActionPerformed
         //grün
         byte weichenAdresse = (byte) (3);
         findeModulNr();
 //        dieSteuerung.stelleWeiche(44, 'r');
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
-    }//GEN-LAST:event_jBWeiche4RechtsActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
+    }//GEN-LAST:event_jBWeiche4RundActionPerformed
 
-    private void jBWeiche1LinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1LinksActionPerformed
+    private void jBWeiche1GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1GeradeActionPerformed
         //rot
         byte weichenAdresse = (byte) (0);
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
-    }//GEN-LAST:event_jBWeiche1LinksActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
+    }//GEN-LAST:event_jBWeiche1GeradeActionPerformed
 
-    private void jBWeiche2LinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2LinksActionPerformed
+    private void jBWeiche2GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2GeradeActionPerformed
         //rot
         byte weichenAdresse = (byte) (1);
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
-    }//GEN-LAST:event_jBWeiche2LinksActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
+    }//GEN-LAST:event_jBWeiche2GeradeActionPerformed
 
-    private void jBWeiche3LinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3LinksActionPerformed
+    private void jBWeiche3GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3GeradeActionPerformed
         //rot
         byte weichenAdresse = (byte) (2);
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
         findeModulNr();
-    }//GEN-LAST:event_jBWeiche3LinksActionPerformed
+    }//GEN-LAST:event_jBWeiche3GeradeActionPerformed
 
-    private void jBWeiche4LinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4LinksActionPerformed
+    private void jBWeiche4GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4GeradeActionPerformed
         //rot
         byte weichenAdresse = (byte) (3);
         findeModulNr();
-        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
-    }//GEN-LAST:event_jBWeiche4LinksActionPerformed
+        dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
+    }//GEN-LAST:event_jBWeiche4GeradeActionPerformed
 
     private void jCBRMKModulAuswahlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBRMKModulAuswahlActionPerformed
         JComboBox jCBModul = (JComboBox) evt.getSource();
@@ -1126,18 +1126,18 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBStartDijkstraAlgorithmus;
     private javax.swing.JButton jBStopp;
     private javax.swing.JButton jBTrennen;
-    private javax.swing.JButton jBWeiche1Links;
+    private javax.swing.JButton jBWeiche1Gerade;
     private javax.swing.JButton jBWeiche1Position;
-    private javax.swing.JButton jBWeiche1Rechts;
-    private javax.swing.JButton jBWeiche2Links;
+    private javax.swing.JButton jBWeiche1Rund;
+    private javax.swing.JButton jBWeiche2Gerade;
     private javax.swing.JButton jBWeiche2Position;
-    private javax.swing.JButton jBWeiche2Rechts;
-    private javax.swing.JButton jBWeiche3Links;
+    private javax.swing.JButton jBWeiche2Rund;
+    private javax.swing.JButton jBWeiche3Gerade;
     private javax.swing.JButton jBWeiche3Position;
-    private javax.swing.JButton jBWeiche3Rechts;
-    private javax.swing.JButton jBWeiche4Links;
+    private javax.swing.JButton jBWeiche3Rund;
+    private javax.swing.JButton jBWeiche4Gerade;
     private javax.swing.JButton jBWeiche4Position;
-    private javax.swing.JButton jBWeiche4Rechts;
+    private javax.swing.JButton jBWeiche4Rund;
     private javax.swing.JComboBox jCBCOMPort;
     private javax.swing.JComboBox jCBRMKModulAuswahl;
     private javax.swing.JComboBox jCBWeichenChefAuswahl;

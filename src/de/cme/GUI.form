@@ -371,22 +371,22 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Component id="jLWeiche1" alignment="2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jBWeiche1Rechts" alignment="2" max="32767" attributes="0"/>
-                                      <Component id="jBWeiche1Links" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche1Rund" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche1Gerade" alignment="2" max="32767" attributes="0"/>
                                       <Component id="jBWeiche1Position" alignment="2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Component id="jLWeiche2" alignment="2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jBWeiche2Rechts" alignment="2" max="32767" attributes="0"/>
-                                      <Component id="jBWeiche2Links" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche2Rund" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche2Gerade" alignment="2" max="32767" attributes="0"/>
                                       <Component id="jBWeiche2Position" alignment="2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Component id="jLWeiche3" alignment="2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jBWeiche3Rechts" alignment="2" max="32767" attributes="0"/>
-                                      <Component id="jBWeiche3Links" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche3Rund" alignment="2" max="32767" attributes="0"/>
+                                      <Component id="jBWeiche3Gerade" alignment="2" max="32767" attributes="0"/>
                                       <Component id="jBWeiche3Position" alignment="2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -395,8 +395,8 @@
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jBWeiche4Position" alignment="2" max="-2" attributes="0"/>
                               <Component id="jLWeiche4" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jBWeiche4Rechts" alignment="2" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jBWeiche4Links" alignment="2" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jBWeiche4Rund" alignment="2" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jBWeiche4Gerade" alignment="2" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -424,7 +424,7 @@
                               <Component id="jLWeiche1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jBWeiche3Rechts" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBWeiche3Rund" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jBWeiche3Position" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -436,20 +436,20 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jBWeiche2Rechts" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBWeiche2Rund" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jBWeiche1Rechts" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBWeiche1Rund" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jBWeiche1Links" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jBWeiche2Links" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jBWeiche3Links" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jBWeiche4Links" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jBWeiche1Gerade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jBWeiche2Gerade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jBWeiche3Gerade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jBWeiche4Gerade" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jBWeiche4Rechts" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBWeiche4Rund" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -502,26 +502,26 @@
             <Property name="text" type="java.lang.String" value="Weiche 1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche1Rechts">
+        <Component class="javax.swing.JButton" name="jBWeiche1Rund">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="rechts"/>
+            <Property name="text" type="java.lang.String" value="rund"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche1RechtsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche1RundActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche1Links">
+        <Component class="javax.swing.JButton" name="jBWeiche1Gerade">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="links"/>
+            <Property name="text" type="java.lang.String" value="gerade"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche1LinksActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche1GeradeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBWeiche1Position">
@@ -549,26 +549,26 @@
             <Property name="text" type="java.lang.String" value="Weiche 2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche2Rechts">
+        <Component class="javax.swing.JButton" name="jBWeiche2Rund">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="rechts"/>
+            <Property name="text" type="java.lang.String" value="rund"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche2RechtsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche2RundActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche2Links">
+        <Component class="javax.swing.JButton" name="jBWeiche2Gerade">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="links"/>
+            <Property name="text" type="java.lang.String" value="gerade"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche2LinksActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche2GeradeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBWeiche2Position">
@@ -587,26 +587,26 @@
             <Property name="text" type="java.lang.String" value="Weiche 3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche3Rechts">
+        <Component class="javax.swing.JButton" name="jBWeiche3Rund">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="rechts"/>
+            <Property name="text" type="java.lang.String" value="rund"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche3RechtsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche3RundActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche3Links">
+        <Component class="javax.swing.JButton" name="jBWeiche3Gerade">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="links"/>
+            <Property name="text" type="java.lang.String" value="gerade"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche3LinksActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche3GeradeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBWeiche3Position">
@@ -625,26 +625,26 @@
             <Property name="text" type="java.lang.String" value="Weiche 4"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche4Rechts">
+        <Component class="javax.swing.JButton" name="jBWeiche4Rund">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="rechts"/>
+            <Property name="text" type="java.lang.String" value="rund"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche4RechtsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche4RundActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBWeiche4Links">
+        <Component class="javax.swing.JButton" name="jBWeiche4Gerade">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="links"/>
+            <Property name="text" type="java.lang.String" value="gerade"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche4LinksActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeiche4GeradeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBWeiche4Position">
