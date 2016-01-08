@@ -8,7 +8,7 @@ public interface Befehle {
     
     /**
      * @param weichenNummer: Nummer des Knotens
-     * @param stellung: Stellung rechts 'r' oder links 'l'
+     * @param stellung: Stellung rund 'r' (links) oder gerade 'g' (rechts)
      */
     public void stelleWeiche(int weichenNummer, char stellung);
     
