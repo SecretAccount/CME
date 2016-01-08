@@ -409,7 +409,7 @@ public class Steuerung implements Befehle {
         dieDaten[0] = 2; //Rückmeldung Prio:2
         dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
         dieDaten[2] = (byte) 11; //Hash
-        dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
+        dieDaten[3] = (byte) 0; // RMK-Modul-Nummer
         dieDaten[4] = 4; //DLC: 4
         dieDaten[5] = 0; //Gerätekenner
         dieDaten[6] = 0; //Gerätekenner
@@ -597,21 +597,25 @@ public class Steuerung implements Befehle {
     void clearPortList() {
         dieGUI.clearPortList();
     }
-    //Ende Methoden
 
     @Override
     public void stelleWeiche(int weichenNummer, char stellung) {
-        byte weichenAdresse = 0;
+        byte weichenAdresse;
         byte stellungWert;
         //Stellung rund: 0
-        if (stellung == 'r') {
-            stellungWert = 0;
-        } else if (stellung == 'g') {
-            stellungWert = 1;
-        } else {
-            stellungWert = 0;
-            System.out.println("Falscher Stellungswert: Stellung auf 0 gesetzt (rund)");
+        switch (stellung) {
+            case 'r':
+                stellungWert = 0;
+                break;
+            case 'g':
+                stellungWert = 1;
+                break;
+            default:
+                stellungWert = 0;
+                System.out.println("Falscher Stellungswert: Stellung auf 0 gesetzt (rund)");
+                break;
         }
+
         switch (weichenNummer) {
             // Knoten 32 und 42 gleiche Weiche, aber Knoten 9 dazwischen
             case 32:
@@ -651,15 +655,19 @@ public class Steuerung implements Befehle {
             case 44:
                 weichenAdresse = 14;
                 break;
+            default:
+                weichenAdresse = 0;
+                System.out.println("Keine gültige Weichennummer gewählt: Erste Weiche gewählt");
+                break;
         }
-        
+
         System.out.println("Weiche stellen");
         dieDaten[0] = 0x0;  //Priorität 0
         dieDaten[1] = 0x16; //CAN-ID: 0x16 = 22d (Zubehör Schalten)
         dieDaten[2] = 0x03; //Hash
         dieDaten[3] = 0x00; //Hash
         dieDaten[4] = 6;    //DLC:6 Daten Bytes
-        dieDaten[5] = 0; 
+        dieDaten[5] = 0;
         dieDaten[6] = 0;
         dieDaten[7] = (byte) 0x30; //0x3000; //MM1,2 Zubehörartikeldecoder (40 kHz, 320 & 1024 Adressen)
         dieDaten[8] = (byte) weichenAdresse;
@@ -681,7 +689,145 @@ public class Steuerung implements Befehle {
 
     @Override
     public boolean leseRMK(int RMKNummer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Rückmeldeevent senden
+        byte RMKAdresse;
+        switch (RMKNummer) {
+            case 1:
+                RMKAdresse = 19; //Adresse des RMK
+                break;
+            case 2:
+                RMKAdresse = 20; //Adresse des RMK
+                break;
+            case 3:
+                RMKAdresse = 22; //Adresse des RMK
+                break;
+            case 4:
+                RMKAdresse = 31; //Adresse des RMK
+                break;
+            case 5:
+                RMKAdresse = 25; //Adresse des RMK
+                break;
+            case 6:
+                RMKAdresse = 27; //Adresse des RMK
+                break;
+            case 7:
+                RMKAdresse = 18; //Adresse des RMK
+                break;
+            case 8:
+                RMKAdresse = 2; //Adresse des RMK
+                break;
+            case 9:
+                RMKAdresse = 6; //Adresse des RMK
+                break;
+            case 10:
+                RMKAdresse = 7; //Adresse des RMK
+                break;
+            case 11:
+                RMKAdresse = 16; //Adresse des RMK
+                break;
+            case 12:
+                RMKAdresse = 21; //Adresse des RMK
+                break;
+            case 13:
+                RMKAdresse = 23; //Adresse des RMK
+                break;
+            case 14:
+                RMKAdresse = 32; //Adresse des RMK
+                break;
+            case 15:
+                RMKAdresse = 26; //Adresse des RMK
+                break;
+            case 16:
+                RMKAdresse = 29; //Adresse des RMK
+                break;
+            case 17:
+                RMKAdresse = 11; //Adresse des RMK
+                break;
+            case 18:
+                RMKAdresse = 14; //Adresse des RMK
+                break;
+            case 19:
+                RMKAdresse = 5; //Adresse des RMK
+                break;
+            case 20:
+                RMKAdresse = 8; //Adresse des RMK
+                break;
+            case 21:
+                RMKAdresse = 3; //Adresse des RMK
+                break;
+            case 22:
+                RMKAdresse = 9; //Adresse des RMK
+                break;
+            case 23:
+                RMKAdresse = 17; //Adresse des RMK
+                break;
+            case 24:
+                RMKAdresse = 24; //Adresse des RMK
+                break;
+            case 25:
+                RMKAdresse = 28; //Adresse des RMK
+                break;
+            case 26:
+                RMKAdresse = 30; //Adresse des RMK
+                break;
+            case 27:
+                RMKAdresse = 10; //Adresse des RMK
+                break;
+            case 28:
+                RMKAdresse = 15; //Adresse des RMK
+                break;
+            case 29:
+                RMKAdresse = 12; //Adresse des RMK
+                break;
+            case 30:
+                RMKAdresse = 1; //Adresse des RMK
+                break;
+            case 31:
+                RMKAdresse = 4; //Adresse des RMK
+                break;
+            //Abstellgleis zur Erweiterung (wird nicht benutzt)
+            case 32:
+                RMKAdresse = 13; //Adresse des RMK
+                break;
+            default:
+                RMKAdresse = 19;
+                System.out.println("Keine gültige RMK-Nummer gewählt: Erster Abschnitt gewählt");
+                break;
+        }
+        
+        dieDaten[0] = 2; //Rückmeldung Prio:2
+        dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
+        dieDaten[2] = (byte) 11; //Hash
+        dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
+        dieDaten[4] = 4; //DLC: 4
+        dieDaten[5] = 0; //Gerätekenner
+        dieDaten[6] = 0; //Gerätekenner
+        dieDaten[7] = 0; //Kontaktkennung
+        dieDaten[8] = RMKAdresse;
+        //Rest mit Nullen auffüllen
+        dieDaten[9] = 0;
+        dieDaten[10] = 0;
+        dieDaten[11] = 0;
+        dieDaten[12] = 0;
+
+        dieAnlage.schreibeAufCAN(dieDaten);
+
+        //Rückmeldeabschnitt prüfen
+        //Standardmäßig frei
+        boolean zustand = false;
+        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35 && empfangeneDaten[2] == 11 /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8) {
+            int help = empfangeneDaten[7] << 8;
+            help += (empfangeneDaten[8] - (gewRMKModul * 8 - 7));
+            System.out.println("RMK-Modul: " + gewRMKModul);
+            System.out.println("switch-case Zahl: " + help);
+            if (empfangeneDaten[9] == 0) {
+                //belegt
+                zustand = true;
+            }
+            //frei
+            zustand = false;
+        }
+        return zustand;
     }
 
     @Override
@@ -702,15 +848,17 @@ public class Steuerung implements Befehle {
         dieDaten[2] = (byte) 0x80; //Hash
         dieDaten[3] = (byte) 0x00; //Hash
         dieDaten[4] = (byte) 2;    //DLC:6 Daten Bytes
-        dieDaten[5] = (byte) 0x00; 
+        dieDaten[5] = (byte) 0x00;
         dieDaten[6] = (byte) 0xE0;
-        dieDaten[7] = (byte) 0; 
+        dieDaten[7] = (byte) 0;
         dieDaten[8] = (byte) 0;
         dieDaten[9] = (byte) 0;
         dieDaten[10] = (byte) 0;
         dieDaten[11] = (byte) 0;
         dieDaten[12] = (byte) 0;
-        
+
         dieAnlage.schreibeAufCAN(dieDaten);
     }
+
+    //Ende Methoden
 }
