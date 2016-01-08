@@ -763,6 +763,7 @@ public class GUI extends javax.swing.JFrame {
         //grün
         byte weichenAdresse = (byte) (3);
         findeModulNr();
+//        dieSteuerung.stelleWeiche(44, 'r');
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
     }//GEN-LAST:event_jBWeiche4RechtsActionPerformed
 
@@ -855,7 +856,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
-        dijkstra.findeWeg(1, 7);
+        dijkstra.findeWeg(1, 2);
         dijkstra.showList();
     }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
 
