@@ -688,7 +688,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBStartDijkstraAlgorithmus);
-        jBStartDijkstraAlgorithmus.setBounds(810, 250, 170, 23);
+        jBStartDijkstraAlgorithmus.setBounds(770, 280, 200, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -739,28 +739,28 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTBSteuernActionPerformed
 
     private void jBWeiche1RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1RundActionPerformed
-        //grün
+        //rot
         byte weichenAdresse = 0;
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
     }//GEN-LAST:event_jBWeiche1RundActionPerformed
 
     private void jBWeiche2RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2RundActionPerformed
-        //grün
+        //rot
         byte weichenAdresse = (byte) (1);
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
     }//GEN-LAST:event_jBWeiche2RundActionPerformed
 
     private void jBWeiche3RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3RundActionPerformed
-        //grün
+        //rot
         byte weichenAdresse = (byte) (2);
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
     }//GEN-LAST:event_jBWeiche3RundActionPerformed
 
     private void jBWeiche4RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4RundActionPerformed
-        //grün
+        //rot
         byte weichenAdresse = (byte) (3);
         findeModulNr();
 //        dieSteuerung.stelleWeiche(44, 'r');
@@ -768,28 +768,28 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBWeiche4RundActionPerformed
 
     private void jBWeiche1GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1GeradeActionPerformed
-        //rot
+        //grün
         byte weichenAdresse = (byte) (0);
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
     }//GEN-LAST:event_jBWeiche1GeradeActionPerformed
 
     private void jBWeiche2GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche2GeradeActionPerformed
-        //rot
+        //grün
         byte weichenAdresse = (byte) (1);
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
     }//GEN-LAST:event_jBWeiche2GeradeActionPerformed
 
     private void jBWeiche3GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche3GeradeActionPerformed
-        //rot
+        //grün
         byte weichenAdresse = (byte) (2);
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
         findeModulNr();
     }//GEN-LAST:event_jBWeiche3GeradeActionPerformed
 
     private void jBWeiche4GeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche4GeradeActionPerformed
-        //rot
+        //grün
         byte weichenAdresse = (byte) (3);
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 1);
