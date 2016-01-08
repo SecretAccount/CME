@@ -696,15 +696,20 @@ public class Steuerung implements Befehle {
 
     public void sendeWeichenPosition() {
         // 442A80x DLC 2 Data 0x00 0xE0
+        System.out.println("sende Weichen Position");
         dieDaten[0] = (byte) 0x44;  //Priorität 0
         dieDaten[1] = (byte) 0x2A; //CAN-ID: 0x16 = 22d (Zubehör Schalten)
         dieDaten[2] = (byte) 0x80; //Hash
-        dieDaten[3] = 0x00; //Hash
-        dieDaten[4] = 2;    //DLC:6 Daten Bytes
-        dieDaten[5] = 0x00; 
+        dieDaten[3] = (byte) 0x00; //Hash
+        dieDaten[4] = (byte) 2;    //DLC:6 Daten Bytes
+        dieDaten[5] = (byte) 0x00; 
         dieDaten[6] = (byte) 0xE0;
         dieDaten[7] = (byte) 0; 
         dieDaten[8] = (byte) 0;
+        dieDaten[9] = (byte) 0;
+        dieDaten[10] = (byte) 0;
+        dieDaten[11] = (byte) 0;
+        dieDaten[12] = (byte) 0;
         
         dieAnlage.schreibeAufCAN(dieDaten);
     }
