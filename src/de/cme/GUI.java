@@ -836,7 +836,7 @@ public class GUI extends javax.swing.JFrame {
         try {
             dieSteuerung.setLokAdresse(Byte.parseByte(jSAdresse.getValue().toString())); //Lok-Adresse von der GUI einlesen und der Steuerung übergeben
         } catch (IllegalFormatConversionException conversionException) {
-            dieSteuerung.setLokAdresse(24); //Standardmäßig Lok 24 wählen
+            dieSteuerung.setLokAdresse(dieSteuerung.STANDARD_LOK_ADRESSE); //Standardmäßig Lok 24 wählen
             System.out.println("Adresse der Steuerung: " + dieSteuerung.getLokAdresse());
         }
         System.out.println("aktueller Wert vom Slider: " + jSGeschwindigkeit.getValue());
@@ -990,8 +990,8 @@ public class GUI extends javax.swing.JFrame {
         int  vonKnoten;
         int  bisKnoten;
         try {
-        vonKnoten = Integer.valueOf(jTFVon.getText());
-        bisKnoten = Integer.valueOf(jTFBis.getText());
+        vonKnoten = Integer.valueOf(jTFVon.getText().trim());
+        bisKnoten = Integer.valueOf(jTFBis.getText().trim());
         } catch(UnknownFormatConversionException ufce) {
             //Standard-Knoten von 1 nach 8
             vonKnoten = 1;
