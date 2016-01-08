@@ -25,6 +25,8 @@ public class Anlage {
     private OutputStream outputStream;
     private InputStream inputStream;
     
+    private List<String> comPorts;
+    
 
     private final int BAUDRATE = 500_000;
     private final int DATA_BITS = SerialPort.DATABITS_8;
@@ -38,6 +40,7 @@ public class Anlage {
     // Anfang Methoden
     public Anlage(Steuerung eineSteuerung) {
         dieSteuerung = eineSteuerung;
+        comPorts = new ArrayList<>();
     }
     
     public void schreibeAufCAN(byte[] dieDaten) {
@@ -99,7 +102,6 @@ public class Anlage {
 
     public List<String> aktualisiereSerialPort() {
         System.out.println("Aktualisiere Serialport-Liste");
-        List<String> comPorts = new ArrayList<>();
         if (serialPortGeoeffnet != false) {
             System.out.println("Serialport ist geöffnet");
             return comPorts;
