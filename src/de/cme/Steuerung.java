@@ -1,5 +1,7 @@
 package de.cme;
 
+import de.cme.dijkstra.Dijkstra;
+import de.cme.dijkstra.Knoten;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,6 +16,7 @@ public class Steuerung implements Befehle {
     // Anfang Attribute
     private GUI dieGUI;
     private Anlage dieAnlage;
+    private Dijkstra dijkstra;
 
     private byte[] dieDaten;
     private byte[] empfangeneDaten;
@@ -21,6 +24,9 @@ public class Steuerung implements Befehle {
     private int gewWeichenModul;
     private int gewRMKModul;
     private byte lokAdresse;
+
+    private int startPoint;
+    private int endPoint;
 
     //Konstanten
     //Standard-Hash
@@ -32,6 +38,7 @@ public class Steuerung implements Befehle {
     public Steuerung(GUI eineGUI) {
         dieGUI = eineGUI; // bidirektional
         dieAnlage = new Anlage(this); // bidirektional
+        dijkstra = new Dijkstra(); //Objekt zur Wegfindung erstellen
 
         dieDaten = new byte[13]; //Byte Array für Daten mit 13 Bytes
         dieDaten[0] = (byte) 0;
@@ -409,7 +416,7 @@ public class Steuerung implements Befehle {
         dieDaten[0] = 2; //Rückmeldung Prio:2
         dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
         dieDaten[2] = (byte) 11; //Hash
-        dieDaten[3] = (byte) 0; // RMK-Modul-Nummer
+        dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
         dieDaten[4] = 4; //DLC: 4
         dieDaten[5] = 0; //Gerätekenner
         dieDaten[6] = 0; //Gerätekenner
@@ -612,7 +619,7 @@ public class Steuerung implements Befehle {
                 break;
             default:
                 stellungWert = 0;
-                System.out.println("Falscher Stellungswert: Stellung auf 0 gesetzt (rund)");
+                System.out.println("Falscher Stellungswert: Stellung auf 1 gesetzt (gerade)");
                 break;
         }
 
@@ -688,122 +695,123 @@ public class Steuerung implements Befehle {
     }
 
     @Override
-    public boolean leseRMK(int RMKNummer) {
-        //Rückmeldeevent senden
-        byte RMKAdresse;
+    public byte gibRMKAdresse(int RMKNummer) {
+
         switch (RMKNummer) {
             case 1:
-                RMKAdresse = 19; //Adresse des RMK
-                break;
+                return 19; //Adresse des RMK
+
             case 2:
-                RMKAdresse = 20; //Adresse des RMK
-                break;
+                return 20; //Adresse des RMK
+
             case 3:
-                RMKAdresse = 22; //Adresse des RMK
-                break;
+                return 22; //Adresse des RMK
+
             case 4:
-                RMKAdresse = 31; //Adresse des RMK
-                break;
+                return 31; //Adresse des RMK
+
             case 5:
-                RMKAdresse = 25; //Adresse des RMK
-                break;
+                return 25; //Adresse des RMK
+
             case 6:
-                RMKAdresse = 27; //Adresse des RMK
-                break;
+                return 27; //Adresse des RMK
+
             case 7:
-                RMKAdresse = 18; //Adresse des RMK
-                break;
+                return 18; //Adresse des RMK
+
             case 8:
-                RMKAdresse = 2; //Adresse des RMK
-                break;
+                return 2; //Adresse des RMK
+
             case 9:
-                RMKAdresse = 6; //Adresse des RMK
-                break;
+                return 6; //Adresse des RMK
+
             case 10:
-                RMKAdresse = 7; //Adresse des RMK
-                break;
+                return 7; //Adresse des RMK
+
             case 11:
-                RMKAdresse = 16; //Adresse des RMK
-                break;
+                return 16; //Adresse des RMK
+
             case 12:
-                RMKAdresse = 21; //Adresse des RMK
-                break;
+                return 21; //Adresse des RMK
+
             case 13:
-                RMKAdresse = 23; //Adresse des RMK
-                break;
+                return 23; //Adresse des RMK
+
             case 14:
-                RMKAdresse = 32; //Adresse des RMK
-                break;
+                return 32; //Adresse des RMK
+
             case 15:
-                RMKAdresse = 26; //Adresse des RMK
-                break;
+                return 26; //Adresse des RMK
+
             case 16:
-                RMKAdresse = 29; //Adresse des RMK
-                break;
+                return 29; //Adresse des RMK
+
             case 17:
-                RMKAdresse = 11; //Adresse des RMK
-                break;
+                return 11; //Adresse des RMK
+
             case 18:
-                RMKAdresse = 14; //Adresse des RMK
-                break;
+                return 14; //Adresse des RMK
+
             case 19:
-                RMKAdresse = 5; //Adresse des RMK
-                break;
+                return 5; //Adresse des RMK
+
             case 20:
-                RMKAdresse = 8; //Adresse des RMK
-                break;
+                return 8; //Adresse des RMK
+
             case 21:
-                RMKAdresse = 3; //Adresse des RMK
-                break;
+                return 3; //Adresse des RMK
+
             case 22:
-                RMKAdresse = 9; //Adresse des RMK
-                break;
+                return 9; //Adresse des RMK
+
             case 23:
-                RMKAdresse = 17; //Adresse des RMK
-                break;
+                return 17; //Adresse des RMK
+
             case 24:
-                RMKAdresse = 24; //Adresse des RMK
-                break;
+                return 24; //Adresse des RMK
+
             case 25:
-                RMKAdresse = 28; //Adresse des RMK
-                break;
+                return 28; //Adresse des RMK
+
             case 26:
-                RMKAdresse = 30; //Adresse des RMK
-                break;
+                return 30; //Adresse des RMK
+
             case 27:
-                RMKAdresse = 10; //Adresse des RMK
-                break;
+                return 10; //Adresse des RMK
+
             case 28:
-                RMKAdresse = 15; //Adresse des RMK
-                break;
+                return 15; //Adresse des RMK
+
             case 29:
-                RMKAdresse = 12; //Adresse des RMK
-                break;
+                return 12; //Adresse des RMK
+
             case 30:
-                RMKAdresse = 1; //Adresse des RMK
-                break;
+                return 1; //Adresse des RMK
+
             case 31:
-                RMKAdresse = 4; //Adresse des RMK
-                break;
+                return 4; //Adresse des RMK
             //Abstellgleis zur Erweiterung (wird nicht benutzt)
             case 32:
-                RMKAdresse = 13; //Adresse des RMK
-                break;
+                return 13; //Adresse des RMK
             default:
-                RMKAdresse = 19;
-                System.out.println("Keine gültige RMK-Nummer gewählt: Erster Abschnitt gewählt");
-                break;
+                System.out.println("Keine gültige RMK-Nummer gewählt: "
+                        + "Erster Abschnitt gewählt mit Adresse 19");
+                return 19;
         }
-        
+    }
+
+    @Override
+    public void sendeRMK(int RMKNummer) {
+        //Rückmeldeevent senden
         dieDaten[0] = 2; //Rückmeldung Prio:2
         dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
         dieDaten[2] = (byte) 11; //Hash
-        dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
+        dieDaten[3] = (byte) 0; // (RMK-Modul-Nummer) wird nicht unbedingt gebraucht
         dieDaten[4] = 4; //DLC: 4
         dieDaten[5] = 0; //Gerätekenner
         dieDaten[6] = 0; //Gerätekenner
         dieDaten[7] = 0; //Kontaktkennung
-        dieDaten[8] = RMKAdresse;
+        dieDaten[8] = gibRMKAdresse(RMKNummer);
         //Rest mit Nullen auffüllen
         dieDaten[9] = 0;
         dieDaten[10] = 0;
@@ -812,14 +820,22 @@ public class Steuerung implements Befehle {
 
         dieAnlage.schreibeAufCAN(dieDaten);
 
+    }
+
+    @Override
+    public boolean leseRMK(int RMKNummer) {
+        System.out.println("Empfangene Daten in leseRMK-Methode: ");
+        for (byte dataByte : empfangeneDaten) {
+            System.out.print(dataByte + " ");
+        }
+        //Absatz
+        System.out.println("");
+
         //Rückmeldeabschnitt prüfen
         //Standardmäßig frei
         boolean zustand = false;
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35 && empfangeneDaten[2] == 11 /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8) {
-            int help = empfangeneDaten[7] << 8;
-            help += (empfangeneDaten[8] - (gewRMKModul * 8 - 7));
-            System.out.println("RMK-Modul: " + gewRMKModul);
-            System.out.println("switch-case Zahl: " + help);
+        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35 && empfangeneDaten[2] == 11
+                /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8 && empfangeneDaten[8] == gibRMKAdresse(RMKNummer)) {
             if (empfangeneDaten[9] == 0) {
                 //belegt
                 zustand = true;
@@ -858,6 +874,157 @@ public class Steuerung implements Befehle {
         dieDaten[12] = (byte) 0;
 
         dieAnlage.schreibeAufCAN(dieDaten);
+    }
+
+    void setStartPoint(int vonKnoten) {
+        startPoint = vonKnoten;
+    }
+
+    void setEndPoint(int bisKnoten) {
+        endPoint = bisKnoten;
+    }
+
+    void findeWeg() {
+        List<Knoten> weg = new ArrayList<>();
+        dijkstra.init();
+        weg = dijkstra.findeWeg(startPoint, endPoint);
+//        System.out.println("startPoint: " + startPoint);
+//        System.out.println("endPoint: " + endPoint);
+        stelleWeichen(weg);
+
+    }
+
+    private void stelleWeichen(List<Knoten> weg) {
+        // Weichen entsprechend dem Weg stellen
+        for (Knoten punkt : weg) {
+            System.out.println("Knoten-Name: " + punkt.getName());
+            int nameNachfolger = 0; //Standard-Wert
+            //letzes Element hat keinen Nachfolger
+            if ((weg.size() - 1) != weg.indexOf(punkt)) {
+                nameNachfolger = weg.get(weg.indexOf(punkt) + 1).getName();
+            }
+            System.out.println("Nachfolger-Name: " + nameNachfolger);
+            //Fahrtrichtung mit Gewichtung 1
+            switch (punkt.getName()) {
+                case 32:
+                    if (nameNachfolger == 9) {
+                        stelleWeiche(32, 'r');
+                    }//ACHTUNG 6/4 Problem
+                    if (nameNachfolger == 33) {
+                        stelleWeiche(32, 'g');
+                    }
+                    break;
+                case 33:
+                    if (nameNachfolger == 31) {
+                        stelleWeiche(33, 'g');
+                    }//falsche Stellung
+                    if (nameNachfolger == 30) {
+                        stelleWeiche(33, 'r');
+                    }//falsche Stellung
+                    break;
+                case 34:
+                    if (nameNachfolger == 35) {
+                        stelleWeiche(34, 'g');
+                    }
+                    //if(nameNachfolger ==35){stelleWeiche(34,'r');} Abstellgleis wird hier nicht benötigt
+                    break;
+                case 35:
+                    if (nameNachfolger == 36) {
+                        stelleWeiche(35, 'g');
+                    } //faslsche Stellung
+                    if (nameNachfolger == 6) {
+                        stelleWeiche(35, 'r');
+                    }//falsche Stellung
+                    break;
+                case 36:
+                    if (nameNachfolger == 37) {
+                        stelleWeiche(36, 'g');
+                    }
+                    break;
+                case 37:
+                    if (nameNachfolger == 15) {
+                        stelleWeiche(37, 'g');
+                    }
+                    break;
+                case 38:
+                    if (nameNachfolger == 14) {
+                        stelleWeiche(38, 'g');
+                    }//falsche Stellung
+                    if (nameNachfolger == 4) {
+                        stelleWeiche(38, 'r');
+                    }//falsche Stellung
+                    break;
+                case 39:
+                    //if (nameNachfolger == 24) {stelleWeiche(39, 'r');} INNERKREIS
+                    if (nameNachfolger == 13) {
+                        stelleWeiche(39, 'g');
+                    }
+                    break;
+                case 12://ACHTUNG BRAINFUCK WEGEN WEGFALLEN EINES KNOTENPUNKTES!!!!
+                    if (nameNachfolger == 40) {
+                        stelleWeiche(40, 'r');
+                    }
+                    if (nameNachfolger == 11) {
+                        stelleWeiche(40, 'g');
+                    }
+                    break;
+                case 40:
+                    if (nameNachfolger == 10) {
+                        stelleWeiche(40, 'g');
+                    }
+                    break;
+                case 41:
+
+                    if (nameNachfolger == 20) {
+                        stelleWeiche(41, 'g');
+                    }
+                    break;
+                case 19: // BRAINFUCK
+
+                    if (nameNachfolger == 42) {
+                        stelleWeiche(42, 'g');
+                    }//ACHTUNG 6/4 Problem!!
+                    break;
+                case 9:
+                    if (nameNachfolger == 42) {
+                        stelleWeiche(32, 'r');
+                    }
+                    break;
+                case 43:
+                    //if (nameNachfolger == 28) {stelleWeiche(43, 'r');} INNERKREIS
+                    if (nameNachfolger == 18) {
+                        stelleWeiche(43, 'g');
+                    }
+                    break;
+                /*case 44:
+                 if (nameNachfolger == 23) {stelleWeiche(44, 'r');}
+                 if(nameNachfolger ==26){stelleWeiche(44,'g');}
+                 if(nameNachfolger ==22){stelleWeiche(44,'r');}
+                 if(nameNachfolger ==27){stelleWeiche(44,'g');}
+                 break; */
+                default:
+                    System.out.println("Falsche Weichenknoten-Nummer");
+                    break;
+            }
+
+            //Kanten entfernen, deren Rückmeldeabschnitte belegt sind
+            List<Knoten> entfernteKanten = new ArrayList<>();
+            Knoten vorgaenger = null;
+            //erstes Element hat keinen Vorgänger
+            if (weg.indexOf(punkt) != 0) {
+                vorgaenger = weg.get(weg.indexOf(punkt) - 1);
+            }
+            if (punkt.getName() < 32) {
+                sendeRMK(punkt.getName());
+                if (leseRMK(punkt.getName())) //true liefert belegt!
+                {
+                    if (weg.indexOf(punkt) != 0) {
+                        dijkstra.kanteEntfernen(vorgaenger, punkt);
+                    }
+                    entfernteKanten.add(punkt);
+                }
+            }
+        }
     }
 
     //Ende Methoden
