@@ -340,7 +340,7 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche1.setText("Weiche 1");
 
-        jBWeiche1Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche1Rund.setBackground(new java.awt.Color(255, 0, 0));
         jBWeiche1Rund.setText("rund");
         jBWeiche1Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +348,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche1Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche1Gerade.setBackground(new java.awt.Color(0, 204, 0));
         jBWeiche1Gerade.setText("gerade");
         jBWeiche1Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,7 +364,7 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche2.setText("Weiche 2");
 
-        jBWeiche2Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche2Rund.setBackground(new java.awt.Color(255, 0, 0));
         jBWeiche2Rund.setText("rund");
         jBWeiche2Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,7 +372,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche2Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche2Gerade.setBackground(new java.awt.Color(0, 204, 0));
         jBWeiche2Gerade.setText("gerade");
         jBWeiche2Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +386,7 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche3.setText("Weiche 3");
 
-        jBWeiche3Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche3Rund.setBackground(new java.awt.Color(255, 0, 0));
         jBWeiche3Rund.setText("rund");
         jBWeiche3Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,7 +394,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche3Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche3Gerade.setBackground(new java.awt.Color(0, 204, 0));
         jBWeiche3Gerade.setText("gerade");
         jBWeiche3Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,7 +408,7 @@ public class GUI extends javax.swing.JFrame {
         jLWeiche4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLWeiche4.setText("Weiche 4");
 
-        jBWeiche4Rund.setBackground(new java.awt.Color(0, 204, 0));
+        jBWeiche4Rund.setBackground(new java.awt.Color(255, 0, 0));
         jBWeiche4Rund.setText("rund");
         jBWeiche4Rund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,7 +416,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche4Gerade.setBackground(new java.awt.Color(255, 0, 0));
+        jBWeiche4Gerade.setBackground(new java.awt.Color(0, 204, 0));
         jBWeiche4Gerade.setText("gerade");
         jBWeiche4Gerade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
