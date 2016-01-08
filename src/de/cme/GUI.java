@@ -71,6 +71,7 @@ public class GUI extends javax.swing.JFrame {
         jBWeiche4Rund = new javax.swing.JButton();
         jBWeiche4Gerade = new javax.swing.JButton();
         jBWeiche4Position = new javax.swing.JButton();
+        jBWeichenPosition = new javax.swing.JButton();
         jPRMK = new javax.swing.JPanel();
         jLRMK = new javax.swing.JLabel();
         jLRMKModulAuswahl = new javax.swing.JLabel();
@@ -427,6 +428,13 @@ public class GUI extends javax.swing.JFrame {
         jBWeiche4Position.setText("Position 4");
         jBWeiche4Position.setPreferredSize(new java.awt.Dimension(80, 23));
 
+        jBWeichenPosition.setText("Weichenposition");
+        jBWeichenPosition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBWeichenPositionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPWeicheLayout = new javax.swing.GroupLayout(jPWeiche);
         jPWeiche.setLayout(jPWeicheLayout);
         jPWeicheLayout.setHorizontalGroup(
@@ -444,79 +452,113 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jCBWeichenChefAuswahl, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPWeicheLayout.createSequentialGroup()
-                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLWeiche1)
-                                    .addComponent(jBWeiche1Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLWeiche1, javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jBWeiche1Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche1Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jBWeiche1Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBWeiche1Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jBWeiche2Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jBWeiche2Rund, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                            .addComponent(jBWeiche2Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(jLWeiche2)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLWeiche2)
-                                    .addComponent(jBWeiche2Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche2Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche2Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLWeiche3)
                                     .addComponent(jBWeiche3Rund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jBWeiche3Gerade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBWeiche3Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jBWeiche4Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLWeiche4)
-                            .addComponent(jBWeiche4Rund, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche4Gerade, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                                    .addComponent(jBWeiche3Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                        .addComponent(jLWeiche4)
+                                        .addComponent(jBWeiche4Rund, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jBWeiche4Gerade, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jBWeiche4Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)))))
+                .addGap(11, 11, 11)
+                .addComponent(jBWeichenPosition)
+                .addContainerGap())
         );
         jPWeicheLayout.setVerticalGroup(
             jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPWeicheLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLWeichen)
-                .addGap(6, 6, 6)
+                .addGap(5, 5, 5)
                 .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLWeichenModulAuswahl)
-                    .addComponent(jCBWeichenChefAuswahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCBWeichenChefAuswahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBWeichenPosition))
+                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPWeicheLayout.createSequentialGroup()
-                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLWeiche3)
-                            .addComponent(jLWeiche2)
-                            .addComponent(jLWeiche4)
-                            .addComponent(jLWeiche1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBWeiche3Rund)
-                        .addGap(47, 47, 47)
-                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBWeiche3Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche2Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche1Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche4Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPWeicheLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBWeiche2Rund)
-                            .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jLWeiche1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPWeicheLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLWeiche2)))
+                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPWeicheLayout.createSequentialGroup()
-                                    .addComponent(jBWeiche1Rund)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jBWeiche1Gerade)
-                                        .addComponent(jBWeiche2Gerade)
-                                        .addComponent(jBWeiche3Gerade)
-                                        .addComponent(jBWeiche4Gerade)))
-                                .addGroup(jPWeicheLayout.createSequentialGroup()
-                                    .addComponent(jBWeiche4Rund)
-                                    .addGap(29, 29, 29))))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                    .addGap(81, 81, 81)
+                                    .addComponent(jBWeiche2Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPWeicheLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jBWeiche2Rund)
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jBWeiche1Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jBWeiche1Rund)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jBWeiche1Gerade)
+                                    .addComponent(jBWeiche2Gerade)))))
+                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                .addComponent(jLWeiche3)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jBWeiche3Rund)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(jBWeiche3Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jBWeiche3Gerade))))
+                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                .addComponent(jLWeiche4)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addGap(81, 81, 81)
+                                        .addComponent(jBWeiche4Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPWeicheLayout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jBWeiche4Gerade))
+                                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                                .addComponent(jBWeiche4Rund)
+                                                .addGap(29, 29, 29)))))))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jBWeiche1Position.getAccessibleContext().setAccessibleName("Position 1");
 
         getContentPane().add(jPWeiche);
-        jPWeiche.setBounds(370, 40, 400, 220);
+        jPWeiche.setBounds(370, 40, 500, 220);
 
         jLRMK.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLRMK.setText("Rückmeldekontakte");
@@ -856,7 +898,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
-        dijkstra.findeWeg(1, 2);
+        dijkstra.findeWeg(1, 6);
         dijkstra.showList();
     }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
 
@@ -864,24 +906,28 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.wechsleRichtung(Byte.parseByte(jSAdresse.getValue().toString()));
     }//GEN-LAST:event_jBRichtungAendernActionPerformed
 
+    private void jBWeichenPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeichenPositionActionPerformed
+        dieSteuerung.sendeWeichenPosition();
+    }//GEN-LAST:event_jBWeichenPositionActionPerformed
+
     public void positionRechts(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
             case 1:
                 jBWeiche1Position.setBackground(Color.GREEN);
-                jBWeiche1Position.setText("Rechts");
+                jBWeiche1Position.setText("Rund");
                 break;
             case 2:
                 jBWeiche2Position.setBackground(Color.GREEN);
-                jBWeiche2Position.setText("Rechts");
+                jBWeiche2Position.setText("Rund");
                 break;
             case 3:
                 jBWeiche3Position.setBackground(Color.GREEN);
-                jBWeiche3Position.setText("Rechts");
+                jBWeiche3Position.setText("Rund");
                 break;
             case 4:
                 jBWeiche4Position.setBackground(Color.GREEN);
-                jBWeiche4Position.setText("Rechts");
+                jBWeiche4Position.setText("Rund");
                 break;
             default:
                 break;
@@ -893,19 +939,19 @@ public class GUI extends javax.swing.JFrame {
         switch (nummer) {
             case 1:
                 jBWeiche1Position.setBackground(Color.RED);
-                jBWeiche1Position.setText("Links");
+                jBWeiche1Position.setText("Gerade");
                 break;
             case 2:
                 jBWeiche2Position.setBackground(Color.RED);
-                jBWeiche2Position.setText("Links");
+                jBWeiche2Position.setText("Gerade");
                 break;
             case 3:
                 jBWeiche3Position.setBackground(Color.RED);
-                jBWeiche3Position.setText("Links");
+                jBWeiche3Position.setText("Gerade");
                 break;
             case 4:
                 jBWeiche4Position.setBackground(Color.RED);
-                jBWeiche4Position.setText("Links");
+                jBWeiche4Position.setText("Gerade");
                 break;
             default:
                 break;
@@ -1138,6 +1184,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBWeiche4Gerade;
     private javax.swing.JButton jBWeiche4Position;
     private javax.swing.JButton jBWeiche4Rund;
+    private javax.swing.JButton jBWeichenPosition;
     private javax.swing.JComboBox jCBCOMPort;
     private javax.swing.JComboBox jCBRMKModulAuswahl;
     private javax.swing.JComboBox jCBWeichenChefAuswahl;
