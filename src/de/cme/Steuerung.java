@@ -203,7 +203,14 @@ public class Steuerung implements Befehle {
         dieAnlage.schreibeAufCAN(dieDaten);
     }
 
-    public void schalteLichtVonLok(int LokName, boolean lichtEin) {
+    @Override
+    public void schalteLichtVonLok(int lokName, boolean lichtEin) {
+        System.out.println("Licht-Funktion");
+        if (lichtEin) {
+            lokFunktion((byte) lokName, (byte) 0, (byte) 1); //Licht der Lok einschalten
+        } else {
+            lokFunktion((byte) lokName, (byte) 0, (byte) 0); //Licht der Lok ausschalten
+        }
     }
 
     public void schalteLichtVonLok(boolean lichtEin) {
@@ -673,7 +680,7 @@ public class Steuerung implements Befehle {
     }
 
     @Override
-    public int leseRMK(int RMKNummer) {
+    public boolean leseRMK(int RMKNummer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -685,5 +692,20 @@ public class Steuerung implements Befehle {
     @Override
     public void fahreLok(int LokName, int geschwindigkeit) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void sendeWeichenPosition() {
+        // 442A80x DLC 2 Data 0x00 0xE0
+        dieDaten[0] = (byte) 0x44;  //Priorität 0
+        dieDaten[1] = (byte) 0x2A; //CAN-ID: 0x16 = 22d (Zubehör Schalten)
+        dieDaten[2] = (byte) 0x80; //Hash
+        dieDaten[3] = 0x00; //Hash
+        dieDaten[4] = 2;    //DLC:6 Daten Bytes
+        dieDaten[5] = 0x00; 
+        dieDaten[6] = (byte) 0xE0;
+        dieDaten[7] = (byte) 0; 
+        dieDaten[8] = (byte) 0;
+        
+        dieAnlage.schreibeAufCAN(dieDaten);
     }
 }
