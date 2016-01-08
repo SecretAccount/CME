@@ -32,7 +32,7 @@ public class Steuerung implements Befehle {
     //Standard-Hash
     private final byte HIGH_BYTE_HASH = (byte) 175;
     private final byte LOW_BYTE_HASH = (byte) 83;
-    private final byte STANDARD_LOK_ADRESSE = 24;
+    protected final byte STANDARD_LOK_ADRESSE = 24;
     // Ende Attribute
 
     public Steuerung(GUI eineGUI) {
@@ -341,12 +341,12 @@ public class Steuerung implements Befehle {
                         && (empfangeneDaten[7] == 0x30 && empfangeneDaten[8] == (weichenModul + weichenAnschluss) /* (hier vom 1./2./3. Modul mit Adresse 4/5/6 | 1. Adresse: 0x3000/12288d)*/)) {
 //                if (empfangeneDaten[9] == 253) { //richtig
                     if (empfangeneDaten[9] == 1) { //Test
-                        //position = 1; //Grün/rechts/1 /nicht benötigt
+                        //position = 1; //Grün/gerade/1 /nicht benötigt
                         dieGUI.positionGerade(weichenAnschluss + 1);
                     }
 //                if (empfangeneDaten[9] == 254) { //richtig
                     if (empfangeneDaten[9] == 0) { //Test
-                        // position = 0; //Rot/links/0 /nicht benötigt
+                        // position = 0; //Rot/rund/0 /nicht benötigt
                         dieGUI.positionRund(weichenAnschluss + 1);
                     }
                     if (empfangeneDaten[9] == 255) {
@@ -601,7 +601,7 @@ public class Steuerung implements Befehle {
         }
     }
 
-    void clearPortList() {
+    public void clearPortList() {
         dieGUI.clearPortList();
     }
 
@@ -876,15 +876,15 @@ public class Steuerung implements Befehle {
         dieAnlage.schreibeAufCAN(dieDaten);
     }
 
-    void setStartPoint(int vonKnoten) {
+    public void setStartPoint(int vonKnoten) {
         startPoint = vonKnoten;
     }
 
-    void setEndPoint(int bisKnoten) {
+    public void setEndPoint(int bisKnoten) {
         endPoint = bisKnoten;
     }
 
-    void findeWeg() {
+    public void findeWeg() {
         List<Knoten> weg = new ArrayList<>();
         dijkstra.init();
         weg = dijkstra.findeWeg(startPoint, endPoint);
@@ -1007,23 +1007,44 @@ public class Steuerung implements Befehle {
                     break;
             }
 
-            //Kanten entfernen, deren Rückmeldeabschnitte belegt sind
-            List<Knoten> entfernteKanten = new ArrayList<>();
-            Knoten vorgaenger = null;
-            //erstes Element hat keinen Vorgänger
-            if (weg.indexOf(punkt) != 0) {
-                vorgaenger = weg.get(weg.indexOf(punkt) - 1);
-            }
+            //werden nicht gebraucht
+//            Knoten startKnoten = weg.get(0);
+//            Knoten endKnoten = weg.get(weg.size() - 1);
             if (punkt.getName() < 32) {
-                sendeRMK(punkt.getName());
-                if (leseRMK(punkt.getName())) //true liefert belegt!
-                {
-                    if (weg.indexOf(punkt) != 0) {
-                        dijkstra.kanteEntfernen(vorgaenger, punkt);
+                //Losfahren, wenn Lok auf Startknoten steht
+                if (punkt.getName() == startPoint) {
+                    sendeRMK(startPoint);
+                    if (leseRMK(startPoint)) {
+                        fahreLok(10);
                     }
-                    entfernteKanten.add(punkt);
+                }
+                //Lok anhalten, wenn sie am Ziel angekommen ist
+                if (punkt.getName() == endPoint) {
+                    sendeRMK(endPoint);
+                    if (leseRMK(endPoint)) {
+                        fahreLok(0);
+                    }
                 }
             }
+
+//            //Kanten entfernen, deren Rückmeldeabschnitte belegt sind
+//            List<Knoten> entfernteKanten = new ArrayList<>();
+//            Knoten vorgaenger = null;
+//            //erstes Element hat keinen Vorgänger
+//            if (weg.indexOf(punkt) != 0) {
+//                vorgaenger = weg.get(weg.indexOf(punkt) - 1);
+//            }
+//            if (punkt.getName() < 32) {
+//                sendeRMK(punkt.getName());
+//                if (leseRMK(punkt.getName())) //true liefert belegt!
+//                {
+//                    System.out.println("RMK " + punkt.getName() + " belegt");
+//                    if (weg.indexOf(punkt) != 0) {
+//                        dijkstra.kanteEntfernen(vorgaenger, punkt);
+//                    }
+//                    entfernteKanten.add(punkt);
+//                }
+//            }
         }
     }
 
