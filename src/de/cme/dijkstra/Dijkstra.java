@@ -165,7 +165,7 @@ public class Dijkstra {
     }
 
     public void showList() {
-        //DEBGGING
+        //DEBUGGING
         Knoten[] knotenliste = hilfsliste.getListe();
         System.out.println("Knotenliste ausgeben: ");
         System.out.println("Nr." + 1 + " Name: " + knotenliste[0].getName() + " Gew.: " + knotenliste[0].getPfadgewicht() + " Kein Vorgänger");
@@ -174,7 +174,7 @@ public class Dijkstra {
         }
     }
 
-    public void findeWeg(int startpunkt, int endpunkt) {
+    public List findeWeg(int startpunkt, int endpunkt) {
         //mit Dijkstra-Algorithmus kürzeste Strecke berechnen vom Startpunkt aus
         findeStrecke(knoten[startpunkt - 1]);
         //Liste der Knoten mit dem kürzesten Weg zum Startknoten
@@ -211,24 +211,17 @@ public class Dijkstra {
             System.out.println("Name: " + lKnoten.getName());
         });
 
-        /* Weichen entsprechend dem Weg stellen
-        for (Knoten punkt : way) {
-            int nameNachfolger = way.get(way.indexOf(punkt) + 1).getName();
-            switch (punkt.getName()) {
-                case 32:
-                    if (nameNachfolger == 9) {
-                        dieSteuerung.stelleWeiche(32, 'r');
-                    }
-                    break;
-            }
-        }
-        */
-
         /*
          * oder man schreibt:
          for(Knoten knoten : way) {
          System.out.println("Name: " + knoten.getName());
          }
          */
+        
+        return way;
+    }
+
+    public void kanteEntfernen(Knoten vorgaenger, Knoten punkt) {
+        graph.kanteEntfernen(vorgaenger, punkt);
     }
 }
