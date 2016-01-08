@@ -724,7 +724,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLVon.setText("Von:");
 
-        jTFVon.setText("44");
+        jTFVon.setText("1");
 
         jLabel1.setText("Bis:");
 
@@ -858,7 +858,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBWeiche1RundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeiche1RundActionPerformed
         //rot
-        byte weichenAdresse = 0;
+        byte weichenAdresse = (byte) 0;
         findeModulNr();
         dieSteuerung.stelleWeiche(modulNr, weichenAdresse, (byte) 0);
     }//GEN-LAST:event_jBWeiche1RundActionPerformed
@@ -1011,7 +1011,7 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.stelleWeiche(Integer.valueOf(jTFVon.getText()), 'g');
     }//GEN-LAST:event_jBWeicheGeradeActionPerformed
 
-    public void positionRechts(int nummer) {
+    public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
             case 1:
@@ -1035,7 +1035,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    public void positionLinks(int nummer) {
+    public void positionGerade(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
             case 1:
