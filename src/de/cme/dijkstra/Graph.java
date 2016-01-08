@@ -42,6 +42,16 @@ public class Graph {
         return false;
     }
     
+    public boolean kanteEntfernen(Knoten von, Knoten bis) {
+        int i = knotenIndexSuchen(von);
+        int j = knotenIndexSuchen(bis);
+        if(i != -1 && j != -1) { //gerichtete Kante
+            adjazenzmatrix[i][j] = 100; //hohe Gewichtung, damit Kante nicht mehr genutzt wird (entfernt)
+            return true;
+        }
+        return false;
+    }
+    
     private int knotenIndexSuchen(Knoten k) {
         int index = -1;
         int i = 0;
