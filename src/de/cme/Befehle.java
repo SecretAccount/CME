@@ -1,7 +1,7 @@
 
 package de.cme;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public interface Befehle {
@@ -21,10 +21,25 @@ public interface Befehle {
     
     /**
      *
+     * @param RMKNummer: Nummer des Knotens des Rückmeldeabschnittes,
+     *                    der ausgelesen werden soll.
+     */
+    public void sendeRMK(int RMKNummer);
+    
+    /**
+     *
+     * @param RMKNummer: Nummer des Knotens des Rückmeldeabschnittes,
+     *                    dessen Adresse man haben will
+     * @return: gibt die Adresse des Rückmeldeabschnittes als byte zurück
+     */
+    public byte gibRMKAdresse(int RMKNummer);
+    
+    /**
+     *
      * @return Gibt die belegten Rückmeldeabschnitte als Liste, die 
      *          die Nummer der Knoten enthält, zurück
      */
-    public ArrayList gibBelegteRMK();
+    public List gibBelegteRMK();
     
     /**
      *
