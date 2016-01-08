@@ -68,76 +68,76 @@ public class Dijkstra {
 
         // Kanten werden gemäß Vorlage verknüpft  Gewichtung 2  entgegen der Fahrtrichtung
         /*
-        graph.kanteEinfuegen(knoten[0], knoten[1], 2);   // Knoten 1-2
-        graph.kanteEinfuegen(knoten[1], knoten[2], 2);   // Knoten 2-3
-        graph.kanteEinfuegen(knoten[2], knoten[3], 2);   // Knoten 3-4
-        graph.kanteEinfuegen(knoten[4], knoten[5], 2);   // Knoten 5-6
-        graph.kanteEinfuegen(knoten[6], knoten[7], 2);   // Knoten 7-8
-        graph.kanteEinfuegen(knoten[7], knoten[30], 2);  // Knoten 8-31
-        graph.kanteEinfuegen(knoten[8], knoten[31], 2);  // Knoten 9-32
-        graph.kanteEinfuegen(knoten[9], knoten[39], 2);  // Knoten 10-40
-        graph.kanteEinfuegen(knoten[11], knoten[12], 2); // Knoten 12-13
-        graph.kanteEinfuegen(knoten[12], knoten[38], 2); // Knoten 13-39
-        graph.kanteEinfuegen(knoten[13], knoten[37], 2); // Knoten 14-38
-        graph.kanteEinfuegen(knoten[14], knoten[36], 2); // Knoten 15-37
-        graph.kanteEinfuegen(knoten[15], knoten[16], 2); // Knoten 16-17
-        graph.kanteEinfuegen(knoten[16], knoten[17], 2); // Knoten 17-18
-        graph.kanteEinfuegen(knoten[17], knoten[42], 2); // Knoten 18-43
-        graph.kanteEinfuegen(knoten[18], knoten[19], 2); // Knoten 19-20
-        graph.kanteEinfuegen(knoten[19], knoten[40], 2); // Knoten 20-41
+         graph.kanteEinfuegen(knoten[0], knoten[1], 2);   // Knoten 1-2
+         graph.kanteEinfuegen(knoten[1], knoten[2], 2);   // Knoten 2-3
+         graph.kanteEinfuegen(knoten[2], knoten[3], 2);   // Knoten 3-4
+         graph.kanteEinfuegen(knoten[4], knoten[5], 2);   // Knoten 5-6
+         graph.kanteEinfuegen(knoten[6], knoten[7], 2);   // Knoten 7-8
+         graph.kanteEinfuegen(knoten[7], knoten[30], 2);  // Knoten 8-31
+         graph.kanteEinfuegen(knoten[8], knoten[31], 2);  // Knoten 9-32
+         graph.kanteEinfuegen(knoten[9], knoten[39], 2);  // Knoten 10-40
+         graph.kanteEinfuegen(knoten[11], knoten[12], 2); // Knoten 12-13
+         graph.kanteEinfuegen(knoten[12], knoten[38], 2); // Knoten 13-39
+         graph.kanteEinfuegen(knoten[13], knoten[37], 2); // Knoten 14-38
+         graph.kanteEinfuegen(knoten[14], knoten[36], 2); // Knoten 15-37
+         graph.kanteEinfuegen(knoten[15], knoten[16], 2); // Knoten 16-17
+         graph.kanteEinfuegen(knoten[16], knoten[17], 2); // Knoten 17-18
+         graph.kanteEinfuegen(knoten[17], knoten[42], 2); // Knoten 18-43
+         graph.kanteEinfuegen(knoten[18], knoten[19], 2); // Knoten 19-20
+         graph.kanteEinfuegen(knoten[19], knoten[40], 2); // Knoten 20-41
 
-        graph.kanteEinfuegen(knoten[28], knoten[29], 2); // Knoten 29-30
-        graph.kanteEinfuegen(knoten[29], knoten[32], 2); // Knoten 30-33
-        graph.kanteEinfuegen(knoten[30], knoten[32], 2); // Knoten 31-33
+         graph.kanteEinfuegen(knoten[28], knoten[29], 2); // Knoten 29-30
+         graph.kanteEinfuegen(knoten[29], knoten[32], 2); // Knoten 30-33
+         graph.kanteEinfuegen(knoten[30], knoten[32], 2); // Knoten 31-33
 
-        graph.kanteEinfuegen(knoten[35], knoten[34], 2); // Knoten 36-35
-        graph.kanteEinfuegen(knoten[34], knoten[33], 2); // Knoten 35-34
-        graph.kanteEinfuegen(knoten[10], knoten[11], 2); // Knoten 11-12
-        graph.kanteEinfuegen(knoten[39], knoten[11], 2); // Knoten 40-12
-        graph.kanteEinfuegen(knoten[3],  knoten[37], 2); // Knoten 4-38
+         graph.kanteEinfuegen(knoten[35], knoten[34], 2); // Knoten 36-35
+         graph.kanteEinfuegen(knoten[34], knoten[33], 2); // Knoten 35-34
+         graph.kanteEinfuegen(knoten[10], knoten[11], 2); // Knoten 11-12
+         graph.kanteEinfuegen(knoten[39], knoten[11], 2); // Knoten 40-12
+         graph.kanteEinfuegen(knoten[3],  knoten[37], 2); // Knoten 4-38
 
-        graph.kanteEinfuegen(knoten[31], knoten[9], 2);  // Knoten 32-10
-        graph.kanteEinfuegen(knoten[32], knoten[31], 2); // Knoten 33-32
-        graph.kanteEinfuegen(knoten[33], knoten[28], 2); // Knoten 34-29
-        graph.kanteEinfuegen(knoten[34], knoten[6], 2);  // Knoten 35-7
-        graph.kanteEinfuegen(knoten[35], knoten[15], 2); // Knoten 36-16
-        graph.kanteEinfuegen(knoten[36], knoten[35], 2); // Knoten 37-36
-        graph.kanteEinfuegen(knoten[37], knoten[14], 2); // Knoten 38-15
-        graph.kanteEinfuegen(knoten[38], knoten[13], 2); // Knoten 39-14
-        graph.kanteEinfuegen(knoten[39], knoten[0], 2);  // Knoten 40-1
-        graph.kanteEinfuegen(knoten[40], knoten[10], 2); // Knoten 41-11
-        graph.kanteEinfuegen(knoten[41], knoten[8], 2);  // Knoten 42-9
-        graph.kanteEinfuegen(knoten[41], knoten[18], 2); // Knoten 42-19
-        graph.kanteEinfuegen(knoten[42], knoten[41], 2); // Knoten 43-42
+         graph.kanteEinfuegen(knoten[31], knoten[9], 2);  // Knoten 32-10
+         graph.kanteEinfuegen(knoten[32], knoten[31], 2); // Knoten 33-32
+         graph.kanteEinfuegen(knoten[33], knoten[28], 2); // Knoten 34-29
+         graph.kanteEinfuegen(knoten[34], knoten[6], 2);  // Knoten 35-7
+         graph.kanteEinfuegen(knoten[35], knoten[15], 2); // Knoten 36-16
+         graph.kanteEinfuegen(knoten[36], knoten[35], 2); // Knoten 37-36
+         graph.kanteEinfuegen(knoten[37], knoten[14], 2); // Knoten 38-15
+         graph.kanteEinfuegen(knoten[38], knoten[13], 2); // Knoten 39-14
+         graph.kanteEinfuegen(knoten[39], knoten[0], 2);  // Knoten 40-1
+         graph.kanteEinfuegen(knoten[40], knoten[10], 2); // Knoten 41-11
+         graph.kanteEinfuegen(knoten[41], knoten[8], 2);  // Knoten 42-9
+         graph.kanteEinfuegen(knoten[41], knoten[18], 2); // Knoten 42-19
+         graph.kanteEinfuegen(knoten[42], knoten[41], 2); // Knoten 43-42
 
-        //Kanten werden gemäß Vorlage verknüpft Mittlekreis mit jeweils Gewichtung
-        //von 3 (beide Fahrtrichtungen)
-        graph.kanteEinfuegen(knoten[40], knoten[20], 3); // Knoten 41-21
-        graph.kanteEinfuegen(knoten[20], knoten[40], 3); // Knoten 21-41
-        graph.kanteEinfuegen(knoten[20], knoten[21], 3); // Knoten 21-22
-        graph.kanteEinfuegen(knoten[21], knoten[20], 3); // Knoten 22-21
-        graph.kanteEinfuegen(knoten[21], knoten[43], 3); // Knoten 22-44
-        graph.kanteEinfuegen(knoten[43], knoten[21], 3); // Knoten 44-22
-        graph.kanteEinfuegen(knoten[43], knoten[22], 3); // Knoten 44-23
-        graph.kanteEinfuegen(knoten[43], knoten[25], 3); // Knoten 44-26
-        graph.kanteEinfuegen(knoten[43], knoten[26], 3); // Knoten 44-27
-        graph.kanteEinfuegen(knoten[22], knoten[43], 3); // Knoten 23-44
-        graph.kanteEinfuegen(knoten[22], knoten[23], 3); // Knoten 23-24
-        graph.kanteEinfuegen(knoten[23], knoten[38], 3); // Knoten 24-39
-        graph.kanteEinfuegen(knoten[23], knoten[22], 3); // Knoten 24-23
-        graph.kanteEinfuegen(knoten[38], knoten[23], 3); // Knoten 39-24
-        graph.kanteEinfuegen(knoten[25], knoten[43], 3); // Knoten 26-44
-        graph.kanteEinfuegen(knoten[25], knoten[24], 3); // Knoten 26-25
-        graph.kanteEinfuegen(knoten[24], knoten[36], 3); // Knoten 25-37
-        graph.kanteEinfuegen(knoten[24], knoten[25], 3); // Knoten 25-26
-        graph.kanteEinfuegen(knoten[36], knoten[24], 3); // Knoten 37-25
-        graph.kanteEinfuegen(knoten[26], knoten[43], 3); // Knoten 27-44
-        graph.kanteEinfuegen(knoten[26], knoten[27], 3); // Knoten 27-28
-        graph.kanteEinfuegen(knoten[27], knoten[26], 3); // Knoten 28-27
-        graph.kanteEinfuegen(knoten[27], knoten[42], 3); // Knoten 28-43
-        graph.kanteEinfuegen(knoten[42], knoten[27], 3); // Knoten 43-28
+         //Kanten werden gemäß Vorlage verknüpft Mittlekreis mit jeweils Gewichtung
+         //von 3 (beide Fahrtrichtungen)
+         graph.kanteEinfuegen(knoten[40], knoten[20], 3); // Knoten 41-21
+         graph.kanteEinfuegen(knoten[20], knoten[40], 3); // Knoten 21-41
+         graph.kanteEinfuegen(knoten[20], knoten[21], 3); // Knoten 21-22
+         graph.kanteEinfuegen(knoten[21], knoten[20], 3); // Knoten 22-21
+         graph.kanteEinfuegen(knoten[21], knoten[43], 3); // Knoten 22-44
+         graph.kanteEinfuegen(knoten[43], knoten[21], 3); // Knoten 44-22
+         graph.kanteEinfuegen(knoten[43], knoten[22], 3); // Knoten 44-23
+         graph.kanteEinfuegen(knoten[43], knoten[25], 3); // Knoten 44-26
+         graph.kanteEinfuegen(knoten[43], knoten[26], 3); // Knoten 44-27
+         graph.kanteEinfuegen(knoten[22], knoten[43], 3); // Knoten 23-44
+         graph.kanteEinfuegen(knoten[22], knoten[23], 3); // Knoten 23-24
+         graph.kanteEinfuegen(knoten[23], knoten[38], 3); // Knoten 24-39
+         graph.kanteEinfuegen(knoten[23], knoten[22], 3); // Knoten 24-23
+         graph.kanteEinfuegen(knoten[38], knoten[23], 3); // Knoten 39-24
+         graph.kanteEinfuegen(knoten[25], knoten[43], 3); // Knoten 26-44
+         graph.kanteEinfuegen(knoten[25], knoten[24], 3); // Knoten 26-25
+         graph.kanteEinfuegen(knoten[24], knoten[36], 3); // Knoten 25-37
+         graph.kanteEinfuegen(knoten[24], knoten[25], 3); // Knoten 25-26
+         graph.kanteEinfuegen(knoten[36], knoten[24], 3); // Knoten 37-25
+         graph.kanteEinfuegen(knoten[26], knoten[43], 3); // Knoten 27-44
+         graph.kanteEinfuegen(knoten[26], knoten[27], 3); // Knoten 27-28
+         graph.kanteEinfuegen(knoten[27], knoten[26], 3); // Knoten 28-27
+         graph.kanteEinfuegen(knoten[27], knoten[42], 3); // Knoten 28-43
+         graph.kanteEinfuegen(knoten[42], knoten[27], 3); // Knoten 43-28
         
-        */
+         */
     }
 
     private void findeStrecke(Knoten startknoten) {
@@ -210,6 +210,19 @@ public class Dijkstra {
         way.stream().forEach((lKnoten) -> {
             System.out.println("Name: " + lKnoten.getName());
         });
+
+        /* Weichen entsprechend dem Weg stellen
+        for (Knoten punkt : way) {
+            int nameNachfolger = way.get(way.indexOf(punkt) + 1).getName();
+            switch (punkt.getName()) {
+                case 32:
+                    if (nameNachfolger == 9) {
+                        dieSteuerung.stelleWeiche(32, 'r');
+                    }
+                    break;
+            }
+        }
+        */
 
         /*
          * oder man schreibt:
