@@ -50,7 +50,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[31], knoten[32], 1); // Knoten 32-33
         graph.kanteEinfuegen(knoten[32], knoten[29], 1); // Knoten 33-30
         graph.kanteEinfuegen(knoten[32], knoten[30], 1); // Knoten 33-31
-
+        
         graph.kanteEinfuegen(knoten[11], knoten[39], 1); // Knoten 12-40
         graph.kanteEinfuegen(knoten[37], knoten[3], 1); // Knoten 38-4
         graph.kanteEinfuegen(knoten[34], knoten[35], 1); // Knoten 35-36
