@@ -1,5 +1,6 @@
 package de.cme;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,7 +9,7 @@ import java.util.logging.Logger;
  *
  * @author Pascal
  */
-public class Steuerung {
+public class Steuerung implements Befehle {
 
     // Anfang Attribute
     private GUI dieGUI;
@@ -202,6 +203,8 @@ public class Steuerung {
         dieAnlage.schreibeAufCAN(dieDaten);
     }
 
+    public void schalteLichtVonLok(int LokName, boolean lichtEin) {}
+    
     public void schalteLichtVonLok(boolean lichtEin) {
         System.out.println("Licht-Funktion");
         if (lichtEin) {
@@ -587,4 +590,24 @@ public class Steuerung {
         dieGUI.clearPortList();
     }
     //Ende Methoden
+
+    @Override
+    public void stelleWeiche(int weichenNummer, char stellung) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int leseRMK(int RMKNummer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList gibBelegteRMK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void fahreLok(int LokName, int geschwindigkeit) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
