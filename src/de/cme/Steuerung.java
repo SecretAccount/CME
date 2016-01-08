@@ -342,12 +342,12 @@ public class Steuerung implements Befehle {
 //                if (empfangeneDaten[9] == 253) { //richtig
                     if (empfangeneDaten[9] == 1) { //Test
                         //position = 1; //Grün/rechts/1 /nicht benötigt
-                        dieGUI.positionRechts(weichenAnschluss + 1);
+                        dieGUI.positionGerade(weichenAnschluss + 1);
                     }
 //                if (empfangeneDaten[9] == 254) { //richtig
                     if (empfangeneDaten[9] == 0) { //Test
                         // position = 0; //Rot/links/0 /nicht benötigt
-                        dieGUI.positionLinks(weichenAnschluss + 1);
+                        dieGUI.positionRund(weichenAnschluss + 1);
                     }
                     if (empfangeneDaten[9] == 255) {
                         //position = 2; //Gelb Fehler
@@ -362,12 +362,12 @@ public class Steuerung implements Befehle {
 ////                if (empfangeneDaten[9] == 253) { //richtig
 //                if (empfangeneDaten[9] == 1) { //Test
 //                    //position = 1; //Grün/rechts/1 /nicht benötigt
-//                    dieGUI.positionRechts(i + 1);
+//                    dieGUI.positionRund(i + 1);
 //                }
 ////                if (empfangeneDaten[9] == 254) { //richtig
 //                if (empfangeneDaten[9] == 0) { //Test
 //                    // position = 0; //Rot/links/0 /nicht benötigt
-//                    dieGUI.positionLinks(i + 1);
+//                    dieGUI.positionGerade(i + 1);
 //                }
 //                if (empfangeneDaten[9] == 255) {
 //                    //position = 2; //Gelb Fehler
@@ -381,12 +381,12 @@ public class Steuerung implements Befehle {
 ////                if (empfangeneDaten[9] == 253) { //richtig
 //                if (empfangeneDaten[9] == 1) { //Test
 //                    //position = 1; //Grün/rechts/1 /nicht benötigt
-//                    dieGUI.positionRechts(i + 1);
+//                    dieGUI.positionRund(i + 1);
 //                }
 ////                if (empfangeneDaten[9] == 254) { //richtig
 //                if (empfangeneDaten[9] == 0) { //Test
 //                    // position = 0; //Rot/links/0 /nicht benötigt
-//                    dieGUI.positionLinks(i + 1);
+//                    dieGUI.positionGerade(i + 1);
 //                }
 //                if (empfangeneDaten[9] == 255) {
 //                    //position = 2; //Gelb Fehler
@@ -609,7 +609,7 @@ public class Steuerung implements Befehle {
     public void stelleWeiche(int weichenNummer, char stellung) {
         byte weichenAdresse;
         byte stellungWert;
-        //Stellung rund: 0
+        //Stellung rund: 0 | gerade: 1
         switch (stellung) {
             case 'r':
                 stellungWert = 0;
