@@ -15,9 +15,9 @@ public interface Befehle {
     /**
      * @param RMKNummer: Nummer des Knotens des Rückmeldeabschnittes
      * @return Gibt die Belegung des Rückmeldeabschnittes zurück
-     *          1 für belegt, 0 für frei
+     *          true für belegt, false für frei
      */
-    public int leseRMK(int RMKNummer);
+    public boolean leseRMK(int RMKNummer);
     
     /**
      *
