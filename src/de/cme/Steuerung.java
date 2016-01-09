@@ -1115,6 +1115,8 @@ public class Steuerung implements Befehle {
             int geschwindigkeitHB = empfangeneDaten[9];
             int geschwindigkeit = geschwindigkeitLB;
             geschwindigkeit += geschwindigkeitHB << 8;
+            //Durch 10 teilen, damit Übereinstimmung mit Slider Skala
+            geschwindigkeit /= 10;
             System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
             dieGUI.setzeGeschwindigkeit(geschwindigkeit);
         }
