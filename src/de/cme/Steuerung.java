@@ -844,7 +844,7 @@ public class Steuerung implements Befehle {
                 /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8 && empfangeneDaten[8] == gibRMKAdresse(RMKNummer)) {
             if (empfangeneDaten[9] == 0) {
                 //belegt
-                System.out.println("RMK " + gibRMKAdresse(RMKNummer) + " belegt!");
+                System.out.println("RMK '" + RMKNummer + "' mit Adresse '" + gibRMKAdresse(RMKNummer) + "' belegt!");
                 zustand = true;
             } else {
                 //frei
@@ -1064,8 +1064,8 @@ public class Steuerung implements Befehle {
     public void RMKfuerFahren() {
         //Losfahren, wenn Lok auf Startknoten steht
         if (leseRMK(startPoint)) {
-            System.out.println("Lok mit v=30 fahren, da Lok auf Startpunkt");
-            fahreLok(30);
+            System.out.println("Lok mit v=20 fahren, da Lok auf Startpunkt");
+            fahreLok(20);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
         if (leseRMK(endPoint)) {
