@@ -1021,7 +1021,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBAutomatikStartenActionPerformed
 
     private void jBWeicheRundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheRundActionPerformed
-        dieSteuerung.stelleWeiche(Integer.valueOf(jTFVon.getText()), 'r');
+//        dieSteuerung.stelleWeiche(Integer.valueOf(jTFVon.getText()), 'r');
+        //Geschwindigkeit: 1000
+        int geschwindigkeitLB = 232;
+            int geschwindigkeitHB = 3;
+            int geschwindigkeit = geschwindigkeitLB;
+            geschwindigkeit += geschwindigkeitHB << 8;
+            System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
+//            this.setzeGeschwindigkeit(geschwindigkeit);
     }//GEN-LAST:event_jBWeicheRundActionPerformed
 
     private void jBWeicheGeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheGeradeActionPerformed
