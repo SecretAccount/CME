@@ -1225,7 +1225,11 @@ public class GUI extends javax.swing.JFrame {
             modulNr = 4;
         }
     }
-
+    
+     void setzeGeschwindigkeit(byte empfangeneGeschwindigkeit) {
+         jSGeschwindigkeit.setValue(empfangeneGeschwindigkeit);
+    }
+    
     /* Richtungswechsel ist nicht vorgesehen    */
     /**
      * @param args the command line arguments
