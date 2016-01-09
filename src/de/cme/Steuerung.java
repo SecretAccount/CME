@@ -826,7 +826,7 @@ public class Steuerung implements Befehle {
     }
 
 //    @Override
-    public boolean leseRMK(int RMKNummer, byte[] daten) {
+    public boolean leseRMK(int RMKNummer) {
         System.out.println("Empfangene Daten in leseRMK-Methode: ");
 
         for (byte dataByte : empfangeneDaten) {
@@ -841,9 +841,9 @@ public class Steuerung implements Befehle {
         //Standardmäßig frei = false
         
         boolean zustand = false;
-        if (daten[0] == 0 && daten[1] == 35 /* && daten[2] == 11 */
-                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8  /* && daten[8] == gibRMKAdresse(RMKNummer) */) {
-            if (daten[9] == 0) {
+        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35  && empfangeneDaten[2] == 11 
+                /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8   && empfangeneDaten[8] == gibRMKAdresse(RMKNummer) ) {
+            if (empfangeneDaten[9] == 0) {
                 //belegt
                 System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
                 zustand = true;
@@ -1064,12 +1064,12 @@ public class Steuerung implements Befehle {
 
     public void RMKfuerFahren(byte[] daten) {
         //Losfahren, wenn Lok auf Startknoten steht
-        if (leseRMK(startPoint, daten)) {
+        if (leseRMK(startPoint)) {
             System.out.println("Lok mit v=10 fahren, da Lok auf Startpunkt");
             fahreLok(30);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
-        if (leseRMK(endPoint, daten)) {
+        if (leseRMK(endPoint)) {
             fahreLok(0);
         }
     }
