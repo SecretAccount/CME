@@ -1088,6 +1088,7 @@ public class Steuerung implements Befehle {
                 && empfangeneDaten[4] == 6) {
             //Geschwindigkeit nur setzen, wenn größer als 0
             if (empfangeneDaten[9] > 0) {
+                System.out.println("Geschwindigkeit > 0 -> wird auf Slider gesetzt");
                 dieGUI.setzeGeschwindigkeit(empfangeneDaten[9]);
             }
         }
