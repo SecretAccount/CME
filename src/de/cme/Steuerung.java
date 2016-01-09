@@ -834,7 +834,7 @@ public class Steuerung implements Befehle {
         }
         //Absatz
         System.out.println("");
-        
+
         System.out.println("Adresse der RMKNummer: " + gibRMKAdresse(RMKNummer));
 
         //Rückmeldeabschnitt prüfen
@@ -846,9 +846,10 @@ public class Steuerung implements Befehle {
                 //belegt
                 System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
                 zustand = true;
+            } else {
+                //frei
+                zustand = false;
             }
-            //frei
-            zustand = false;
         }
         return zustand;
     }
