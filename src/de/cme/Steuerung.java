@@ -29,6 +29,7 @@ public class Steuerung implements Befehle {
     private int gewRMKModul;
     private byte lokAdresse;
 
+    //Standardmäßig nicht Geschwindigkeit senden
     private boolean sendEnabled = false;
 
     private List<Knoten> weg;
@@ -40,6 +41,7 @@ public class Steuerung implements Befehle {
     private final byte HIGH_BYTE_HASH = (byte) 175;
     private final byte LOW_BYTE_HASH = (byte) 83;
     protected final byte STANDARD_LOK_ADRESSE = 24;
+    private static final int TIMER_DELAY = 100;
     // Ende Attribute
 
     public Steuerung(GUI eineGUI) {
@@ -105,8 +107,8 @@ public class Steuerung implements Befehle {
     }
     
     private void initTimer() {
-        sendTimer = new Timer(500, (ActionEvent e) -> {
-//            System.out.println("Timer abgelaufen nach 500ms");
+        sendTimer = new Timer(TIMER_DELAY, (ActionEvent e) -> {
+//            System.out.println("Timer abgelaufen nach 100ms");
             sendEnabled = true;
         });
         sendTimer.start();
@@ -139,7 +141,7 @@ public class Steuerung implements Befehle {
             dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bit des Werts des Schiebereglers * 10
             dieDaten[11] = (byte) 0;             // Rest mit 0 auffüllen
             dieDaten[12] = (byte) 0;             // Rest mit 0 auffüllen
-            //Nur senden, wenn 500ms gewartet wurde (Timer abgelaufen ist)
+            //Nur senden, wenn 100ms gewartet wurde (Timer abgelaufen ist)
             // damit kein Datenstau entsteht
             if (sendEnabled) {
                 dieAnlage.schreibeAufCAN(dieDaten);  // Senden
