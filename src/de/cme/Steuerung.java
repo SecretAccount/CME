@@ -838,8 +838,8 @@ public class Steuerung implements Befehle {
         System.out.println("Adresse der RMKNummer: " + gibRMKAdresse(RMKNummer));
 
         //Rückmeldeabschnitt prüfen
-        //Standardmäßig frei
-        boolean zustand = false;
+        //Standardmäßig frei = false
+        boolean zustand = true; // nur zum Testen true normal false
         if (daten[0] == 0 && daten[1] == 35 && daten[2] == 11
                 /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8 && daten[8] == gibRMKAdresse(RMKNummer)) {
             if (daten[9] == 0) {
@@ -849,7 +849,7 @@ public class Steuerung implements Befehle {
             } else {
                 //frei
                 System.out.println("Nicht belegt, aber trotzdem 'true'");
-                zustand = true;
+                zustand = false;
             }
         }
         return zustand;
