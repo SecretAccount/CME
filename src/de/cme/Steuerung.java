@@ -1024,12 +1024,12 @@ public class Steuerung implements Befehle {
                     }
                     //if(nameNachfolger ==35){stelleWeiche(34,'r');} Abstellgleis wird hier nicht benötigt
                     break;
-                case 35:
+                case 35: //Test doch richtig gestellt?
                     if (nameNachfolger == 36) {
-                        stelleWeiche(35, 'g');
+                        stelleWeiche(35, 'r'); //vorher 'g' jetzt 'r'
                     } //faslsche Stellung
                     if (nameNachfolger == 6) {
-                        stelleWeiche(35, 'r');
+                        stelleWeiche(35, 'g'); //vorher 'r' jetzt 'g'
                     }//falsche Stellung
                     break;
                 case 36:
