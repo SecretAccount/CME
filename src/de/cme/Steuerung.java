@@ -25,6 +25,7 @@ public class Steuerung implements Befehle {
     private int gewRMKModul;
     private byte lokAdresse;
 
+    private List<Knoten> weg;
     private int startPoint;
     private int endPoint;
 
@@ -56,6 +57,8 @@ public class Steuerung implements Befehle {
         dieDaten[12] = (byte) 0;
 
         empfangeneDaten = new byte[13]; //Byte Array für empfangene Daten mit 13 Bytes
+
+        weg = new ArrayList<>(); //Liste des Weges, der die Knoten enthält
 
         lokAdresse = STANDARD_LOK_ADRESSE;
 
@@ -115,8 +118,8 @@ public class Steuerung implements Befehle {
             dieDaten[6] = 0;                     // 2. Byte der Loc-ID: 0
             dieDaten[7] = 0;                     // 3. Byte der Loc-ID: 0 bei MM2
             dieDaten[8] = adresse;       // 4. Byte der Loc-ID: 24 (eingegebene Adresse der Lok)
-            dieDaten[9] = (byte) geschwHighByte; // High-Byte: 1. Byte der Geschw.: geschwLowByte 8Bits nach rechts verschoben
-            dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bits des Werts des Schiebereglers * 10
+            dieDaten[9] = (byte) geschwHighByte; // High-Byte: 1. Byte der Geschw.: geschwLowByte 8 Bit nach rechts verschoben
+            dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bit des Werts des Schiebereglers * 10
             dieDaten[11] = (byte) 0;             // Rest mit 0 auffüllen
             dieDaten[12] = (byte) 0;             // Rest mit 0 auffüllen
             dieAnlage.schreibeAufCAN(dieDaten);  // Senden
@@ -825,6 +828,7 @@ public class Steuerung implements Befehle {
     @Override
     public boolean leseRMK(int RMKNummer) {
         System.out.println("Empfangene Daten in leseRMK-Methode: ");
+
         for (byte dataByte : empfangeneDaten) {
             System.out.print(dataByte + " ");
         }
@@ -838,6 +842,7 @@ public class Steuerung implements Befehle {
                 /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8 && empfangeneDaten[8] == gibRMKAdresse(RMKNummer)) {
             if (empfangeneDaten[9] == 0) {
                 //belegt
+                System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
                 zustand = true;
             }
             //frei
@@ -885,7 +890,6 @@ public class Steuerung implements Befehle {
     }
 
     public void findeWeg() {
-        List<Knoten> weg = new ArrayList<>();
         dijkstra.init();
         weg = dijkstra.findeWeg(startPoint, endPoint);
 //        System.out.println("startPoint: " + startPoint);
@@ -1014,16 +1018,10 @@ public class Steuerung implements Befehle {
                 //Losfahren, wenn Lok auf Startknoten steht
                 if (punkt.getName() == startPoint) {
                     sendeRMK(startPoint);
-                    if (leseRMK(startPoint)) {
-                        fahreLok(10);
-                    }
                 }
                 //Lok anhalten, wenn sie am Ziel angekommen ist
                 if (punkt.getName() == endPoint) {
                     sendeRMK(endPoint);
-                    if (leseRMK(endPoint)) {
-                        fahreLok(0);
-                    }
                 }
             }
 
@@ -1046,6 +1044,26 @@ public class Steuerung implements Befehle {
 //                }
 //            }
         }
+    }
+
+    public void RMKfuerFahren() {
+        //Durch alle Knoten in der Wegliste durchiterieren
+        weg.stream().forEach((punkt) -> {
+            if (punkt.getName() < 32) {
+                //Losfahren, wenn Lok auf Startknoten steht
+                if (punkt.getName() == startPoint) {
+                    if (leseRMK(startPoint)) {
+                        fahreLok(10);
+                    }
+                }
+                //Lok anhalten, wenn sie am Ziel angekommen ist
+                if (punkt.getName() == endPoint) {
+                    if (leseRMK(endPoint)) {
+                        fahreLok(0);
+                    }
+                }
+            }
+        });
     }
 
     //Ende Methoden
