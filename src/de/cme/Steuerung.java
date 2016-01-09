@@ -1110,7 +1110,7 @@ public class Steuerung implements Befehle {
         if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 9
                 && empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31
                 && empfangeneDaten[4] == 6) {
-            //Geschwindigkeit nur setzen, wenn größer als 0
+            //TO-DO: auf richtigen Wert korrigieren
             int geschwindigkeitLB = empfangeneDaten[10];
             int geschwindigkeitHB = empfangeneDaten[9];
             int geschwindigkeit = geschwindigkeitLB;
