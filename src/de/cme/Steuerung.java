@@ -31,6 +31,9 @@ public class Steuerung implements Befehle {
 
     //Standardmäßig nicht Geschwindigkeit senden
     private boolean sendEnabled = false;
+    
+    //Nur auf Lok prüfen, wenn Automatikmodus ein
+    private boolean automationEnabled = false;
 
     private List<Knoten> weg;
     private int startPoint;
@@ -100,12 +103,20 @@ public class Steuerung implements Befehle {
         this.lokAdresse = Byte.parseByte(lokAdresse);
     }
 
+    public boolean isAutomationEnabled() {
+        return automationEnabled;
+    }
+
+    public void setAutomationEnabled(boolean automationEnabled) {
+        this.automationEnabled = automationEnabled;
+    }
+    
     public void schliessen() {
         dieAnlage.disconnect();
         System.out.println("Beenden");
         System.exit(0);
     }
-    
+
     private void initTimer() {
         sendTimer = new Timer(TIMER_DELAY, (ActionEvent e) -> {
 //            System.out.println("Timer abgelaufen nach 100ms");
@@ -1054,6 +1065,8 @@ public class Steuerung implements Befehle {
                 //Losfahren, wenn Lok auf Startknoten steht
 //                if (punkt.getName() == startPoint) {
                 System.out.println("RM-Event, ob Anfang oder Ende belegt sind ");
+
+                //50ms warten, bevor gesendet wird
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException ex) {
@@ -1063,6 +1076,7 @@ public class Steuerung implements Befehle {
 //                }
                 //Lok anhalten, wenn sie am Ziel angekommen ist
 //                if (punkt.getName() == endPoint) {
+                //50ms warten, bevor gesendet wird
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException ex) {
@@ -1094,14 +1108,16 @@ public class Steuerung implements Befehle {
     }
 
     public void RMKfuerFahren() {
-        //Losfahren, wenn Lok auf Startknoten steht
-        if (leseRMK(startPoint)) {
-            System.out.println("Lok mit v=20 fahren, da Lok auf Startpunkt");
-            fahreLok(20);
-        }
-        //Lok anhalten, wenn sie am Ziel angekommen ist
-        if (leseRMK(endPoint)) {
-            fahreLok(0);
+        if (automationEnabled) {
+            //Losfahren, wenn Lok auf Startknoten steht
+            if (leseRMK(startPoint)) {
+                System.out.println("Lok mit v=20 fahren, da Lok auf Startpunkt");
+                fahreLok(20);
+            }
+            //Lok anhalten, wenn sie am Ziel angekommen ist
+            if (leseRMK(endPoint)) {
+                fahreLok(0);
+            }
         }
     }
 

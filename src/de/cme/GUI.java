@@ -973,6 +973,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
+        
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
         dijkstra.findeWeg(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
@@ -1014,6 +1015,8 @@ public class GUI extends javax.swing.JFrame {
     private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
         int  vonKnoten = getStartPoint();
         int  bisKnoten = getEndPoint();
+        //Auf Lokposition prüfen einschalten
+        dieSteuerung.setAutomationEnabled(true);
         
         dieSteuerung.setStartPoint(vonKnoten);
         dieSteuerung.setEndPoint(bisKnoten);
