@@ -1081,16 +1081,18 @@ public class Steuerung implements Befehle {
         }
     }
 
-    void leseGeschwindigkeit() {
+    public void leseGeschwindigkeit() {
         //Slider auf aktuelle Lok Geschwindigkeit setzen
         if (empfangeneDaten[0] == 2 && empfangeneDaten[1] == 9
                 && empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31
                 && empfangeneDaten[4] == 6) {
             //Geschwindigkeit nur setzen, wenn größer als 0
-            if (empfangeneDaten[9] > 0) {
-                System.out.println("Geschwindigkeit > 0 -> wird auf Slider gesetzt");
-                dieGUI.setzeGeschwindigkeit(empfangeneDaten[9]);
-            }
+                int geschwindigkeitLB = empfangeneDaten[10];
+                int geschwindigkeitHB = empfangeneDaten[9];
+                int geschwindigkeit = geschwindigkeitLB;
+                geschwindigkeit += geschwindigkeitHB << 8;
+                System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
+                dieGUI.setzeGeschwindigkeit(geschwindigkeit);
         }
     }
     //Ende Methoden
