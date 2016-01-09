@@ -841,7 +841,7 @@ public class Steuerung implements Befehle {
         //Standardmäßig frei = false
         
         boolean zustand = false;
-        if (daten[0] == 0 && daten[1] == 35 && daten[2] == 11
+        if (daten[0] == 0 && daten[1] == 35 /* && daten[2] == 11 */
                 /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8  /* && daten[8] == gibRMKAdresse(RMKNummer) */) {
             if (daten[9] == 0) {
                 //belegt
