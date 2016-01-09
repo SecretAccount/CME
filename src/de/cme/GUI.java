@@ -4,7 +4,6 @@ import de.cme.dijkstra.Dijkstra;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
-import java.util.UnknownFormatConversionException;
 import javax.swing.JComboBox;
 
 /**
@@ -1261,10 +1260,8 @@ public class GUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUI().setVisible(true);
         });
     }
 
