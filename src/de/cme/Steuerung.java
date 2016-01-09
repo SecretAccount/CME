@@ -126,11 +126,54 @@ public class Steuerung implements Befehle {
     }
 
     //Überladene Methode: mit Adresse oder Adresse von Steuerung benutzen
+    
+    /**
+     * Überladene Methode: 
+     * bypassTimer ist false, Timer wird nicht umgangen
+     * Geschwindigkeit kann gesendet werden als Parameter
+     * 
+     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-100 (wird intern in 0-1000 umgewandelt)
+     */
+    
     public void fahreLok(int geschwindigkeit) {
-        fahreLok(lokAdresse, geschwindigkeit);
+            fahreLok(lokAdresse, geschwindigkeit, false);
+    }
+    
+    /**
+     * Überladene Methode: Um Timer zu umgehen
+     * 
+     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-100 (wird intern in 0-1000 umgewandelt)
+     * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen werden soll, 
+     *                       false, damit nur alle 100ms gesendet wird
+     */
+        public void fahreLok(int geschwindigkeit, boolean bypassTimer) {
+            fahreLok(lokAdresse, geschwindigkeit, bypassTimer);
+    }
+    
+    /**
+     * Überladene Methode: 
+     * bypassTimer ist false, Timer wird nicht umgangen
+     * Geschwindigkeit kann gesendet werden als Parameter
+     * Adresse der Lok kann ebenfalls gesendet werden
+     * 
+     * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24, 10, 11)
+     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-100 (wird intern in 0-1000 umgewandelt)
+     */
+    public void fahreLok(byte adresse, int geschwindigkeit) {
+        fahreLok(adresse, geschwindigkeit, false);
     }
 
-    public void fahreLok(byte adresse, int geschwindigkeit) {
+    /**
+     * Überladene Methode: 
+     * 
+     * Geschwindigkeit, Adresse der Lok und Umgehung des Timers können gesendet werden als Parameter
+     * 
+     * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24, 10, 11)
+     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-100 (wird intern in 0-1000 umgewandelt)
+     * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen werden soll, 
+     *                       false, damit nur alle 100ms gesendet wird
+     */
+    public void fahreLok(byte adresse, int geschwindigkeit, boolean bypassTimer) {
         // Systemfahrstufe = 1 + (Gleisfahrstufe - 1) * Schrittweite
         System.out.println("Geschw. senden: " + (geschwindigkeit * 10));
         //int systemGeschwindigkeit = 1 + (geschwindigkeit - 1) * 33;
@@ -152,9 +195,11 @@ public class Steuerung implements Befehle {
             dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bit des Werts des Schiebereglers * 10
             dieDaten[11] = (byte) 0;             // Rest mit 0 auffüllen
             dieDaten[12] = (byte) 0;             // Rest mit 0 auffüllen
-            //Nur senden, wenn 100ms gewartet wurde (Timer abgelaufen ist)
+            //Nur senden, wenn 100ms gewartet wurde (Timer abgelaufen ist),
             // damit kein Datenstau entsteht
-            if (sendEnabled) {
+            // oder nur, wenn Timer umgangen werden soll (beim Auslesen 
+            // der RMK und einstellen der Fahrstufe)
+            if (sendEnabled || bypassTimer) {
                 dieAnlage.schreibeAufCAN(dieDaten);  // Senden
                 sendEnabled = false;
             }
@@ -1112,11 +1157,13 @@ public class Steuerung implements Befehle {
             //Losfahren, wenn Lok auf Startknoten steht
             if (leseRMK(startPoint)) {
                 System.out.println("Lok mit v=20 fahren, da Lok auf Startpunkt");
-                fahreLok(20);
+                //TO-DO: benutze fahreLok-Methode, die immer Wert entgegennimmt
+                //unabhängig vom Timer
+                fahreLok(20, true);
             }
             //Lok anhalten, wenn sie am Ziel angekommen ist
             if (leseRMK(endPoint)) {
-                fahreLok(0);
+                fahreLok(0, true);
             }
         }
     }
