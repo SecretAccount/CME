@@ -839,16 +839,17 @@ public class Steuerung implements Befehle {
 
         //Rückmeldeabschnitt prüfen
         //Standardmäßig frei = false
-        boolean zustand = true; // nur zum Testen true normal false
+        
+        boolean zustand = false;
         if (daten[0] == 0 && daten[1] == 35 && daten[2] == 11
-                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8 && daten[8] == gibRMKAdresse(RMKNummer)) {
+                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8  && daten[8] == RMKNummer ) {
             if (daten[9] == 0) {
                 //belegt
                 System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
                 zustand = true;
             } else {
                 //frei
-                System.out.println("Nicht belegt, aber trotzdem 'true'");
+                System.out.println("RMK nicht belegt");
                 zustand = false;
             }
         }
@@ -1063,12 +1064,12 @@ public class Steuerung implements Befehle {
 
     public void RMKfuerFahren(byte[] daten) {
         //Losfahren, wenn Lok auf Startknoten steht
-        if (leseRMK(startPoint, daten)) {
+        if (leseRMK(19, daten)) {
             System.out.println("Lok mit v=10 fahren, da Lok auf Startpunkt");
-            fahreLok(10);
+            fahreLok(30);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
-        if (leseRMK(endPoint, daten)) {
+        if (leseRMK(2, daten)) {
             fahreLok(0);
         }
     }
