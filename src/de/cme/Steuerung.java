@@ -1083,7 +1083,7 @@ public class Steuerung implements Befehle {
 
     public void leseGeschwindigkeit() {
         //Slider auf aktuelle Lok Geschwindigkeit setzen
-        if (empfangeneDaten[0] == 2 && empfangeneDaten[1] == 9
+        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 9
                 && empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31
                 && empfangeneDaten[4] == 6) {
             //Geschwindigkeit nur setzen, wenn größer als 0
