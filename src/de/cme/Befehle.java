@@ -17,8 +17,7 @@ public interface Befehle {
      * @return Gibt die Belegung des Rückmeldeabschnittes zurück
      *          true für belegt, false für frei
      */
-    //Gleich wieder entkommentieren
-//    public boolean leseRMK(int RMKNummer);
+    public boolean leseRMK(int RMKNummer);
     
     /**
      *
