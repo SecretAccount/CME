@@ -121,7 +121,7 @@ public class Steuerung implements Befehle {
 
     public void fahreLok(byte adresse, int geschwindigkeit) {
         // Systemfahrstufe = 1 + (Gleisfahrstufe - 1) * Schrittweite
-        System.out.println("Geschw. auf GUI: " + geschwindigkeit);
+        System.out.println("Geschw. senden: " + (geschwindigkeit * 10));
         //int systemGeschwindigkeit = 1 + (geschwindigkeit - 1) * 33;
         int geschwLowByte = geschwindigkeit * 10;
         int geschwHighByte = geschwLowByte >> 8;
