@@ -839,10 +839,9 @@ public class Steuerung implements Befehle {
 
         //Rückmeldeabschnitt prüfen
         //Standardmäßig frei = false
-        
         boolean zustand = false;
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35  && empfangeneDaten[2] == 11 
-                /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8   && empfangeneDaten[8] == gibRMKAdresse(RMKNummer) ) {
+        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35 && empfangeneDaten[2] == 11
+                /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8 && empfangeneDaten[8] == gibRMKAdresse(RMKNummer)) {
             if (empfangeneDaten[9] == 0) {
                 //belegt
                 System.out.println("RMK " + gibRMKAdresse(RMKNummer) + " belegt!");
@@ -1073,12 +1072,16 @@ public class Steuerung implements Befehle {
             fahreLok(0);
         }
     }
+
     void leseGeschwindigkeit() {
-        //Slider auf akutelleaktuelle Lok Geschwindigkeit setzen
-        if(empfangeneDaten[0] == 2 && empfangeneDaten[1] == 9 && 
-                empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31 && 
-                empfangeneDaten[4] == 6) {
-            dieGUI.setzeGeschwindigkeit(empfangeneDaten[9]);
+        //Slider auf aktuelle Lok Geschwindigkeit setzen
+        if (empfangeneDaten[0] == 2 && empfangeneDaten[1] == 9
+                && empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31
+                && empfangeneDaten[4] == 6) {
+            //Geschwindigkeit nur setzen, wenn größer als 0
+            if (empfangeneDaten[9] > 0) {
+                dieGUI.setzeGeschwindigkeit(empfangeneDaten[9]);
+            }
         }
     }
     //Ende Methoden
