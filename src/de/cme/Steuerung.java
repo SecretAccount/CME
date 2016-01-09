@@ -1024,17 +1024,18 @@ public class Steuerung implements Befehle {
                     }
                     //if(nameNachfolger ==35){stelleWeiche(34,'r');} Abstellgleis wird hier nicht benötigt
                     break;
-                case 35: //Test doch richtig gestellt?
+                    //Gewichtung 2: rund = gerade | gerade = rund
+                case 35: //gilt nur für Gewichtung 2
                     if (nameNachfolger == 36) {
-                        stelleWeiche(35, 'r'); //vorher 'g' jetzt 'r'
-                    } //faslsche Stellung
+                        stelleWeiche(35, 'g');
+                    } //falsche Stellung
                     if (nameNachfolger == 6) {
-                        stelleWeiche(35, 'g'); //vorher 'r' jetzt 'g'
+                        stelleWeiche(35, 'r');
                     }//falsche Stellung
                     break;
                 case 36:
                     if (nameNachfolger == 37) {
-                        stelleWeiche(36, 'g');
+                        stelleWeiche(36, 'r'); //auf rund geändert, war erst gerade
                     }
                     break;
                 case 37:
@@ -1042,13 +1043,13 @@ public class Steuerung implements Befehle {
                         stelleWeiche(37, 'g');
                     }
                     break;
-                case 38:
+                case 38: //Falsch: doch richtige Stellung
                     if (nameNachfolger == 14) {
-                        stelleWeiche(38, 'g');
-                    }//falsche Stellung
-                    if (nameNachfolger == 4) {
                         stelleWeiche(38, 'r');
-                    }//falsche Stellung
+                    }//falsche Stellung: doch richtig
+                    if (nameNachfolger == 4) {
+                        stelleWeiche(38, 'g');
+                    }//falsche Stellung: doch richtig
                     break;
                 case 39:
                     //if (nameNachfolger == 24) {stelleWeiche(39, 'r');} INNERKREIS
