@@ -848,6 +848,7 @@ public class Steuerung implements Befehle {
                 zustand = true;
             } else {
                 //frei
+                System.out.println("Nicht belegt, aber trotzdem 'true'");
                 zustand = true;
             }
         }
@@ -1063,6 +1064,7 @@ public class Steuerung implements Befehle {
     public void RMKfuerFahren(byte[] daten) {
         //Losfahren, wenn Lok auf Startknoten steht
         if (leseRMK(startPoint, daten)) {
+            System.out.println("Lok mit v=10 fahren, da Lok auf Startpunkt");
             fahreLok(10);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
