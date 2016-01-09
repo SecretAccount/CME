@@ -2,10 +2,13 @@ package de.cme;
 
 import de.cme.dijkstra.Dijkstra;
 import de.cme.dijkstra.Knoten;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Timer;
 
 /**
  *
@@ -17,6 +20,7 @@ public class Steuerung implements Befehle {
     private GUI dieGUI;
     private Anlage dieAnlage;
     private Dijkstra dijkstra;
+    private Timer sendTimer;
 
     private byte[] dieDaten;
     private byte[] empfangeneDaten;
@@ -24,6 +28,8 @@ public class Steuerung implements Befehle {
     private int gewWeichenModul;
     private int gewRMKModul;
     private byte lokAdresse;
+
+    private boolean sendEnabled = false;
 
     private List<Knoten> weg;
     private int startPoint;
@@ -40,6 +46,14 @@ public class Steuerung implements Befehle {
         dieGUI = eineGUI; // bidirektional
         dieAnlage = new Anlage(this); // bidirektional
         dijkstra = new Dijkstra(); //Objekt zur Wegfindung erstellen
+        sendTimer = new Timer(500, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Timer abgelaufen nach 500ms");
+                sendEnabled = true;
+            }
+        });
 
         dieDaten = new byte[13]; //Byte Array für Daten mit 13 Bytes
         dieDaten[0] = (byte) 0;
@@ -122,7 +136,12 @@ public class Steuerung implements Befehle {
             dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bit des Werts des Schiebereglers * 10
             dieDaten[11] = (byte) 0;             // Rest mit 0 auffüllen
             dieDaten[12] = (byte) 0;             // Rest mit 0 auffüllen
-            dieAnlage.schreibeAufCAN(dieDaten);  // Senden
+            //Nur senden, wenn 500ms gewartet wurden (Timer abgelaufen ist)
+            // damit kein Datenstau entsteht
+            if (sendEnabled) {
+                dieAnlage.schreibeAufCAN(dieDaten);  // Senden
+                sendEnabled = false;
+            }
         } catch (Exception ex) {
             System.out.println("Fehler beim Lok fahren/Lok anhalten.");
             anhaltenSystem();
@@ -892,7 +911,7 @@ public class Steuerung implements Befehle {
     public int getStartPoint() {
         return startPoint;
     }
-    
+
     public void setEndPoint(int bisKnoten) {
         endPoint = bisKnoten;
     }
@@ -900,7 +919,7 @@ public class Steuerung implements Befehle {
     public int getEndPoint() {
         return endPoint;
     }
-    
+
     public void findeWeg() {
         dijkstra.init();
         weg = dijkstra.findeWeg(startPoint, endPoint);
@@ -1087,12 +1106,12 @@ public class Steuerung implements Befehle {
                 && empfangeneDaten[2] == 7 && empfangeneDaten[3] == 31
                 && empfangeneDaten[4] == 6) {
             //Geschwindigkeit nur setzen, wenn größer als 0
-                int geschwindigkeitLB = empfangeneDaten[10];
-                int geschwindigkeitHB = empfangeneDaten[9];
-                int geschwindigkeit = geschwindigkeitLB;
-                geschwindigkeit += geschwindigkeitHB << 8;
-                System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
-                dieGUI.setzeGeschwindigkeit(geschwindigkeit);
+            int geschwindigkeitLB = empfangeneDaten[10];
+            int geschwindigkeitHB = empfangeneDaten[9];
+            int geschwindigkeit = geschwindigkeitLB;
+            geschwindigkeit += geschwindigkeitHB << 8;
+            System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
+            dieGUI.setzeGeschwindigkeit(geschwindigkeit);
         }
     }
     //Ende Methoden
