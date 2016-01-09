@@ -1243,7 +1243,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
     
-     public void setzeGeschwindigkeit(byte empfangeneGeschwindigkeit) {
+     public void setzeGeschwindigkeit(int empfangeneGeschwindigkeit) {
          jSGeschwindigkeit.setValue(empfangeneGeschwindigkeit);
     }
     
