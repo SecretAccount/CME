@@ -106,7 +106,7 @@ public class Steuerung implements Befehle {
     
     private void initTimer() {
         sendTimer = new Timer(500, (ActionEvent e) -> {
-            System.out.println("Timer abgelaufen nach 500ms");
+//            System.out.println("Timer abgelaufen nach 500ms");
             sendEnabled = true;
         });
         sendTimer.start();
@@ -139,7 +139,7 @@ public class Steuerung implements Befehle {
             dieDaten[10] = (byte) geschwLowByte; // Low-Byte: 2. Byte der Geschw.: 8-Bit des Werts des Schiebereglers * 10
             dieDaten[11] = (byte) 0;             // Rest mit 0 auffüllen
             dieDaten[12] = (byte) 0;             // Rest mit 0 auffüllen
-            //Nur senden, wenn 500ms gewartet wurden (Timer abgelaufen ist)
+            //Nur senden, wenn 500ms gewartet wurde (Timer abgelaufen ist)
             // damit kein Datenstau entsteht
             if (sendEnabled) {
                 dieAnlage.schreibeAufCAN(dieDaten);  // Senden
