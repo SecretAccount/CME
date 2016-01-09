@@ -992,7 +992,7 @@ public class GUI extends javax.swing.JFrame {
         try {
         vonKnoten = Integer.valueOf(jTFVon.getText().trim());
         bisKnoten = Integer.valueOf(jTFBis.getText().trim());
-        } catch(UnknownFormatConversionException ufce) {
+        } catch(IllegalFormatConversionException ifce) {
             //Standard-Knoten von 1 nach 8
             vonKnoten = 1;
             bisKnoten = 8;
