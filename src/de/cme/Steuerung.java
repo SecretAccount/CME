@@ -834,6 +834,8 @@ public class Steuerung implements Befehle {
         }
         //Absatz
         System.out.println("");
+        
+        System.out.println("Adresse der RMKNummer: " + gibRMKAdresse(RMKNummer));
 
         //Rückmeldeabschnitt prüfen
         //Standardmäßig frei
@@ -1017,7 +1019,7 @@ public class Steuerung implements Befehle {
             if (punkt.getName() < 32) {
                 //Losfahren, wenn Lok auf Startknoten steht
 //                if (punkt.getName() == startPoint) {
-                System.out.println("sende ");
+                System.out.println("RM-Event, ob Anfang oder Ende belegt sind ");
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException ex) {
