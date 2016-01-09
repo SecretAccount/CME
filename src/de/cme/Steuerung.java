@@ -46,14 +46,9 @@ public class Steuerung implements Befehle {
         dieGUI = eineGUI; // bidirektional
         dieAnlage = new Anlage(this); // bidirektional
         dijkstra = new Dijkstra(); //Objekt zur Wegfindung erstellen
-        sendTimer = new Timer(500, new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Timer abgelaufen nach 500ms");
-                sendEnabled = true;
-            }
-        });
+        //Timer initialisieren
+        initTimer();
 
         dieDaten = new byte[13]; //Byte Array für Daten mit 13 Bytes
         dieDaten[0] = (byte) 0;
@@ -107,6 +102,14 @@ public class Steuerung implements Befehle {
         dieAnlage.disconnect();
         System.out.println("Beenden");
         System.exit(0);
+    }
+    
+    private void initTimer() {
+        sendTimer = new Timer(500, (ActionEvent e) -> {
+            System.out.println("Timer abgelaufen nach 500ms");
+            sendEnabled = true;
+        });
+        sendTimer.start();
     }
 
     //Überladene Methode: mit Adresse oder Adresse von Steuerung benutzen
