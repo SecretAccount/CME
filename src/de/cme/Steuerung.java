@@ -848,7 +848,7 @@ public class Steuerung implements Befehle {
                 zustand = true;
             } else {
                 //frei
-                zustand = false;
+                zustand = true;
             }
         }
         return zustand;
