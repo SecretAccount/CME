@@ -1016,13 +1016,14 @@ public class Steuerung implements Befehle {
 //            Knoten endKnoten = weg.get(weg.size() - 1);
             if (punkt.getName() < 32) {
                 //Losfahren, wenn Lok auf Startknoten steht
-                if (punkt.getName() == startPoint) {
+//                if (punkt.getName() == startPoint) {
+                    System.out.println("sende ");
                     sendeRMK(startPoint);
-                }
+//                }
                 //Lok anhalten, wenn sie am Ziel angekommen ist
-                if (punkt.getName() == endPoint) {
+//                if (punkt.getName() == endPoint) {
                     sendeRMK(endPoint);
-                }
+//                }
             }
 
 //            //Kanten entfernen, deren Rückmeldeabschnitte belegt sind
@@ -1047,24 +1048,14 @@ public class Steuerung implements Befehle {
     }
 
     public void RMKfuerFahren() {
-        //Durch alle Knoten in der Wegliste durchiterieren
-        weg.stream().forEach((punkt) -> {
-            if (punkt.getName() < 32) {
-                //Losfahren, wenn Lok auf Startknoten steht
-                if (punkt.getName() == startPoint) {
-                    if (leseRMK(startPoint)) {
-                        fahreLok(10);
-                    }
-                }
-                //Lok anhalten, wenn sie am Ziel angekommen ist
-                if (punkt.getName() == endPoint) {
-                    if (leseRMK(endPoint)) {
-                        fahreLok(0);
-                    }
-                }
-            }
-        });
+        //Losfahren, wenn Lok auf Startknoten steht
+        if (leseRMK(startPoint)) {
+            fahreLok(10);
+        }
+        //Lok anhalten, wenn sie am Ziel angekommen ist
+        if (leseRMK(endPoint)) {
+            fahreLok(0);
+        }
     }
-
     //Ende Methoden
 }
