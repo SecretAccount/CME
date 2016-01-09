@@ -971,10 +971,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBRMKabfragenActionPerformed
 
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
+        dieSteuerung.setStartPoint(getStartPoint());
+        dieSteuerung.setEndPoint(getEndPoint());
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
-        dijkstra.findeWeg(1, 6);
-        dijkstra.showList();
+        dijkstra.findeWeg(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
+        dijkstra.showList(); //Zeigt Fehler, wenn noch nicht alle Knoten und Kandten eingefügt sind
     }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
 
     private void jBRichtungAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRichtungAendernActionPerformed
@@ -985,18 +987,34 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.sendeWeichenPosition();
     }//GEN-LAST:event_jBWeichenPositionActionPerformed
 
-    private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
+    
+    private int getStartPoint() {
         int  vonKnoten;
-        int  bisKnoten;
         try {
         vonKnoten = Integer.valueOf(jTFVon.getText().trim());
+        } catch(IllegalFormatConversionException ifce) {
+            //Standard-Start-Knoten 1
+            vonKnoten = 1;
+            System.out.println("Falscher Start-Knotenwert");
+        }
+        return vonKnoten;
+    }
+    
+    private int getEndPoint() {
+        int  bisKnoten;
+        try {
         bisKnoten = Integer.valueOf(jTFBis.getText().trim());
         } catch(IllegalFormatConversionException ifce) {
-            //Standard-Knoten von 1 nach 8
-            vonKnoten = 1;
+            //Standard-End-Knoten 8
             bisKnoten = 8;
-            System.out.println("Falscher Knotenwert");
+            System.out.println("Falscher End-Knotenwert");
         }
+        return bisKnoten;
+    }
+    private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
+        int  vonKnoten = getStartPoint();
+        int  bisKnoten = getEndPoint();
+        
         dieSteuerung.setStartPoint(vonKnoten);
         dieSteuerung.setEndPoint(bisKnoten);
         dieSteuerung.findeWeg();
@@ -1225,7 +1243,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
     
-     void setzeGeschwindigkeit(byte empfangeneGeschwindigkeit) {
+     public void setzeGeschwindigkeit(byte empfangeneGeschwindigkeit) {
          jSGeschwindigkeit.setValue(empfangeneGeschwindigkeit);
     }
     
