@@ -842,7 +842,7 @@ public class Steuerung implements Befehle {
         
         boolean zustand = false;
         if (daten[0] == 0 && daten[1] == 35 && daten[2] == 11
-                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8  && daten[8] == RMKNummer ) {
+                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8  /* && daten[8] == gibRMKAdresse(RMKNummer) */) {
             if (daten[9] == 0) {
                 //belegt
                 System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
@@ -1064,12 +1064,12 @@ public class Steuerung implements Befehle {
 
     public void RMKfuerFahren(byte[] daten) {
         //Losfahren, wenn Lok auf Startknoten steht
-        if (leseRMK(19, daten)) {
+        if (leseRMK(startPoint, daten)) {
             System.out.println("Lok mit v=10 fahren, da Lok auf Startpunkt");
             fahreLok(30);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
-        if (leseRMK(2, daten)) {
+        if (leseRMK(endPoint, daten)) {
             fahreLok(0);
         }
     }
