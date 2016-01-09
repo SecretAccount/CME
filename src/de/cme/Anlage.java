@@ -197,7 +197,7 @@ public class Anlage {
                     dieSteuerung.findeWeichenPosition(); //bald deprecaded, weil nur noch über Automatik-Wegfindung Weichen gesucht werden
                     dieSteuerung.sucheRMK(); //bald deprecaded, weil noch nur über Automatik-Wegfindung gesucht wird
                     dieSteuerung.RMKfuerFahren();
-                    dieSteuerung.leseGeschwindigkeit();
+//                    dieSteuerung.leseGeschwindigkeit(); //Geschwindigkeit wird immer auf 0 gesetzt
                     break;
                 case SerialPortEvent.BI:
                 case SerialPortEvent.CD:

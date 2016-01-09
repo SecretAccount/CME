@@ -825,7 +825,7 @@ public class Steuerung implements Befehle {
 
     }
 
-//    @Override
+    @Override
     public boolean leseRMK(int RMKNummer) {
         System.out.println("Empfangene Daten in leseRMK-Methode: ");
 
