@@ -196,7 +196,8 @@ public class Anlage {
                     dieSteuerung.holeDaten(holeVonCAN());
                     dieSteuerung.findeWeichenPosition(); //bald deprecaded, weil nur noch über Automatik-Wegfindung Weichen gesucht werden
                     dieSteuerung.sucheRMK(); //bald deprecaded, weil noch nur über Automatik-Wegfindung gesucht wird
-                    dieSteuerung.RMKfuerFahren(holeVonCAN());
+                    dieSteuerung.RMKfuerFahren();
+                    dieSteuerung.leseGeschwindigkeit();
                     break;
                 case SerialPortEvent.BI:
                 case SerialPortEvent.CD:
