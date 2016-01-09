@@ -889,10 +889,18 @@ public class Steuerung implements Befehle {
         startPoint = vonKnoten;
     }
 
+    public int getStartPoint() {
+        return startPoint;
+    }
+    
     public void setEndPoint(int bisKnoten) {
         endPoint = bisKnoten;
     }
 
+    public int getEndPoint() {
+        return endPoint;
+    }
+    
     public void findeWeg() {
         dijkstra.init();
         weg = dijkstra.findeWeg(startPoint, endPoint);
