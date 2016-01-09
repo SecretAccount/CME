@@ -825,8 +825,8 @@ public class Steuerung implements Befehle {
 
     }
 
-    @Override
-    public boolean leseRMK(int RMKNummer) {
+//    @Override
+    public boolean leseRMK(int RMKNummer, byte[] daten) {
         System.out.println("Empfangene Daten in leseRMK-Methode: ");
 
         for (byte dataByte : empfangeneDaten) {
@@ -838,9 +838,9 @@ public class Steuerung implements Befehle {
         //Rückmeldeabschnitt prüfen
         //Standardmäßig frei
         boolean zustand = false;
-        if (empfangeneDaten[0] == 0 && empfangeneDaten[1] == 35 && empfangeneDaten[2] == 11
-                /* empfangeneDaten[3] == 1 Modul-Nr.=1*/ && empfangeneDaten[4] == 8 && empfangeneDaten[8] == gibRMKAdresse(RMKNummer)) {
-            if (empfangeneDaten[9] == 0) {
+        if (daten[0] == 0 && daten[1] == 35 && daten[2] == 11
+                /* daten[3] == 1 Modul-Nr.=1*/ && daten[4] == 8 && daten[8] == gibRMKAdresse(RMKNummer)) {
+            if (daten[9] == 0) {
                 //belegt
                 System.out.println("RMK  " + gibRMKAdresse(RMKNummer) + " belegt!");
                 zustand = true;
@@ -1017,12 +1017,22 @@ public class Steuerung implements Befehle {
             if (punkt.getName() < 32) {
                 //Losfahren, wenn Lok auf Startknoten steht
 //                if (punkt.getName() == startPoint) {
-                    System.out.println("sende ");
-                    sendeRMK(startPoint);
+                System.out.println("sende ");
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                sendeRMK(startPoint);
 //                }
                 //Lok anhalten, wenn sie am Ziel angekommen ist
 //                if (punkt.getName() == endPoint) {
-                    sendeRMK(endPoint);
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                sendeRMK(endPoint);
 //                }
             }
 
@@ -1047,13 +1057,13 @@ public class Steuerung implements Befehle {
         }
     }
 
-    public void RMKfuerFahren() {
+    public void RMKfuerFahren(byte[] daten) {
         //Losfahren, wenn Lok auf Startknoten steht
-        if (leseRMK(startPoint)) {
+        if (leseRMK(startPoint, daten)) {
             fahreLok(10);
         }
         //Lok anhalten, wenn sie am Ziel angekommen ist
-        if (leseRMK(endPoint)) {
+        if (leseRMK(endPoint, daten)) {
             fahreLok(0);
         }
     }
