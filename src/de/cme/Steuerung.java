@@ -999,9 +999,15 @@ public class Steuerung implements Befehle {
         for (Knoten punkt : weg) {
             System.out.println("Knoten-Name: " + punkt.getName());
             int nameNachfolger = 0; //Standard-Wert
+            int nameVorgaenger = 0; //Standard-Wert
+//            
             //letzes Element hat keinen Nachfolger
             if ((weg.size() - 1) != weg.indexOf(punkt)) {
                 nameNachfolger = weg.get(weg.indexOf(punkt) + 1).getName();
+            }
+            //erstes Element hat keinen Vorgänger
+            if (weg.indexOf(punkt) != 0) {
+                nameVorgaenger = weg.get(weg.indexOf(punkt) - 1).getName();
             }
             System.out.println("Nachfolger-Name: " + nameNachfolger);
             //Fahrtrichtung mit Gewichtung 1
@@ -1070,8 +1076,11 @@ public class Steuerung implements Befehle {
                     }
                     break;
                 case 40:
-                    if (nameNachfolger == 10) {
+                    if (nameNachfolger == 10 && nameVorgaenger == 1) { //Bedingung mit Vorgänger hinzugefügt
                         stelleWeiche(40, 'g');
+                    }
+                    if(nameNachfolger == 10 && nameVorgaenger == 12) { //Bedingung mit Vorgänger hinzugefügt
+                        stelleWeiche(40, 'r');
                     }
                     break;
                 case 41:
