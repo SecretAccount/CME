@@ -131,7 +131,7 @@ public class Steuerung implements Befehle {
      * Geschwindigkeit kann gesendet werden als Parameter
      *
      * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-1000
-     *                (Parameter-Werte müssen entsprechend angepasst werden)
+     * (Parameter-Werte müssen entsprechend angepasst werden)
      */
     @Override
     public void fahreLok(int geschwindigkeit) {
@@ -140,24 +140,24 @@ public class Steuerung implements Befehle {
 
     /**
      * Überladene Methode: Geschwindikeit und Adresse der Lok als int senden
-     * 
-     * 
+     *
+     *
      * @param lokAdresse: Adresse der drei Loks als int (24, 10, 11)
-     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok (1-1000)
-     *                (Parameter-Werte müssen entsprechend angepasst werden) 
+     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok
+     * (1-1000) (Parameter-Werte müssen entsprechend angepasst werden)
      */
     @Override
     public void fahreLok(int lokAdresse, int geschwindigkeit) {
         fahreLok((byte) lokAdresse, geschwindigkeit);
     }
 
-     /**
-     * Überladene Methode: Nimmt Geschwindikeit als int und Name der Lok als String
-     *      entgegen, Timer wird nicht umgangen
+    /**
+     * Überladene Methode: Nimmt Geschwindikeit als int und Name der Lok als
+     * String entgegen, Timer wird nicht umgangen
      *
      * @param lokName: Name der drei Loks als String ("rote", "grüne", "blaue")
-     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok (1-1000)
-     *                (Parameter-Werte müssen entsprechend angepasst werden)
+     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok
+     * (1-1000) (Parameter-Werte müssen entsprechend angepasst werden)
      */
     @Override
     public void fahreLok(String lokName, int geschwindigkeit) {
@@ -180,12 +180,11 @@ public class Steuerung implements Befehle {
     }
 
     /**
-     * Überladene Methode: Nimmt Geschwindigkeit und bypassTimer entgegen
-     *                     Um Timer zu umgehen true als Parameter für 
-     *                     bypassTimer senden
+     * Überladene Methode: Nimmt Geschwindigkeit und bypassTimer entgegen Um
+     * Timer zu umgehen true als Parameter für bypassTimer senden
      *
      * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-1000
-     *                  (Parameter-Werte müssen entsprechend angepasst werden)
+     * (Parameter-Werte müssen entsprechend angepasst werden)
      * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen
      * werden soll, false, damit nur alle 100ms gesendet wird
      */
@@ -198,25 +197,24 @@ public class Steuerung implements Befehle {
      * Geschwindigkeit kann gesendet werden als Parameter Adresse der Lok kann
      * ebenfalls gesendet werden
      *
-     * @param adresse: Adresse der Lok, mit der gefahren werden soll 
-     *                 (z.B. 24, 10, 11)
-     *                          
+     * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24,
+     * 10, 11)
+     *
      * @param geschwindigkeit: Geschwindigkeit der Lok von 0-1000
-     *              (Parameter-Werte müssen entsprechend angepasst werden)
+     * (Parameter-Werte müssen entsprechend angepasst werden)
      */
     public void fahreLok(byte adresse, int geschwindigkeit) {
         fahreLok(adresse, geschwindigkeit, false);
     }
 
     /**
-     * Überladene Methode:
-     * Geschwindigkeit, Adresse der Lok und Umgehung des Timers können als
-     * Parameter gesendet werden
+     * Überladene Methode: Geschwindigkeit, Adresse der Lok und Umgehung des
+     * Timers können als Parameter gesendet werden
      *
      * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24,
      * 10, 11)
      * @param geschwindigkeit: Geschwindigkeit der Lok von 0-1000
-     *              (Parameter-Werte müssen entsprechend angepasst werden)
+     * (Parameter-Werte müssen entsprechend angepasst werden)
      * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen
      * werden soll, false, damit nur alle 100ms gesendet wird
      */
@@ -299,7 +297,7 @@ public class Steuerung implements Befehle {
         dieAnlage.schreibeAufCAN(dieDaten);
     }
 
-    public void systemBefehl() {
+    private void systemBefehl() {
         dieDaten[1] = (byte) 0; //CAN-ID:0
         dieDaten[4] = (byte) 5; //DLC:5 Datenbytes
         dieDaten[5] = (byte) 0;
@@ -355,12 +353,7 @@ public class Steuerung implements Befehle {
     }
 
     public void schalteLichtVonLok(boolean lichtEin) {
-        System.out.println("Licht-Funktion");
-        if (lichtEin) {
-            lokFunktion(lokAdresse, (byte) 0, (byte) 1); //Licht der Lok einschalten
-        } else {
-            lokFunktion(lokAdresse, (byte) 0, (byte) 0); //Licht der Lok ausschalten
-        }
+        schalteLichtVonLok(lokAdresse, lichtEin);
     }
 
     public void stelleWeiche(int modulNr, byte weichenAdresse, byte stellung) {
@@ -1105,7 +1098,10 @@ public class Steuerung implements Befehle {
                     }//falsche Stellung: doch richtig
                     break;
                 case 39:
-                    //if (nameNachfolger == 24) {stelleWeiche(39, 'r');} INNERKREIS
+                    //INNERKREIS
+                    if (nameNachfolger == 24) {
+                        stelleWeiche(39, 'r');
+                    }
                     if (nameNachfolger == 13) {
                         stelleWeiche(39, 'g');
                     }
@@ -1133,10 +1129,10 @@ public class Steuerung implements Befehle {
                     }
                     break;
                 case 19: // BRAINFUCK
-
+                    //ACHTUNG 6/4 Problem!!
                     if (nameNachfolger == 42) {
                         stelleWeiche(42, 'g');
-                    }//ACHTUNG 6/4 Problem!!
+                    }
                     break;
                 case 9:
                     if (nameNachfolger == 42) {
@@ -1144,7 +1140,10 @@ public class Steuerung implements Befehle {
                     }
                     break;
                 case 43:
-                    //if (nameNachfolger == 28) {stelleWeiche(43, 'r');} INNERKREIS
+                    //INNERKREIS
+                    if (nameNachfolger == 28) {
+                        stelleWeiche(43, 'r');
+                    }
                     if (nameNachfolger == 18) {
                         stelleWeiche(43, 'g');
                     }
