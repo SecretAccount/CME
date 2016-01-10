@@ -43,16 +43,34 @@ public interface Befehle {
     
     /**
      *
-     * @param LokName: Adresse der drei Loks (24, 10, 11)
+     * @param lokAdresse: Adresse der drei Loks als int (24, 10, 11)
      * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok
      *                          (1-1000)
      */
-    public void fahreLok(int LokName, int geschwindigkeit);
+    public void fahreLok(int lokAdresse, int geschwindigkeit);
     
     /**
      *
-     * @param LokName: Adresse der drei Loks (24, 10, 11)
+     * @param lokName: Name der drei Loks als String ("rote", "grüne", "blaue")
+     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok
+     *                          (1-1000)
+     */
+    public void fahreLok(String lokName, int geschwindigkeit);
+    
+    /**
+     * Überladene Methode: bypassTimer ist false, Timer wird nicht umgangen
+     * Geschwindigkeit kann gesendet werden als Parameter
+     * Es wird die Standard-Lok-Adresse verwendet (24)
+     *
+     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-100 (wird
+     * intern in 0-1000 umgewandelt)
+     */
+    public void fahreLok(int geschwindigkeit);
+    
+    /**
+     *
+     * @param lokAdresse: Adresse der drei Loks (24, 10, 11)
      * @param lichtEin: Licht ein oder aus schalten (true/false)
      */
-    public void schalteLichtVonLok(int LokName, boolean lichtEin);
+    public void schalteLichtVonLok(int lokAdresse, boolean lichtEin);
 }

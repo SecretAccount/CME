@@ -130,18 +130,62 @@ public class Steuerung implements Befehle {
      * Überladene Methode: bypassTimer ist false, Timer wird nicht umgangen
      * Geschwindigkeit kann gesendet werden als Parameter
      *
-     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-100 (wird
-     * intern in 0-1000 umgewandelt)
+     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-1000
+     *                (Parameter-Werte müssen entsprechend angepasst werden)
      */
+    @Override
     public void fahreLok(int geschwindigkeit) {
         fahreLok(lokAdresse, geschwindigkeit, false);
     }
 
     /**
-     * Überladene Methode: Um Timer zu umgehen
+     * Überladene Methode: Geschwindikeit und Adresse der Lok als int senden
+     * 
+     * 
+     * @param lokAdresse: Adresse der drei Loks als int (24, 10, 11)
+     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok (1-1000)
+     *                (Parameter-Werte müssen entsprechend angepasst werden) 
+     */
+    @Override
+    public void fahreLok(int lokAdresse, int geschwindigkeit) {
+        fahreLok((byte) lokAdresse, geschwindigkeit);
+    }
+
+     /**
+     * Überladene Methode: Nimmt Geschwindikeit als int und Name der Lok als String
+     *      entgegen, Timer wird nicht umgangen
      *
-     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-100 (wird
-     * intern in 0-1000 umgewandelt)
+     * @param lokName: Name der drei Loks als String ("rote", "grüne", "blaue")
+     * @param geschwindigkeit: Parameter für die Geschwindigkeit der Lok (1-1000)
+     *                (Parameter-Werte müssen entsprechend angepasst werden)
+     */
+    @Override
+    public void fahreLok(String lokName, int geschwindigkeit) {
+        byte lAdresse;
+        switch (lokName) {
+            case "rote":
+                lAdresse = 24;
+                break;
+            case "blaue":
+                lAdresse = 11;
+                break;
+            case "grüne":
+                lAdresse = 12;
+                break;
+            default:
+                lAdresse = Steuerung.STANDARD_LOK_ADRESSE;
+                break;
+        }
+        fahreLok(lAdresse, geschwindigkeit);
+    }
+
+    /**
+     * Überladene Methode: Nimmt Geschwindigkeit und bypassTimer entgegen
+     *                     Um Timer zu umgehen true als Parameter für 
+     *                     bypassTimer senden
+     *
+     * @param geschwindigkeit: (int) Geschwindigkeit der Lok von 0-1000
+     *                  (Parameter-Werte müssen entsprechend angepasst werden)
      * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen
      * werden soll, false, damit nur alle 100ms gesendet wird
      */
@@ -154,10 +198,11 @@ public class Steuerung implements Befehle {
      * Geschwindigkeit kann gesendet werden als Parameter Adresse der Lok kann
      * ebenfalls gesendet werden
      *
-     * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24,
-     * 10, 11)
-     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-100 (wird intern in
-     * 0-1000 umgewandelt)
+     * @param adresse: Adresse der Lok, mit der gefahren werden soll 
+     *                 (z.B. 24, 10, 11)
+     *                          
+     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-1000
+     *              (Parameter-Werte müssen entsprechend angepasst werden)
      */
     public void fahreLok(byte adresse, int geschwindigkeit) {
         fahreLok(adresse, geschwindigkeit, false);
@@ -165,22 +210,25 @@ public class Steuerung implements Befehle {
 
     /**
      * Überladene Methode:
-     *
-     * Geschwindigkeit, Adresse der Lok und Umgehung des Timers können gesendet
-     * werden als Parameter
+     * Geschwindigkeit, Adresse der Lok und Umgehung des Timers können als
+     * Parameter gesendet werden
      *
      * @param adresse: Adresse der Lok, mit der gefahren werden soll (z.B. 24,
      * 10, 11)
-     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-100 (wird intern in
-     * 0-1000 umgewandelt)
+     * @param geschwindigkeit: Geschwindigkeit der Lok von 0-1000
+     *              (Parameter-Werte müssen entsprechend angepasst werden)
      * @param bypassTimer: (boolean) true, wenn Timer Beschränkung umgangen
      * werden soll, false, damit nur alle 100ms gesendet wird
      */
     public void fahreLok(byte adresse, int geschwindigkeit, boolean bypassTimer) {
         // Systemfahrstufe = 1 + (Gleisfahrstufe - 1) * Schrittweite
-        System.out.println("Geschw. senden: " + (geschwindigkeit * 10));
+        System.out.println("Geschw. senden: " + (geschwindigkeit));
         //int systemGeschwindigkeit = 1 + (geschwindigkeit - 1) * 33;
-        int geschwLowByte = geschwindigkeit * 10;
+        //Geschwindigkeit auf 1000 setzen, wenn sie größer als 1000 ist
+        if (geschwindigkeit > 1000) {
+            geschwindigkeit = 1000;
+        }
+        int geschwLowByte = geschwindigkeit;
         int geschwHighByte = geschwLowByte >> 8;
         System.out.println("Adresse: " + adresse);
 //        System.out.println("Systemgeschw.: " + systemGeschwindigkeit);
@@ -943,11 +991,6 @@ public class Steuerung implements Befehle {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void fahreLok(int LokName, int geschwindigkeit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public void sendeWeichenPosition() {
         // 442A80x DLC 2 Data 0x00 0xE0
         System.out.println("sende Weichen Position");
@@ -1079,7 +1122,7 @@ public class Steuerung implements Befehle {
                     if (nameNachfolger == 10 && nameVorgaenger == 1) { //Bedingung mit Vorgänger hinzugefügt
                         stelleWeiche(40, 'g');
                     }
-                    if(nameNachfolger == 10 && nameVorgaenger == 12) { //Bedingung mit Vorgänger hinzugefügt
+                    if (nameNachfolger == 10 && nameVorgaenger == 12) { //Bedingung mit Vorgänger hinzugefügt
                         stelleWeiche(40, 'r');
                     }
                     break;
@@ -1174,10 +1217,10 @@ public class Steuerung implements Befehle {
         if (automationEnabled) {
             //Losfahren, wenn Lok auf Startknoten steht
             if (leseRMK(startPoint)) {
-                System.out.println("Lok mit v=20 fahren, da Lok auf Startpunkt");
+                System.out.println("Lok mit v=200 fahren, da Lok auf Startpunkt");
                 //TO-DO: benutze fahreLok-Methode, die immer Wert entgegennimmt
                 //unabhängig vom Timer
-                fahreLok(20, true);
+                fahreLok(200, true);
             }
             //Lok anhalten, wenn sie am Ziel angekommen ist
             if (leseRMK(endPoint)) {

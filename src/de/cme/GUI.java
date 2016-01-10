@@ -857,11 +857,11 @@ public class GUI extends javax.swing.JFrame {
         try {
             dieSteuerung.setLokAdresse(Byte.parseByte(jSAdresse.getValue().toString())); //Lok-Adresse von der GUI einlesen und der Steuerung übergeben
         } catch (IllegalFormatConversionException conversionException) {
-            dieSteuerung.setLokAdresse(dieSteuerung.STANDARD_LOK_ADRESSE); //Standardmäßig Lok 24 wählen
+            dieSteuerung.setLokAdresse(Steuerung.STANDARD_LOK_ADRESSE); //Standardmäßig Lok 24 wählen
             System.out.println("Adresse der Steuerung: " + dieSteuerung.getLokAdresse());
         }
         System.out.println("aktueller Wert vom Slider: " + jSGeschwindigkeit.getValue());
-        dieSteuerung.fahreLok(jSGeschwindigkeit.getValue());
+        dieSteuerung.fahreLok(jSGeschwindigkeit.getValue() * 10);
     }
 
     private void jTBSteuernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTBSteuernActionPerformed
@@ -869,7 +869,7 @@ public class GUI extends javax.swing.JFrame {
             jTBSteuern.setText("HALT");
             //Lok fahren lassen
             dieSteuerung.einschaltenSystem(); //System einschalten
-            dieSteuerung.fahreLok(jSGeschwindigkeit.getValue()); //Lok mit aktueller Geschwindigkeit weiterfahren lassen
+            dieSteuerung.fahreLok(jSGeschwindigkeit.getValue() * 10); //Lok mit aktueller Geschwindigkeit weiterfahren lassen
         } else {
             jTBSteuern.setText("GO");
             //Lok anhalten
