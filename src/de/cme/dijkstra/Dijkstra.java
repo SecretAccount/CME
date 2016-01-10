@@ -67,7 +67,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[41], knoten[42], 1); // Knoten 42-43
         graph.kanteEinfuegen(knoten[42], knoten[17], 1); // Knoten 43-18
         
-        //Als Test, um Kanten von Start an zu entfernen
+        //Als Test, um zu testende Kanten von Start an zu entfernen
         /*
         if(graph.kanteEntfernen(knoten[7], knoten[6])) {
             System.out.println("Kanten 8-7 erfolgreich entfernt");
@@ -212,15 +212,12 @@ public class Dijkstra {
         int vorgaengerNr = 0;
         //unendliche Schleife
         while (true) {
-            //Suche nur nach Vorgänger, wenn das Objekt existiert
-            if(way.get(vorgaengerNr + 1) != null) {
             //füge Vorgänger der Liste hinzu
             way.add(way.get(vorgaengerNr).getVorgaenger()); //10
                 //breche ab, wenn der Startknoten in die Liste eingetragen wird
                 if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
                     break;
                 }
-            }
             vorgaengerNr++;
         }
 
