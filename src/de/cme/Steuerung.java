@@ -3,7 +3,6 @@ package de.cme;
 import de.cme.dijkstra.Dijkstra;
 import de.cme.dijkstra.Knoten;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -41,10 +40,10 @@ public class Steuerung implements Befehle {
 
     //Konstanten
     //Standard-Hash
-    private final byte HIGH_BYTE_HASH = (byte) 175;
-    private final byte LOW_BYTE_HASH = (byte) 83;
-    protected final byte STANDARD_LOK_ADRESSE = 24;
-    private static final int TIMER_DELAY = 100;
+    private final static byte HIGH_BYTE_HASH = (byte) 175;
+    private final static byte LOW_BYTE_HASH = (byte) 83;
+    protected final static byte STANDARD_LOK_ADRESSE = 24;
+    private final static int TIMER_DELAY = 100;
     // Ende Attribute
 
     public Steuerung(GUI eineGUI) {
@@ -990,7 +989,9 @@ public class Steuerung implements Befehle {
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
         stelleWeichen(weg);
-        sendeRMK(weg);
+        ParallelThread RMKThread = new ParallelThread(this, weg);
+        RMKThread.start();
+//        sendeRMK(weg);
 
     }
 
@@ -1119,7 +1120,7 @@ public class Steuerung implements Befehle {
         }
     }
 
-    private void sendeRMK(List<Knoten> weg) {
+    public void sendeRMK(List<Knoten> weg) { //wieder private machen
         for (Knoten punkt : weg) {
             //werden nicht gebraucht
 //            Knoten startKnoten = weg.get(0);
