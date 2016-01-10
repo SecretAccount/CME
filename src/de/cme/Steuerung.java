@@ -1085,8 +1085,12 @@ public class Steuerung implements Befehle {
                     }
                     break;
                 case 37:
-                    if (nameNachfolger == 15) {
+                    if (nameNachfolger == 15 && nameVorgaenger == 36) {
                         stelleWeiche(37, 'g');
+                    }
+                    //Von Innenkreis her kommend
+                    if (nameNachfolger == 15 && nameVorgaenger == 25) {
+                        stelleWeiche(37, 'r');
                     }
                     break;
                 case 38: //Falsch: doch richtige Stellung
@@ -1148,12 +1152,25 @@ public class Steuerung implements Befehle {
                         stelleWeiche(43, 'g');
                     }
                     break;
-                /*case 44:
-                 if (nameNachfolger == 23) {stelleWeiche(44, 'r');}
-                 if(nameNachfolger ==26){stelleWeiche(44,'g');}
-                 if(nameNachfolger ==22){stelleWeiche(44,'r');}
-                 if(nameNachfolger ==27){stelleWeiche(44,'g');}
-                 break; */
+                case 44:
+                    //Kreuzungsweiche im Innenkreis
+                    if (nameNachfolger == 23 && nameVorgaenger == 27 ||
+                           nameNachfolger == 27 && nameVorgaenger == 23 ) {
+                        stelleWeiche(44, 'r');
+                    }
+                    if (nameNachfolger == 26 && nameVorgaenger == 22 || 
+                            nameNachfolger == 22 && nameVorgaenger == 26) {
+                        stelleWeiche(44, 'r');
+                    }
+                    if (nameNachfolger == 27 && nameVorgaenger == 26 ||
+                            nameNachfolger == 26 && nameVorgaenger == 27) {
+                        stelleWeiche(44, 'g');
+                    }
+                    if (nameNachfolger == 22 && nameVorgaenger == 23 ||
+                            nameNachfolger == 23 && nameVorgaenger == 22) {
+                        stelleWeiche(44, 'g');
+                    }
+                    break;
                 default:
                     System.out.println("Falsche Weichenknoten-Nummer");
                     break;
