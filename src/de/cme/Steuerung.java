@@ -1127,7 +1127,6 @@ public class Steuerung implements Befehle {
                     }
                     break;
                 case 41:
-
                     if (nameNachfolger == 20) {
                         stelleWeiche(41, 'g');
                     }
@@ -1168,6 +1167,7 @@ public class Steuerung implements Befehle {
                     }
                     if (nameNachfolger == 22 && nameVorgaenger == 23 ||
                             nameNachfolger == 23 && nameVorgaenger == 22) {
+                        System.out.println("23 22 Stelle weiche gerade");
                         stelleWeiche(44, 'g');
                     }
                     break;
