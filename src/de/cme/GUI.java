@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,9 +104,9 @@ public class GUI extends javax.swing.JFrame {
         jTFVon = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTFBis = new javax.swing.JTextField();
-        jBStartDijkstraAlgorithmus = new javax.swing.JButton();
+        jBTestOneWay = new javax.swing.JButton();
         jBAutomatikStarten = new javax.swing.JButton();
-        jBDijkstraTest = new javax.swing.JButton();
+        jBTestAllNondes = new javax.swing.JButton();
         jBWeicheRund = new javax.swing.JButton();
         jBWeicheGerade = new javax.swing.JButton();
 
@@ -725,15 +726,25 @@ public class GUI extends javax.swing.JFrame {
         jLVon.setText("Von:");
 
         jTFVon.setText("1");
+        jTFVon.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFVonFocusGained(evt);
+            }
+        });
 
         jLabel1.setText("Bis:");
 
         jTFBis.setText("8");
+        jTFBis.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFBisFocusGained(evt);
+            }
+        });
 
-        jBStartDijkstraAlgorithmus.setText("Dijkstra Algorithmus starten");
-        jBStartDijkstraAlgorithmus.addActionListener(new java.awt.event.ActionListener() {
+        jBTestOneWay.setText("Eingegebenen Weg testen");
+        jBTestOneWay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBStartDijkstraAlgorithmusActionPerformed(evt);
+                jBTestOneWayActionPerformed(evt);
             }
         });
 
@@ -744,10 +755,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBDijkstraTest.setText("Dijkstra Algorithmus testen");
-        jBDijkstraTest.addActionListener(new java.awt.event.ActionListener() {
+        jBTestAllNondes.setText("Alle Knoten testen");
+        jBTestAllNondes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBDijkstraTestActionPerformed(evt);
+                jBTestAllNondesActionPerformed(evt);
             }
         });
 
@@ -758,7 +769,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBStartDijkstraAlgorithmus, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(jBTestOneWay, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                     .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                         .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLStreckeWaehlen)
@@ -774,7 +785,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(jBAutomatikStarten)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jBDijkstraTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBTestAllNondes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPFahrAutomatikLayout.setVerticalGroup(
@@ -791,9 +802,9 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jBAutomatikStarten)
                 .addGap(31, 31, 31)
-                .addComponent(jBStartDijkstraAlgorithmus)
+                .addComponent(jBTestOneWay)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBDijkstraTest)
+                .addComponent(jBTestAllNondes)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -981,15 +992,12 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.sendeRMK();
     }//GEN-LAST:event_jBRMKabfragenActionPerformed
 
-    private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
+    private void jBTestOneWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTestOneWayActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
-
-        Dijkstra dijkstra = new Dijkstra();
-        dijkstra.init();
-        dijkstra.findeWeg(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
-//        dijkstra.showList(); //Zeigt Fehler, wenn noch nicht alle Knoten und Kanten eingefügt sind
-    }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
+        TestingThread testingThread = new TestingThread(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
+        testingThread.start();
+    }//GEN-LAST:event_jBTestOneWayActionPerformed
 
     private void jBRichtungAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRichtungAendernActionPerformed
         dieSteuerung.wechsleRichtung(Byte.parseByte(jSAdresse.getValue().toString()));
@@ -1041,10 +1049,20 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.stelleWeiche(getStartPoint(), 'g');
     }//GEN-LAST:event_jBWeicheGeradeActionPerformed
 
-    private void jBDijkstraTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDijkstraTestActionPerformed
-        TestingThread testingThread = new TestingThread();
+    private void jBTestAllNondesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTestAllNondesActionPerformed
+        //Neuen TestThread erzeugen, der alle Knotenkombiantionen testet
+        TestingThread testingThread;
+        testingThread = new TestingThread();
         testingThread.start();
-    }//GEN-LAST:event_jBDijkstraTestActionPerformed
+    }//GEN-LAST:event_jBTestAllNondesActionPerformed
+
+    private void jTFVonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFVonFocusGained
+        jTFVon.selectAll();
+    }//GEN-LAST:event_jTFVonFocusGained
+
+    private void jTFBisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFBisFocusGained
+        jTFBis.selectAll();
+    }//GEN-LAST:event_jTFBisFocusGained
 
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
@@ -1305,12 +1323,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBAktualisieren;
     private javax.swing.JButton jBAutomatikStarten;
     private javax.swing.JButton jBBeenden;
-    private javax.swing.JButton jBDijkstraTest;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
-    private javax.swing.JButton jBStartDijkstraAlgorithmus;
     private javax.swing.JButton jBStopp;
+    private javax.swing.JButton jBTestAllNondes;
+    private javax.swing.JButton jBTestOneWay;
     private javax.swing.JButton jBTrennen;
     private javax.swing.JButton jBWeiche1Gerade;
     private javax.swing.JButton jBWeiche1Position;

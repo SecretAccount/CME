@@ -1005,7 +1005,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jBStartDijkstraAlgorithmus" pref="178" max="32767" attributes="0"/>
+                      <Component id="jBTestOneWay" pref="178" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLStreckeWaehlen" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1025,7 +1025,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jBDijkstraTest" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jBTestAllNondes" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1046,9 +1046,9 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jBAutomatikStarten" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jBStartDijkstraAlgorithmus" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBTestOneWay" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jBDijkstraTest" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBTestAllNondes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -1072,6 +1072,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFVonFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -1082,13 +1085,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="8"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFBisFocusGained"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBStartDijkstraAlgorithmus">
+        <Component class="javax.swing.JButton" name="jBTestOneWay">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dijkstra Algorithmus starten"/>
+            <Property name="text" type="java.lang.String" value="Eingegebenen Weg testen"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBStartDijkstraAlgorithmusActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTestOneWayActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBAutomatikStarten">
@@ -1099,12 +1105,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAutomatikStartenActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBDijkstraTest">
+        <Component class="javax.swing.JButton" name="jBTestAllNondes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dijkstra Algorithmus testen"/>
+            <Property name="text" type="java.lang.String" value="Alle Knoten testen"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBDijkstraTestActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTestAllNondesActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
