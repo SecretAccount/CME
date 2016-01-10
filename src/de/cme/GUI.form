@@ -995,7 +995,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="910" y="40" width="210" height="220"/>
+          <AbsoluteConstraints x="910" y="40" width="210" height="250"/>
         </Constraint>
       </Constraints>
 
@@ -1005,7 +1005,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jBStartDijkstraAlgorithmus" max="32767" attributes="0"/>
+                      <Component id="jBStartDijkstraAlgorithmus" pref="178" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLStreckeWaehlen" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1025,6 +1025,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="jBDijkstraTest" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1044,9 +1045,11 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jBAutomatikStarten" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jBStartDijkstraAlgorithmus" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jBDijkstraTest" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1096,6 +1099,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAutomatikStartenActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="jBDijkstraTest">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dijkstra Algorithmus testen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBDijkstraTestActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jBWeicheRund">
@@ -1107,7 +1118,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1020" y="290" width="130" height="-1"/>
+          <AbsoluteConstraints x="1020" y="310" width="130" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -1120,7 +1131,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1020" y="330" width="130" height="-1"/>
+          <AbsoluteConstraints x="1020" y="350" width="130" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

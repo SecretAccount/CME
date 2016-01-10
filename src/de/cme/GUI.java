@@ -1,6 +1,7 @@
 package de.cme;
 
 import de.cme.dijkstra.Dijkstra;
+import de.cme.dijkstra.test.DijkstraTest;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
@@ -19,7 +20,7 @@ public class GUI extends javax.swing.JFrame {
     private int modulNr;
 
     public GUI() {
-        initComponents();        
+        initComponents();
         dieSteuerung = new Steuerung(this);
         jBAktualisierenActionPerformed(null); //Ports suchen und anzeigen
     }
@@ -103,6 +104,7 @@ public class GUI extends javax.swing.JFrame {
         jTFBis = new javax.swing.JTextField();
         jBStartDijkstraAlgorithmus = new javax.swing.JButton();
         jBAutomatikStarten = new javax.swing.JButton();
+        jBDijkstraTest = new javax.swing.JButton();
         jBWeicheRund = new javax.swing.JButton();
         jBWeicheGerade = new javax.swing.JButton();
 
@@ -741,6 +743,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jBDijkstraTest.setText("Dijkstra Algorithmus testen");
+        jBDijkstraTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDijkstraTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPFahrAutomatikLayout = new javax.swing.GroupLayout(jPFahrAutomatik);
         jPFahrAutomatik.setLayout(jPFahrAutomatikLayout);
         jPFahrAutomatikLayout.setHorizontalGroup(
@@ -748,7 +757,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBStartDijkstraAlgorithmus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBStartDijkstraAlgorithmus, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                     .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                         .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLStreckeWaehlen)
@@ -763,7 +772,8 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addComponent(jBAutomatikStarten)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jBDijkstraTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPFahrAutomatikLayout.setVerticalGroup(
@@ -779,13 +789,15 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jTFBis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jBAutomatikStarten)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(jBStartDijkstraAlgorithmus)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBDijkstraTest)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPFahrAutomatik);
-        jPFahrAutomatik.setBounds(910, 40, 210, 220);
+        jPFahrAutomatik.setBounds(910, 40, 210, 250);
 
         jBWeicheRund.setText("Weiche rund");
         jBWeicheRund.addActionListener(new java.awt.event.ActionListener() {
@@ -794,7 +806,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBWeicheRund);
-        jBWeicheRund.setBounds(1020, 290, 130, 23);
+        jBWeicheRund.setBounds(1020, 310, 130, 23);
 
         jBWeicheGerade.setText("Weiche gerade");
         jBWeicheGerade.addActionListener(new java.awt.event.ActionListener() {
@@ -803,7 +815,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBWeicheGerade);
-        jBWeicheGerade.setBounds(1020, 330, 130, 23);
+        jBWeicheGerade.setBounds(1020, 350, 130, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -971,11 +983,11 @@ public class GUI extends javax.swing.JFrame {
     private void jBStartDijkstraAlgorithmusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStartDijkstraAlgorithmusActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
-        
+
         Dijkstra dijkstra = new Dijkstra();
         dijkstra.init();
         dijkstra.findeWeg(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
-        dijkstra.showList(); //Zeigt Fehler, wenn noch nicht alle Knoten und Kandten eingefügt sind
+//        dijkstra.showList(); //Zeigt Fehler, wenn noch nicht alle Knoten und Kanten eingefügt sind
     }//GEN-LAST:event_jBStartDijkstraAlgorithmusActionPerformed
 
     private void jBRichtungAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRichtungAendernActionPerformed
@@ -986,24 +998,23 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.sendeWeichenPosition();
     }//GEN-LAST:event_jBWeichenPositionActionPerformed
 
-    
     private int getStartPoint() {
-        int  vonKnoten;
+        int vonKnoten;
         try {
-        vonKnoten = Integer.valueOf(jTFVon.getText().trim());
-        } catch(IllegalFormatConversionException ifce) {
+            vonKnoten = Integer.valueOf(jTFVon.getText().trim());
+        } catch (IllegalFormatConversionException ifce) {
             //Standard-Start-Knoten 1
             vonKnoten = 1;
             System.out.println("Falscher Start-Knotenwert");
         }
         return vonKnoten;
     }
-    
+
     private int getEndPoint() {
-        int  bisKnoten;
+        int bisKnoten;
         try {
-        bisKnoten = Integer.valueOf(jTFBis.getText().trim());
-        } catch(IllegalFormatConversionException ifce) {
+            bisKnoten = Integer.valueOf(jTFBis.getText().trim());
+        } catch (IllegalFormatConversionException ifce) {
             //Standard-End-Knoten 8
             bisKnoten = 8;
             System.out.println("Falscher End-Knotenwert");
@@ -1011,11 +1022,11 @@ public class GUI extends javax.swing.JFrame {
         return bisKnoten;
     }
     private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
-        int  vonKnoten = getStartPoint();
-        int  bisKnoten = getEndPoint();
+        int vonKnoten = getStartPoint();
+        int bisKnoten = getEndPoint();
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
-        
+
         dieSteuerung.setStartPoint(vonKnoten);
         dieSteuerung.setEndPoint(bisKnoten);
         dieSteuerung.findeWeg();
@@ -1028,6 +1039,11 @@ public class GUI extends javax.swing.JFrame {
     private void jBWeicheGeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheGeradeActionPerformed
         dieSteuerung.stelleWeiche(getStartPoint(), 'g');
     }//GEN-LAST:event_jBWeicheGeradeActionPerformed
+
+    private void jBDijkstraTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDijkstraTestActionPerformed
+        DijkstraTest dijkstraTest = new DijkstraTest();
+        dijkstraTest.testeGraphen();
+    }//GEN-LAST:event_jBDijkstraTestActionPerformed
 
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
@@ -1230,7 +1246,7 @@ public class GUI extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     void clearPortList() {
         jCBCOMPort.removeAllItems();
     }
@@ -1243,11 +1259,11 @@ public class GUI extends javax.swing.JFrame {
             modulNr = 4;
         }
     }
-    
-     public void setzeGeschwindigkeit(int empfangeneGeschwindigkeit) {
-         jSGeschwindigkeit.setValue(empfangeneGeschwindigkeit);
+
+    public void setzeGeschwindigkeit(int empfangeneGeschwindigkeit) {
+        jSGeschwindigkeit.setValue(empfangeneGeschwindigkeit);
     }
-    
+
     /* Richtungswechsel ist nicht vorgesehen    */
     /**
      * @param args the command line arguments
@@ -1288,6 +1304,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBAktualisieren;
     private javax.swing.JButton jBAutomatikStarten;
     private javax.swing.JButton jBBeenden;
+    private javax.swing.JButton jBDijkstraTest;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
