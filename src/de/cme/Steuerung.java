@@ -989,9 +989,7 @@ public class Steuerung implements Befehle {
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
         stelleWeichen(weg);
-        ParallelThread RMKThread = new ParallelThread(this, weg);
-        RMKThread.start();
-//        sendeRMK(weg);
+        sendeRMK(weg);
 
     }
 
@@ -1120,7 +1118,7 @@ public class Steuerung implements Befehle {
         }
     }
 
-    public void sendeRMK(List<Knoten> weg) { //wieder private machen
+    private void sendeRMK(List<Knoten> weg) {
         for (Knoten punkt : weg) {
             //werden nicht gebraucht
 //            Knoten startKnoten = weg.get(0);
