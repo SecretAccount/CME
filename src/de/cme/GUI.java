@@ -2,6 +2,7 @@ package de.cme;
 
 import de.cme.dijkstra.Dijkstra;
 import de.cme.dijkstra.test.DijkstraTest;
+import de.cme.dijkstra.test.TestingThread;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
@@ -1041,8 +1042,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBWeicheGeradeActionPerformed
 
     private void jBDijkstraTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDijkstraTestActionPerformed
-        DijkstraTest dijkstraTest = new DijkstraTest();
-        dijkstraTest.testeGraphen();
+        TestingThread testingThread = new TestingThread();
+        testingThread.start();
     }//GEN-LAST:event_jBDijkstraTestActionPerformed
 
     public void positionRund(int nummer) {
