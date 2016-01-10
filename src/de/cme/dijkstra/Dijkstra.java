@@ -33,6 +33,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[8], knoten[41], 1);  // Knoten 9-42
         graph.kanteEinfuegen(knoten[9], knoten[31], 1);  // Knoten 10-32
         graph.kanteEinfuegen(knoten[10], knoten[40], 1); // Knoten 11-41
+        graph.kanteEinfuegen(knoten[11], knoten[10], 1); // Knoten 12-11
         graph.kanteEinfuegen(knoten[12], knoten[11], 1); // Knoten 13-12
         graph.kanteEinfuegen(knoten[13], knoten[38], 1); // Knoten 14-39
         graph.kanteEinfuegen(knoten[14], knoten[37], 1); // Knoten 15-38
@@ -50,7 +51,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[31], knoten[32], 1); // Knoten 32-33
         graph.kanteEinfuegen(knoten[32], knoten[29], 1); // Knoten 33-30
         graph.kanteEinfuegen(knoten[32], knoten[30], 1); // Knoten 33-31
-        
+
         graph.kanteEinfuegen(knoten[11], knoten[39], 1); // Knoten 12-40
         graph.kanteEinfuegen(knoten[37], knoten[3], 1); // Knoten 38-4
         graph.kanteEinfuegen(knoten[34], knoten[35], 1); // Knoten 35-36
@@ -109,35 +110,35 @@ public class Dijkstra {
          graph.kanteEinfuegen(knoten[41], knoten[8], 2);  // Knoten 42-9
          graph.kanteEinfuegen(knoten[41], knoten[18], 2); // Knoten 42-19
          graph.kanteEinfuegen(knoten[42], knoten[41], 2); // Knoten 43-42
-
+         */
          //Kanten werden gemäß Vorlage verknüpft Mittlekreis mit jeweils Gewichtung
          //von 3 (beide Fahrtrichtungen)
-         graph.kanteEinfuegen(knoten[40], knoten[20], 3); // Knoten 41-21
-         graph.kanteEinfuegen(knoten[20], knoten[40], 3); // Knoten 21-41
-         graph.kanteEinfuegen(knoten[20], knoten[21], 3); // Knoten 21-22
-         graph.kanteEinfuegen(knoten[21], knoten[20], 3); // Knoten 22-21
-         graph.kanteEinfuegen(knoten[21], knoten[43], 3); // Knoten 22-44
-         graph.kanteEinfuegen(knoten[43], knoten[21], 3); // Knoten 44-22
-         graph.kanteEinfuegen(knoten[43], knoten[22], 3); // Knoten 44-23
-         graph.kanteEinfuegen(knoten[43], knoten[25], 3); // Knoten 44-26
-         graph.kanteEinfuegen(knoten[43], knoten[26], 3); // Knoten 44-27
-         graph.kanteEinfuegen(knoten[22], knoten[43], 3); // Knoten 23-44
-         graph.kanteEinfuegen(knoten[22], knoten[23], 3); // Knoten 23-24
-         graph.kanteEinfuegen(knoten[23], knoten[38], 3); // Knoten 24-39
-         graph.kanteEinfuegen(knoten[23], knoten[22], 3); // Knoten 24-23
-         graph.kanteEinfuegen(knoten[38], knoten[23], 3); // Knoten 39-24
-         graph.kanteEinfuegen(knoten[25], knoten[43], 3); // Knoten 26-44
-         graph.kanteEinfuegen(knoten[25], knoten[24], 3); // Knoten 26-25
-         graph.kanteEinfuegen(knoten[24], knoten[36], 3); // Knoten 25-37
-         graph.kanteEinfuegen(knoten[24], knoten[25], 3); // Knoten 25-26
-         graph.kanteEinfuegen(knoten[36], knoten[24], 3); // Knoten 37-25
-         graph.kanteEinfuegen(knoten[26], knoten[43], 3); // Knoten 27-44
-         graph.kanteEinfuegen(knoten[26], knoten[27], 3); // Knoten 27-28
-         graph.kanteEinfuegen(knoten[27], knoten[26], 3); // Knoten 28-27
-         graph.kanteEinfuegen(knoten[27], knoten[42], 3); // Knoten 28-43
-         graph.kanteEinfuegen(knoten[42], knoten[27], 3); // Knoten 43-28
+         graph.kanteEinfuegen(knoten[40], knoten[20], 50); // Knoten 41-21
+         graph.kanteEinfuegen(knoten[20], knoten[40], 50); // Knoten 21-41
+         graph.kanteEinfuegen(knoten[20], knoten[21], 50); // Knoten 21-22
+         graph.kanteEinfuegen(knoten[21], knoten[20], 50); // Knoten 22-21
+         graph.kanteEinfuegen(knoten[21], knoten[43], 50); // Knoten 22-44
+         graph.kanteEinfuegen(knoten[43], knoten[21], 50); // Knoten 44-22
+         graph.kanteEinfuegen(knoten[43], knoten[22], 50); // Knoten 44-23
+         graph.kanteEinfuegen(knoten[43], knoten[25], 50); // Knoten 44-26
+         graph.kanteEinfuegen(knoten[43], knoten[26], 50); // Knoten 44-27
+         graph.kanteEinfuegen(knoten[22], knoten[43], 50); // Knoten 23-44
+         graph.kanteEinfuegen(knoten[22], knoten[23], 50); // Knoten 23-24
+         graph.kanteEinfuegen(knoten[23], knoten[38], 50); // Knoten 24-39
+         graph.kanteEinfuegen(knoten[23], knoten[22], 50); // Knoten 24-23
+         graph.kanteEinfuegen(knoten[38], knoten[23], 50); // Knoten 39-24
+         graph.kanteEinfuegen(knoten[25], knoten[43], 50); // Knoten 26-44
+         graph.kanteEinfuegen(knoten[25], knoten[24], 50); // Knoten 26-25
+         graph.kanteEinfuegen(knoten[24], knoten[36], 50); // Knoten 25-37
+         graph.kanteEinfuegen(knoten[24], knoten[25], 50); // Knoten 25-26
+         graph.kanteEinfuegen(knoten[36], knoten[24], 50); // Knoten 37-25
+         graph.kanteEinfuegen(knoten[26], knoten[43], 50); // Knoten 27-44
+         graph.kanteEinfuegen(knoten[26], knoten[27], 50); // Knoten 27-28
+         graph.kanteEinfuegen(knoten[27], knoten[26], 50); // Knoten 28-27
+         graph.kanteEinfuegen(knoten[27], knoten[42], 50); // Knoten 28-43
+         graph.kanteEinfuegen(knoten[42], knoten[27], 50); // Knoten 43-28
         
-         */
+         
     }
 
     private void findeStrecke(Knoten startknoten) {
@@ -188,6 +189,7 @@ public class Dijkstra {
                 way.add(lKnoten);
             }
         }
+
         //immer Startknoten
         //System.out.println("Startknoten: " + knotenliste[0].getName());
         System.out.println("Startknoten: " + knoten[startpunkt - 1].getName());
@@ -195,11 +197,13 @@ public class Dijkstra {
         int vorgaengerNr = 0;
         //unendliche Schleife
         while (true) {
+            //füge Vorgänger der Liste hinzu
             way.add(way.get(vorgaengerNr).getVorgaenger()); //10
             //breche ab, wenn der Startknoten in die Liste eingetragen wird
-            if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
-                break;
-            }
+//            if (way.get(vorgaengerNr + 1) != null) { //Vorgänger muss exisiteren
+                if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
+                    break;
+                }
             vorgaengerNr++;
         }
 
@@ -217,7 +221,6 @@ public class Dijkstra {
          System.out.println("Name: " + knoten.getName());
          }
          */
-        
         return way;
     }
 
