@@ -1024,11 +1024,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBAutomatikStartenActionPerformed
 
     private void jBWeicheRundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheRundActionPerformed
-        dieSteuerung.stelleWeiche(Integer.valueOf(jTFVon.getText().trim()), 'r');
+        dieSteuerung.stelleWeiche(getStartPoint(), 'r');
     }//GEN-LAST:event_jBWeicheRundActionPerformed
 
     private void jBWeicheGeradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheGeradeActionPerformed
-        dieSteuerung.stelleWeiche(Integer.valueOf(jTFVon.getText().trim()), 'g');
+        dieSteuerung.stelleWeiche(getStartPoint(), 'g');
     }//GEN-LAST:event_jBWeicheGeradeActionPerformed
 
     public void positionRund(int nummer) {
