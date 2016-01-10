@@ -788,7 +788,7 @@ public class Steuerung implements Befehle {
                 return 20; //Adresse des RMK
 
             case 3:
-                return 22; //Adresse des RMK
+                return 23; //Adresse des RMK
 
             case 4:
                 return 31; //Adresse des RMK
@@ -818,7 +818,7 @@ public class Steuerung implements Befehle {
                 return 21; //Adresse des RMK
 
             case 13:
-                return 23; //Adresse des RMK
+                return 22; //Adresse des RMK
 
             case 14:
                 return 32; //Adresse des RMK
