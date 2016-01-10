@@ -64,6 +64,29 @@ public class Graph {
         return index;
     }
     
+    public boolean kanteEntfernen(int vonKnotenNummer, int bisKnotenNummer) {
+        int i = knotenIndexSuchen(vonKnotenNummer);
+        int j = knotenIndexSuchen(bisKnotenNummer);
+        if(i != -1 && j != -1) { //gerichtete Kante
+            adjazenzmatrix[i][j] = 1000; //hohe Gewichtung, damit Kante nicht mehr genutzt wird (entfernt)
+            return true;
+        }
+        return false;
+    }
+    
+    //Methode, um Knotenname zu übergeben und Index zu suchen
+    private int knotenIndexSuchen(int kNr) {
+        int index = -1;
+        int i = 0;
+        while(index < 0 && i < knotenliste.length) {
+            if(knotenliste[i].getName() == kNr) {
+                index = i;
+            }
+            i++;
+        }
+        return index;
+    }
+    
     public Knoten[] getNachfolger(Knoten k) {
         Knoten[] hilf = new Knoten[0];
         int i = knotenIndexSuchen(k);
