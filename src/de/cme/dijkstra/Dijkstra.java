@@ -66,6 +66,21 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[40], knoten[19], 1); // Knoten 41-20
         graph.kanteEinfuegen(knoten[41], knoten[42], 1); // Knoten 42-43
         graph.kanteEinfuegen(knoten[42], knoten[17], 1); // Knoten 43-18
+        
+        //Als Test, um Kanten von Start an zu entfernen
+        /*
+        if(graph.kanteEntfernen(knoten[7], knoten[6])) {
+            System.out.println("Kanten 8-7 erfolgreich entfernt");
+        } else {
+            System.out.println("Kanten 8-7 entfernen fehlgeschlagen!");
+        }
+        
+        if(graph.kanteEntfernen(knoten[17], knoten[16])) {
+            System.out.println("Kanten 18-17 erfolgreich entfernt");
+        } else {
+            System.out.println("Kanten 18-17 entfernen fehlgeschlagen!");
+        }
+        */
 
         // Kanten werden gemäß Vorlage verknüpft  Gewichtung 2  entgegen der Fahrtrichtung
         /*
@@ -197,12 +212,15 @@ public class Dijkstra {
         int vorgaengerNr = 0;
         //unendliche Schleife
         while (true) {
+            //Suche nur nach Vorgänger, wenn das Objekt existiert
+            if(way.get(vorgaengerNr + 1) != null) {
             //füge Vorgänger der Liste hinzu
             way.add(way.get(vorgaengerNr).getVorgaenger()); //10
                 //breche ab, wenn der Startknoten in die Liste eingetragen wird
                 if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
                     break;
                 }
+            }
             vorgaengerNr++;
         }
 
@@ -223,7 +241,21 @@ public class Dijkstra {
         return way;
     }
 
-    public void kanteEntfernen(Knoten vorgaenger, Knoten punkt) {
-        graph.kanteEntfernen(vorgaenger, punkt);
+    //Knoten übergeben
+    public boolean entferneKante(Knoten von, Knoten bis) {
+        return graph.kanteEntfernen(von, bis);
+    }
+    
+    //Knotennummer übergeben
+    public boolean entferneKante(int vonKnotenNummer, int bisKnotenNummer) {
+        //aus Knoten-Array die Kanten entfernen
+        return graph.kanteEntfernen(knoten[vonKnotenNummer - 1], knoten[bisKnotenNummer - 1]);
+    }
+    
+    //Knotennummer übergeben (boolean Parameter wird nicht gebraucht, nur dazu da, 
+    //dass nicht zwei Methoden mit gleicher Signatur existieren)
+    public boolean entferneKante(int vonKnotenNummer, int bisKnotenNummer, boolean test) {
+        //aus Knoten-Array die Kanten entfernen
+        return graph.kanteEntfernen(vonKnotenNummer, bisKnotenNummer);
     }
 }

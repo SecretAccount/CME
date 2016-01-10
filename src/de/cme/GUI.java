@@ -107,6 +107,7 @@ public class GUI extends javax.swing.JFrame {
         jBTestOneWay = new javax.swing.JButton();
         jBAutomatikStarten = new javax.swing.JButton();
         jBTestAllNondes = new javax.swing.JButton();
+        jBSperreWeg = new javax.swing.JButton();
         jBWeicheRund = new javax.swing.JButton();
         jBWeicheGerade = new javax.swing.JButton();
 
@@ -762,6 +763,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jBSperreWeg.setText("Etwas in den Weg stellen");
+        jBSperreWeg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSperreWegActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPFahrAutomatikLayout = new javax.swing.GroupLayout(jPFahrAutomatik);
         jPFahrAutomatik.setLayout(jPFahrAutomatikLayout);
         jPFahrAutomatikLayout.setHorizontalGroup(
@@ -770,6 +778,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBTestOneWay, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(jBTestAllNondes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                         .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLStreckeWaehlen)
@@ -785,7 +794,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(jBAutomatikStarten)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jBTestAllNondes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBSperreWeg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPFahrAutomatikLayout.setVerticalGroup(
@@ -801,11 +810,13 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jTFBis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jBAutomatikStarten)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jBSperreWeg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBTestOneWay)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBTestAllNondes)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         getContentPane().add(jPFahrAutomatik);
@@ -1063,6 +1074,12 @@ public class GUI extends javax.swing.JFrame {
     private void jTFBisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFBisFocusGained
         jTFBis.selectAll();
     }//GEN-LAST:event_jTFBisFocusGained
+
+    private void jBSperreWegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSperreWegActionPerformed
+        int vonKnoten = Integer.valueOf(JOptionPane.showInputDialog(this, "Weg sperren von Knoten: ", "Weg sperren", JOptionPane.QUESTION_MESSAGE));
+        int bisKnoten = Integer.valueOf(JOptionPane.showInputDialog(this, "bis Knoten: ", "Weg sperren", JOptionPane.QUESTION_MESSAGE));
+        dieSteuerung.entferneKante(vonKnoten, bisKnoten);
+    }//GEN-LAST:event_jBSperreWegActionPerformed
 
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
@@ -1326,6 +1343,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
+    private javax.swing.JButton jBSperreWeg;
     private javax.swing.JButton jBStopp;
     private javax.swing.JButton jBTestAllNondes;
     private javax.swing.JButton jBTestOneWay;

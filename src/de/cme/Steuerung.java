@@ -52,6 +52,9 @@ public class Steuerung implements Befehle {
         dieAnlage = new Anlage(this); // bidirektional
         dijkstra = new Dijkstra(); //Objekt zur Wegfindung erstellen
 
+        //Graph erstellen
+        initDijkstra();
+        
         //Timer initialisieren
         initTimer();
 
@@ -123,6 +126,10 @@ public class Steuerung implements Befehle {
             sendEnabled = true;
         });
         sendTimer.start();
+    }
+    
+    private void initDijkstra() {
+        dijkstra.init();
     }
 
     //Überladene Methode: mit Adresse oder Adresse von Steuerung benutzen
@@ -1021,7 +1028,7 @@ public class Steuerung implements Befehle {
     }
 
     public void findeWeg() {
-        dijkstra.init();
+        //Graph wird im Kontruktor erstellt (dijkstra.init())
         weg = dijkstra.findeWeg(startPoint, endPoint);
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
@@ -1153,21 +1160,20 @@ public class Steuerung implements Befehle {
                     break;
                 case 44:
                     //Kreuzungsweiche im Innenkreis
-                    if (nameNachfolger == 23 && nameVorgaenger == 27 ||
-                           nameNachfolger == 27 && nameVorgaenger == 23 ) {
+                    if (nameNachfolger == 23 && nameVorgaenger == 27
+                            || nameNachfolger == 27 && nameVorgaenger == 23) {
                         stelleWeiche(44, 'r');
                     }
-                    if (nameNachfolger == 26 && nameVorgaenger == 22 || 
-                            nameNachfolger == 22 && nameVorgaenger == 26) {
+                    if (nameNachfolger == 26 && nameVorgaenger == 22
+                            || nameNachfolger == 22 && nameVorgaenger == 26) {
                         stelleWeiche(44, 'r');
                     }
-                    if (nameNachfolger == 27 && nameVorgaenger == 26 ||
-                            nameNachfolger == 26 && nameVorgaenger == 27) {
+                    if (nameNachfolger == 27 && nameVorgaenger == 26
+                            || nameNachfolger == 26 && nameVorgaenger == 27) {
                         stelleWeiche(44, 'g');
                     }
-                    if (nameNachfolger == 22 && nameVorgaenger == 23 ||
-                            nameNachfolger == 23 && nameVorgaenger == 22) {
-                        System.out.println("23 22 Stelle weiche gerade");
+                    if (nameNachfolger == 22 && nameVorgaenger == 23
+                            || nameNachfolger == 23 && nameVorgaenger == 22) {
                         stelleWeiche(44, 'g');
                     }
                     break;
@@ -1221,7 +1227,7 @@ public class Steuerung implements Befehle {
 //                {
 //                    System.out.println("RMK " + punkt.getName() + " belegt");
 //                    if (weg.indexOf(punkt) != 0) {
-//                        dijkstra.kanteEntfernen(vorgaenger, punkt);
+//                        dijkstra.entferneKante(vorgaenger, punkt);
 //                    }
 //                    entfernteKanten.add(punkt);
 //                }
@@ -1259,6 +1265,12 @@ public class Steuerung implements Befehle {
             geschwindigkeit /= 10;
             System.out.println("Geschwindigkeit " + geschwindigkeit + " wird auf Slider gesetzt");
             dieGUI.setzeGeschwindigkeit(geschwindigkeit);
+        }
+    }
+
+    public void entferneKante(int vonKnotenNummer, int bisKnotenNummer) {
+        if (dijkstra.entferneKante(vonKnotenNummer, bisKnotenNummer)) {
+            System.out.println("Kante von " + vonKnotenNummer + " bis " + bisKnotenNummer + " erfolgreich entfernt");
         }
     }
     //Ende Methoden
