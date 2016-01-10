@@ -12,10 +12,10 @@ public class Dijkstra {
     private Graph graph = new Graph(KNOTEN_ANZAHL); //44 Knoten/Waypoints
     //Hilfsliste zur Wegfindung erstellen
     private Hilfsliste hilfsliste = new Hilfsliste(KNOTEN_ANZAHL);
-    // Knoten werden erstellt
 
     public void init() {
 
+        // Knoten werden erstellt
         //Knoten 1-44
         for (int i = 0; i < KNOTEN_ANZAHL; i++) {
             knoten[i] = new Knoten(i + 1);
@@ -199,8 +199,7 @@ public class Dijkstra {
         while (true) {
             //füge Vorgänger der Liste hinzu
             way.add(way.get(vorgaengerNr).getVorgaenger()); //10
-            //breche ab, wenn der Startknoten in die Liste eingetragen wird
-//            if (way.get(vorgaengerNr + 1) != null) { //Vorgänger muss exisiteren
+                //breche ab, wenn der Startknoten in die Liste eingetragen wird
                 if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
                     break;
                 }

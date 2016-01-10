@@ -1,5 +1,6 @@
 package de.cme;
 
+import de.cme.befehle.Befehle;
 import de.cme.dijkstra.Dijkstra;
 import de.cme.dijkstra.Knoten;
 import java.awt.event.ActionEvent;
