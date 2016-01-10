@@ -6,7 +6,7 @@ public class DijkstraTest {
 
     private Dijkstra dijkstra = new Dijkstra();
     
-    public void testeGraphen() {
+    public void testeGraph() {
         dijkstra.init();
         for (int i = 1; i < 45; i++) {
             for (int j = 2; j < 45; j++) {
