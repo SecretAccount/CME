@@ -1029,8 +1029,10 @@ public class Steuerung implements Befehle {
 
     public void findeWeg() {
         //Graph wird im Kontruktor erstellt (dijkstra.init())
+        dijkstra = new Dijkstra(); //neues Objekt zuweisen, da sonst Fehler bei der Wegfindung auftreten
+        initDijkstra();
         weg = dijkstra.findeWeg(startPoint, endPoint);
-        dijkstra.showList(); //Liste zum Testen zeigen
+        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
         stelleWeichen(weg);
