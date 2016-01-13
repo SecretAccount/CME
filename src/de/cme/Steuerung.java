@@ -1041,7 +1041,7 @@ public class Steuerung implements Befehle {
     public void setStartPoint(int vonKnoten) {
         startPoint = vonKnoten;
         //Wenn Startknoten 1 ist, ist die Lok auf ihrer Startposition
-        lokAufStandardPosition = (startPoint == STANDARD_LOK_POSITION) ? true : false;
+        lokAufStandardPosition = (startPoint == STANDARD_LOK_POSITION);
     }
 
     public int getStartPoint() {
@@ -1071,6 +1071,7 @@ public class Steuerung implements Befehle {
         dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
+        //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
         if (routeWorking) {
             stelleWeichen(weg);
             sendeRMK(weg);
@@ -1083,7 +1084,9 @@ public class Steuerung implements Befehle {
             //Lok steht schon auf Knoten 1
             return;
         }
+        //Endknoten wird zum Startknoten
         startPoint = endPoint;
+        //Lok soll zu Standard Position fahren: Endknoten = 1
         endPoint = STANDARD_LOK_POSITION;
         findeWeg();
     }
@@ -1130,7 +1133,7 @@ public class Steuerung implements Befehle {
                     if (nameNachfolger == 35) {
                         stelleWeiche(34, 'g');
                     }
-                    //if(nameNachfolger ==35){stelleWeiche(34,'r');} Abstellgleis wird hier nicht benötigt
+//                    if(nameNachfolger ==35){stelleWeiche(34,'r');} //Abstellgleis wird hier nicht benötigt
                     break;
                 //Gewichtung 2: rund = gerade | gerade = rund
                 case 35: //gilt nur für Gewichtung 2
@@ -1221,14 +1224,14 @@ public class Steuerung implements Befehle {
                 case 44:
                     //Kreuzungsweiche im Innenkreis
                     /* Richtungswechsel
-                    if (nameNachfolger == 23 && nameVorgaenger == 27
-                            || nameNachfolger == 27 && nameVorgaenger == 23) {
-                        stelleWeiche(44, 'r');
-                    }
-                    if (nameNachfolger == 26 && nameVorgaenger == 22
-                            || nameNachfolger == 22 && nameVorgaenger == 26) {
-                        stelleWeiche(44, 'r');
-                    }
+                     if (nameNachfolger == 23 && nameVorgaenger == 27
+                     || nameNachfolger == 27 && nameVorgaenger == 23) {
+                     stelleWeiche(44, 'r');
+                     }
+                     if (nameNachfolger == 26 && nameVorgaenger == 22
+                     || nameNachfolger == 22 && nameVorgaenger == 26) {
+                     stelleWeiche(44, 'r');
+                     }
                      */
                     if (nameNachfolger == 27 && nameVorgaenger == 26
                             || nameNachfolger == 26 && nameVorgaenger == 27) {
@@ -1274,6 +1277,15 @@ public class Steuerung implements Befehle {
                 }
                 sendeRMK(endPoint);
 //                }
+
+                // 50ms warten
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //Bei jedem RMK prüfen, ob Lok auf Standard-Position ist (Knoten 1)
+                sendeRMK(STANDARD_LOK_POSITION);
             }
 
 //            //Kanten entfernen, deren Rückmeldeabschnitte belegt sind
@@ -1295,15 +1307,6 @@ public class Steuerung implements Befehle {
 //                }
 //            }
         }
-        // 50ms warten
-        try {
-            Thread.sleep(50);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //Prüfe, ob Lok auf Standard-Position ist (Knoten 1)
-        sendeRMK(STANDARD_LOK_POSITION);
-
     }
 
     public void RMKfuerFahren() {

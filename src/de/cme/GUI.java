@@ -378,7 +378,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche1Position.setText("Position1");
+        jBWeiche1Position.setText("Position");
         jBWeiche1Position.setMaximumSize(new java.awt.Dimension(79, 23));
         jBWeiche1Position.setMinimumSize(new java.awt.Dimension(79, 23));
         jBWeiche1Position.setPreferredSize(new java.awt.Dimension(80, 23));
@@ -402,7 +402,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche2Position.setText("Position 2");
+        jBWeiche2Position.setText("Position");
         jBWeiche2Position.setPreferredSize(new java.awt.Dimension(80, 23));
 
         jLWeiche3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -424,7 +424,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche3Position.setText("Position 3");
+        jBWeiche3Position.setText("Position");
         jBWeiche3Position.setPreferredSize(new java.awt.Dimension(80, 23));
 
         jLWeiche4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -446,7 +446,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jBWeiche4Position.setText("Position 4");
+        jBWeiche4Position.setText("Position");
         jBWeiche4Position.setPreferredSize(new java.awt.Dimension(80, 23));
 
         jBWeichenPosition.setText("Weichenposition");
@@ -846,9 +846,9 @@ public class GUI extends javax.swing.JFrame {
         //und dann erst beenden
         //Lok zu Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-//        if(dieSteuerung.isLokAufStandardPosition()) {
+        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.schliessen();
-//        }
+        }
     }//GEN-LAST:event_jBBeendenActionPerformed
 
     private void jBAktualisierenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAktualisierenActionPerformed
@@ -862,9 +862,9 @@ public class GUI extends javax.swing.JFrame {
     private void jBTrennenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrennenActionPerformed
         //Lok in Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-//        if(dieSteuerung.isLokAufStandardPosition()) {
+        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.disconnect();
-//        }
+        }
     }//GEN-LAST:event_jBTrennenActionPerformed
 
     private void jBOeffnenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOeffnenActionPerformed
@@ -1062,7 +1062,7 @@ public class GUI extends javax.swing.JFrame {
         //Route nicht möglich
         if(!dieSteuerung.isRouteWorking()) {
             //Warnhinweis zeigen
-            JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich. Bitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jBAutomatikStartenActionPerformed
 
