@@ -1059,8 +1059,10 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.setStartPoint(vonKnoten);
         dieSteuerung.setEndPoint(bisKnoten);
         dieSteuerung.findeWeg();
+        //Route nicht möglich
         if(!dieSteuerung.isRouteWorking()) {
-            JOptionPane.showInternalMessageDialog(this, "Routenfindung nicht möglich. Bitte Hindernis entfernen, oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.INFORMATION_MESSAGE);
+            //Warnhinweis zeigen
+            JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich. Bitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jBAutomatikStartenActionPerformed
 
