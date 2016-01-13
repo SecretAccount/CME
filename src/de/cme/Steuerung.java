@@ -35,9 +35,14 @@ public class Steuerung implements Befehle {
     //Nur auf Lok prüfen, wenn Automatikmodus ein
     private boolean automationEnabled = false;
 
+    //Wenn Lok auf Standard-Position ist = true, sonst false
+    // (Lok muss am Anfang bei Knotennummer 1 stehen)
+    private boolean lokAufStandardPosition = false;
+
     private List<Knoten> weg;
     private int startPoint;
     private int endPoint;
+    private List<Integer> removedEdges;
 
     //Konstanten
     //Standard-Hash
@@ -45,16 +50,19 @@ public class Steuerung implements Befehle {
     private final static byte LOW_BYTE_HASH = (byte) 83;
     protected final static byte STANDARD_LOK_ADRESSE = 24;
     private final static int TIMER_DELAY = 100;
+    private final static int STANDARD_LOK_POSITION = 1;
     // Ende Attribute
 
     public Steuerung(GUI eineGUI) {
         dieGUI = eineGUI; // bidirektional
         dieAnlage = new Anlage(this); // bidirektional
         dijkstra = new Dijkstra(); //Objekt zur Wegfindung erstellen
+        removedEdges = new ArrayList<>(); //Liste, in der die entfernten Kanten gespeichert werden
+        setStartPoint(STANDARD_LOK_POSITION); //Der Startknoten ist immer 1 (STANDARD_LOK_POSITION)
 
         //Graph erstellen
         initDijkstra();
-        
+
         //Timer initialisieren
         initTimer();
 
@@ -127,9 +135,17 @@ public class Steuerung implements Befehle {
         });
         sendTimer.start();
     }
-    
+
     private void initDijkstra() {
         dijkstra.init();
+    }
+
+    private void entferneKanten(List<Integer> kanten, Dijkstra dijkstra) {
+        for (int i = 0; i < kanten.size() - 1; i += 2) {
+            //Für jede Zahl in kanten: entferne Kante von der Zahl und der darauffolgenden
+            dijkstra.entferneKante(kanten.get(i), kanten.get(i + 1));
+            System.out.println("Entfernt: " + kanten.get(i) + "-" + kanten.get(i + 1));
+        }
     }
 
     //Überladene Methode: mit Adresse oder Adresse von Steuerung benutzen
@@ -1013,6 +1029,8 @@ public class Steuerung implements Befehle {
 
     public void setStartPoint(int vonKnoten) {
         startPoint = vonKnoten;
+        //Wenn Startknoten 1 ist, ist die Lok auf ihrer Startposition
+        lokAufStandardPosition = (startPoint == STANDARD_LOK_POSITION) ? true : false;
     }
 
     public int getStartPoint() {
@@ -1029,15 +1047,34 @@ public class Steuerung implements Befehle {
 
     public void findeWeg() {
         //Graph wird im Kontruktor erstellt (dijkstra.init())
-//        dijkstra = new Dijkstra(); //jedes Mal ein neues Objekt zuweisen, da sonst Fehler bei der Wegfindung auftreten
-//        initDijkstra();
+        dijkstra = new Dijkstra(); //jedes Mal ein neues Objekt zuweisen, da sonst Fehler bei der Wegfindung auftreten
+        dijkstra.init();
+        //TEST - Kanten über Methode enfernen - TEST
+        //ODER Objekte in Steuerung erzeugen (Graph Objekt usw.) und dem 
+        //  Dijskra-Objekt direkt die zu entfernenden Kanten übergeben
+        entferneKanten(removedEdges, dijkstra);
+
         weg = dijkstra.findeWeg(startPoint, endPoint);
-        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen
+        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
         stelleWeichen(weg);
         sendeRMK(weg);
 
+    }
+
+    public void fahreZuStandardPosition() {
+        if (lokAufStandardPosition || endPoint == STANDARD_LOK_POSITION) {
+            //Lok steht schon auf Knoten 1
+            return;
+        }
+        startPoint = endPoint;
+        endPoint = STANDARD_LOK_POSITION;
+        findeWeg();
+    }
+
+    public boolean isLokAufStartPosition() {
+        return lokAufStandardPosition;
     }
 
     private void stelleWeichen(List<Knoten> weg) {
@@ -1113,17 +1150,20 @@ public class Steuerung implements Befehle {
                     break;
                 case 39:
                     //INNERKREIS
-                    if (nameNachfolger == 24) {
-                        stelleWeiche(39, 'r');
-                    }
+                    //Fahrtrichtung nach rechts
+//                    if (nameNachfolger == 24) {
+//                        stelleWeiche(39, 'r');
+//                    }
+                    //Fahrtrichtung nach links
                     if (nameNachfolger == 13) {
                         stelleWeiche(39, 'g');
                     }
                     break;
                 case 12://ACHTUNG BRAINFUCK WEGEN WEGFALLEN EINES KNOTENPUNKTES!!!!
-                    if (nameNachfolger == 40) {
-                        stelleWeiche(40, 'r');
-                    }
+                    //bereits bei case 40
+//                    if (nameNachfolger == 40) {
+//                        stelleWeiche(40, 'r');
+//                    }
                     if (nameNachfolger == 11) {
                         stelleWeiche(40, 'g');
                     }
@@ -1163,6 +1203,7 @@ public class Steuerung implements Befehle {
                     break;
                 case 44:
                     //Kreuzungsweiche im Innenkreis
+                    /* Richtungswechsel
                     if (nameNachfolger == 23 && nameVorgaenger == 27
                             || nameNachfolger == 27 && nameVorgaenger == 23) {
                         stelleWeiche(44, 'r');
@@ -1171,6 +1212,7 @@ public class Steuerung implements Befehle {
                             || nameNachfolger == 22 && nameVorgaenger == 26) {
                         stelleWeiche(44, 'r');
                     }
+                    */
                     if (nameNachfolger == 27 && nameVorgaenger == 26
                             || nameNachfolger == 26 && nameVorgaenger == 27) {
                         stelleWeiche(44, 'g');
@@ -1236,9 +1278,19 @@ public class Steuerung implements Befehle {
 //                }
 //            }
         }
+        // 50ms warten
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Prüfe, ob Lok auf Standard-Position ist (Knoten 1)
+        sendeRMK(STANDARD_LOK_POSITION);
+
     }
 
     public void RMKfuerFahren() {
+        //nur prüfen, wenn automatisches Fahren gestartet wurde
         if (automationEnabled) {
             //Losfahren, wenn Lok auf Startknoten steht
             if (leseRMK(startPoint)) {
@@ -1252,6 +1304,8 @@ public class Steuerung implements Befehle {
                 fahreLok(0, true);
             }
         }
+        //Wenn Knoten 1 belegt ist, wird "lokAufStandardPosition" auf true gesetzt, sonst auf false
+        lokAufStandardPosition = leseRMK(STANDARD_LOK_POSITION);
     }
 
     public void leseGeschwindigkeit() {
@@ -1272,6 +1326,8 @@ public class Steuerung implements Befehle {
     }
 
     public void entferneKante(int vonKnotenNummer, int bisKnotenNummer) {
+        removedEdges.add(vonKnotenNummer);
+        removedEdges.add(bisKnotenNummer);
         if (dijkstra.entferneKante(vonKnotenNummer, bisKnotenNummer)) {
             System.out.println("Kante von " + vonKnotenNummer + " bis " + bisKnotenNummer + " erfolgreich entfernt");
         }

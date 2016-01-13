@@ -1,7 +1,5 @@
 package de.cme;
 
-import de.cme.dijkstra.Dijkstra;
-import de.cme.dijkstra.test.DijkstraTest;
 import de.cme.dijkstra.test.TestingThread;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
@@ -844,6 +842,8 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBeendenActionPerformed
+        //Lok in Standard-Position fahren (Knotennummer 1)
+        dieSteuerung.fahreZuStandardPosition();
         dieSteuerung.schliessen();
     }//GEN-LAST:event_jBBeendenActionPerformed
 
@@ -856,6 +856,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBAktualisierenActionPerformed
 
     private void jBTrennenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrennenActionPerformed
+        //Lok in Standard-Position fahren (Knotennummer 1)
+        dieSteuerung.fahreZuStandardPosition();
         dieSteuerung.disconnect();
     }//GEN-LAST:event_jBTrennenActionPerformed
 
@@ -1002,7 +1004,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBRMKabfragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRMKabfragenActionPerformed
         dieSteuerung.sendeRMK();
     }//GEN-LAST:event_jBRMKabfragenActionPerformed
-
+ 
     private void jBTestOneWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTestOneWayActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
@@ -1044,6 +1046,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
         int vonKnoten = getStartPoint();
         int bisKnoten = getEndPoint();
+        
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
 
