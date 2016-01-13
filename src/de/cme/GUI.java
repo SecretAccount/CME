@@ -846,7 +846,7 @@ public class GUI extends javax.swing.JFrame {
         //und dann erst beenden
         //Lok zu Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStartPosition()) {
+        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.schliessen();
         }
     }//GEN-LAST:event_jBBeendenActionPerformed
@@ -862,7 +862,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBTrennenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrennenActionPerformed
         //Lok in Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStartPosition()) {
+        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.disconnect();
         }
     }//GEN-LAST:event_jBTrennenActionPerformed

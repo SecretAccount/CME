@@ -1073,7 +1073,7 @@ public class Steuerung implements Befehle {
         findeWeg();
     }
 
-    public boolean isLokAufStartPosition() {
+    public boolean isLokAufStandardPosition() {
         return lokAufStandardPosition;
     }
 
