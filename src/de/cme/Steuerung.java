@@ -39,6 +39,9 @@ public class Steuerung implements Befehle {
     // (Lok muss am Anfang bei Knotennummer 1 stehen)
     private boolean lokAufStandardPosition = false;
 
+    //Wenn Route gesperrt ist, ist workingRoute = false
+    private boolean routeWorking = true;
+
     private List<Knoten> weg;
     private int startPoint;
     private int endPoint;
@@ -120,6 +123,14 @@ public class Steuerung implements Befehle {
 
     public void setAutomationEnabled(boolean automationEnabled) {
         this.automationEnabled = automationEnabled;
+    }
+
+    public boolean isRouteWorking() {
+        return routeWorking;
+    }
+
+    public void setRouteWorking(boolean routeWorking) {
+        this.routeWorking = routeWorking;
     }
 
     public void schliessen() {
@@ -1055,11 +1066,15 @@ public class Steuerung implements Befehle {
         entferneKanten(removedEdges, dijkstra);
 
         weg = dijkstra.findeWeg(startPoint, endPoint);
+        //falsche Route, wenn Pfadgewicht >= 1000
+        routeWorking = (dijkstra.getPfadgewichtEndPfad() < 1000);
         dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
-        stelleWeichen(weg);
-        sendeRMK(weg);
+        if (routeWorking) {
+            stelleWeichen(weg);
+            sendeRMK(weg);
+        }
 
     }
 
@@ -1119,11 +1134,13 @@ public class Steuerung implements Befehle {
                     break;
                 //Gewichtung 2: rund = gerade | gerade = rund
                 case 35: //gilt nur für Gewichtung 2
+                    //Weiche 36 stellen
                     if (nameNachfolger == 36) {
-                        stelleWeiche(35, 'g');
+                        stelleWeiche(36, 'r');
                     } //falsche Stellung
+                    //Weiche 36 stellen
                     if (nameNachfolger == 6) {
-                        stelleWeiche(35, 'r');
+                        stelleWeiche(36, 'g');
                     }//falsche Stellung
                     break;
                 case 36:
@@ -1212,7 +1229,7 @@ public class Steuerung implements Befehle {
                             || nameNachfolger == 22 && nameVorgaenger == 26) {
                         stelleWeiche(44, 'r');
                     }
-                    */
+                     */
                     if (nameNachfolger == 27 && nameVorgaenger == 26
                             || nameNachfolger == 26 && nameVorgaenger == 27) {
                         stelleWeiche(44, 'g');
@@ -1301,6 +1318,12 @@ public class Steuerung implements Befehle {
             }
             //Lok anhalten, wenn sie am Ziel angekommen ist
             if (leseRMK(endPoint)) {
+                //1s warten
+//                try {
+//                    Thread.sleep(1500);
+//                } catch (InterruptedException ex) {
+//                    Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+//                }
                 fahreLok(0, true);
             }
         }

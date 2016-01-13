@@ -12,6 +12,13 @@ public class Dijkstra {
     private Graph graph = new Graph(KNOTEN_ANZAHL); //44 Knoten/Waypoints
     //Hilfsliste zur Wegfindung erstellen
     private Hilfsliste hilfsliste = new Hilfsliste(KNOTEN_ANZAHL);
+    //Gewichtung des Pfades
+    private int pfadgewichtEndPfad;
+    
+
+    public int getPfadgewichtEndPfad() {
+        return pfadgewichtEndPfad;
+    }
     
     public void init() {
 
@@ -205,7 +212,9 @@ public class Dijkstra {
                 //Manchmal Bug, wenn Endknoten in Hilfsliste am Anfang steht, 
                 //-> NullPointerException in Z.242, da der Anfangsknoten 
                 //der Hilfsliste keinen Vorgänger hat
-                //DEBUGGING: System.out.println("erster Knoten: " + lKnoten.getName());
+//                DEBUGGING: System.out.println("Name des ersten Knotens: " + lKnoten.getName());
+                //Gewichtung des Pfades speichern
+                pfadgewichtEndPfad = lKnoten.getPfadgewicht();
                 way.add(lKnoten);
             }
         }

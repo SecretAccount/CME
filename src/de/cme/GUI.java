@@ -846,9 +846,9 @@ public class GUI extends javax.swing.JFrame {
         //und dann erst beenden
         //Lok zu Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStandardPosition()) {
+//        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.schliessen();
-        }
+//        }
     }//GEN-LAST:event_jBBeendenActionPerformed
 
     private void jBAktualisierenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAktualisierenActionPerformed
@@ -862,9 +862,9 @@ public class GUI extends javax.swing.JFrame {
     private void jBTrennenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrennenActionPerformed
         //Lok in Standard-Position fahren (Knotennummer 1)
         dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStandardPosition()) {
+//        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.disconnect();
-        }
+//        }
     }//GEN-LAST:event_jBTrennenActionPerformed
 
     private void jBOeffnenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOeffnenActionPerformed
@@ -1059,6 +1059,9 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.setStartPoint(vonKnoten);
         dieSteuerung.setEndPoint(bisKnoten);
         dieSteuerung.findeWeg();
+        if(dieSteuerung.isRouteWorking()) {
+            JOptionPane.showInternalMessageDialog(this, "Routenfindung nicht möglich. Bitte Hindernis entfernen, oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jBAutomatikStartenActionPerformed
 
     private void jBWeicheRundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeicheRundActionPerformed
