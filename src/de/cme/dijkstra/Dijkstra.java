@@ -12,7 +12,7 @@ public class Dijkstra {
     private Graph graph = new Graph(KNOTEN_ANZAHL); //44 Knoten/Waypoints
     //Hilfsliste zur Wegfindung erstellen
     private Hilfsliste hilfsliste = new Hilfsliste(KNOTEN_ANZAHL);
-
+    
     public void init() {
 
         // Knoten werden erstellt
@@ -67,7 +67,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[41], knoten[42], 1); // Knoten 42-43
         graph.kanteEinfuegen(knoten[42], knoten[17], 1); // Knoten 43-18
         
-        //Als Test, um zu testende Kanten von Start an zu entfernen
+        //Als Test, um zu testende Kanten (8-7 und 18-17) von Start an zu entfernen
         /*
         if(graph.kanteEntfernen(knoten[7], knoten[6])) {
             System.out.println("Kanten 8-7 erfolgreich entfernt");
@@ -159,6 +159,7 @@ public class Dijkstra {
     private void findeStrecke(Knoten startknoten) {
         //Dijkstra
         startknoten.setStart();
+        
         //Knoten in die Hilfsliste einfügen
         for (int i = 0; i < KNOTEN_ANZAHL; i++) {
             hilfsliste.add(knoten[i]);
@@ -195,11 +196,15 @@ public class Dijkstra {
         findeStrecke(knoten[startpunkt - 1]);
         //Liste der Knoten mit dem kürzesten Weg zum Startknoten
         Knoten[] knotenliste = hilfsliste.getListe();
+        
         //Liste der Wegpunkte
         List<Knoten> way = new ArrayList<>();
         //Endpunkt hinzufügen
         for (Knoten lKnoten : knotenliste) {
             if (lKnoten.getName() == endpunkt) {
+                //Manchmal Bug, wenn Endknoten in Hilfsliste am Anfang steht, 
+                //-> NullPointerException in Z.242, da der Anfangsknoten 
+                //der Hilfsliste keinen Vorgänger hat
                 //DEBUGGING: System.out.println("erster Knoten: " + lKnoten.getName());
                 way.add(lKnoten);
             }
@@ -214,6 +219,7 @@ public class Dijkstra {
         while (true) {
             //füge Vorgänger der Liste hinzu
             way.add(way.get(vorgaengerNr).getVorgaenger()); //10
+            
                 //breche ab, wenn der Startknoten in die Liste eingetragen wird
                 if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
                     break;
@@ -236,6 +242,8 @@ public class Dijkstra {
          }
          */
         return way;
+        
+        
     }
 
     //Knoten übergeben
