@@ -1140,15 +1140,15 @@ public class Steuerung implements Befehle {
                     //Weiche 36 stellen
                     if (nameNachfolger == 36) {
                         stelleWeiche(36, 'r');
-                    } //falsche Stellung
+                    } 
                     //Weiche 36 stellen
                     if (nameNachfolger == 6) {
                         stelleWeiche(36, 'g');
-                    }//falsche Stellung
+                    }
                     break;
                 case 36:
                     if (nameNachfolger == 37) {
-                        stelleWeiche(36, 'r'); //auf rund geändert, war erst gerade
+                        stelleWeiche(36, 'r'); //auf rund geändert
                     }
                     break;
                 case 37:
@@ -1235,11 +1235,11 @@ public class Steuerung implements Befehle {
                      */
                     if (nameNachfolger == 27 && nameVorgaenger == 26
                             || nameNachfolger == 26 && nameVorgaenger == 27) {
-                        stelleWeiche(44, 'g');
+                        stelleWeiche(44, 'r');
                     }
                     if (nameNachfolger == 22 && nameVorgaenger == 23
                             || nameNachfolger == 23 && nameVorgaenger == 22) {
-                        stelleWeiche(44, 'g');
+                        stelleWeiche(44, 'r');
                     }
                     break;
                 default:
