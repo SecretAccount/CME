@@ -845,10 +845,10 @@ public class GUI extends javax.swing.JFrame {
         //Warten, bis Lok bei Standard-Position (Knotennummer 1) angekommen ist
         //und dann erst beenden
         //Lok zu Standard-Position fahren (Knotennummer 1)
-        dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStandardPosition()) {
+//        dieSteuerung.fahreZuStandardPosition();
+//        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.schliessen();
-        }
+//        }
     }//GEN-LAST:event_jBBeendenActionPerformed
 
     private void jBAktualisierenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAktualisierenActionPerformed
@@ -861,10 +861,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBTrennenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrennenActionPerformed
         //Lok in Standard-Position fahren (Knotennummer 1)
-        dieSteuerung.fahreZuStandardPosition();
-        if(dieSteuerung.isLokAufStandardPosition()) {
+//        dieSteuerung.fahreZuStandardPosition();
+//        if(dieSteuerung.isLokAufStandardPosition()) {
         dieSteuerung.disconnect();
-        }
+//        }
     }//GEN-LAST:event_jBTrennenActionPerformed
 
     private void jBOeffnenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOeffnenActionPerformed
