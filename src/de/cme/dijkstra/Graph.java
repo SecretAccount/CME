@@ -1,9 +1,5 @@
 package de.cme.dijkstra;
 
-import java.util.*;
-
-//Graph mit Adjazenzmatrix
-
 public class Graph {
     private Knoten[] knotenliste;
     private int[][] adjazenzmatrix; //erste Index: Spalte, 2. Index: Zeile adjazenzmatrix[2]<--2. Spalte[1]<-- 1. Zeile
