@@ -47,6 +47,7 @@ public class GUI extends javax.swing.JFrame {
         jBStopp = new javax.swing.JButton();
         jTGLokLichtFunktion = new javax.swing.JToggleButton();
         jBRichtungAendern = new javax.swing.JButton();
+        jBGeschwFunktion = new javax.swing.JButton();
         jPRegler = new javax.swing.JPanel();
         jSGeschwindigkeit = new javax.swing.JSlider();
         jPBeenden = new javax.swing.JPanel();
@@ -237,6 +238,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jBGeschwFunktion.setText("Geschwindigkeits-Funktion");
+        jBGeschwFunktion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGeschwFunktionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPSteuernLayout = new javax.swing.GroupLayout(jPSteuern);
         jPSteuern.setLayout(jPSteuernLayout);
         jPSteuernLayout.setHorizontalGroup(
@@ -245,15 +253,17 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPSteuernLayout.createSequentialGroup()
-                        .addComponent(jTBSteuern, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBStopp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBGeschwFunktion)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPSteuernLayout.createSequentialGroup()
-                        .addComponent(jTGLokLichtFunktion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBRichtungAendern, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE))))
+                        .addGroup(jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTBSteuern, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTGLokLichtFunktion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBRichtungAendern)
+                            .addComponent(jBStopp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPSteuernLayout.setVerticalGroup(
             jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,14 +273,16 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jBStopp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTBSteuern, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTGLokLichtFunktion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPSteuernLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTGLokLichtFunktion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBRichtungAendern, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jBGeschwFunktion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         getContentPane().add(jPSteuern);
-        jPSteuern.setBounds(10, 200, 250, 140);
+        jPSteuern.setBounds(10, 200, 260, 180);
 
         jPRegler.setBorder(javax.swing.BorderFactory.createTitledBorder("Geschwindigkeit"));
 
@@ -338,7 +350,7 @@ public class GUI extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPBeenden);
-        jPBeenden.setBounds(30, 380, 154, 100);
+        jPBeenden.setBounds(30, 400, 154, 100);
 
         jPWeiche.setBorder(javax.swing.BorderFactory.createTitledBorder("Weichen Einstellungen"));
 
@@ -715,7 +727,7 @@ public class GUI extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPRMK);
-        jPRMK.setBounds(270, 330, 720, 200);
+        jPRMK.setBounds(290, 330, 720, 200);
 
         jPFahrAutomatik.setBorder(javax.swing.BorderFactory.createTitledBorder("Automatisiertes Fahren"));
 
@@ -1095,6 +1107,11 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.entferneKante(vonKnoten, bisKnoten);
     }//GEN-LAST:event_jBSperreWegActionPerformed
 
+    private void jBGeschwFunktionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGeschwFunktionActionPerformed
+        //Lok Funktion 4 einschalten: Sofortige Brems- und Anfahrsteuerung
+        dieSteuerung.lokFunktion((byte) 24, (byte) 4, (byte) 1);
+    }//GEN-LAST:event_jBGeschwFunktionActionPerformed
+
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
@@ -1354,6 +1371,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBAktualisieren;
     private javax.swing.JButton jBAutomatikStarten;
     private javax.swing.JButton jBBeenden;
+    private javax.swing.JButton jBGeschwFunktion;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
