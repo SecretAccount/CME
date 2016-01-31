@@ -110,10 +110,12 @@ public class GUI extends javax.swing.JFrame {
         jBWeicheRund = new javax.swing.JButton();
         jBWeicheGerade = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CME");
+        setName("fCME"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1200, 600));
         setResizable(false);
+        setSize(new java.awt.Dimension(1200, 600));
         getContentPane().setLayout(null);
 
         jPCOMPort.setBorder(javax.swing.BorderFactory.createTitledBorder("Port Einstellungen"));
@@ -314,6 +316,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jPRegler);
         jPRegler.setBounds(290, 10, 100, 300);
 
+        jBBeenden.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBBeenden.setText("Beenden");
         jBBeenden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,14 +346,14 @@ public class GUI extends javax.swing.JFrame {
             jPBeendenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPBeendenLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBTrennen, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(jBTrennen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jBBeenden)
+                .addComponent(jBBeenden, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         getContentPane().add(jPBeenden);
-        jPBeenden.setBounds(30, 400, 154, 100);
+        jPBeenden.setBounds(30, 400, 154, 130);
 
         jPWeiche.setBorder(javax.swing.BorderFactory.createTitledBorder("Weichen Einstellungen"));
 
