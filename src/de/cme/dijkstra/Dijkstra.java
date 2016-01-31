@@ -201,7 +201,8 @@ public class Dijkstra {
         findeStrecke(knoten[startpunkt - 1]);
         //Liste der Knoten mit dem kürzesten Weg zum Startknoten
         Knoten[] knotenliste = hilfsliste.getListe();
-        
+        //DEBUG-Informationen ausgeben
+        showList();
         //Liste der Wegpunkte
         List<Knoten> way = new ArrayList<>();
         //Endpunkt hinzufügen
