@@ -134,7 +134,7 @@ public class Dijkstra {
          graph.kanteEinfuegen(knoten[42], knoten[41], 2); // Knoten 43-42
          */
          //Kanten werden gemäß Vorlage verknüpft Mittlekreis mit jeweils Gewichtung
-         //von 3 (beide Fahrtrichtungen)
+         //von 50 (beide Fahrtrichtungen)
          graph.kanteEinfuegen(knoten[20], knoten[40], 50); // Knoten 21-41
          graph.kanteEinfuegen(knoten[20], knoten[21], 50); // Knoten 21-22
          graph.kanteEinfuegen(knoten[21], knoten[20], 50); // Knoten 22-21
