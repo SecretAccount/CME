@@ -115,6 +115,9 @@ public class GUI extends javax.swing.JFrame {
         jBSperreWeg = new javax.swing.JButton();
         jPGleisplan = new javax.swing.JPanel();
         jLKnoten1 = new javax.swing.JLabel();
+        jLKnoten2 = new javax.swing.JLabel();
+        jLKnoten3 = new javax.swing.JLabel();
+        jLKnoten4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CME");
@@ -122,7 +125,7 @@ public class GUI extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 700));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPCOMPort.setBorder(javax.swing.BorderFactory.createTitledBorder("Port Einstellungen"));
         jPCOMPort.setPreferredSize(new java.awt.Dimension(200, 100));
@@ -170,8 +173,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPCOMPort);
-        jPCOMPort.setBounds(10, 11, 140, 180);
+        getContentPane().add(jPCOMPort, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 180));
 
         jPLok.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -209,8 +211,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPLok);
-        jPLok.setBounds(30, 210, 94, 130);
+        getContentPane().add(jPLok, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jBBeenden.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBBeenden.setText("Beenden");
@@ -248,8 +249,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPBeenden);
-        jPBeenden.setBounds(10, 360, 159, 130);
+        getContentPane().add(jPBeenden, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         jBWeicheRund.setText("Weiche rund");
         jBWeicheRund.addActionListener(new java.awt.event.ActionListener() {
@@ -257,8 +257,7 @@ public class GUI extends javax.swing.JFrame {
                 jBWeicheRundActionPerformed(evt);
             }
         });
-        getContentPane().add(jBWeicheRund);
-        jBWeicheRund.setBounds(20, 530, 130, 23);
+        getContentPane().add(jBWeicheRund, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 130, -1));
 
         jBWeicheGerade.setText("Weiche gerade");
         jBWeicheGerade.addActionListener(new java.awt.event.ActionListener() {
@@ -266,8 +265,9 @@ public class GUI extends javax.swing.JFrame {
                 jBWeicheGeradeActionPerformed(evt);
             }
         });
-        getContentPane().add(jBWeicheGerade);
-        jBWeicheGerade.setBounds(20, 500, 130, 23);
+        getContentPane().add(jBWeicheGerade, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 130, -1));
+
+        jPSteuerung.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPSteuern.setBorder(javax.swing.BorderFactory.createTitledBorder("Lok Steuerung"));
 
@@ -346,6 +346,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jBGeschwFunktion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jPSteuerung.add(jPSteuern, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 11, -1, -1));
 
         jPWeiche.setBorder(javax.swing.BorderFactory.createTitledBorder("Weichen Einstellungen"));
 
@@ -556,6 +558,8 @@ public class GUI extends javax.swing.JFrame {
 
         jBWeiche1Position.getAccessibleContext().setAccessibleName("Position 1");
 
+        jPSteuerung.add(jPWeiche, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 11, -1, -1));
+
         jPRMK.setBorder(javax.swing.BorderFactory.createTitledBorder("Rückmeldekontakt Einstellungen"));
 
         jLRMK.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -718,6 +722,8 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPSteuerung.add(jPRMK, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 329, -1, -1));
+
         jPRegler.setBorder(javax.swing.BorderFactory.createTitledBorder("Geschwindigkeit"));
 
         jSGeschwindigkeit.setOrientation(javax.swing.JSlider.VERTICAL);
@@ -745,35 +751,11 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPSteuerungLayout = new javax.swing.GroupLayout(jPSteuerung);
-        jPSteuerung.setLayout(jPSteuerungLayout);
-        jPSteuerungLayout.setHorizontalGroup(
-            jPSteuerungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPSteuerungLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jPSteuern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPRegler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPWeiche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPSteuerungLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jPRMK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPSteuerungLayout.setVerticalGroup(
-            jPSteuerungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPSteuerungLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPSteuerungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPRegler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPSteuern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPWeiche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPRMK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        jPSteuerung.add(jPRegler, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 11, -1, -1));
 
         jTPUmschalten.addTab("Steuerung", jPSteuerung);
+
+        jPGleisbild.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPFahrAutomatik.setBorder(javax.swing.BorderFactory.createTitledBorder("Automatisiertes Fahren"));
 
@@ -875,10 +857,33 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jLKnoten1.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.png")); // NOI18N
+        jPGleisbild.add(jPFahrAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        jLKnoten1.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
         jLKnoten1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten1MouseClicked(evt);
+            }
+        });
+
+        jLKnoten2.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten2MouseClicked(evt);
+            }
+        });
+
+        jLKnoten3.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten3MouseClicked(evt);
+            }
+        });
+
+        jLKnoten4.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten4MouseClicked(evt);
             }
         });
 
@@ -887,45 +892,33 @@ public class GUI extends javax.swing.JFrame {
         jPGleisplanLayout.setHorizontalGroup(
             jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPGleisplanLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(142, 142, 142)
+                .addComponent(jLKnoten2)
+                .addGap(18, 18, 18)
+                .addComponent(jLKnoten4)
+                .addGap(18, 18, 18)
+                .addComponent(jLKnoten3)
+                .addGap(18, 18, 18)
                 .addComponent(jLKnoten1)
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jPGleisplanLayout.setVerticalGroup(
             jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPGleisplanLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLKnoten1)
+                .addGap(62, 62, 62)
+                .addGroup(jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLKnoten1)
+                    .addComponent(jLKnoten2)
+                    .addComponent(jLKnoten3)
+                    .addComponent(jLKnoten4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPGleisbildLayout = new javax.swing.GroupLayout(jPGleisbild);
-        jPGleisbild.setLayout(jPGleisbildLayout);
-        jPGleisbildLayout.setHorizontalGroup(
-            jPGleisbildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPGleisbildLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPFahrAutomatik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPGleisplan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPGleisbildLayout.setVerticalGroup(
-            jPGleisbildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPGleisbildLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPGleisbildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPGleisplan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPGleisbildLayout.createSequentialGroup()
-                        .addComponent(jPFahrAutomatik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 280, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 11, -1, 530));
 
         jTPUmschalten.addTab("Gleisbild", jPGleisbild);
 
-        getContentPane().add(jTPUmschalten);
-        jTPUmschalten.setBounds(210, 10, 1050, 580);
+        getContentPane().add(jTPUmschalten, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1200,6 +1193,18 @@ public class GUI extends javax.swing.JFrame {
         jLKnoten1.setIcon(new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.png"));
         }
     }//GEN-LAST:event_jLKnoten1MouseClicked
+
+    private void jLKnoten2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLKnoten2MouseClicked
+
+    private void jLKnoten3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLKnoten3MouseClicked
+
+    private void jLKnoten4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLKnoten4MouseClicked
 
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
@@ -1500,6 +1505,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLEingang7;
     private javax.swing.JLabel jLEingang8;
     private javax.swing.JLabel jLKnoten1;
+    private javax.swing.JLabel jLKnoten2;
+    private javax.swing.JLabel jLKnoten3;
+    private javax.swing.JLabel jLKnoten4;
     private javax.swing.JLabel jLRMK;
     private javax.swing.JLabel jLRMKModulAuswahl;
     private javax.swing.JLabel jLStatus;
