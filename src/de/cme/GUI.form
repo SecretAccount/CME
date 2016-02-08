@@ -1225,7 +1225,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten1_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten1_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1240,7 +1240,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten2_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten2_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1255,7 +1255,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten3_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten3_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1270,7 +1270,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten4_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten4_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1285,7 +1285,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten5_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten5_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1300,7 +1300,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten6_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten6_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1315,7 +1315,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten7_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten7_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1330,7 +1330,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten8">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten8_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten8_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1345,7 +1345,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten9">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten9_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten9_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1360,7 +1360,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten10">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten10_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten10_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1375,7 +1375,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten11">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten11_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten11_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1390,7 +1390,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten12">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten12_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten12_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1405,7 +1405,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten13">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten13_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten13_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1420,7 +1420,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten14">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten14_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten14_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1435,7 +1435,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten15">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten15_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten15_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1450,7 +1450,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten16">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten16_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten16_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1465,7 +1465,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten17">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten17_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten17_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1480,7 +1480,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten18">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten18_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten18_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1495,7 +1495,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten19">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten19_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten19_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1510,7 +1510,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten20">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten20_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten20_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1525,7 +1525,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten21">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten21_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten21_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1540,7 +1540,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten22">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten22_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten22_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1555,7 +1555,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten23">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten23_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten23_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1570,7 +1570,7 @@
                 <Component class="javax.swing.JLabel" name="jLLine12">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Line12.png"/>
+                      <Image iconType="3" name="/de/cme/img/Kanten/Kante12.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1597,7 +1597,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten25">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten25_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten25_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1612,7 +1612,7 @@
                 <Component class="javax.swing.JLabel" name="jLKnoten26">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="Z:\Technisches Gymnasium\12. Klasse\A-IT\GFS\CME - Computergesteuerte Modelleisenbahn\Programmcode\CC-Schnitte\CME\img\Knoten\Knoten26_gruen.png"/>
+                      <Image iconType="3" name="/de/cme/img/Knoten/Knoten26_gruen.png"/>
                     </Property>
                   </Properties>
                   <Events>

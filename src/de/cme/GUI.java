@@ -895,7 +895,7 @@ public class GUI extends javax.swing.JFrame {
 
         jPGleisplan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLKnoten1.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_gruen.png")); // NOI18N
+        jLKnoten1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten1_gruen.png"))); // NOI18N
         jLKnoten1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten1MouseClicked(evt);
@@ -903,7 +903,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
-        jLKnoten2.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten2_gruen.png")); // NOI18N
+        jLKnoten2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten2_gruen.png"))); // NOI18N
         jLKnoten2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten2MouseClicked(evt);
@@ -911,7 +911,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
-        jLKnoten3.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten3_gruen.png")); // NOI18N
+        jLKnoten3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten3_gruen.png"))); // NOI18N
         jLKnoten3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten3MouseClicked(evt);
@@ -919,7 +919,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
 
-        jLKnoten4.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten4_gruen.png")); // NOI18N
+        jLKnoten4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten4_gruen.png"))); // NOI18N
         jLKnoten4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten4MouseClicked(evt);
@@ -927,7 +927,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
-        jLKnoten5.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten5_gruen.png")); // NOI18N
+        jLKnoten5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png"))); // NOI18N
         jLKnoten5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten5MouseClicked(evt);
@@ -935,7 +935,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
 
-        jLKnoten6.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten6_gruen.png")); // NOI18N
+        jLKnoten6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten6_gruen.png"))); // NOI18N
         jLKnoten6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten6MouseClicked(evt);
@@ -943,7 +943,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
 
-        jLKnoten7.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten7_gruen.png")); // NOI18N
+        jLKnoten7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten7_gruen.png"))); // NOI18N
         jLKnoten7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten7MouseClicked(evt);
@@ -951,7 +951,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
 
-        jLKnoten8.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten8_gruen.png")); // NOI18N
+        jLKnoten8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten8_gruen.png"))); // NOI18N
         jLKnoten8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten8MouseClicked(evt);
@@ -959,7 +959,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
 
-        jLKnoten9.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten9_gruen.png")); // NOI18N
+        jLKnoten9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten9_gruen.png"))); // NOI18N
         jLKnoten9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten9MouseClicked(evt);
@@ -967,7 +967,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
-        jLKnoten10.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten10_gruen.png")); // NOI18N
+        jLKnoten10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten10_gruen.png"))); // NOI18N
         jLKnoten10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten10MouseClicked(evt);
@@ -975,7 +975,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
-        jLKnoten11.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten11_gruen.png")); // NOI18N
+        jLKnoten11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten11_gruen.png"))); // NOI18N
         jLKnoten11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten11MouseClicked(evt);
@@ -983,7 +983,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
 
-        jLKnoten12.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten12_gruen.png")); // NOI18N
+        jLKnoten12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten12_gruen.png"))); // NOI18N
         jLKnoten12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten12MouseClicked(evt);
@@ -991,7 +991,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
 
-        jLKnoten13.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten13_gruen.png")); // NOI18N
+        jLKnoten13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten13_gruen.png"))); // NOI18N
         jLKnoten13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten13MouseClicked(evt);
@@ -999,7 +999,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
 
-        jLKnoten14.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten14_gruen.png")); // NOI18N
+        jLKnoten14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten14_gruen.png"))); // NOI18N
         jLKnoten14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten14MouseClicked(evt);
@@ -1007,7 +1007,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, -1, -1));
 
-        jLKnoten15.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten15_gruen.png")); // NOI18N
+        jLKnoten15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten15_gruen.png"))); // NOI18N
         jLKnoten15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten15MouseClicked(evt);
@@ -1015,7 +1015,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
 
-        jLKnoten16.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten16_gruen.png")); // NOI18N
+        jLKnoten16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten16_gruen.png"))); // NOI18N
         jLKnoten16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten16MouseClicked(evt);
@@ -1023,7 +1023,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
-        jLKnoten17.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten17_gruen.png")); // NOI18N
+        jLKnoten17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten17_gruen.png"))); // NOI18N
         jLKnoten17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten17MouseClicked(evt);
@@ -1031,7 +1031,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
 
-        jLKnoten18.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten18_gruen.png")); // NOI18N
+        jLKnoten18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten18_gruen.png"))); // NOI18N
         jLKnoten18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten18MouseClicked(evt);
@@ -1039,7 +1039,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
-        jLKnoten19.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten19_gruen.png")); // NOI18N
+        jLKnoten19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten19_gruen.png"))); // NOI18N
         jLKnoten19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten19MouseClicked(evt);
@@ -1047,7 +1047,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
-        jLKnoten20.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten20_gruen.png")); // NOI18N
+        jLKnoten20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten20_gruen.png"))); // NOI18N
         jLKnoten20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten20MouseClicked(evt);
@@ -1055,7 +1055,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
 
-        jLKnoten21.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten21_gruen.png")); // NOI18N
+        jLKnoten21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten21_gruen.png"))); // NOI18N
         jLKnoten21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten21MouseClicked(evt);
@@ -1063,7 +1063,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
-        jLKnoten22.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten22_gruen.png")); // NOI18N
+        jLKnoten22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten22_gruen.png"))); // NOI18N
         jLKnoten22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten22MouseClicked(evt);
@@ -1071,7 +1071,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten22, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
 
-        jLKnoten23.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten23_gruen.png")); // NOI18N
+        jLKnoten23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten23_gruen.png"))); // NOI18N
         jLKnoten23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten23MouseClicked(evt);
@@ -1079,7 +1079,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
 
-        jLLine12.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Line12.png")); // NOI18N
+        jLLine12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Kanten/Kante12.png"))); // NOI18N
         jPGleisplan.add(jLLine12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 40, -1));
 
         jLKnoten24.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten24_gruen.png")); // NOI18N
@@ -1090,7 +1090,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
 
-        jLKnoten25.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten25_gruen.png")); // NOI18N
+        jLKnoten25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten25_gruen.png"))); // NOI18N
         jLKnoten25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten25MouseClicked(evt);
@@ -1098,7 +1098,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
-        jLKnoten26.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten26_gruen.png")); // NOI18N
+        jLKnoten26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten26_gruen.png"))); // NOI18N
         jLKnoten26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten26MouseClicked(evt);
@@ -1988,8 +1988,8 @@ public class GUI extends javax.swing.JFrame {
          * false=belegt
          */
         //Pfad zum Knotenbild (gruen/rot)
-        ImageIcon gruenerKnoten = new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten" + nummer + "_gruen.png");
-        ImageIcon roterKnoten = new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten" + nummer + "_rot.png");
+        ImageIcon gruenerKnoten = new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten" + nummer + "_gruen.png"));
+        ImageIcon roterKnoten = new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten" + nummer + "_rot.png"));
         switch (nummer) {
             case 1:
                 if (status) {
