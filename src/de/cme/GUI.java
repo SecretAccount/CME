@@ -118,6 +118,40 @@ public class GUI extends javax.swing.JFrame {
         jLKnoten2 = new javax.swing.JLabel();
         jLKnoten3 = new javax.swing.JLabel();
         jLKnoten4 = new javax.swing.JLabel();
+        jLKnoten5 = new javax.swing.JLabel();
+        jLKnoten6 = new javax.swing.JLabel();
+        jLKnoten7 = new javax.swing.JLabel();
+        jLKnoten8 = new javax.swing.JLabel();
+        jLKnoten9 = new javax.swing.JLabel();
+        jLKnoten10 = new javax.swing.JLabel();
+        jLKnoten11 = new javax.swing.JLabel();
+        jLKnoten12 = new javax.swing.JLabel();
+        jLKnoten13 = new javax.swing.JLabel();
+        jLKnoten14 = new javax.swing.JLabel();
+        jLKnoten15 = new javax.swing.JLabel();
+        jLKnoten16 = new javax.swing.JLabel();
+        jLKnoten17 = new javax.swing.JLabel();
+        jLKnoten18 = new javax.swing.JLabel();
+        jLKnoten19 = new javax.swing.JLabel();
+        jLKnoten20 = new javax.swing.JLabel();
+        jLKnoten21 = new javax.swing.JLabel();
+        jLKnoten22 = new javax.swing.JLabel();
+        jLKnoten23 = new javax.swing.JLabel();
+        jLLine12 = new javax.swing.JLabel();
+        jLKnoten24 = new javax.swing.JLabel();
+        jLKnoten25 = new javax.swing.JLabel();
+        jLKnoten26 = new javax.swing.JLabel();
+        jLKnoten27 = new javax.swing.JLabel();
+        jLKnoten28 = new javax.swing.JLabel();
+        jLKnoten29 = new javax.swing.JLabel();
+        jLKnoten30 = new javax.swing.JLabel();
+        jLKnoten31 = new javax.swing.JLabel();
+        jBGleisbildAutomatikStarten = new javax.swing.JButton();
+        jPGleisbildStatus = new javax.swing.JPanel();
+        jLStartknoten = new javax.swing.JLabel();
+        jLEndknoten = new javax.swing.JLabel();
+        jLStartknotenNummer = new javax.swing.JLabel();
+        jLEndknotenNummer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CME");
@@ -859,66 +893,289 @@ public class GUI extends javax.swing.JFrame {
 
         jPGleisbild.add(jPFahrAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jLKnoten1.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jPGleisplan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLKnoten1.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_gruen.png")); // NOI18N
         jLKnoten1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten1MouseClicked(evt);
             }
         });
+        jPGleisplan.add(jLKnoten1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
-        jLKnoten2.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten2.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten2_gruen.png")); // NOI18N
         jLKnoten2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten2MouseClicked(evt);
             }
         });
+        jPGleisplan.add(jLKnoten2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
-        jLKnoten3.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten3.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten3_gruen.png")); // NOI18N
         jLKnoten3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten3MouseClicked(evt);
             }
         });
+        jPGleisplan.add(jLKnoten3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
 
-        jLKnoten4.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.svg.png")); // NOI18N
+        jLKnoten4.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten4_gruen.png")); // NOI18N
         jLKnoten4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten4MouseClicked(evt);
             }
         });
+        jPGleisplan.add(jLKnoten4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
-        javax.swing.GroupLayout jPGleisplanLayout = new javax.swing.GroupLayout(jPGleisplan);
-        jPGleisplan.setLayout(jPGleisplanLayout);
-        jPGleisplanLayout.setHorizontalGroup(
-            jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPGleisplanLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLKnoten2)
-                .addGap(18, 18, 18)
-                .addComponent(jLKnoten4)
-                .addGap(18, 18, 18)
-                .addComponent(jLKnoten3)
-                .addGap(18, 18, 18)
-                .addComponent(jLKnoten1)
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
-        jPGleisplanLayout.setVerticalGroup(
-            jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPGleisplanLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(jPGleisplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLKnoten1)
-                    .addComponent(jLKnoten2)
-                    .addComponent(jLKnoten3)
-                    .addComponent(jLKnoten4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLKnoten5.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten5_gruen.png")); // NOI18N
+        jLKnoten5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten5MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
 
-        jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 11, -1, 530));
+        jLKnoten6.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten6_gruen.png")); // NOI18N
+        jLKnoten6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten6MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
+
+        jLKnoten7.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten7_gruen.png")); // NOI18N
+        jLKnoten7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten7MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
+
+        jLKnoten8.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten8_gruen.png")); // NOI18N
+        jLKnoten8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten8MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
+
+        jLKnoten9.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten9_gruen.png")); // NOI18N
+        jLKnoten9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten9MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        jLKnoten10.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten10_gruen.png")); // NOI18N
+        jLKnoten10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten10MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+
+        jLKnoten11.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten11_gruen.png")); // NOI18N
+        jLKnoten11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten11MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+
+        jLKnoten12.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten12_gruen.png")); // NOI18N
+        jLKnoten12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten12MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+
+        jLKnoten13.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten13_gruen.png")); // NOI18N
+        jLKnoten13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten13MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+
+        jLKnoten14.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten14_gruen.png")); // NOI18N
+        jLKnoten14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten14MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, -1, -1));
+
+        jLKnoten15.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten15_gruen.png")); // NOI18N
+        jLKnoten15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten15MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
+
+        jLKnoten16.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten16_gruen.png")); // NOI18N
+        jLKnoten16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten16MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+
+        jLKnoten17.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten17_gruen.png")); // NOI18N
+        jLKnoten17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten17MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
+
+        jLKnoten18.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten18_gruen.png")); // NOI18N
+        jLKnoten18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten18MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        jLKnoten19.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten19_gruen.png")); // NOI18N
+        jLKnoten19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten19MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+
+        jLKnoten20.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten20_gruen.png")); // NOI18N
+        jLKnoten20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten20MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+
+        jLKnoten21.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten21_gruen.png")); // NOI18N
+        jLKnoten21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten21MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+
+        jLKnoten22.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten22_gruen.png")); // NOI18N
+        jLKnoten22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten22MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten22, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+
+        jLKnoten23.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten23_gruen.png")); // NOI18N
+        jLKnoten23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten23MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+
+        jLLine12.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Line12.png")); // NOI18N
+        jPGleisplan.add(jLLine12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 40, -1));
+
+        jLKnoten24.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten24_gruen.png")); // NOI18N
+        jLKnoten24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten24MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+
+        jLKnoten25.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten25_gruen.png")); // NOI18N
+        jLKnoten25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten25MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+
+        jLKnoten26.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten26_gruen.png")); // NOI18N
+        jLKnoten26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten26MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+
+        jLKnoten27.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten27_gruen.png")); // NOI18N
+        jLKnoten27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten27MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+
+        jLKnoten28.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten28_gruen.png")); // NOI18N
+        jLKnoten28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten28MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten28, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
+
+        jLKnoten29.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten29_gruen.png")); // NOI18N
+        jLKnoten29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten29MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten29, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
+
+        jLKnoten30.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten30_gruen.png")); // NOI18N
+        jLKnoten30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten30MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten30, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
+
+        jLKnoten31.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten31_gruen.png")); // NOI18N
+        jLKnoten31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLKnoten31MouseClicked(evt);
+            }
+        });
+        jPGleisplan.add(jLKnoten31, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, -1));
+
+        jBGleisbildAutomatikStarten.setText("Starten");
+        jBGleisbildAutomatikStarten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGleisbildAutomatikStartenActionPerformed(evt);
+            }
+        });
+        jPGleisplan.add(jBGleisbildAutomatikStarten, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        jPGleisbildStatus.setBorder(javax.swing.BorderFactory.createTitledBorder("Status"));
+        jPGleisbildStatus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLStartknoten.setText("Startknoten:");
+        jPGleisbildStatus.add(jLStartknoten, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 15));
+
+        jLEndknoten.setText("Endknoten:");
+        jPGleisbildStatus.add(jLEndknoten, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 15));
+
+        jLStartknotenNummer.setText("1");
+        jPGleisbildStatus.add(jLStartknotenNummer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 20, 15));
+
+        jLEndknotenNummer.setText("8");
+        jPGleisbildStatus.add(jLEndknotenNummer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 20, 15));
+
+        jPGleisplan.add(jPGleisbildStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 70));
+
+        jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 690, 520));
 
         jTPUmschalten.addTab("Gleisbild", jPGleisbild);
 
-        getContentPane().add(jTPUmschalten, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        getContentPane().add(jTPUmschalten, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1092,7 +1349,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBRMKabfragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRMKabfragenActionPerformed
         dieSteuerung.sendeRMK();
     }//GEN-LAST:event_jBRMKabfragenActionPerformed
- 
+
     private void jBTestOneWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTestOneWayActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
@@ -1134,7 +1391,7 @@ public class GUI extends javax.swing.JFrame {
     private void jBAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAutomatikStartenActionPerformed
         int vonKnoten = getStartPoint();
         int bisKnoten = getEndPoint();
-        
+
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
 
@@ -1142,7 +1399,7 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.setEndPoint(bisKnoten);
         dieSteuerung.findeWeg();
         //Route nicht möglich
-        if(!dieSteuerung.isRouteWorking()) {
+        if (!dieSteuerung.isRouteWorking()) {
             //Warnhinweis zeigen
             JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
         }
@@ -1183,28 +1440,475 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBGeschwFunktionActionPerformed
 
     //Test der Label MouseClicked-Action durch Verändern der Farbe des Knotens
-        boolean pressed = true;
+    private boolean pressed = true;
     private void jLKnoten1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten1MouseClicked
-        if(pressed) {
+        if (pressed) {
+            //Knoten 1 als Startpunkt setzen
+            System.out.println("Knoten 1 Startpunkt");
+            dieSteuerung.setStartPoint(1);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
-        jLKnoten1.setIcon(new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_gruen.png"));
         } else {
+            //Knoten 1 als Endpunkt setzen
+            System.out.println("Knoten 1 Endpunkt");
+            dieSteuerung.setEndPoint(1);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
-        jLKnoten1.setIcon(new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten1_rot.png"));
         }
     }//GEN-LAST:event_jLKnoten1MouseClicked
 
     private void jLKnoten2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten2MouseClicked
-        // TODO add your handling code here:
+        if (pressed) {
+            //Knoten 2 als Startpunkt setzen
+            System.out.println("Knoten 2 Startpunkt");
+            dieSteuerung.setStartPoint(2);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+            pressed = false;
+        } else {
+            //Knoten 2 als Endpunkt setzen
+            System.out.println("Knoten 2 Endpunkt");
+            dieSteuerung.setEndPoint(2);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+            pressed = true;
+        }
     }//GEN-LAST:event_jLKnoten2MouseClicked
 
     private void jLKnoten3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten3MouseClicked
-        // TODO add your handling code here:
+        if (pressed) {
+            //Knoten 3 als Startpunkt setzen
+            System.out.println("Knoten 3 Startpunkt");
+            dieSteuerung.setStartPoint(3);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+            pressed = false;
+        } else {
+            //Knoten 3 als Endpunkt setzen
+            System.out.println("Knoten 3 Endpunkt");
+            dieSteuerung.setEndPoint(3);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+            pressed = true;
+        }
     }//GEN-LAST:event_jLKnoten3MouseClicked
 
     private void jLKnoten4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten4MouseClicked
-        // TODO add your handling code here:
+        if (pressed) {
+            //Knoten 4 als Startpunkt setzen
+            System.out.println("Knoten 4 Startpunkt");
+            dieSteuerung.setStartPoint(4);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+            pressed = false;
+        } else {
+            //Knoten 4 als Endpunkt setzen
+            System.out.println("Knoten 4 Endpunkt");
+            dieSteuerung.setEndPoint(4);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+            pressed = true;
+        }
     }//GEN-LAST:event_jLKnoten4MouseClicked
+
+    private void jLKnoten5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten5MouseClicked
+        if (pressed) {
+            //Knoten 5 als Startpunkt setzen
+            System.out.println("Knoten 5 Startpunkt");
+            dieSteuerung.setStartPoint(5);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+            pressed = false;
+        } else {
+            //Knoten 5 als Endpunkt setzen
+            System.out.println("Knoten 5 Endpunkt");
+            dieSteuerung.setEndPoint(5);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten5MouseClicked
+
+    private void jLKnoten6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten6MouseClicked
+        if (pressed) {
+            //Knoten 6 als Startpunkt setzen
+            System.out.println("Knoten 6 Startpunkt");
+            dieSteuerung.setStartPoint(6);
+            //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+            pressed = false;
+        } else {
+            //Knoten 6 als Endpunkt setzen
+            System.out.println("Knoten 6 Endpunkt");
+            dieSteuerung.setEndPoint(6);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten6MouseClicked
+
+    private void jLKnoten7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten7MouseClicked
+        if (pressed) {
+            //Knoten 7 als Startpunkt setzen
+            System.out.println("Knoten 7 Startpunkt");
+            dieSteuerung.setStartPoint(7);
+            pressed = false;
+        } else {
+            //Knoten 7 als Endpunkt setzen
+            System.out.println("Knoten 7 Endpunkt");
+            dieSteuerung.setEndPoint(7);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten7MouseClicked
+
+    private void jLKnoten8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten8MouseClicked
+        if (pressed) {
+            //Knoten 8 als Startpunkt setzen
+            System.out.println("Knoten 8 Startpunkt");
+            dieSteuerung.setStartPoint(8);
+            pressed = false;
+        } else {
+            //Knoten 8 als Endpunkt setzen
+            System.out.println("Knoten 8 Endpunkt");
+            dieSteuerung.setEndPoint(8);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten8MouseClicked
+
+    private void jLKnoten9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten9MouseClicked
+        if (pressed) {
+            //Knoten 9 als Startpunkt setzen
+            System.out.println("Knoten 9 Startpunkt");
+            dieSteuerung.setStartPoint(9);
+            pressed = false;
+        } else {
+            //Knoten 9 als Endpunkt setzen
+            System.out.println("Knoten 9 Endpunkt");
+            dieSteuerung.setEndPoint(9);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten9MouseClicked
+
+    private void jLKnoten10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten10MouseClicked
+        if (pressed) {
+            //Knoten 10 als Startpunkt setzen
+            System.out.println("Knoten 10 Startpunkt");
+            dieSteuerung.setStartPoint(10);
+            pressed = false;
+        } else {
+            //Knoten 10 als Endpunkt setzen
+            System.out.println("Knoten 10 Endpunkt");
+            dieSteuerung.setEndPoint(10);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten10MouseClicked
+
+    private void jLKnoten11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten11MouseClicked
+        if (pressed) {
+            //Knoten 11 als Startpunkt setzen
+            System.out.println("Knoten 11 Startpunkt");
+            dieSteuerung.setStartPoint(11);
+            pressed = false;
+        } else {
+            //Knoten 11 als Endpunkt setzen
+            System.out.println("Knoten 11 Endpunkt");
+            dieSteuerung.setEndPoint(11);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten11MouseClicked
+
+    private void jLKnoten12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten12MouseClicked
+        if (pressed) {
+            //Knoten 12 als Startpunkt setzen
+            System.out.println("Knoten 12 Startpunkt");
+            dieSteuerung.setStartPoint(12);
+            pressed = false;
+        } else {
+            //Knoten 12 als Endpunkt setzen
+            System.out.println("Knoten 12 Endpunkt");
+            dieSteuerung.setEndPoint(12);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten12MouseClicked
+
+    private void jLKnoten13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten13MouseClicked
+        if (pressed) {
+            //Knoten 13 als Startpunkt setzen
+            System.out.println("Knoten 13 Startpunkt");
+            dieSteuerung.setStartPoint(13);
+            pressed = false;
+        } else {
+            //Knoten 13 als Endpunkt setzen
+            System.out.println("Knoten 13 Endpunkt");
+            dieSteuerung.setEndPoint(13);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten13MouseClicked
+
+    private void jLKnoten14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten14MouseClicked
+        if (pressed) {
+            //Knoten 14 als Startpunkt setzen
+            System.out.println("Knoten 14 Startpunkt");
+            dieSteuerung.setStartPoint(14);
+            pressed = false;
+        } else {
+            //Knoten 14 als Endpunkt setzen
+            System.out.println("Knoten 14 Endpunkt");
+            dieSteuerung.setEndPoint(14);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten14MouseClicked
+
+    private void jLKnoten15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten15MouseClicked
+        if (pressed) {
+            //Knoten 15 als Startpunkt setzen
+            System.out.println("Knoten 15 Startpunkt");
+            dieSteuerung.setStartPoint(15);
+            pressed = false;
+        } else {
+            //Knoten 15 als Endpunkt setzen
+            System.out.println("Knoten 15 Endpunkt");
+            dieSteuerung.setEndPoint(15);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten15MouseClicked
+
+    private void jLKnoten16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten16MouseClicked
+        if (pressed) {
+            //Knoten 16 als Startpunkt setzen
+            System.out.println("Knoten 16 Startpunkt");
+            dieSteuerung.setStartPoint(16);
+            pressed = false;
+        } else {
+            //Knoten 16 als Endpunkt setzen
+            System.out.println("Knoten 16 Endpunkt");
+            dieSteuerung.setEndPoint(16);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten16MouseClicked
+
+    private void jLKnoten17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten17MouseClicked
+        if (pressed) {
+            //Knoten 17 als Startpunkt setzen
+            System.out.println("Knoten 17 Startpunkt");
+            dieSteuerung.setStartPoint(17);
+            pressed = false;
+        } else {
+            //Knoten 17 als Endpunkt setzen
+            System.out.println("Knoten 17 Endpunkt");
+            dieSteuerung.setEndPoint(17);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten17MouseClicked
+
+    private void jLKnoten18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten18MouseClicked
+        if (pressed) {
+            //Knoten 18 als Startpunkt setzen
+            System.out.println("Knoten 18 Startpunkt");
+            dieSteuerung.setStartPoint(18);
+            pressed = false;
+        } else {
+            //Knoten 18 als Endpunkt setzen
+            System.out.println("Knoten 18 Endpunkt");
+            dieSteuerung.setEndPoint(18);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten18MouseClicked
+
+    private void jLKnoten19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten19MouseClicked
+        if (pressed) {
+            //Knoten 19 als Startpunkt setzen
+            System.out.println("Knoten 19 Startpunkt");
+            dieSteuerung.setStartPoint(19);
+            pressed = false;
+        } else {
+            //Knoten 19 als Endpunkt setzen
+            System.out.println("Knoten 19 Endpunkt");
+            dieSteuerung.setEndPoint(19);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten19MouseClicked
+
+    private void jLKnoten20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten20MouseClicked
+        if (pressed) {
+            //Knoten 20 als Startpunkt setzen
+            System.out.println("Knoten 20 Startpunkt");
+            dieSteuerung.setStartPoint(20);
+            pressed = false;
+        } else {
+            //Knoten 20 als Endpunkt setzen
+            System.out.println("Knoten 20 Endpunkt");
+            dieSteuerung.setEndPoint(20);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten20MouseClicked
+
+    private void jLKnoten21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten21MouseClicked
+        if (pressed) {
+            //Knoten 21 als Startpunkt setzen
+            System.out.println("Knoten 21 Startpunkt");
+            dieSteuerung.setStartPoint(21);
+            pressed = false;
+        } else {
+            //Knoten 21 als Endpunkt setzen
+            System.out.println("Knoten 21 Endpunkt");
+            dieSteuerung.setEndPoint(21);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten21MouseClicked
+
+    private void jLKnoten22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten22MouseClicked
+        if (pressed) {
+            //Knoten 22 als Startpunkt setzen
+            System.out.println("Knoten 22 Startpunkt");
+            dieSteuerung.setStartPoint(22);
+            pressed = false;
+        } else {
+            //Knoten 22 als Endpunkt setzen
+            System.out.println("Knoten 22 Endpunkt");
+            dieSteuerung.setEndPoint(22);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten22MouseClicked
+
+    private void jLKnoten23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten23MouseClicked
+        if (pressed) {
+            //Knoten 23 als Startpunkt setzen
+            System.out.println("Knoten 23 Startpunkt");
+            dieSteuerung.setStartPoint(23);
+            pressed = false;
+        } else {
+            //Knoten 23 als Endpunkt setzen
+            System.out.println("Knoten 23 Endpunkt");
+            dieSteuerung.setEndPoint(23);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten23MouseClicked
+
+    private void jLKnoten24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten24MouseClicked
+        if (pressed) {
+            //Knoten 24 als Startpunkt setzen
+            System.out.println("Knoten 24 Startpunkt");
+            dieSteuerung.setStartPoint(24);
+            pressed = false;
+        } else {
+            //Knoten 24 als Endpunkt setzen
+            System.out.println("Knoten 24 Endpunkt");
+            dieSteuerung.setEndPoint(24);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten24MouseClicked
+
+    private void jLKnoten25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten25MouseClicked
+        if (pressed) {
+            //Knoten 25 als Startpunkt setzen
+            System.out.println("Knoten 25 Startpunkt");
+            dieSteuerung.setStartPoint(25);
+            pressed = false;
+        } else {
+            //Knoten 25 als Endpunkt setzen
+            System.out.println("Knoten 25 Endpunkt");
+            dieSteuerung.setEndPoint(25);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten25MouseClicked
+
+    private void jLKnoten26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten26MouseClicked
+        if (pressed) {
+            //Knoten 26 als Startpunkt setzen
+            System.out.println("Knoten 26 Startpunkt");
+            dieSteuerung.setStartPoint(26);
+            pressed = false;
+        } else {
+            //Knoten 26 als Endpunkt setzen
+            System.out.println("Knoten 26 Endpunkt");
+            dieSteuerung.setEndPoint(26);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten26MouseClicked
+
+    private void jLKnoten27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten27MouseClicked
+        if (pressed) {
+            //Knoten 27 als Startpunkt setzen
+            System.out.println("Knoten 27 Startpunkt");
+            dieSteuerung.setStartPoint(27);
+            pressed = false;
+        } else {
+            //Knoten 27 als Endpunkt setzen
+            System.out.println("Knoten 27 Endpunkt");
+            dieSteuerung.setEndPoint(27);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten27MouseClicked
+
+    private void jLKnoten28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten28MouseClicked
+        if (pressed) {
+            //Knoten 28 als Startpunkt setzen
+            System.out.println("Knoten 28 Startpunkt");
+            dieSteuerung.setStartPoint(28);
+            pressed = false;
+        } else {
+            //Knoten 28 als Endpunkt setzen
+            System.out.println("Knoten 28 Endpunkt");
+            dieSteuerung.setEndPoint(28);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten28MouseClicked
+
+    private void jLKnoten29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten29MouseClicked
+        if (pressed) {
+            //Knoten 29 als Startpunkt setzen
+            System.out.println("Knoten 29 Startpunkt");
+            dieSteuerung.setStartPoint(29);
+            pressed = false;
+        } else {
+            //Knoten 29 als Endpunkt setzen
+            System.out.println("Knoten 29 Endpunkt");
+            dieSteuerung.setEndPoint(29);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten29MouseClicked
+
+    private void jLKnoten30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten30MouseClicked
+        if (pressed) {
+            //Knoten 30 als Startpunkt setzen
+            System.out.println("Knoten 30 Startpunkt");
+            dieSteuerung.setStartPoint(30);
+            pressed = false;
+        } else {
+            //Knoten 30 als Endpunkt setzen
+            System.out.println("Knoten 30 Endpunkt");
+            dieSteuerung.setEndPoint(30);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten30MouseClicked
+
+    private void jLKnoten31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten31MouseClicked
+        if (pressed) {
+            //Knoten 31 als Startpunkt setzen
+            System.out.println("Knoten 31 Startpunkt");
+            dieSteuerung.setStartPoint(31);
+            pressed = false;
+        } else {
+            //Knoten 31 als Endpunkt setzen
+            System.out.println("Knoten 31 Endpunkt");
+            dieSteuerung.setEndPoint(31);
+            pressed = true;
+        }
+    }//GEN-LAST:event_jLKnoten31MouseClicked
+
+    private void jBGleisbildAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildAutomatikStartenActionPerformed
+        //Auf Lokposition prüfen einschalten
+        dieSteuerung.setAutomationEnabled(true);
+        dieSteuerung.findeWeg();
+        //Route nicht möglich
+        if (!dieSteuerung.isRouteWorking()) {
+            //Warnhinweis zeigen
+            JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jBGleisbildAutomatikStartenActionPerformed
 
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
@@ -1276,6 +1980,239 @@ public class GUI extends javax.swing.JFrame {
             default:
                 break;
         }
+    }
+
+    public void setzeKnotenStatus(int nummer, boolean status) {
+        /**
+         * int nummer: 1-30 (Nummer des Knotens) boolean status: true=frei,
+         * false=belegt
+         */
+        //Pfad zum Knotenbild (gruen/rot)
+        ImageIcon gruenerKnoten = new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten" + nummer + "_gruen.png");
+        ImageIcon roterKnoten = new ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten" + nummer + "_rot.png");
+        switch (nummer) {
+            case 1:
+                if (status) {
+                    jLKnoten1.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten1.setIcon(roterKnoten);
+                }
+                break;
+            case 2:
+                if (status) {
+                    jLKnoten2.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten2.setIcon(roterKnoten);
+                }
+                break;
+            case 3:
+                if (status) {
+                    jLKnoten3.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten3.setIcon(roterKnoten);
+                }
+                break;
+            case 4:
+                if (status) {
+                    jLKnoten4.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten4.setIcon(roterKnoten);
+                }
+                break;
+            case 5:
+                if (status) {
+                    jLKnoten5.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten5.setIcon(roterKnoten);
+                }
+                break;
+            case 6:
+                if (status) {
+                    jLKnoten6.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten6.setIcon(roterKnoten);
+                }
+                break;
+            case 7:
+                if (status) {
+                    jLKnoten7.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten7.setIcon(roterKnoten);
+                }
+                break;
+            case 8:
+                if (status) {
+                    jLKnoten8.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten8.setIcon(roterKnoten);
+                }
+                break;
+            case 9:
+                if (status) {
+                    jLKnoten9.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten9.setIcon(roterKnoten);
+                }
+                break;
+            case 10:
+                if (status) {
+                    jLKnoten10.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten10.setIcon(roterKnoten);
+                }
+                break;
+            case 11:
+                if (status) {
+                    jLKnoten11.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten11.setIcon(roterKnoten);
+                }
+                break;
+            case 12:
+                if (status) {
+                    jLKnoten12.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten12.setIcon(roterKnoten);
+                }
+                break;
+            case 13:
+                if (status) {
+                    jLKnoten13.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten13.setIcon(roterKnoten);
+                }
+                break;
+            case 14:
+                if (status) {
+                    jLKnoten14.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten14.setIcon(roterKnoten);
+                }
+                break;
+            case 15:
+                if (status) {
+                    jLKnoten15.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten15.setIcon(roterKnoten);
+                }
+                break;
+            case 16:
+                if (status) {
+                    jLKnoten16.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten16.setIcon(roterKnoten);
+                }
+                break;
+            case 17:
+                if (status) {
+                    jLKnoten17.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten17.setIcon(roterKnoten);
+                }
+                break;
+            case 18:
+                if (status) {
+                    jLKnoten18.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten18.setIcon(roterKnoten);
+                }
+                break;
+            case 19:
+                if (status) {
+                    jLKnoten19.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten19.setIcon(roterKnoten);
+                }
+                break;
+            case 20:
+                if (status) {
+                    jLKnoten20.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten20.setIcon(roterKnoten);
+                }
+                break;
+            case 21:
+                if (status) {
+                    jLKnoten21.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten21.setIcon(roterKnoten);
+                }
+                break;
+            case 22:
+                if (status) {
+                    jLKnoten22.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten22.setIcon(roterKnoten);
+                }
+                break;
+            case 23:
+                if (status) {
+                    jLKnoten23.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten23.setIcon(roterKnoten);
+                }
+                break;
+            case 24:
+                if (status) {
+                    jLKnoten24.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten24.setIcon(roterKnoten);
+                }
+                break;
+            case 25:
+                if (status) {
+                    jLKnoten25.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten25.setIcon(roterKnoten);
+                }
+                break;
+            case 26:
+                if (status) {
+                    jLKnoten26.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten26.setIcon(roterKnoten);
+                }
+                break;
+            case 27:
+                if (status) {
+                    jLKnoten27.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten27.setIcon(roterKnoten);
+                }
+                break;
+            case 28:
+                if (status) {
+                    jLKnoten28.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten28.setIcon(roterKnoten);
+                }
+                break;
+            case 29:
+                if (status) {
+                    jLKnoten29.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten29.setIcon(roterKnoten);
+                }
+                break;
+            case 30:
+                if (status) {
+                    jLKnoten30.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten30.setIcon(roterKnoten);
+                }
+                break;
+            case 31:
+                if (status) {
+                    jLKnoten31.setIcon(gruenerKnoten);
+                } else {
+                    jLKnoten31.setIcon(roterKnoten);
+                }
+                break;
+            default:
+                System.out.println("Falsche Knotennummer!");
+                break;
+        }
+
     }
 
     public void setzeRMKStatus(int nummer, boolean status) {
@@ -1466,6 +2403,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBAutomatikStarten;
     private javax.swing.JButton jBBeenden;
     private javax.swing.JButton jBGeschwFunktion;
+    private javax.swing.JButton jBGleisbildAutomatikStarten;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
@@ -1504,12 +2442,44 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLEingang6;
     private javax.swing.JLabel jLEingang7;
     private javax.swing.JLabel jLEingang8;
+    private javax.swing.JLabel jLEndknoten;
+    private javax.swing.JLabel jLEndknotenNummer;
     private javax.swing.JLabel jLKnoten1;
+    private javax.swing.JLabel jLKnoten10;
+    private javax.swing.JLabel jLKnoten11;
+    private javax.swing.JLabel jLKnoten12;
+    private javax.swing.JLabel jLKnoten13;
+    private javax.swing.JLabel jLKnoten14;
+    private javax.swing.JLabel jLKnoten15;
+    private javax.swing.JLabel jLKnoten16;
+    private javax.swing.JLabel jLKnoten17;
+    private javax.swing.JLabel jLKnoten18;
+    private javax.swing.JLabel jLKnoten19;
     private javax.swing.JLabel jLKnoten2;
+    private javax.swing.JLabel jLKnoten20;
+    private javax.swing.JLabel jLKnoten21;
+    private javax.swing.JLabel jLKnoten22;
+    private javax.swing.JLabel jLKnoten23;
+    private javax.swing.JLabel jLKnoten24;
+    private javax.swing.JLabel jLKnoten25;
+    private javax.swing.JLabel jLKnoten26;
+    private javax.swing.JLabel jLKnoten27;
+    private javax.swing.JLabel jLKnoten28;
+    private javax.swing.JLabel jLKnoten29;
     private javax.swing.JLabel jLKnoten3;
+    private javax.swing.JLabel jLKnoten30;
+    private javax.swing.JLabel jLKnoten31;
     private javax.swing.JLabel jLKnoten4;
+    private javax.swing.JLabel jLKnoten5;
+    private javax.swing.JLabel jLKnoten6;
+    private javax.swing.JLabel jLKnoten7;
+    private javax.swing.JLabel jLKnoten8;
+    private javax.swing.JLabel jLKnoten9;
+    private javax.swing.JLabel jLLine12;
     private javax.swing.JLabel jLRMK;
     private javax.swing.JLabel jLRMKModulAuswahl;
+    private javax.swing.JLabel jLStartknoten;
+    private javax.swing.JLabel jLStartknotenNummer;
     private javax.swing.JLabel jLStatus;
     private javax.swing.JLabel jLStreckeWaehlen;
     private javax.swing.JLabel jLVon;
@@ -1523,6 +2493,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPCOMPort;
     private javax.swing.JPanel jPFahrAutomatik;
     private javax.swing.JPanel jPGleisbild;
+    private javax.swing.JPanel jPGleisbildStatus;
     private javax.swing.JPanel jPGleisplan;
     private javax.swing.JPanel jPLok;
     private javax.swing.JPanel jPRMK;
