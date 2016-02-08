@@ -671,6 +671,9 @@ public class Steuerung implements Befehle {
     }
 
     public void sucheRMK() {
+        /*Variante für alte GUI:
+        * Status der RMK pro Modul anzeigen
+        */
         System.out.println("suche RMK-Methode");
         System.out.println("empfangene Daten in suche RMK-Methode");
         for (byte dataByte : empfangeneDaten) {
@@ -759,6 +762,11 @@ public class Steuerung implements Befehle {
                 default:
                     System.out.println("Falscher RMK-Ausgang!");
             }
+        /*Variante für Gleisbild:
+        * Status der RMK pro Knoten anzeigen
+        */
+        //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben
+        dieGUI.setzeKnotenStatus(gibKnoten(empfangeneDaten[8]), (empfangeneDaten[9] != 0));
         }
     }
 
@@ -853,6 +861,115 @@ public class Steuerung implements Befehle {
         dieDaten[9] = stellungWert;
         dieDaten[10] = (byte) 0; //Strom aus
         dieAnlage.schreibeAufCAN(dieDaten);
+    }
+
+    /**
+     * Die Methode gibt die Knotennummer eines gesuchten Knotens anhand 
+     * der Adresse eines RMK zurück
+     * @param RMKAdresse: Adresse eines RMK-Abschnittes
+     * @return Knotennummer
+     */
+    public int gibKnoten(int RMKAdresse) {
+
+        switch (RMKAdresse) {
+            case 1:
+                return 30; //Nummer des Knotens
+                
+            case 2:
+                return 8; //Nummer des Knotens
+                
+            case 3:
+                return 21; //Nummer des Knotens
+                
+            case 4:
+                return 31; //Nummer des Knotens
+                
+            case 5:
+                return 19; //Nummer des Knotens
+                
+            case 6:
+                return 9; //Nummer des Knotens
+                
+            case 7:
+                return 10; //Nummer des Knotens
+                
+            case 8:
+                return 20; //Nummer des Knotens
+
+            case 9:
+                return 22; //Nummer des Knotens
+
+            case 10:
+                return 27; //Nummer des Knotens
+
+            case 11:
+                return 17; //Nummer des Knotens
+                
+            case 12:
+                return 29; //Nummer des Knotens
+                
+            case 14:
+                return 18; //Nummer des Knotens
+                
+            case 15:
+                return 28; //Nummer des Knotens
+                
+            case 16:
+                return 11; //Nummer des Knotens
+                
+            case 17:
+                return 23; //Nummer des Knotens
+                
+            case 18:
+                return 7; //Nummer des Knotens
+                
+            case 19:
+                return 1; //Nummer des Knotens
+                
+            case 20:
+                return 2; //Nummer des Knotens
+                
+            case 21:
+                return 12; //Nummer des Knotens
+
+            case 22:
+                return 13; //Nummer des Knotens
+                
+            case 23:
+                return 3; //Nummer des Knotens
+                
+            case 24:
+                return 24; //Nummer des Knotens
+                
+            case 25:
+                return 5; //Nummer des Knotens
+                
+            case 26:
+                return 15; //Nummer des Knotens
+                
+            case 27:
+                return 6; //Nummer des Knotens
+                
+            case 28:
+                return 25; //Nummer des Knotens
+                
+            case 29:
+                return 16; //Nummer des Knotens
+                
+            case 30:
+                return 26; //Nummer des Knotens
+                
+            case 31:
+                return 4; //Nummer des Knotens
+
+            //Abstellgleis zur Erweiterung (wird nicht benutzt)
+            //case 13:
+            //    return 32; //Nummer des Knotens
+            default:
+                System.out.println("Keine gültige RMK-Adresse gewählt: "
+                        + "Erster Knoten gewählt mit Nummer 1");
+                return 1;
+        }
     }
 
     @Override
@@ -952,8 +1069,8 @@ public class Steuerung implements Befehle {
             case 31:
                 return 4; //Adresse des RMK
             //Abstellgleis zur Erweiterung (wird nicht benutzt)
-            case 32:
-                return 13; //Adresse des RMK
+            //case 32:
+            //    return 13; //Adresse des RMK
             default:
                 System.out.println("Keine gültige RMK-Nummer gewählt: "
                         + "Erster Abschnitt gewählt mit Adresse 19");
@@ -1140,7 +1257,7 @@ public class Steuerung implements Befehle {
                     //Weiche 36 stellen
                     if (nameNachfolger == 36) {
                         stelleWeiche(36, 'r');
-                    } 
+                    }
                     //Weiche 36 stellen
                     if (nameNachfolger == 6) {
                         stelleWeiche(36, 'g');
@@ -1314,6 +1431,8 @@ public class Steuerung implements Befehle {
         if (automationEnabled) {
             //Losfahren, wenn Lok auf Startknoten steht
             if (leseRMK(startPoint)) {
+                //Startknoten auf GUI auf belegt(=false) setzen (rot)
+                dieGUI.setzeKnotenStatus(startPoint, false);
                 System.out.println("Lok mit v=200 fahren, da Lok auf Startpunkt");
                 //TO-DO: benutze fahreLok-Methode, die immer Wert entgegennimmt
                 //unabhängig vom Timer
@@ -1327,6 +1446,10 @@ public class Steuerung implements Befehle {
 //                } catch (InterruptedException ex) {
 //                    Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
 //                }
+                //Startknoten auf GUI auf frei(=true) setzen (gruen)
+                dieGUI.setzeKnotenStatus(startPoint, true);
+                //Endknoten auf GUI auf belegt(=false) setzen (rot)
+                dieGUI.setzeKnotenStatus(endPoint, false);
                 fahreLok(0, true);
             }
         }
