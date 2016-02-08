@@ -1680,11 +1680,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 14 als Startpunkt setzen
             System.out.println("Knoten 14 Startpunkt");
             dieSteuerung.setStartPoint(14);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 14 als Endpunkt setzen
             System.out.println("Knoten 14 Endpunkt");
             dieSteuerung.setEndPoint(14);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten14MouseClicked
@@ -1694,11 +1698,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 15 als Startpunkt setzen
             System.out.println("Knoten 15 Startpunkt");
             dieSteuerung.setStartPoint(15);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 15 als Endpunkt setzen
             System.out.println("Knoten 15 Endpunkt");
             dieSteuerung.setEndPoint(15);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten15MouseClicked
@@ -1708,11 +1716,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 16 als Startpunkt setzen
             System.out.println("Knoten 16 Startpunkt");
             dieSteuerung.setStartPoint(16);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 16 als Endpunkt setzen
             System.out.println("Knoten 16 Endpunkt");
             dieSteuerung.setEndPoint(16);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten16MouseClicked
@@ -1722,11 +1734,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 17 als Startpunkt setzen
             System.out.println("Knoten 17 Startpunkt");
             dieSteuerung.setStartPoint(17);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 17 als Endpunkt setzen
             System.out.println("Knoten 17 Endpunkt");
             dieSteuerung.setEndPoint(17);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten17MouseClicked
@@ -1736,11 +1752,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 18 als Startpunkt setzen
             System.out.println("Knoten 18 Startpunkt");
             dieSteuerung.setStartPoint(18);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 18 als Endpunkt setzen
             System.out.println("Knoten 18 Endpunkt");
             dieSteuerung.setEndPoint(18);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten18MouseClicked
@@ -1750,11 +1770,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 19 als Startpunkt setzen
             System.out.println("Knoten 19 Startpunkt");
             dieSteuerung.setStartPoint(19);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 19 als Endpunkt setzen
             System.out.println("Knoten 19 Endpunkt");
             dieSteuerung.setEndPoint(19);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten19MouseClicked
@@ -1764,11 +1788,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 20 als Startpunkt setzen
             System.out.println("Knoten 20 Startpunkt");
             dieSteuerung.setStartPoint(20);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 20 als Endpunkt setzen
             System.out.println("Knoten 20 Endpunkt");
             dieSteuerung.setEndPoint(20);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten20MouseClicked
@@ -1778,11 +1806,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 21 als Startpunkt setzen
             System.out.println("Knoten 21 Startpunkt");
             dieSteuerung.setStartPoint(21);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 21 als Endpunkt setzen
             System.out.println("Knoten 21 Endpunkt");
             dieSteuerung.setEndPoint(21);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten21MouseClicked
@@ -1792,11 +1824,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 22 als Startpunkt setzen
             System.out.println("Knoten 22 Startpunkt");
             dieSteuerung.setStartPoint(22);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 22 als Endpunkt setzen
             System.out.println("Knoten 22 Endpunkt");
             dieSteuerung.setEndPoint(22);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten22MouseClicked
@@ -1806,11 +1842,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 23 als Startpunkt setzen
             System.out.println("Knoten 23 Startpunkt");
             dieSteuerung.setStartPoint(23);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 23 als Endpunkt setzen
             System.out.println("Knoten 23 Endpunkt");
             dieSteuerung.setEndPoint(23);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten23MouseClicked
@@ -1820,11 +1860,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 24 als Startpunkt setzen
             System.out.println("Knoten 24 Startpunkt");
             dieSteuerung.setStartPoint(24);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 24 als Endpunkt setzen
             System.out.println("Knoten 24 Endpunkt");
             dieSteuerung.setEndPoint(24);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten24MouseClicked
@@ -1834,11 +1878,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 25 als Startpunkt setzen
             System.out.println("Knoten 25 Startpunkt");
             dieSteuerung.setStartPoint(25);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 25 als Endpunkt setzen
             System.out.println("Knoten 25 Endpunkt");
             dieSteuerung.setEndPoint(25);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten25MouseClicked
@@ -1848,11 +1896,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 26 als Startpunkt setzen
             System.out.println("Knoten 26 Startpunkt");
             dieSteuerung.setStartPoint(26);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 26 als Endpunkt setzen
             System.out.println("Knoten 26 Endpunkt");
             dieSteuerung.setEndPoint(26);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten26MouseClicked
@@ -1862,11 +1914,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 27 als Startpunkt setzen
             System.out.println("Knoten 27 Startpunkt");
             dieSteuerung.setStartPoint(27);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 27 als Endpunkt setzen
             System.out.println("Knoten 27 Endpunkt");
             dieSteuerung.setEndPoint(27);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten27MouseClicked
@@ -1876,11 +1932,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 28 als Startpunkt setzen
             System.out.println("Knoten 28 Startpunkt");
             dieSteuerung.setStartPoint(28);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 28 als Endpunkt setzen
             System.out.println("Knoten 28 Endpunkt");
             dieSteuerung.setEndPoint(28);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten28MouseClicked
@@ -1890,11 +1950,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 29 als Startpunkt setzen
             System.out.println("Knoten 29 Startpunkt");
             dieSteuerung.setStartPoint(29);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 29 als Endpunkt setzen
             System.out.println("Knoten 29 Endpunkt");
             dieSteuerung.setEndPoint(29);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten29MouseClicked
@@ -1904,11 +1968,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 30 als Startpunkt setzen
             System.out.println("Knoten 30 Startpunkt");
             dieSteuerung.setStartPoint(30);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 30 als Endpunkt setzen
             System.out.println("Knoten 30 Endpunkt");
             dieSteuerung.setEndPoint(30);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten30MouseClicked
@@ -1918,11 +1986,15 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 31 als Startpunkt setzen
             System.out.println("Knoten 31 Startpunkt");
             dieSteuerung.setStartPoint(31);
+             //Status auf GUI aktualisieren
+            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
             //Knoten 31 als Endpunkt setzen
             System.out.println("Knoten 31 Endpunkt");
             dieSteuerung.setEndPoint(31);
+            //Status auf GUI aktualisieren
+            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten31MouseClicked
