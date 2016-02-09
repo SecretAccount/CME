@@ -223,18 +223,31 @@ public class Dijkstra {
         System.out.println("Startknoten: \t" + knoten[startpunkt - 1].getName());
         System.out.println("Endknoten: \t" + knoten[endpunkt - 1].getName());
         int vorgaengerNr = 0;
-        //unendliche Schleife
-        while (true) {
+        //do-while Schleife
+        do {
             //füge Vorgänger der Liste hinzu
-            way.add(way.get(vorgaengerNr).getVorgaenger()); //10
+            way.add(way.get(vorgaengerNr).getVorgaenger());
+            
+            vorgaengerNr++;
+        //breche ab, wenn der Startknoten in die Liste eingetragen wird
+        //bzw. breche ab, sobald der Name des Vorgängers nicht mehr ungleich (=gleich) wie der Name des Endknotens ist
+        } while(way.get(vorgaengerNr).getName() != knotenliste[0].getName());
+
+        /*
+        //oder mit unendlicher Schleife
+        while(true) {
+            //füge Vorgänger der Liste hinzu
+            way.add(way.get(vorgaengerNr).getVorgaenger());
             
                 //breche ab, wenn der Startknoten in die Liste eingetragen wird
-                if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
-                    break;
-                }
+                  if (way.get(vorgaengerNr + 1).getName() == knotenliste[0].getName()) {
+                      break;
+                  }
             vorgaengerNr++;
         }
-
+        */
+        
+        
         //Liste umdrehen
         Collections.reverse(way);
 
