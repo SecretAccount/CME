@@ -220,8 +220,8 @@ public class Dijkstra {
 
         //immer Startknoten
         //System.out.println("Startknoten: " + knotenliste[0].getName());
-        System.out.println("Startknoten: " + knoten[startpunkt - 1].getName());
-        System.out.println("Endknoten: " + knoten[endpunkt - 1].getName());
+        System.out.println("Startknoten: \t" + knoten[startpunkt - 1].getName());
+        System.out.println("Endknoten: \t" + knoten[endpunkt - 1].getName());
         int vorgaengerNr = 0;
         //unendliche Schleife
         while (true) {
