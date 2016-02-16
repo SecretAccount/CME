@@ -1300,6 +1300,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBOeffnenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOeffnenActionPerformed
         dieSteuerung.connect((String) jCBCOMPort.getSelectedItem());
+        //RMK suchen, um Hindernisse zu erkennen und Kanten zu entfernen
+        dieSteuerung.sendeRMK();
     }//GEN-LAST:event_jBOeffnenActionPerformed
 
     private void jSGeschwindigkeitStateChanged(javax.swing.event.ChangeEvent evt) {
@@ -2102,7 +2104,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBGleisbildAutomatikStartenActionPerformed
 
-    public void aktualisiereStatus() {
+    public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
         jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
         jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
