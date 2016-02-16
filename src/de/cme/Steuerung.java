@@ -728,15 +728,27 @@ public class Steuerung implements Befehle {
             int knotenNr = gibKnoten(empfangeneDaten[8]);
             //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben (Farbe der Knoten auf GUI ändern)
             dieGUI.setzeKnotenStatus(knotenNr, (empfangeneDaten[9] != 0));
-            
-        //belegte RMK beim Start entfernen (außer Standard-Knoten 1)
+
+            //belegte RMK/Kanten beim Start entfernen (außer Standard-Knoten 1)
             //Knoten darf nicht Standard-Knoten 1 sein
             if (knotenNr != 1) {
                 //ist Knoten belegt?
-                if(leseRMK(knotenNr)) {
+                if (leseRMK(knotenNr)) {
                     removedEdges.add(knotenNr);
                     //ACHTUNG: falsch: nächster Knoten ist nicht IMMER eins größer
                     removedEdges.add(knotenNr + 1);
+                }
+
+            //Hindernis muss auf wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
+                //        removedEdges.remove(knotenNr);
+                //Prüfe bei jeder entfernten Kante, ob der RMK wieder frei ist
+                for (Integer knoten : removedEdges) {
+                    if (!(leseRMK(knoten))) {
+                        //Knoten aus entfernter Kanten-Liste entfernen
+                        removedEdges.remove(knoten);
+                        //Nächses Integer-Element entfernen
+                        removedEdges.remove(removedEdges.lastIndexOf(knoten) + 1);
+                    }
                 }
             }
         }
