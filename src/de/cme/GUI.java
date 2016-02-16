@@ -102,7 +102,6 @@ public class GUI extends javax.swing.JFrame {
         jBRMKabfragen = new javax.swing.JButton();
         jPRegler = new javax.swing.JPanel();
         jSGeschwindigkeit = new javax.swing.JSlider();
-        jPGleisbild = new javax.swing.JPanel();
         jPFahrAutomatik = new javax.swing.JPanel();
         jLStreckeWaehlen = new javax.swing.JLabel();
         jLVon = new javax.swing.JLabel();
@@ -113,6 +112,7 @@ public class GUI extends javax.swing.JFrame {
         jBAutomatikStarten = new javax.swing.JButton();
         jBTestAllNondes = new javax.swing.JButton();
         jBSperreWeg = new javax.swing.JButton();
+        jPGleisbild = new javax.swing.JPanel();
         jPGleisplan = new javax.swing.JPanel();
         jLKnoten1 = new javax.swing.JLabel();
         jLKnoten2 = new javax.swing.JLabel();
@@ -137,7 +137,6 @@ public class GUI extends javax.swing.JFrame {
         jLKnoten21 = new javax.swing.JLabel();
         jLKnoten22 = new javax.swing.JLabel();
         jLKnoten23 = new javax.swing.JLabel();
-        jLLine12 = new javax.swing.JLabel();
         jLKnoten24 = new javax.swing.JLabel();
         jLKnoten25 = new javax.swing.JLabel();
         jLKnoten26 = new javax.swing.JLabel();
@@ -146,12 +145,18 @@ public class GUI extends javax.swing.JFrame {
         jLKnoten29 = new javax.swing.JLabel();
         jLKnoten30 = new javax.swing.JLabel();
         jLKnoten31 = new javax.swing.JLabel();
+        jPEdge12 = new javax.swing.JPanel();
+        jPEdge23 = new javax.swing.JPanel();
+        jPEdge34 = new javax.swing.JPanel();
+        jPEdge45 = new javax.swing.JPanel();
         jBGleisbildAutomatikStarten = new javax.swing.JButton();
         jPGleisbildStatus = new javax.swing.JPanel();
         jLStartknoten = new javax.swing.JLabel();
         jLEndknoten = new javax.swing.JLabel();
         jLStartknotenNummer = new javax.swing.JLabel();
         jLEndknotenNummer = new javax.swing.JLabel();
+        jPEdge46 = new javax.swing.JPanel();
+        jPEdge47 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CME");
@@ -587,12 +592,12 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jBWeiche2Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche3Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche4Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jBWeiche1Position.getAccessibleContext().setAccessibleName("Position 1");
 
-        jPSteuerung.add(jPWeiche, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 11, -1, -1));
+        jPSteuerung.add(jPWeiche, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 11, -1, 240));
 
         jPRMK.setBorder(javax.swing.BorderFactory.createTitledBorder("Rückmeldekontakt Einstellungen"));
 
@@ -787,10 +792,6 @@ public class GUI extends javax.swing.JFrame {
 
         jPSteuerung.add(jPRegler, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 11, -1, -1));
 
-        jTPUmschalten.addTab("Steuerung", jPSteuerung);
-
-        jPGleisbild.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jPFahrAutomatik.setBorder(javax.swing.BorderFactory.createTitledBorder("Automatisiertes Fahren"));
 
         jLStreckeWaehlen.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -891,7 +892,11 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jPGleisbild.add(jPFahrAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jPSteuerung.add(jPFahrAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
+
+        jTPUmschalten.addTab("Steuerung", jPSteuerung);
+
+        jPGleisbild.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPGleisplan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -901,7 +906,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten1MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
+        jPGleisplan.add(jLKnoten1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLKnoten2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten2_gruen.png"))); // NOI18N
         jLKnoten2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -909,7 +914,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten2MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
+        jPGleisplan.add(jLKnoten2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
 
         jLKnoten3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten3_gruen.png"))); // NOI18N
         jLKnoten3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -917,7 +922,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten3MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
+        jPGleisplan.add(jLKnoten3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, -1));
 
         jLKnoten4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten4_gruen.png"))); // NOI18N
         jLKnoten4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -925,7 +930,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten4MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
+        jPGleisplan.add(jLKnoten4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 90, -1, -1));
 
         jLKnoten5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png"))); // NOI18N
         jLKnoten5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -933,7 +938,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten5MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
+        jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 230, -1, -1));
 
         jLKnoten6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten6_gruen.png"))); // NOI18N
         jLKnoten6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -941,7 +946,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten6MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
+        jPGleisplan.add(jLKnoten6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, -1, -1));
 
         jLKnoten7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten7_gruen.png"))); // NOI18N
         jLKnoten7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -949,7 +954,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten7MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
+        jPGleisplan.add(jLKnoten7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
 
         jLKnoten8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten8_gruen.png"))); // NOI18N
         jLKnoten8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -957,7 +962,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten8MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
+        jPGleisplan.add(jLKnoten8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
         jLKnoten9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten9_gruen.png"))); // NOI18N
         jLKnoten9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -965,7 +970,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten9MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+        jPGleisplan.add(jLKnoten9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
 
         jLKnoten10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten10_gruen.png"))); // NOI18N
         jLKnoten10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -973,7 +978,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten10MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jPGleisplan.add(jLKnoten10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
 
         jLKnoten11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten11_gruen.png"))); // NOI18N
         jLKnoten11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -981,7 +986,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten11MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+        jPGleisplan.add(jLKnoten11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
 
         jLKnoten12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten12_gruen.png"))); // NOI18N
         jLKnoten12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -989,7 +994,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten12MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPGleisplan.add(jLKnoten12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, -1, -1));
 
         jLKnoten13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten13_gruen.png"))); // NOI18N
         jLKnoten13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -997,7 +1002,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten13MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+        jPGleisplan.add(jLKnoten13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, -1, -1));
 
         jLKnoten14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten14_gruen.png"))); // NOI18N
         jLKnoten14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1005,7 +1010,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten14MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, -1, -1));
+        jPGleisplan.add(jLKnoten14, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
         jLKnoten15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten15_gruen.png"))); // NOI18N
         jLKnoten15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1013,7 +1018,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten15MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
+        jPGleisplan.add(jLKnoten15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, -1, -1));
 
         jLKnoten16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten16_gruen.png"))); // NOI18N
         jLKnoten16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1021,7 +1026,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten16MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+        jPGleisplan.add(jLKnoten16, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, -1, -1));
 
         jLKnoten17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten17_gruen.png"))); // NOI18N
         jLKnoten17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1029,7 +1034,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten17MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
+        jPGleisplan.add(jLKnoten17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, -1, -1));
 
         jLKnoten18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten18_gruen.png"))); // NOI18N
         jLKnoten18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1037,7 +1042,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten18MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+        jPGleisplan.add(jLKnoten18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, -1));
 
         jLKnoten19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten19_gruen.png"))); // NOI18N
         jLKnoten19.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1045,7 +1050,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten19MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+        jPGleisplan.add(jLKnoten19, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         jLKnoten20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten20_gruen.png"))); // NOI18N
         jLKnoten20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1053,7 +1058,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten20MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        jPGleisplan.add(jLKnoten20, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
         jLKnoten21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten21_gruen.png"))); // NOI18N
         jLKnoten21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1061,7 +1066,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten21MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        jPGleisplan.add(jLKnoten21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         jLKnoten22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten22_gruen.png"))); // NOI18N
         jLKnoten22.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1069,7 +1074,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten22MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten22, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+        jPGleisplan.add(jLKnoten22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
         jLKnoten23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten23_gruen.png"))); // NOI18N
         jLKnoten23.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1077,18 +1082,15 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten23MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+        jPGleisplan.add(jLKnoten23, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
 
-        jLLine12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Kanten/Kante12.png"))); // NOI18N
-        jPGleisplan.add(jLLine12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 40, -1));
-
-        jLKnoten24.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten24_gruen.png")); // NOI18N
+        jLKnoten24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten24_gruen.png"))); // NOI18N
         jLKnoten24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten24MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+        jPGleisplan.add(jLKnoten24, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, -1, -1));
 
         jLKnoten25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten25_gruen.png"))); // NOI18N
         jLKnoten25.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1096,7 +1098,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten25MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+        jPGleisplan.add(jLKnoten25, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
 
         jLKnoten26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten26_gruen.png"))); // NOI18N
         jLKnoten26.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1104,47 +1106,107 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten26MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+        jPGleisplan.add(jLKnoten26, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, -1, -1));
 
-        jLKnoten27.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten27_gruen.png")); // NOI18N
+        jLKnoten27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten27_gruen.png"))); // NOI18N
         jLKnoten27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten27MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+        jPGleisplan.add(jLKnoten27, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
-        jLKnoten28.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten28_gruen.png")); // NOI18N
+        jLKnoten28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten28_gruen.png"))); // NOI18N
         jLKnoten28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten28MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten28, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
+        jPGleisplan.add(jLKnoten28, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
 
-        jLKnoten29.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten29_gruen.png")); // NOI18N
+        jLKnoten29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten29_gruen.png"))); // NOI18N
         jLKnoten29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten29MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten29, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
+        jPGleisplan.add(jLKnoten29, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
-        jLKnoten30.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten30_gruen.png")); // NOI18N
+        jLKnoten30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten30_gruen.png"))); // NOI18N
         jLKnoten30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten30MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten30, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
+        jPGleisplan.add(jLKnoten30, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, -1, -1));
 
-        jLKnoten31.setIcon(new javax.swing.ImageIcon("Z:\\Technisches Gymnasium\\12. Klasse\\A-IT\\GFS\\CME - Computergesteuerte Modelleisenbahn\\Programmcode\\CC-Schnitte\\CME\\img\\Knoten\\Knoten31_gruen.png")); // NOI18N
+        jLKnoten31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten31_gruen.png"))); // NOI18N
         jLKnoten31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLKnoten31MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten31, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, -1));
+        jPGleisplan.add(jLKnoten31, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
+
+        jPEdge12.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge12Layout = new javax.swing.GroupLayout(jPEdge12);
+        jPEdge12.setLayout(jPEdge12Layout);
+        jPEdge12Layout.setHorizontalGroup(
+            jPEdge12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPEdge12Layout.setVerticalGroup(
+            jPEdge12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 130, 5));
+
+        jPEdge23.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge23Layout = new javax.swing.GroupLayout(jPEdge23);
+        jPEdge23.setLayout(jPEdge23Layout);
+        jPEdge23Layout.setHorizontalGroup(
+            jPEdge23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPEdge23Layout.setVerticalGroup(
+            jPEdge23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge23, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 100, 10));
+
+        jPEdge34.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge34Layout = new javax.swing.GroupLayout(jPEdge34);
+        jPEdge34.setLayout(jPEdge34Layout);
+        jPEdge34Layout.setHorizontalGroup(
+            jPEdge34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        jPEdge34Layout.setVerticalGroup(
+            jPEdge34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge34, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 180, 10));
+
+        jPEdge45.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge45Layout = new javax.swing.GroupLayout(jPEdge45);
+        jPEdge45.setLayout(jPEdge45Layout);
+        jPEdge45Layout.setHorizontalGroup(
+            jPEdge45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPEdge45Layout.setVerticalGroup(
+            jPEdge45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge45, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 20, 10));
 
         jBGleisbildAutomatikStarten.setText("Starten");
         jBGleisbildAutomatikStarten.addActionListener(new java.awt.event.ActionListener() {
@@ -1171,11 +1233,41 @@ public class GUI extends javax.swing.JFrame {
 
         jPGleisplan.add(jPGleisbildStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 70));
 
-        jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 690, 520));
+        jPEdge46.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge46Layout = new javax.swing.GroupLayout(jPEdge46);
+        jPEdge46.setLayout(jPEdge46Layout);
+        jPEdge46Layout.setHorizontalGroup(
+            jPEdge46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPEdge46Layout.setVerticalGroup(
+            jPEdge46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge46, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, -1, -1));
+
+        jPEdge47.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPEdge47Layout = new javax.swing.GroupLayout(jPEdge47);
+        jPEdge47.setLayout(jPEdge47Layout);
+        jPEdge47Layout.setHorizontalGroup(
+            jPEdge47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        jPEdge47Layout.setVerticalGroup(
+            jPEdge47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPGleisplan.add(jPEdge47, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, -1, -1));
+
+        jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1060, 520));
 
         jTPUmschalten.addTab("Gleisbild", jPGleisbild);
 
-        getContentPane().add(jTPUmschalten, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 570));
+        getContentPane().add(jTPUmschalten, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 1080, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2575,7 +2667,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLKnoten7;
     private javax.swing.JLabel jLKnoten8;
     private javax.swing.JLabel jLKnoten9;
-    private javax.swing.JLabel jLLine12;
     private javax.swing.JLabel jLRMK;
     private javax.swing.JLabel jLRMKModulAuswahl;
     private javax.swing.JLabel jLStartknoten;
@@ -2591,6 +2682,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLWeichenModulAuswahl;
     private javax.swing.JPanel jPBeenden;
     private javax.swing.JPanel jPCOMPort;
+    private javax.swing.JPanel jPEdge12;
+    private javax.swing.JPanel jPEdge23;
+    private javax.swing.JPanel jPEdge34;
+    private javax.swing.JPanel jPEdge45;
+    private javax.swing.JPanel jPEdge46;
+    private javax.swing.JPanel jPEdge47;
     private javax.swing.JPanel jPFahrAutomatik;
     private javax.swing.JPanel jPGleisbild;
     private javax.swing.JPanel jPGleisbildStatus;
