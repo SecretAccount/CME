@@ -2102,6 +2102,12 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBGleisbildAutomatikStartenActionPerformed
 
+    public void aktualisiereStatus() {
+        //Status der gewählten Knoten auf GUI aktualisieren
+        jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
+        jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
+    }
+    
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
