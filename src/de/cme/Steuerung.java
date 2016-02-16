@@ -1109,6 +1109,7 @@ public class Steuerung implements Befehle {
     }
 
     public void sendeWeichenPosition() {
+        //Stellung aller Weichen abfragen
         // 442A80x DLC 2 Data 0x00 0xE0
         System.out.println("sende Weichen Position");
         dieDaten[0] = (byte) 0x44;  //Priorität 0
