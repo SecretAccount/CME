@@ -574,10 +574,11 @@ public class Steuerung implements Befehle {
 //        dieDaten[12] = 0;
 //        dieAnlage.schreibeAufCAN(dieDaten);
 
+        //Alle RMK abfragen
         dieDaten[0] = 2; //Rückmeldung Prio:2
         dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
         dieDaten[2] = (byte) 11; //Hash
-        dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
+        dieDaten[3] = (byte) 1; // Standardmäßig RMK-Modul-Nummer 1
         dieDaten[4] = 4; //DLC: 4
         dieDaten[5] = 0; //Gerätekenner
         dieDaten[6] = 0; //Gerätekenner
@@ -587,9 +588,8 @@ public class Steuerung implements Befehle {
         dieDaten[10] = 0;
         dieDaten[11] = 0;
         dieDaten[12] = 0;
-        int anfangsAdresse = (gewRMKModul * 8 - 7); //Anfangsadresse des gewählten RMK-Moduls
-        //Alle Ausgänge des Moduls abfragen
-        for (int i = anfangsAdresse; i < (anfangsAdresse + 8); i++) {
+        //Alle RMK abfragen
+        for (int i = 0; i < 32; i++) {
             try {
                 Thread.sleep(50); //50ms warten
                 dieDaten[8] = (byte) i; //Kontaktkennung //Adresse 1
@@ -597,83 +597,42 @@ public class Steuerung implements Befehle {
             } catch (InterruptedException ex) {
                 Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
             }
-            /*
-             try {
-             int adresse = gewRMKModul;
-             //Adresse der einzelnen Eingänge des aktuellen GleisReporters
-             int rmk = adresse * 8 - 8;
-             //Eingangsnummern setzen auf GUI
-             for (int i = 1; i < 9; i++) {
-             dieGUI.setzeRMKEingangNr(i, rmk + i);
-             }
-             adresse += 128;
-             dieDaten[3] = (byte) adresse;
-             dieDaten[1] = (byte) 4;
-             dieDaten[4] = (byte) 2;
-             dieDaten[5] = (byte) 0;
-             dieDaten[6] = (byte) 1;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             Thread.sleep(2);
-             dieDaten[1] = (byte) 4;
-             dieDaten[4] = (byte) 2;
-             dieDaten[5] = (byte) 0;
-             dieDaten[6] = (byte) 16;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             Thread.sleep(2);
-             dieDaten[1] = (byte) 4;
-             dieDaten[4] = (byte) 2;
-             dieDaten[5] = (byte) 0;
-             dieDaten[6] = (byte) 17;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             Thread.sleep(2);
-             dieDaten[1] = (byte) 4;
-             dieDaten[4] = (byte) 2;
-             dieDaten[5] = (byte) 0;
-             dieDaten[6] = (byte) 18;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             for (byte i = (byte) 1; (int) i < 9; ++i) {
-             Thread.sleep(2);
-             dieDaten[5] = i;
-             dieDaten[6] = (byte) 2;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             }
-             for (byte i = (byte) 1; (int) i < 9; ++i) {
-             Thread.sleep(2);
-             dieDaten[5] = i;
-             dieDaten[6] = (byte) 3;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             }
-             Thread.sleep(2);
-             dieDaten[5] = (byte) 0;
-             dieDaten[6] = (byte) 238;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             Thread.sleep(2);
-             dieDaten[1] = (byte) 32;
-             dieDaten[2] = (byte) 3;
-             dieDaten[3] = (byte) 0;
-             dieDaten[4] = (byte) 5;
-             dieDaten[5] = (byte) 1;
-             dieDaten[6] = (byte) 2;
-             dieDaten[7] = (byte) 3;
-             dieDaten[8] = (byte) 4;
-             dieAnlage.schreibeAufCAN(dieDaten);
-             dieDaten[0] = (byte) 0;
-             dieDaten[1] = (byte) 0;
-             dieDaten[2] = (byte) 218;
-             dieDaten[3] = (byte) adresse;
-             dieDaten[4] = (byte) 0;
-             } catch (InterruptedException ex) {
-             Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
-             }
-             */
         }
 
+        /*
+         //Einzelnes RMK-Module abfragen
+         dieDaten[0] = 2; //Rückmeldung Prio:2
+         dieDaten[1] = 0x22; //CAN-ID: 0x22/34d Rückmelde Event
+         dieDaten[2] = (byte) 11; //Hash
+         dieDaten[3] = (byte) gewRMKModul; // RMK-Modul-Nummer
+         dieDaten[4] = 4; //DLC: 4
+         dieDaten[5] = 0; //Gerätekenner
+         dieDaten[6] = 0; //Gerätekenner
+         dieDaten[7] = 0; //Kontaktkennung
+
+         dieDaten[9] = 0;
+         dieDaten[10] = 0;
+         dieDaten[11] = 0;
+         dieDaten[12] = 0;
+         int anfangsAdresse = (gewRMKModul * 8 - 7); //Anfangsadresse des gewählten RMK-Moduls
+         //Alle Ausgänge des Moduls abfragen
+         for (int i = anfangsAdresse; i < (anfangsAdresse + 8); i++) {
+         try {
+         Thread.sleep(50); //50ms warten
+         dieDaten[8] = (byte) i; //Kontaktkennung //Adresse 1
+         dieAnlage.schreibeAufCAN(dieDaten);
+         } catch (InterruptedException ex) {
+         Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }
+        
+         */
     }
 
     public void sucheRMK() {
         /*Variante für alte GUI:
-        * Status der RMK pro Modul anzeigen
-        */
+         * Status der RMK pro Modul anzeigen
+         */
         System.out.println("suche RMK-Methode");
         System.out.println("empfangene Daten in suche RMK-Methode");
         for (byte dataByte : empfangeneDaten) {
@@ -762,11 +721,24 @@ public class Steuerung implements Befehle {
                 default:
                     System.out.println("Falscher RMK-Ausgang!");
             }
-        /*Variante für Gleisbild:
-        * Status der RMK pro Knoten anzeigen
-        */
-        //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben
-        dieGUI.setzeKnotenStatus(gibKnoten(empfangeneDaten[8]), (empfangeneDaten[9] != 0));
+            /*Variante für Gleisbild:
+             * Status der RMK pro Knoten anzeigen
+             */
+            //RMK-Adresse in Knotennummer umwandeln
+            int knotenNr = gibKnoten(empfangeneDaten[8]);
+            //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben (Farbe der Knoten auf GUI ändern)
+            dieGUI.setzeKnotenStatus(knotenNr, (empfangeneDaten[9] != 0));
+            
+        //belegte RMK beim Start entfernen (außer Standard-Knoten 1)
+            //Knoten darf nicht Standard-Knoten 1 sein
+            if (knotenNr != 1) {
+                //ist Knoten belegt?
+                if(leseRMK(knotenNr)) {
+                    removedEdges.add(knotenNr);
+                    //ACHTUNG: falsch: nächster Knoten ist nicht IMMER eins größer
+                    removedEdges.add(knotenNr + 1);
+                }
+            }
         }
     }
 
@@ -864,8 +836,9 @@ public class Steuerung implements Befehle {
     }
 
     /**
-     * Die Methode gibt die Knotennummer eines gesuchten Knotens anhand 
-     * der Adresse eines RMK zurück
+     * Die Methode gibt die Knotennummer eines gesuchten Knotens anhand der
+     * Adresse eines RMK zurück
+     *
      * @param RMKAdresse: Adresse eines RMK-Abschnittes
      * @return Knotennummer
      */
@@ -874,25 +847,25 @@ public class Steuerung implements Befehle {
         switch (RMKAdresse) {
             case 1:
                 return 30; //Nummer des Knotens
-                
+
             case 2:
                 return 8; //Nummer des Knotens
-                
+
             case 3:
                 return 21; //Nummer des Knotens
-                
+
             case 4:
                 return 31; //Nummer des Knotens
-                
+
             case 5:
                 return 19; //Nummer des Knotens
-                
+
             case 6:
                 return 9; //Nummer des Knotens
-                
+
             case 7:
                 return 10; //Nummer des Knotens
-                
+
             case 8:
                 return 20; //Nummer des Knotens
 
@@ -904,61 +877,61 @@ public class Steuerung implements Befehle {
 
             case 11:
                 return 17; //Nummer des Knotens
-                
+
             case 12:
                 return 29; //Nummer des Knotens
-                
+
             case 14:
                 return 18; //Nummer des Knotens
-                
+
             case 15:
                 return 28; //Nummer des Knotens
-                
+
             case 16:
                 return 11; //Nummer des Knotens
-                
+
             case 17:
                 return 23; //Nummer des Knotens
-                
+
             case 18:
                 return 7; //Nummer des Knotens
-                
+
             case 19:
                 return 1; //Nummer des Knotens
-                
+
             case 20:
                 return 2; //Nummer des Knotens
-                
+
             case 21:
                 return 12; //Nummer des Knotens
 
             case 22:
                 return 13; //Nummer des Knotens
-                
+
             case 23:
                 return 3; //Nummer des Knotens
-                
+
             case 24:
                 return 24; //Nummer des Knotens
-                
+
             case 25:
                 return 5; //Nummer des Knotens
-                
+
             case 26:
                 return 15; //Nummer des Knotens
-                
+
             case 27:
                 return 6; //Nummer des Knotens
-                
+
             case 28:
                 return 25; //Nummer des Knotens
-                
+
             case 29:
                 return 16; //Nummer des Knotens
-                
+
             case 30:
                 return 26; //Nummer des Knotens
-                
+
             case 31:
                 return 4; //Nummer des Knotens
 
@@ -1451,6 +1424,9 @@ public class Steuerung implements Befehle {
                 //Endknoten auf GUI auf belegt(=false) setzen (rot)
                 dieGUI.setzeKnotenStatus(endPoint, false);
                 fahreLok(0, true);
+                //Endknoten als nächsten Startknoten setzen
+                startPoint = endPoint;
+                dieGUI.aktualisiereLabelStatus();
             }
         }
         //Wenn Knoten 1 belegt ist, wird "lokAufStandardPosition" auf true gesetzt, sonst auf false
