@@ -2096,6 +2096,8 @@ public class GUI extends javax.swing.JFrame {
     private void jBGleisbildAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildAutomatikStartenActionPerformed
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
+        dieSteuerung.setStartPoint(Integer.valueOf(jLStartknotenNummer.getText()));
+        dieSteuerung.setEndPoint(Integer.valueOf(jLEndknotenNummer.getText()));
         dieSteuerung.findeWeg();
         //Route nicht möglich
         if (!dieSteuerung.isRouteWorking()) {
