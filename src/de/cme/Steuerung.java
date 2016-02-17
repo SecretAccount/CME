@@ -1171,7 +1171,7 @@ public class Steuerung implements Befehle {
         weg = dijkstra.findeWeg(startPoint, endPoint);
         //falsche Route, wenn Pfadgewicht >= 1000
         routeWorking = (dijkstra.getPfadgewichtEndPfad() < 1000);
-        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
+//        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);
         //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
