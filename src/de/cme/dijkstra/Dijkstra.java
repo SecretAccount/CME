@@ -30,11 +30,18 @@ public class Dijkstra {
         }
 
         //Kanten werden gemäß Vorlage verknüpft  Gewichtung 1 Fahrtrichtung
+        
+        //TEST
+        graph.kanteEinfuegen(knoten[34], knoten[4], 1);  // Knoten 35-5
+        
+        //TEST
+        
         graph.kanteEinfuegen(knoten[0], knoten[39], 1);  // Knoten 1-40
         graph.kanteEinfuegen(knoten[1], knoten[0], 1);   // Knoten 2-1
         graph.kanteEinfuegen(knoten[2], knoten[1], 1);   // Knoten 3-2
         graph.kanteEinfuegen(knoten[3], knoten[2], 1);   // Knoten 4-3
-        graph.kanteEinfuegen(knoten[5], knoten[4], 1);   // Knoten 6-5
+        graph.kanteEinfuegen(knoten[4], knoten[3], 1);   // Knoten 5-4
+//        graph.kanteEinfuegen(knoten[5], knoten[4], 1);   // Knoten 6-5    wieder einkommentieren
         graph.kanteEinfuegen(knoten[6], knoten[34], 1);  // Knoten 7-35
         graph.kanteEinfuegen(knoten[7], knoten[6], 1);   // Knoten 8-7
         graph.kanteEinfuegen(knoten[8], knoten[41], 1);  // Knoten 9-42
@@ -62,7 +69,7 @@ public class Dijkstra {
         graph.kanteEinfuegen(knoten[11], knoten[39], 1); // Knoten 12-40
         graph.kanteEinfuegen(knoten[37], knoten[3], 1); // Knoten 38-4
         graph.kanteEinfuegen(knoten[34], knoten[35], 1); // Knoten 35-36
-        graph.kanteEinfuegen(knoten[34], knoten[5], 1); // Knoten 35-6
+//        graph.kanteEinfuegen(knoten[34], knoten[5], 1); // Knoten 35-6    wieder einkommentieren
         graph.kanteEinfuegen(knoten[33], knoten[34], 1); // Knoten 34-35
 
         graph.kanteEinfuegen(knoten[35], knoten[36], 1); // Knoten 36-37
@@ -202,7 +209,7 @@ public class Dijkstra {
         //Liste der Knoten mit dem kürzesten Weg zum Startknoten
         Knoten[] knotenliste = hilfsliste.getListe();
         //DEBUG-Informationen vor Wegfindung ausgeben
-        showList();
+//        showList();
         //Liste der Wegpunkte
         List<Knoten> way = new ArrayList<>();
         //Endpunkt hinzufügen
