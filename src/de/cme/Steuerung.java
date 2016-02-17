@@ -1438,6 +1438,7 @@ public class Steuerung implements Befehle {
                 dieGUI.setzeKnotenStatus(endPoint, false);
                 fahreLok(0, true);
                 //Endknoten als nächsten Startknoten setzen
+                //!Problem wenn Lok über Startknoten ist und losfährt, obwohl dies nicht gewollt ist
                 startPoint = endPoint;
                 dieGUI.aktualisiereLabelStatus();
             }
