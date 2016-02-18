@@ -1271,8 +1271,8 @@ public class Steuerung implements Befehle {
             //    return 13; //Adresse des RMK
             default:
                 System.out.println("Keine gültige RMK-Nummer gewählt: "
-                        + "Erster Abschnitt gewählt mit Adresse 19");
-                return 19;
+                        + "Adresse 0 zurückgegeben (existiert nicht)");
+                return 0;
         }
     }
 
