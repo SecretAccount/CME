@@ -1992,7 +1992,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBGleisbildAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildAutomatikStartenActionPerformed
         //RMK aktualisieren, bevor Weg gesucht wird
-        dieSteuerung.sendeRMK();
+//        dieSteuerung.sendeRMK();
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
         dieSteuerung.setStartPoint(Integer.valueOf(jLStartknotenNummer.getText()));
