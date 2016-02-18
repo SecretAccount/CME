@@ -1507,6 +1507,7 @@ public class Steuerung implements Befehle {
                     if (nameNachfolger == 24 && nameVorgaenger == 14) {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
                         stelleWeiche(39, 'r');
+                        stelleWeiche(39, 'r');
                     }
                     //Fahrtrichtung nach links
                     if (nameNachfolger == 13) {
