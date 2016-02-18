@@ -1506,11 +1506,23 @@ public class Steuerung implements Befehle {
                     //Fahrtrichtung nach links
                     if (nameNachfolger == 24 && nameVorgaenger == 14) {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
+                        System.out.println("Vorgänger: " + nameVorgaenger);
+                        System.out.println("Nachfolger: " + nameNachfolger);
+                        stelleWeiche(39, 'r');
+                        stelleWeiche(39, 'r'); // 5x senden, damit Weiche wirklich gestellt wird
+                        stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r');
                     }
-                    //Fahrtrichtung nach links
-                    if (nameNachfolger == 13) {
+                    //Fahrtrichtung nach rechts
+                    if (nameNachfolger == 13 && nameVorgaenger == 14) {
+                        System.out.println("Weiche 39 gerade");
+                        System.out.println("Vorgänger: " + nameVorgaenger);
+                        System.out.println("Nachfolger: " + nameNachfolger);
+                        stelleWeiche(39, 'g');
+                        stelleWeiche(39, 'g'); // 5x senden, damit Weiche wirklich gestellt wird
+                        stelleWeiche(39, 'g');
+                        stelleWeiche(39, 'g');
                         stelleWeiche(39, 'g');
                     }
                     break;
@@ -1519,9 +1531,6 @@ public class Steuerung implements Befehle {
 //                    if (nameNachfolger == 40) {
 //                        stelleWeiche(40, 'r');
 //                    }
-                    if (nameNachfolger == 11) {
-                        stelleWeiche(40, 'g');
-                    }
                     break;
                 case 40:
                     if (nameNachfolger == 10 && nameVorgaenger == 1) { //Bedingung mit Vorgänger hinzugefügt
