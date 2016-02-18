@@ -152,12 +152,17 @@ public class GUI extends javax.swing.JFrame {
         jLStartknotenNummer = new javax.swing.JLabel();
         jLEndknotenNummer = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CME");
         setName("fCME"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 650));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPCOMPort.setBorder(javax.swing.BorderFactory.createTitledBorder("Port Einstellungen"));
@@ -1986,6 +1991,11 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jBGleisbildAutomatikStartenActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        //Vor dem Beenden den Port schließen
+        dieSteuerung.schliessen();
+    }//GEN-LAST:event_formWindowClosing
 
     public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
