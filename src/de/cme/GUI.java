@@ -2146,6 +2146,7 @@ public class GUI extends javax.swing.JFrame {
                 break;
             //Knoten 6 wird zur Zeit nicht berücksichtigt
             case 6:
+                /*
                 if (status) {
                     //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
                     jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png")));
@@ -2154,6 +2155,7 @@ public class GUI extends javax.swing.JFrame {
                     jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_rot.png")));
                 }
                 break;
+                */
             case 7:
                 if (status) {
                     jLKnoten7.setIcon(gruenerKnoten);
