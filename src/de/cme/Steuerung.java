@@ -1505,6 +1505,7 @@ public class Steuerung implements Befehle {
                     //INNERKREIS
                     //Fahrtrichtung nach links
                     if (nameNachfolger == 24 && nameVorgaenger == 14) {
+                        System.out.println("Weiche 39 nach Innenkreis (rund)");
                         stelleWeiche(39, 'r');
                     }
                     //Fahrtrichtung nach links
@@ -1649,10 +1650,9 @@ public class Steuerung implements Befehle {
             if (leseRMK(startPoint)) {
                 //Startknoten auf GUI auf belegt(=false) setzen (rot)
                 dieGUI.setzeKnotenStatus(startPoint, false);
-                System.out.println("Lok mit v=200 fahren, da Lok auf Startpunkt");
-                //TO-DO: benutze fahreLok-Methode, die immer Wert entgegennimmt
+                System.out.println("Lok mit v=300 fahren, da Lok auf Startpunkt");
                 //unabhängig vom Timer
-                fahreLok(200, true);
+                fahreLok(300, true);
             }
             //Lok anhalten, wenn sie am Ziel angekommen ist
             if (leseRMK(endPoint)) {
