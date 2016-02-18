@@ -738,16 +738,19 @@ public class Steuerung implements Befehle {
             //Knoten darf nicht Start- und Endpunkt sein
             if (knotenNr != endPoint && knotenNr != startPoint) {
                 //ist Knoten belegt?
-                System.out.println("Knotennr. " + knotenNr + " nicht 1 und nicht Start- und Endpunkt");
+                System.out.println("Knotennr. " + knotenNr + " nicht Start- und Endpunkt");
                 if (leseRMK(knotenNr)) {
                     ArrayList<Integer> vorgaengerKnoten = gibVorgaengerKnoten(knotenNr);
                     System.out.println("Vorgängerknoten: " + vorgaengerKnoten.toString());
                     //Für jeden Vorgängerknoten:
                     for (Integer vorgaenger : vorgaengerKnoten) {
                         System.out.println("Knoten " + knotenNr + " mit Vorgänger " + vorgaenger + " hinzufügen");
+                        //Wenn belegter Knoten noch nicht in Liste:
+                        if(!removedEdges.contains(knotenNr)) {
                         //ein oder mehrere Vorgänger des belegten Knotens hinzufügen
                         removedEdges.add(vorgaenger);
                         removedEdges.add(knotenNr);
+                        }
                     }
                 }
             }
