@@ -119,7 +119,6 @@ public class GUI extends javax.swing.JFrame {
         jLKnoten3 = new javax.swing.JLabel();
         jLKnoten4 = new javax.swing.JLabel();
         jLKnoten5 = new javax.swing.JLabel();
-        jLKnoten6 = new javax.swing.JLabel();
         jLKnoten7 = new javax.swing.JLabel();
         jLKnoten8 = new javax.swing.JLabel();
         jLKnoten9 = new javax.swing.JLabel();
@@ -933,15 +932,7 @@ public class GUI extends javax.swing.JFrame {
                 jLKnoten5MouseClicked(evt);
             }
         });
-        jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 260, -1, -1));
-
-        jLKnoten6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten6_gruen.png"))); // NOI18N
-        jLKnoten6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLKnoten6MouseClicked(evt);
-            }
-        });
-        jPGleisplan.add(jLKnoten6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, -1, -1));
+        jPGleisplan.add(jLKnoten5, new org.netbeans.lib.awtextra.AbsoluteConstraints(775, 330, -1, -1));
 
         jLKnoten7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten7_gruen.png"))); // NOI18N
         jLKnoten7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1143,7 +1134,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jPGleisplan.add(jLKnoten31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
 
-        jLAnlageBild.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Anlage_Hintergrund_neu.png"))); // NOI18N
+        jLAnlageBild.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/cme/img/Anlage_Hintergrund_hellgrau.png"))); // NOI18N
         jPGleisplan.add(jLAnlageBild, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 800, 400));
 
         jBGleisbildAutomatikStarten.setText("Starten");
@@ -1532,24 +1523,6 @@ public class GUI extends javax.swing.JFrame {
             pressed = true;
         }
     }//GEN-LAST:event_jLKnoten5MouseClicked
-
-    private void jLKnoten6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten6MouseClicked
-        if (pressed) {
-            //Knoten 6 als Startpunkt setzen
-            System.out.println("Knoten 6 Startpunkt");
-            dieSteuerung.setStartPoint(6);
-            //Status auf GUI aktualisieren
-            jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
-            pressed = false;
-        } else {
-            //Knoten 6 als Endpunkt setzen
-            System.out.println("Knoten 6 Endpunkt");
-            dieSteuerung.setEndPoint(6);
-            //Status auf GUI aktualisieren
-            jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
-            pressed = true;
-        }
-    }//GEN-LAST:event_jLKnoten6MouseClicked
 
     private void jLKnoten7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLKnoten7MouseClicked
         if (pressed) {
@@ -2136,6 +2109,7 @@ public class GUI extends javax.swing.JFrame {
                     jLKnoten5.setIcon(roterKnoten);
                 }
                 break;
+            /*Knoten 6 wird zur Zeit nicht berücksichtigt
             case 6:
                 if (status) {
                     jLKnoten6.setIcon(gruenerKnoten);
@@ -2143,6 +2117,7 @@ public class GUI extends javax.swing.JFrame {
                     jLKnoten6.setIcon(roterKnoten);
                 }
                 break;
+            */
             case 7:
                 if (status) {
                     jLKnoten7.setIcon(gruenerKnoten);
@@ -2582,7 +2557,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLKnoten31;
     private javax.swing.JLabel jLKnoten4;
     private javax.swing.JLabel jLKnoten5;
-    private javax.swing.JLabel jLKnoten6;
     private javax.swing.JLabel jLKnoten7;
     private javax.swing.JLabel jLKnoten8;
     private javax.swing.JLabel jLKnoten9;
