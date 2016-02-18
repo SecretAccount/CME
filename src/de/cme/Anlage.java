@@ -106,6 +106,7 @@ public class Anlage {
             System.out.println("Serialport ist geöffnet");
             return comPorts;
         }
+        comPorts.clear();
         dieSteuerung.clearPortList();
         enumComm = CommPortIdentifier.getPortIdentifiers();
         while (enumComm.hasMoreElements()) {
