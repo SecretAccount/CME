@@ -721,7 +721,7 @@ public class Steuerung implements Befehle {
                 default:
                     System.out.println("Falscher RMK-Ausgang!");
             }
-            /*Variante für Gleisbild:
+            /* Variante für Gleisbild:
              * Status der RMK pro Knoten anzeigen
              */
             //RMK-Adresse in Knotennummer umwandeln
@@ -729,24 +729,35 @@ public class Steuerung implements Befehle {
             //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben (Farbe der Knoten auf GUI ändern)
             dieGUI.setzeKnotenStatus(knotenNr, (empfangeneDaten[9] != 0));
 
-            //belegte RMK/Kanten beim Start entfernen (außer Standard-Knoten 1)
-            //Knoten darf nicht Standard-Knoten 1 sein
-            if (knotenNr != 1) {
+            
+            /**
+             ** Hinderniserkennung durch Entfernung der Kanten **
+             **/
+            
+            //belegte RMK/Kanten beim Start entfernen (außer Start- und Endpunkte)
+            //Knoten darf nicht Start- und Endpunkt sein
+            if (knotenNr != endPoint && knotenNr != startPoint) {
                 //ist Knoten belegt?
+                System.out.println("Knotennr. " + knotenNr + " nicht 1 und nicht Start- und Endpunkt");
                 if (leseRMK(knotenNr)) {
                     ArrayList<Integer> vorgaengerKnoten = gibVorgaengerKnoten(knotenNr);
+                    System.out.println("Vorgängerknoten: " + vorgaengerKnoten.toString());
                     //Für jeden Vorgängerknoten:
-                    for(Integer vorgaenger : vorgaengerKnoten) {
+                    for (Integer vorgaenger : vorgaengerKnoten) {
+                        System.out.println("Knoten " + knotenNr + " mit Vorgänger " + vorgaenger + " hinzufügen");
                         //ein oder mehrere Vorgänger des belegten Knotens hinzufügen
                         removedEdges.add(vorgaenger);
                         removedEdges.add(knotenNr);
                     }
                 }
-
-                //Hindernis muss auch wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
-                //        removedEdges.remove(knotenNr);
-                //Prüfe bei jeder entfernten Kante (kommt jede zwei Knoten vor), ob der RMK wieder frei ist
-                for (int i = 1; i < removedEdges.size(); i += 2) {
+            }
+            System.out.println("zu entfernende Kanten davor: " + removedEdges);
+            
+            //Hindernis muss auch wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
+            //Prüfe bei jeder entfernten Kante (kommt jede zwei Knoten vor), ob der RMK wieder frei ist
+            for (int i = 1; i < removedEdges.size(); i += 2) {
+                //Entferne Knoten nur, wenn die aktuelle Knotennummer in zu entfernendeKanten-Liste enthalten ist
+                if (knotenNr == removedEdges.get(i)) {
                     //Wenn der Knoten nicht mehr belegt ist:
                     if (!(leseRMK(removedEdges.get(i)))) {
                         //Knoten aus entfernter Kanten-Liste entfernen
@@ -756,6 +767,7 @@ public class Steuerung implements Befehle {
                     }
                 }
             }
+            System.out.println("zu entfernende Kanten danach: " + removedEdges);
         }
     }
 
@@ -1364,20 +1376,20 @@ public class Steuerung implements Befehle {
         //Graph wird im Kontruktor erstellt (dijkstra.init())
         dijkstra = new Dijkstra(); //jedes Mal ein neues Objekt zuweisen, da sonst Fehler bei der Wegfindung auftreten
         dijkstra.init();
-        
+
         /* Test-Liste mit fünf entfernten Kanten
-        ArrayList<Integer> zuEntfernendeKanten = new ArrayList<Integer>() 
-            {
-                {
-                add(2);  add(1);
-                add(5);  add(4);
-                add(20); add(19);
-                add(8);  add(7);
-                add(18); add(17);
-                }
-        };
+         ArrayList<Integer> zuEntfernendeKanten = new ArrayList<Integer>() 
+         {
+         {
+         add(2);  add(1);
+         add(5);  add(4);
+         add(20); add(19);
+         add(8);  add(7);
+         add(18); add(17);
+         }
+         };
         
-        */
+         */
         //TEST - Kanten über Methode enfernen - TEST
         //ODER Objekte in Steuerung erzeugen (Graph Objekt usw.) und dem 
         //  Dijskra-Objekt direkt die zu entfernenden Kanten übergeben
