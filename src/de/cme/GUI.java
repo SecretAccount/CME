@@ -2144,15 +2144,14 @@ public class GUI extends javax.swing.JFrame {
                     jLKnoten5.setIcon(roterKnoten);
                 }
                 break;
-            /*Knoten 6 wird zur Zeit nicht berücksichtigt
+            //Knoten 6 wird zur Zeit nicht berücksichtigt
             case 6:
                 if (status) {
-                    jLKnoten6.setIcon(gruenerKnoten);
+                    jLKnoten5.setIcon(gruenerKnoten);
                 } else {
-                    jLKnoten6.setIcon(roterKnoten);
+                    jLKnoten5.setIcon(roterKnoten);
                 }
                 break;
-            */
             case 7:
                 if (status) {
                     jLKnoten7.setIcon(gruenerKnoten);
