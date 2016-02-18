@@ -1406,16 +1406,16 @@ public class Steuerung implements Befehle {
 //        System.out.println("endPoint: " + endPoint);
         //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
         if (routeWorking) {
-            try {
+//            try {
                 //500ms warten, bevor Weichen gestellt werden
-                Thread.sleep(500);
+//                Thread.sleep(500);
                 stelleWeichen(weg);
                 //500ms warten, bevor RMK abgefragt werden
-                Thread.sleep(500);
+//                Thread.sleep(500);
                 sendeRMK(weg);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
 
     }
