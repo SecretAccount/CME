@@ -734,24 +734,225 @@ public class Steuerung implements Befehle {
             if (knotenNr != 1) {
                 //ist Knoten belegt?
                 if (leseRMK(knotenNr)) {
-                    removedEdges.add(knotenNr);
-                    //ACHTUNG: falsch: nächster Knoten ist nicht IMMER eins größer
-                    removedEdges.add(knotenNr + 1);
+                    ArrayList<Integer> vorgaengerKnoten = gibVorgaengerKnoten(knotenNr);
+                    //Für jeden Vorgängerknoten:
+                    for(Integer vorgaenger : vorgaengerKnoten) {
+                        //ein oder mehrere Vorgänger des belegten Knotens hinzufügen
+                        removedEdges.add(vorgaenger);
+                        removedEdges.add(knotenNr);
+                    }
                 }
 
-            //Hindernis muss auf wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
+                //Hindernis muss auch wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
                 //        removedEdges.remove(knotenNr);
-                //Prüfe bei jeder entfernten Kante, ob der RMK wieder frei ist
-                for (Integer knoten : removedEdges) {
-                    if (!(leseRMK(knoten))) {
+                //Prüfe bei jeder entfernten Kante (kommt jede zwei Knoten vor), ob der RMK wieder frei ist
+                for (int i = 1; i < removedEdges.size(); i += 2) {
+                    //Wenn der Knoten nicht mehr belegt ist:
+                    if (!(leseRMK(removedEdges.get(i)))) {
                         //Knoten aus entfernter Kanten-Liste entfernen
-                        removedEdges.remove(knoten);
-                        //Nächses Integer-Element entfernen
-                        removedEdges.remove(removedEdges.lastIndexOf(knoten) + 1);
+                        removedEdges.remove(i);
+                        //Vorheriges Integer-Element (Vorgänger) entfernen
+                        removedEdges.remove(i - 1);
                     }
                 }
             }
         }
+    }
+
+    public ArrayList gibVorgaengerKnoten(int knotenNummer) {
+        ArrayList<Integer> vorgaenger = new ArrayList<>();
+        switch (knotenNummer) {
+            case 1:
+                vorgaenger.clear();
+                vorgaenger.add(2);
+                break;
+            case 2:
+                vorgaenger.clear();
+                vorgaenger.add(3);
+                break;
+            case 3:
+                vorgaenger.clear();
+                vorgaenger.add(4);
+                break;
+            case 4:
+                vorgaenger.clear();
+                vorgaenger.add(5);
+                vorgaenger.add(38);
+                break;
+            case 5:
+                vorgaenger.clear();
+                vorgaenger.add(6);
+                break;
+            case 6:
+                vorgaenger.clear();
+                vorgaenger.add(35);
+                break;
+            case 7:
+                vorgaenger.clear();
+                vorgaenger.add(8);
+                break;
+            case 8:
+                vorgaenger.clear();
+                vorgaenger.add(31);
+                break;
+            case 9:
+                vorgaenger.clear();
+                vorgaenger.add(32);
+                break;
+            case 10:
+                vorgaenger.clear();
+                vorgaenger.add(40);
+                break;
+            case 11:
+                vorgaenger.clear();
+                vorgaenger.add(12);
+                break;
+            case 12:
+                vorgaenger.clear();
+                vorgaenger.add(13);
+                break;
+            case 13:
+                vorgaenger.clear();
+                vorgaenger.add(39);
+                break;
+            case 14:
+                vorgaenger.clear();
+                vorgaenger.add(38);
+                break;
+            case 15:
+                vorgaenger.clear();
+                vorgaenger.add(37);
+                break;
+            case 16:
+                vorgaenger.clear();
+                vorgaenger.add(17);
+                break;
+            case 17:
+                vorgaenger.clear();
+                vorgaenger.add(18);
+                break;
+            case 18:
+                vorgaenger.clear();
+                vorgaenger.add(43);
+                break;
+            case 19:
+                vorgaenger.clear();
+                vorgaenger.add(20);
+                break;
+            case 20:
+                vorgaenger.clear();
+                vorgaenger.add(41);
+                break;
+            case 21:
+                vorgaenger.clear();
+                vorgaenger.add(22);
+                break;
+            case 22:
+                vorgaenger.clear();
+                vorgaenger.add(44);
+                break;
+            case 23:
+                vorgaenger.clear();
+                vorgaenger.add(24);
+                break;
+            case 24:
+                vorgaenger.clear();
+                vorgaenger.add(39);
+                break;
+            case 25:
+                vorgaenger.clear();
+                vorgaenger.add(26);
+                break;
+            case 26:
+                vorgaenger.clear();
+                vorgaenger.add(44);
+                break;
+            case 27:
+                vorgaenger.clear();
+                vorgaenger.add(28);
+                break;
+            case 28:
+                vorgaenger.clear();
+                vorgaenger.add(43);
+                break;
+            case 29:
+                vorgaenger.clear();
+                vorgaenger.add(30);
+                break;
+            case 30:
+                vorgaenger.clear();
+                vorgaenger.add(33);
+                break;
+            case 31:
+                vorgaenger.clear();
+                vorgaenger.add(33);
+                break;
+            case 32:
+                vorgaenger.clear();
+                vorgaenger.add(10);
+                break;
+            case 33:
+                vorgaenger.clear();
+                vorgaenger.add(32);
+                break;
+            case 34:
+                vorgaenger.clear();
+                vorgaenger.add(29);
+                break;
+            case 35:
+                vorgaenger.clear();
+                vorgaenger.add(7);
+                vorgaenger.add(34);
+                break;
+            case 36:
+                vorgaenger.clear();
+                vorgaenger.add(16);
+                vorgaenger.add(35);
+                break;
+            case 37:
+                vorgaenger.clear();
+                vorgaenger.add(25);
+                vorgaenger.add(36);
+                break;
+            case 38:
+                vorgaenger.clear();
+                vorgaenger.add(15);
+                break;
+            case 39:
+                vorgaenger.clear();
+                vorgaenger.add(14);
+                break;
+            case 40:
+                vorgaenger.clear();
+                vorgaenger.add(1);
+                vorgaenger.add(12);
+                break;
+            case 41:
+                vorgaenger.clear();
+                vorgaenger.add(11);
+                vorgaenger.add(21);
+                break;
+            case 42:
+                vorgaenger.clear();
+                vorgaenger.add(9);
+                vorgaenger.add(19);
+                break;
+            case 43:
+                vorgaenger.clear();
+                vorgaenger.add(42);
+                break;
+            case 44:
+                vorgaenger.clear();
+                vorgaenger.add(23);
+                vorgaenger.add(27);
+                break;
+            default:
+                vorgaenger.clear();
+                vorgaenger.add(knotenNummer - 1);
+                System.out.println("Kein gültiger Knoten!");
+                break;
+        }
+        return vorgaenger;
     }
 
     public void clearPortList() {
@@ -1163,6 +1364,20 @@ public class Steuerung implements Befehle {
         //Graph wird im Kontruktor erstellt (dijkstra.init())
         dijkstra = new Dijkstra(); //jedes Mal ein neues Objekt zuweisen, da sonst Fehler bei der Wegfindung auftreten
         dijkstra.init();
+        
+        /* Test-Liste mit fünf entfernten Kanten
+        ArrayList<Integer> zuEntfernendeKanten = new ArrayList<Integer>() 
+            {
+                {
+                add(2);  add(1);
+                add(5);  add(4);
+                add(20); add(19);
+                add(8);  add(7);
+                add(18); add(17);
+                }
+        };
+        
+        */
         //TEST - Kanten über Methode enfernen - TEST
         //ODER Objekte in Steuerung erzeugen (Graph Objekt usw.) und dem 
         //  Dijskra-Objekt direkt die zu entfernenden Kanten übergeben
