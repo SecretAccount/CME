@@ -1500,10 +1500,10 @@ public class Steuerung implements Befehle {
                     break;
                 case 39:
                     //INNERKREIS
-                    //Fahrtrichtung nach rechts
-//                    if (nameNachfolger == 24) {
-//                        stelleWeiche(39, 'r');
-//                    }
+                    //Fahrtrichtung nach links
+                    if (nameNachfolger == 24 && nameVorgaenger == 14) {
+                        stelleWeiche(39, 'r');
+                    }
                     //Fahrtrichtung nach links
                     if (nameNachfolger == 13) {
                         stelleWeiche(39, 'g');
