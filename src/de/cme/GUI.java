@@ -4,6 +4,8 @@ import de.cme.dijkstra.test.TestingThread;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -151,6 +153,7 @@ public class GUI extends javax.swing.JFrame {
         jLEndknoten = new javax.swing.JLabel();
         jLStartknotenNummer = new javax.swing.JLabel();
         jLEndknotenNummer = new javax.swing.JLabel();
+        jBGleisbildErfassen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CME");
@@ -194,7 +197,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jCBCOMPort, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLCOMPort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBOeffnen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBAktualisieren, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(jBAktualisieren, javax.swing.GroupLayout.PREFERRED_SIZE, 100, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPCOMPortLayout.setVerticalGroup(
@@ -591,7 +594,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jBWeiche2Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche3Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche4Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jBWeiche1Position.getAccessibleContext().setAccessibleName("Position 1");
@@ -849,7 +852,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBTestOneWay, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(jBTestOneWay, javax.swing.GroupLayout.PREFERRED_SIZE, 178, Short.MAX_VALUE)
                     .addComponent(jBTestAllNondes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                         .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1166,6 +1169,14 @@ public class GUI extends javax.swing.JFrame {
         jPGleisbildStatus.add(jLEndknotenNummer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 20, 15));
 
         jPGleisplan.add(jPGleisbildStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 70));
+
+        jBGleisbildErfassen.setText("Gleisbild erfassen");
+        jBGleisbildErfassen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGleisbildErfassenActionPerformed(evt);
+            }
+        });
+        jPGleisplan.add(jBGleisbildErfassen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
 
         jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 840, 530));
 
@@ -1997,6 +2008,18 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.schliessen();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jBGleisbildErfassenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildErfassenActionPerformed
+        //RMK suchen, um Hindernisse zu erkennen und Kanten zu entfernen
+        dieSteuerung.sendeRMK();
+        try {
+            //1s warten, bevor erneut RMK abgefragt werden.
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dieSteuerung.sendeRMK();
+    }//GEN-LAST:event_jBGleisbildErfassenActionPerformed
+
     public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
         jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
@@ -2499,6 +2522,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBBeenden;
     private javax.swing.JButton jBGeschwFunktion;
     private javax.swing.JButton jBGleisbildAutomatikStarten;
+    private javax.swing.JButton jBGleisbildErfassen;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
