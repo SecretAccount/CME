@@ -1406,8 +1406,16 @@ public class Steuerung implements Befehle {
 //        System.out.println("endPoint: " + endPoint);
         //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
         if (routeWorking) {
-            stelleWeichen(weg);
-            sendeRMK(weg);
+            try {
+                //500ms warten, bevor Weichen gestellt werden
+                Thread.sleep(500);
+                stelleWeichen(weg);
+                //500ms warten, bevor RMK abgefragt werden
+                Thread.sleep(500);
+                sendeRMK(weg);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -1508,7 +1516,7 @@ public class Steuerung implements Befehle {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
                         System.out.println("Vorgänger: " + nameVorgaenger);
                         System.out.println("Nachfolger: " + nameNachfolger);
-                        stelleWeiche(39, 'r');
+                        stelleWeiche(39, 'r'); 
                         stelleWeiche(39, 'r'); // 5x senden, damit Weiche wirklich gestellt wird
                         stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r');
