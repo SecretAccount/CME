@@ -4,6 +4,7 @@ import de.cme.dijkstra.test.TestingThread;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -154,11 +155,11 @@ public class GUI extends javax.swing.JFrame {
         jLStartknotenNummer = new javax.swing.JLabel();
         jLEndknotenNummer = new javax.swing.JLabel();
         jBGleisbildErfassen = new javax.swing.JButton();
+        jBZufallsAutomatik = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CME");
         setName("fCME"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 650));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -197,7 +198,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jCBCOMPort, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLCOMPort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBOeffnen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBAktualisieren, javax.swing.GroupLayout.PREFERRED_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(jBAktualisieren, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPCOMPortLayout.setVerticalGroup(
@@ -852,7 +853,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBTestOneWay, javax.swing.GroupLayout.PREFERRED_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(jBTestOneWay, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                     .addComponent(jBTestAllNondes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPFahrAutomatikLayout.createSequentialGroup()
                         .addGroup(jPFahrAutomatikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1177,6 +1178,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jPGleisplan.add(jBGleisbildErfassen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+
+        jBZufallsAutomatik.setText("Zufalls-Automatik starten");
+        jBZufallsAutomatik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBZufallsAutomatikActionPerformed(evt);
+            }
+        });
+        jPGleisplan.add(jBZufallsAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 840, 530));
 
@@ -2014,13 +2023,26 @@ public class GUI extends javax.swing.JFrame {
         //RMK suchen, um Hindernisse zu erkennen und Kanten zu entfernen
         dieSteuerung.sendeRMK();
         try {
-            //1s warten, bevor erneut RMK abgefragt werden.
-            Thread.sleep(1000);
+            //5s warten, bevor erneut RMK abgefragt werden.
+            Thread.sleep(5000);
         } catch (InterruptedException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         dieSteuerung.sendeRMK();
     }//GEN-LAST:event_jBGleisbildErfassenActionPerformed
+
+    private void jBZufallsAutomatikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBZufallsAutomatikActionPerformed
+        System.out.println(evt.getActionCommand());
+        dieSteuerung.setStartPoint(Integer.valueOf(jLStartknotenNummer.getText()));
+        int randomNumber = 0;
+        do {
+            //Zufällige Zahl zwischen 1 und 31 erzeugen
+        randomNumber = new Random().nextInt(31) + 1;
+        }while(randomNumber == dieSteuerung.getStartPoint());
+        dieSteuerung.setEndPoint(randomNumber);
+        System.out.println("Startknoten: " + dieSteuerung.getStartPoint());
+        System.out.println("Zufallsendknoten: " + dieSteuerung.getEndPoint());
+    }//GEN-LAST:event_jBZufallsAutomatikActionPerformed
 
     public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
@@ -2550,6 +2572,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBWeicheGerade;
     private javax.swing.JButton jBWeicheRund;
     private javax.swing.JButton jBWeichenPosition;
+    private javax.swing.JButton jBZufallsAutomatik;
     private javax.swing.JComboBox jCBCOMPort;
     private javax.swing.JComboBox jCBRMKModulAuswahl;
     private javax.swing.JComboBox jCBWeichenChefAuswahl;
