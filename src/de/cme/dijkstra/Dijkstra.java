@@ -143,7 +143,7 @@ public class Dijkstra {
          //Kanten werden gemäß Vorlage verknüpft Mittlekreis mit jeweils Gewichtung
          //von 50 (beide Fahrtrichtungen)
          graph.kanteEinfuegen(knoten[20], knoten[40], 50); // Knoten 21-41
-         graph.kanteEinfuegen(knoten[20], knoten[21], 50); // Knoten 21-22
+//         graph.kanteEinfuegen(knoten[20], knoten[21], 50); // Knoten 21-22
          graph.kanteEinfuegen(knoten[21], knoten[20], 50); // Knoten 22-21
          graph.kanteEinfuegen(knoten[21], knoten[43], 50); // Knoten 22-44
          graph.kanteEinfuegen(knoten[43], knoten[21], 50); // Knoten 44-22
@@ -151,16 +151,16 @@ public class Dijkstra {
          graph.kanteEinfuegen(knoten[43], knoten[25], 50); // Knoten 44-26
          graph.kanteEinfuegen(knoten[43], knoten[26], 50); // Knoten 44-27
          graph.kanteEinfuegen(knoten[22], knoten[43], 50); // Knoten 23-44
-         graph.kanteEinfuegen(knoten[22], knoten[23], 50); // Knoten 23-24
+//         graph.kanteEinfuegen(knoten[22], knoten[23], 50); // Knoten 23-24
          graph.kanteEinfuegen(knoten[23], knoten[38], 50); // Knoten 24-39
          graph.kanteEinfuegen(knoten[23], knoten[22], 50); // Knoten 24-23
          graph.kanteEinfuegen(knoten[38], knoten[23], 50); // Knoten 39-24
          graph.kanteEinfuegen(knoten[25], knoten[43], 50); // Knoten 26-44
          graph.kanteEinfuegen(knoten[25], knoten[24], 50); // Knoten 26-25
          graph.kanteEinfuegen(knoten[24], knoten[36], 50); // Knoten 25-37
-         graph.kanteEinfuegen(knoten[24], knoten[25], 50); // Knoten 25-26
+//         graph.kanteEinfuegen(knoten[24], knoten[25], 50); // Knoten 25-26
          graph.kanteEinfuegen(knoten[26], knoten[43], 50); // Knoten 27-44
-         graph.kanteEinfuegen(knoten[26], knoten[27], 50); // Knoten 27-28
+//         graph.kanteEinfuegen(knoten[26], knoten[27], 50); // Knoten 27-28
          graph.kanteEinfuegen(knoten[27], knoten[26], 50); // Knoten 28-27
          graph.kanteEinfuegen(knoten[27], knoten[42], 50); // Knoten 28-43
          graph.kanteEinfuegen(knoten[42], knoten[27], 50); // Knoten 43-28

@@ -1406,8 +1406,16 @@ public class Steuerung implements Befehle {
 //        System.out.println("endPoint: " + endPoint);
         //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
         if (routeWorking) {
-            stelleWeichen(weg);
-            sendeRMK(weg);
+//            try {
+                //500ms warten, bevor Weichen gestellt werden
+//                Thread.sleep(500);
+                stelleWeichen(weg);
+                //500ms warten, bevor RMK abgefragt werden
+//                Thread.sleep(500);
+                sendeRMK(weg);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
 
     }
@@ -1506,10 +1514,23 @@ public class Steuerung implements Befehle {
                     //Fahrtrichtung nach links
                     if (nameNachfolger == 24 && nameVorgaenger == 14) {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
+                        System.out.println("Vorgänger: " + nameVorgaenger);
+                        System.out.println("Nachfolger: " + nameNachfolger);
+                        stelleWeiche(39, 'r'); 
+                        stelleWeiche(39, 'r'); // 5x senden, damit Weiche wirklich gestellt wird
+                        stelleWeiche(39, 'r');
+                        stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r');
                     }
-                    //Fahrtrichtung nach links
-                    if (nameNachfolger == 13) {
+                    //Fahrtrichtung nach rechts
+                    if (nameNachfolger == 13 && nameVorgaenger == 14) {
+                        System.out.println("Weiche 39 gerade");
+                        System.out.println("Vorgänger: " + nameVorgaenger);
+                        System.out.println("Nachfolger: " + nameNachfolger);
+                        stelleWeiche(39, 'g');
+                        stelleWeiche(39, 'g'); // 5x senden, damit Weiche wirklich gestellt wird
+                        stelleWeiche(39, 'g');
+                        stelleWeiche(39, 'g');
                         stelleWeiche(39, 'g');
                     }
                     break;
@@ -1518,9 +1539,6 @@ public class Steuerung implements Befehle {
 //                    if (nameNachfolger == 40) {
 //                        stelleWeiche(40, 'r');
 //                    }
-                    if (nameNachfolger == 11) {
-                        stelleWeiche(40, 'g');
-                    }
                     break;
                 case 40:
                     if (nameNachfolger == 10 && nameVorgaenger == 1) { //Bedingung mit Vorgänger hinzugefügt

@@ -2001,6 +2001,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLKnoten31MouseClicked
 
     private void jBGleisbildAutomatikStartenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildAutomatikStartenActionPerformed
+        //RMK aktualisieren, bevor Weg gesucht wird
+//        dieSteuerung.sendeRMK();
         //Auf Lokposition prüfen einschalten
         dieSteuerung.setAutomationEnabled(true);
         dieSteuerung.setStartPoint(Integer.valueOf(jLStartknotenNummer.getText()));
@@ -2191,9 +2193,11 @@ public class GUI extends javax.swing.JFrame {
             /*Knoten 6 wird zur Zeit nicht berücksichtigt
             case 6:
                 if (status) {
-                    jLKnoten6.setIcon(gruenerKnoten);
+                    //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
+                    jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png")));
                 } else {
-                    jLKnoten6.setIcon(roterKnoten);
+                    //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
+                    jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_rot.png")));
                 }
                 break;
              */
