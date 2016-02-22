@@ -4,6 +4,9 @@ import de.cme.dijkstra.test.TestingThread;
 import java.awt.Color;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -151,6 +154,8 @@ public class GUI extends javax.swing.JFrame {
         jLEndknoten = new javax.swing.JLabel();
         jLStartknotenNummer = new javax.swing.JLabel();
         jLEndknotenNummer = new javax.swing.JLabel();
+        jBGleisbildErfassen = new javax.swing.JButton();
+        jTGZufallsAutomatik = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CME");
@@ -1167,6 +1172,22 @@ public class GUI extends javax.swing.JFrame {
 
         jPGleisplan.add(jPGleisbildStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 70));
 
+        jBGleisbildErfassen.setText("Gleisbild erfassen");
+        jBGleisbildErfassen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGleisbildErfassenActionPerformed(evt);
+            }
+        });
+        jPGleisplan.add(jBGleisbildErfassen, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+
+        jTGZufallsAutomatik.setText("Zufalls-Automatik");
+        jTGZufallsAutomatik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTGZufallsAutomatikActionPerformed(evt);
+            }
+        });
+        jPGleisplan.add(jTGZufallsAutomatik, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
+
         jPGleisbild.add(jPGleisplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 840, 530));
 
         jTPUmschalten.addTab("Gleisbild", jPGleisbild);
@@ -1660,7 +1681,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 14 als Startpunkt setzen
             System.out.println("Knoten 14 Startpunkt");
             dieSteuerung.setStartPoint(14);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1678,7 +1699,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 15 als Startpunkt setzen
             System.out.println("Knoten 15 Startpunkt");
             dieSteuerung.setStartPoint(15);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1696,7 +1717,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 16 als Startpunkt setzen
             System.out.println("Knoten 16 Startpunkt");
             dieSteuerung.setStartPoint(16);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1714,7 +1735,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 17 als Startpunkt setzen
             System.out.println("Knoten 17 Startpunkt");
             dieSteuerung.setStartPoint(17);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1732,7 +1753,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 18 als Startpunkt setzen
             System.out.println("Knoten 18 Startpunkt");
             dieSteuerung.setStartPoint(18);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1750,7 +1771,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 19 als Startpunkt setzen
             System.out.println("Knoten 19 Startpunkt");
             dieSteuerung.setStartPoint(19);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1768,7 +1789,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 20 als Startpunkt setzen
             System.out.println("Knoten 20 Startpunkt");
             dieSteuerung.setStartPoint(20);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1786,7 +1807,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 21 als Startpunkt setzen
             System.out.println("Knoten 21 Startpunkt");
             dieSteuerung.setStartPoint(21);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1804,7 +1825,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 22 als Startpunkt setzen
             System.out.println("Knoten 22 Startpunkt");
             dieSteuerung.setStartPoint(22);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1822,7 +1843,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 23 als Startpunkt setzen
             System.out.println("Knoten 23 Startpunkt");
             dieSteuerung.setStartPoint(23);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1840,7 +1861,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 24 als Startpunkt setzen
             System.out.println("Knoten 24 Startpunkt");
             dieSteuerung.setStartPoint(24);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1858,7 +1879,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 25 als Startpunkt setzen
             System.out.println("Knoten 25 Startpunkt");
             dieSteuerung.setStartPoint(25);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1876,7 +1897,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 26 als Startpunkt setzen
             System.out.println("Knoten 26 Startpunkt");
             dieSteuerung.setStartPoint(26);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1894,7 +1915,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 27 als Startpunkt setzen
             System.out.println("Knoten 27 Startpunkt");
             dieSteuerung.setStartPoint(27);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1912,7 +1933,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 28 als Startpunkt setzen
             System.out.println("Knoten 28 Startpunkt");
             dieSteuerung.setStartPoint(28);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1930,7 +1951,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 29 als Startpunkt setzen
             System.out.println("Knoten 29 Startpunkt");
             dieSteuerung.setStartPoint(29);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1948,7 +1969,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 30 als Startpunkt setzen
             System.out.println("Knoten 30 Startpunkt");
             dieSteuerung.setStartPoint(30);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1966,7 +1987,7 @@ public class GUI extends javax.swing.JFrame {
             //Knoten 31 als Startpunkt setzen
             System.out.println("Knoten 31 Startpunkt");
             dieSteuerung.setStartPoint(31);
-             //Status auf GUI aktualisieren
+            //Status auf GUI aktualisieren
             jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
             pressed = false;
         } else {
@@ -1997,12 +2018,60 @@ public class GUI extends javax.swing.JFrame {
         dieSteuerung.schliessen();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jBGleisbildErfassenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGleisbildErfassenActionPerformed
+        dieSteuerung.sendeRMK();
+    }//GEN-LAST:event_jBGleisbildErfassenActionPerformed
+
+    private void jTGZufallsAutomatikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTGZufallsAutomatikActionPerformed
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dieSteuerung.setStartPoint(Integer.valueOf(jLStartknotenNummer.getText()));
+                while (jTGZufallsAutomatik.isSelected()) {
+                    dieSteuerung.sendeRMK();
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.out.println("Automatik gestartet");
+                    int nextInt = 0;
+                    do {
+                        //Zufallszahl zwischen 1-32 erzeugen
+                        nextInt = new Random().nextInt(31) + 1;
+                        //solange Startpunkt gleich Zufallszahl
+                    } while (dieSteuerung.getStartPoint() == nextInt || nextInt == 6);
+                    dieSteuerung.setEndPoint(nextInt);
+                    aktualisiereLabelStatus();
+                    System.out.println("Startknoten: " + dieSteuerung.getStartPoint());
+                    System.out.println("Endknoten: " + dieSteuerung.getEndPoint());
+                    dieSteuerung.setAutomationEnabled(true);
+                    dieSteuerung.findeWeg();
+                    //Route nicht möglich
+//                    if (!dieSteuerung.isRouteWorking()) {
+//                        //Warnhinweis zeigen
+//                        JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
+//                        break;
+//                    }
+                    while (dieSteuerung.getEndPoint() != dieSteuerung.getStartPoint()) {
+                        try {
+                            //20ms warten
+                            Thread.sleep(20);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            }
+        }).start();
+    }//GEN-LAST:event_jTGZufallsAutomatikActionPerformed
+
     public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
         jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
         jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
     }
-    
+
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
@@ -2127,7 +2196,7 @@ public class GUI extends javax.swing.JFrame {
                     jLKnoten6.setIcon(roterKnoten);
                 }
                 break;
-            */
+             */
             case 7:
                 if (status) {
                     jLKnoten7.setIcon(gruenerKnoten);
@@ -2499,6 +2568,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBBeenden;
     private javax.swing.JButton jBGeschwFunktion;
     private javax.swing.JButton jBGleisbildAutomatikStarten;
+    private javax.swing.JButton jBGleisbildErfassen;
     private javax.swing.JButton jBOeffnen;
     private javax.swing.JButton jBRMKabfragen;
     private javax.swing.JButton jBRichtungAendern;
@@ -2609,6 +2679,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTFStatus7;
     private javax.swing.JTextField jTFVon;
     private javax.swing.JToggleButton jTGLokLichtFunktion;
+    private javax.swing.JToggleButton jTGZufallsAutomatik;
     private javax.swing.JTabbedPane jTPUmschalten;
     // End of variables declaration//GEN-END:variables
 }
