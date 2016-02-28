@@ -254,7 +254,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPLok, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        getContentPane().add(jPLok, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jBBeenden.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBBeenden.setText("Beenden");
@@ -2041,13 +2041,16 @@ public class GUI extends javax.swing.JFrame {
                     do {
                         //Zufallszahl zwischen 1-32 erzeugen
                         nextInt = new Random().nextInt(31) + 1;
-                        //solange Startpunkt gleich Zufallszahl
+                        //solange Startpunkt gleich Zufallszahl oder nicht Knotennummer 6, (da Knoten 6 ausgenommen wurde)
                     } while (dieSteuerung.getStartPoint() == nextInt || nextInt == 6);
+                    //Endknoten auf Zufallsknoten setzen
                     dieSteuerung.setEndPoint(nextInt);
+                    //Knoten auf der GUI aktualisieren
                     aktualisiereLabelStatus();
                     System.out.println("Startknoten: " + dieSteuerung.getStartPoint());
                     System.out.println("Endknoten: " + dieSteuerung.getEndPoint());
                     dieSteuerung.setAutomationEnabled(true);
+                    //Wegfindung starten mit Dijkstra-Algorithmus
                     dieSteuerung.findeWeg();
                     //Route nicht möglich
 //                    if (!dieSteuerung.isRouteWorking()) {
@@ -2055,6 +2058,7 @@ public class GUI extends javax.swing.JFrame {
 //                        JOptionPane.showMessageDialog(this, "Routenfindung nicht möglich.\nBitte Hindernis entfernen oder anderen Endpunkt wählen!", "Routenfindung nicht möglich!", JOptionPane.WARNING_MESSAGE);
 //                        break;
 //                    }
+                    //Solange warten, wie Lok noch nicht am Endknoten angekommen ist
                     while (dieSteuerung.getEndPoint() != dieSteuerung.getStartPoint()) {
                         try {
                             //20ms warten
