@@ -400,19 +400,7 @@ public class Steuerung implements Befehle {
         int mAdresse = empfangeneDaten[8] << 8;
         mAdresse += empfangeneDaten[7];
 
-        int mTestAdresse = 0x3000 + weichenAdresse - 1; //Beginn der ersten Adresse des Weichenmoduls
-        switch (modulNr) {
-            case 4:
-                mTestAdresse = 0x3000; //1. Adresse Modul 4: 1 (0)
-                break;
-            case 5:
-                //Nummerierung beginnt bei 0, deshalb '-1'
-                mTestAdresse = 0x3000 + 13 - 1; //1. Adresse Modul 5: 13 (12)
-                break;
-            case 6:
-                mTestAdresse = 0x3000 + 22 - 1; //1. Adresse Modul 6: 22 (21)
-                break;
-        }
+        int mTestAdresse = 0x3000 + (modulNr - 1) * 4; //Modulstartadresse berechnen (4 Adressen pro Modul in aufsteigender Reihenfolge)
         mTestAdresse += weichenAdresse; //WeichenAdresse dazurechnen
         System.out.println("Weiche stellen");
         dieDaten[0] = 0x0;
@@ -729,11 +717,10 @@ public class Steuerung implements Befehle {
             //Adresse der RMK in Knotennummer umwandeln, Status prüfen und setzeKnotenStatus-Methode übergeben (Farbe der Knoten auf GUI ändern)
             dieGUI.setzeKnotenStatus(knotenNr, (empfangeneDaten[9] != 0));
 
-            
             /**
              ** Hinderniserkennung durch Entfernung der Kanten **
-             **/
-            
+             *
+             */
             //belegte RMK/Kanten beim Start entfernen (außer Start- und Endpunkte)
             //Knoten darf nicht Start- und Endpunkt sein
             if (knotenNr != endPoint && knotenNr != startPoint) {
@@ -746,16 +733,16 @@ public class Steuerung implements Befehle {
                     for (Integer vorgaenger : vorgaengerKnoten) {
                         System.out.println("Knoten " + knotenNr + " mit Vorgänger " + vorgaenger + " hinzufügen");
                         //Wenn belegter Knoten noch nicht in Liste:
-                        if(!removedEdges.contains(knotenNr)) {
-                        //ein oder mehrere Vorgänger des belegten Knotens hinzufügen
-                        removedEdges.add(vorgaenger);
-                        removedEdges.add(knotenNr);
+                        if (!removedEdges.contains(knotenNr)) {
+                            //ein oder mehrere Vorgänger des belegten Knotens hinzufügen
+                            removedEdges.add(vorgaenger);
+                            removedEdges.add(knotenNr);
                         }
                     }
                 }
             }
             System.out.println("zu entfernende Kanten davor: " + removedEdges);
-            
+
             //Hindernis muss auch wieder entfernt werden, nachdem es in Wirklichkeit entfernt wurde
             //Prüfe bei jeder entfernten Kante (kommt jede zwei Knoten vor), ob der RMK wieder frei ist
             for (int i = 1; i < removedEdges.size(); i += 2) {
@@ -992,23 +979,21 @@ public class Steuerung implements Befehle {
                 break;
         }
 
-        switch (weichenNummer) {
-            // Knoten 32 und 42 gleiche Weiche, aber Knoten 9 dazwischen
-            case 32:
-            case 42:
-                weichenAdresse = 24;
+        switch (weichenNummer) {           
+            case 32:            
+                weichenAdresse = 19;
                 break;
             case 33:
-                weichenAdresse = 23;
+                weichenAdresse = 18;
                 break;
             case 34:
                 weichenAdresse = 15;
                 break;
             case 35:
-                weichenAdresse = 3;
+                weichenAdresse = 5;
                 break;
             case 36:
-                weichenAdresse = 2;
+                weichenAdresse = 6;
                 break;
             case 37:
                 weichenAdresse = 1;
@@ -1017,20 +1002,31 @@ public class Steuerung implements Befehle {
                 weichenAdresse = 0;
                 break;
             case 39:
-                weichenAdresse = 13;
+                weichenAdresse = 7;
                 break;
             case 40:
-                weichenAdresse = 12;
+                weichenAdresse = 4;
                 break;
             case 41:
-                weichenAdresse = 21;
+                weichenAdresse = 2;
+                break;
+            case 42:
+                weichenAdresse = 13;
                 break;
             case 43:
-                weichenAdresse = 22;
+                weichenAdresse = 12;
                 break;
             case 44:
-                weichenAdresse = 14;
+                weichenAdresse = 8;
                 break;
+            case 45:
+                weichenAdresse = 9;
+            case 46:
+                weichenAdresse = 16;
+            case 47:
+                weichenAdresse = 17;
+            case 48:
+                weichenAdresse = 14;
             default:
                 weichenAdresse = 0;
                 System.out.println("Keine gültige Weichennummer gewählt: Erste Weiche gewählt");
@@ -1407,12 +1403,12 @@ public class Steuerung implements Befehle {
         //Nur Weichen stellen und RMK abfragen, wenn Route nicht blockiert ist
         if (routeWorking) {
 //            try {
-                //500ms warten, bevor Weichen gestellt werden
+            //500ms warten, bevor Weichen gestellt werden
 //                Thread.sleep(500);
-                stelleWeichen(weg);
-                //500ms warten, bevor RMK abgefragt werden
+            stelleWeichen(weg);
+            //500ms warten, bevor RMK abgefragt werden
 //                Thread.sleep(500);
-                sendeRMK(weg);
+            sendeRMK(weg);
 //            } catch (InterruptedException ex) {
 //                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
 //            }
@@ -1516,7 +1512,7 @@ public class Steuerung implements Befehle {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
                         System.out.println("Vorgänger: " + nameVorgaenger);
                         System.out.println("Nachfolger: " + nameNachfolger);
-                        stelleWeiche(39, 'r'); 
+                        stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r'); // 5x senden, damit Weiche wirklich gestellt wird
                         stelleWeiche(39, 'r');
                         stelleWeiche(39, 'r');
