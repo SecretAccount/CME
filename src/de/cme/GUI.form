@@ -539,10 +539,12 @@
                 <Component class="javax.swing.JComboBox" name="jCBWeichenChefAuswahl">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="4"/>
-                        <StringItem index="1" value="5"/>
-                        <StringItem index="2" value="6"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="1"/>
+                        <StringItem index="1" value="2"/>
+                        <StringItem index="2" value="3"/>
+                        <StringItem index="3" value="4"/>
+                        <StringItem index="4" value="5"/>
                       </StringArray>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Adresse des WeichenChef-Moduls ausw&#xe4;hlen"/>

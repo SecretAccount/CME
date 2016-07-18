@@ -160,7 +160,6 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CME");
         setName("fCME"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 650));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -402,7 +401,7 @@ public class GUI extends javax.swing.JFrame {
         jCBWeichenChefAuswahl.addItem(1);
         jCBWeichenChefAuswahl.addItem(2);
         jCBWeichenChefAuswahl.addItem(3);
-        jCBWeichenChefAuswahl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4", "5", "6" }));
+        jCBWeichenChefAuswahl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
         jCBWeichenChefAuswahl.setToolTipText("Adresse des WeichenChef-Moduls auswählen");
         jCBWeichenChefAuswahl.setName(""); // NOI18N
         jCBWeichenChefAuswahl.addActionListener(new java.awt.event.ActionListener() {
