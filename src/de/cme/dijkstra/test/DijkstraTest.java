@@ -13,8 +13,8 @@ public class DijkstraTest {
 
     public void testeGraph() {
         
-        for (int i = 1; i < 45; i++) {
-            for (int j = 1; j < 45; j++) {
+        for (int i = 1; i < 48; i++) {
+            for (int j = 1; j < 48; j++) {
                 //Keine gleichen Knoten vergleichen
                 if(i != j && i != 6 && j != 6) {
                 dijkstra = new Dijkstra();
