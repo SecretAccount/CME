@@ -974,13 +974,13 @@ public class Steuerung implements Befehle {
                 stellungWert = 1;
                 break;
             default:
-                stellungWert = 0;
+                stellungWert = 1;
                 System.out.println("Falscher Stellungswert: Stellung auf 1 gesetzt (gerade)");
                 break;
         }
 
-        switch (weichenNummer) {           
-            case 32:            
+        switch (weichenNummer) {
+            case 32:
                 weichenAdresse = 19;
                 break;
             case 33:
@@ -1451,22 +1451,25 @@ public class Steuerung implements Befehle {
             //Fahrtrichtung mit Gewichtung 1
             switch (punkt.getName()) {
                 case 32:
+                    //Vorgaenger immer 10
                     if (nameNachfolger == 9) {
                         stelleWeiche(32, 'r');
-                    }//ACHTUNG 6/4 Problem
+                    }
                     if (nameNachfolger == 33) {
                         stelleWeiche(32, 'g');
                     }
                     break;
                 case 33:
+                    //Vorgaenger immer 32
                     if (nameNachfolger == 31) {
                         stelleWeiche(33, 'g');
-                    }//falsche Stellung
+                    }
                     if (nameNachfolger == 30) {
                         stelleWeiche(33, 'r');
-                    }//falsche Stellung
+                    }
                     break;
                 case 34:
+                    //Vorgaenger immer 29
                     if (nameNachfolger == 35) {
                         stelleWeiche(34, 'g');
                     }
@@ -1476,101 +1479,129 @@ public class Steuerung implements Befehle {
                 case 35: //gilt nur für Gewichtung 2
                     //Weiche 36 stellen
                     if (nameNachfolger == 36) {
-                        stelleWeiche(36, 'r');
-                    }
-                    //Weiche 36 stellen
-                    if (nameNachfolger == 6) {
-                        stelleWeiche(36, 'g');
+                        stelleWeiche(35, 'r');
+                        stelleWeiche(36, 'r'); //Nachfolgeweiche auf rund wegen Schönheit
                     }
                     break;
                 case 36:
-                    if (nameNachfolger == 37) {
+                    if (nameNachfolger == 37 && nameVorgaenger == 35) {
                         stelleWeiche(36, 'r'); //auf rund geändert
+                    }
+                    if (nameNachfolger == 37 && nameVorgaenger == 7) {
+                        stelleWeiche(36, 'g');
                     }
                     break;
                 case 37:
-                    if (nameNachfolger == 15 && nameVorgaenger == 36) {
+                    if (nameNachfolger == 38) {
+                        stelleWeiche(37, 'r');
+                        stelleWeiche(38, 'r'); //Nachfolgeweiche auf rund wegen Schönheit
+                    }
+                    if (nameNachfolger == 6) {
                         stelleWeiche(37, 'g');
                     }
-                    //Von Innenkreis her kommend
-                    if (nameNachfolger == 15 && nameVorgaenger == 25) {
-                        stelleWeiche(37, 'r');
-                    }
                     break;
-                case 38: //Falsch: doch richtige Stellung
-                    if (nameNachfolger == 14) {
-                        stelleWeiche(38, 'r');
-                    }//falsche Stellung: doch richtig
-                    if (nameNachfolger == 4) {
-                        stelleWeiche(38, 'g');
-                    }//falsche Stellung: doch richtig
+                case 38:
+                    if (nameNachfolger == 39) {
+                        stelleWeiche(38, 'g'); //Stellung egal, da nur ein Nachfolger (39)
+                    }
+
                     break;
                 case 39:
                     //INNERKREIS
                     //Fahrtrichtung nach links
-                    if (nameNachfolger == 24 && nameVorgaenger == 14) {
+                    if (nameNachfolger == 15 && nameVorgaenger == 25) {
                         System.out.println("Weiche 39 nach Innenkreis (rund)");
                         System.out.println("Vorgänger: " + nameVorgaenger);
                         System.out.println("Nachfolger: " + nameNachfolger);
                         stelleWeiche(39, 'r');
-                        stelleWeiche(39, 'r'); // 5x senden, damit Weiche wirklich gestellt wird
-                        stelleWeiche(39, 'r');
-                        stelleWeiche(39, 'r');
-                        stelleWeiche(39, 'r');
                     }
-                    //Fahrtrichtung nach rechts
-                    if (nameNachfolger == 13 && nameVorgaenger == 14) {
-                        System.out.println("Weiche 39 gerade");
-                        System.out.println("Vorgänger: " + nameVorgaenger);
-                        System.out.println("Nachfolger: " + nameNachfolger);
-                        stelleWeiche(39, 'g');
-                        stelleWeiche(39, 'g'); // 5x senden, damit Weiche wirklich gestellt wird
-                        stelleWeiche(39, 'g');
-                        stelleWeiche(39, 'g');
+                    if (nameNachfolger == 15 && nameVorgaenger == 38) {
                         stelleWeiche(39, 'g');
                     }
-                    break;
-                case 12://ACHTUNG BRAINFUCK WEGEN WEGFALLEN EINES KNOTENPUNKTES!!!!
-                    //bereits bei case 40
-//                    if (nameNachfolger == 40) {
-//                        stelleWeiche(40, 'r');
-//                    }
+                    /*
+                     //Fahrtrichtung nach rechts
+                     if (nameNachfolger == 25 && nameVorgaenger == 15) {
+                     System.out.println("Weiche 39 rund");
+                     System.out.println("Vorgänger: " + nameVorgaenger);
+                     System.out.println("Nachfolger: " + nameNachfolger);
+                     stelleWeiche(39, 'r');
+                        
+                     }
+                     */
                     break;
                 case 40:
-                    if (nameNachfolger == 10 && nameVorgaenger == 1) { //Bedingung mit Vorgänger hinzugefügt
+                    if (nameNachfolger == 14) {
                         stelleWeiche(40, 'g');
                     }
-                    if (nameNachfolger == 10 && nameVorgaenger == 12) { //Bedingung mit Vorgänger hinzugefügt
+                    if (nameNachfolger == 41) {
                         stelleWeiche(40, 'r');
                     }
                     break;
                 case 41:
-                    if (nameNachfolger == 20) {
+                    if (nameVorgaenger == 40) {
+                        stelleWeiche(41, 'r');
+                    }
+                    if (nameVorgaenger == 5) {
                         stelleWeiche(41, 'g');
                     }
                     break;
-                case 19: // BRAINFUCK
-                    //ACHTUNG 6/4 Problem!!
-                    if (nameNachfolger == 42) {
+                case 42:
+                    //Vorgaenger immer 14
+                    if (nameNachfolger == 24) {
+                        stelleWeiche(42, 'r');
+                    }
+                    if (nameNachfolger == 13) {
                         stelleWeiche(42, 'g');
                     }
                     break;
-                case 9:
-                    if (nameNachfolger == 42) {
-                        stelleWeiche(32, 'r');
-                    }
-                    break;
                 case 43:
-                    //INNERKREIS
-                    if (nameNachfolger == 28) {
-                        stelleWeiche(43, 'r');
-                    }
-                    if (nameNachfolger == 18) {
+                    //Vorgaenger immer 12
+                    if (nameNachfolger == 11) {
                         stelleWeiche(43, 'g');
+                    }
+                    if (nameNachfolger == 44) {
+                        stelleWeiche(43, 'r');
                     }
                     break;
                 case 44:
+                    if (nameVorgaenger == 1) {
+                        stelleWeiche(44, 'g');
+                    }
+                    if (nameVorgaenger == 43) {
+                        stelleWeiche(44, 'r');
+                    }
+                    break;
+                case 45:
+                    //Nachfolger immer 20
+                    if (nameVorgaenger == 11) {
+                        stelleWeiche(45, 'g');
+                    }
+                    if (nameVorgaenger == 21) {
+                        stelleWeiche(45, 'r');
+                    }
+                    break;
+                case 46:
+                    //Nachfolger immer 47
+                    if (nameVorgaenger == 19) {
+                        stelleWeiche(46, 'g');
+                    }
+                    if (nameVorgaenger == 9) {
+                        stelleWeiche(46, 'r');
+                    }
+                    break;
+                case 47:
+                    //Vorgaenger immer 46
+                    if (nameNachfolger == 18) {
+                        stelleWeiche(47, 'g');
+                    }
+                    if (nameNachfolger == 28) {
+                        stelleWeiche(47, 'r');
+                    }
+                    break;
+                case 48:
                     //Kreuzungsweiche im Innenkreis
+                    //Falsche Zahlen der Knoten
+                    //TO-DO: MUSS NOCH GEÄNDERT WERDEN
                     /* Richtungswechsel
                      if (nameNachfolger == 23 && nameVorgaenger == 27
                      || nameNachfolger == 27 && nameVorgaenger == 23) {
@@ -1580,7 +1611,7 @@ public class Steuerung implements Befehle {
                      || nameNachfolger == 22 && nameVorgaenger == 26) {
                      stelleWeiche(44, 'r');
                      }
-                     */
+                    //Richtung beibehalten
                     if (nameNachfolger == 27 && nameVorgaenger == 26
                             || nameNachfolger == 26 && nameVorgaenger == 27) {
                         stelleWeiche(44, 'r');
@@ -1589,10 +1620,38 @@ public class Steuerung implements Befehle {
                             || nameNachfolger == 23 && nameVorgaenger == 22) {
                         stelleWeiche(44, 'r');
                     }
+                     */
+                    //Immer auf gerade, da kein Richtungswechsel erfolgt
+                    stelleWeiche(48, 'g');
+                    
                     break;
                 default:
                     System.out.println("Falsche Weichenknoten-Nummer");
                     break;
+            }
+        }
+    }
+    
+     public void stelleWeichenAufGrundstellung() {
+        for(int i = 32; i < 49; i++) {
+            System.out.println("Stelle Weiche gerade: " + i);
+            stelleWeiche(i, 'g');
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+     
+      public void stelleWeichenAufRund() {
+        for(int i = 32; i < 49; i++) {
+            System.out.println("Stelle Weiche rund: " + i);
+            stelleWeiche(i, 'r');
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Steuerung.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -1716,4 +1775,5 @@ public class Steuerung implements Befehle {
         }
     }
     //Ende Methoden
+
 }
