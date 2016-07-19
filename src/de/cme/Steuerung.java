@@ -785,12 +785,12 @@ public class Steuerung implements Befehle {
                 //In Wirklichkeit Vorgaenger=6 
                 vorgaenger.add(37);
                 break;
-                /* Wird nicht verwendet, danicht funktioniert
-            case 6:
-                vorgaenger.clear();
-                vorgaenger.add(35);
-                break;
-                */
+            /* Wird nicht verwendet, danicht funktioniert
+             case 6:
+             vorgaenger.clear();
+             vorgaenger.add(35);
+             break;
+             */
             case 7:
                 vorgaenger.clear();
                 vorgaenger.add(8);
@@ -1090,93 +1090,66 @@ public class Steuerung implements Befehle {
         switch (RMKAdresse) {
             case 1:
                 return 30; //Nummer des Knotens
-
             case 2:
                 return 8; //Nummer des Knotens
-
             case 3:
                 return 21; //Nummer des Knotens
-
             case 4:
                 return 31; //Nummer des Knotens
-
             case 5:
                 return 19; //Nummer des Knotens
-
             case 6:
                 return 9; //Nummer des Knotens
-
             case 7:
                 return 10; //Nummer des Knotens
-
             case 8:
                 return 20; //Nummer des Knotens
-
             case 9:
                 return 22; //Nummer des Knotens
-
             case 10:
                 return 27; //Nummer des Knotens
-
             case 11:
                 return 17; //Nummer des Knotens
-
             case 12:
                 return 29; //Nummer des Knotens
-
             case 14:
                 return 18; //Nummer des Knotens
-
             case 15:
                 return 28; //Nummer des Knotens
-
             case 16:
                 return 11; //Nummer des Knotens
-
             case 17:
                 return 23; //Nummer des Knotens
-
             case 18:
                 return 7; //Nummer des Knotens
-
             case 19:
                 return 1; //Nummer des Knotens
-
             case 20:
                 return 2; //Nummer des Knotens
-
             case 21:
                 return 12; //Nummer des Knotens
-
             case 22:
                 return 13; //Nummer des Knotens
-
             case 23:
                 return 3; //Nummer des Knotens
-
             case 24:
                 return 24; //Nummer des Knotens
-
             case 25:
                 return 5; //Nummer des Knotens
-
             case 26:
                 return 15; //Nummer des Knotens
-
             case 27:
                 return 6; //Nummer des Knotens
-
             case 28:
                 return 25; //Nummer des Knotens
-
             case 29:
                 return 16; //Nummer des Knotens
-
             case 30:
                 return 26; //Nummer des Knotens
-
             case 31:
                 return 4; //Nummer des Knotens
+            case 32:
+                return 14; //Nummer des Knotens
 
             //Abstellgleis zur Erweiterung (wird nicht benutzt)
             //case 13:
@@ -1630,19 +1603,19 @@ public class Steuerung implements Befehle {
                      || nameNachfolger == 22 && nameVorgaenger == 26) {
                      stelleWeiche(44, 'r');
                      }
-                    //Richtung beibehalten
-                    if (nameNachfolger == 27 && nameVorgaenger == 26
-                            || nameNachfolger == 26 && nameVorgaenger == 27) {
-                        stelleWeiche(44, 'r');
-                    }
-                    if (nameNachfolger == 22 && nameVorgaenger == 23
-                            || nameNachfolger == 23 && nameVorgaenger == 22) {
-                        stelleWeiche(44, 'r');
-                    }
+                     //Richtung beibehalten
+                     if (nameNachfolger == 27 && nameVorgaenger == 26
+                     || nameNachfolger == 26 && nameVorgaenger == 27) {
+                     stelleWeiche(44, 'r');
+                     }
+                     if (nameNachfolger == 22 && nameVorgaenger == 23
+                     || nameNachfolger == 23 && nameVorgaenger == 22) {
+                     stelleWeiche(44, 'r');
+                     }
                      */
                     //Immer auf gerade, da kein Richtungswechsel erfolgt
                     stelleWeiche(48, 'g');
-                    
+
                     break;
                 default:
                     System.out.println("Falsche Weichenknoten-Nummer");
@@ -1650,9 +1623,9 @@ public class Steuerung implements Befehle {
             }
         }
     }
-    
-     public void stelleWeichenAufGrundstellung() {
-        for(int i = 32; i < 49; i++) {
+
+    public void stelleWeichenAufGrundstellung() {
+        for (int i = 32; i < 49; i++) {
             System.out.println("Stelle Weiche gerade: " + i);
             stelleWeiche(i, 'g');
             try {
@@ -1662,9 +1635,9 @@ public class Steuerung implements Befehle {
             }
         }
     }
-     
-      public void stelleWeichenAufRund() {
-        for(int i = 32; i < 49; i++) {
+
+    public void stelleWeichenAufRund() {
+        for (int i = 32; i < 49; i++) {
             System.out.println("Stelle Weiche rund: " + i);
             stelleWeiche(i, 'r');
             try {
