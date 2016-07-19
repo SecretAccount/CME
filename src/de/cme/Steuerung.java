@@ -778,17 +778,19 @@ public class Steuerung implements Befehle {
                 break;
             case 4:
                 vorgaenger.clear();
-                vorgaenger.add(5);
-                vorgaenger.add(38);
+                vorgaenger.add(41);
                 break;
             case 5:
                 vorgaenger.clear();
-                vorgaenger.add(6);
+                //In Wirklichkeit Vorgaenger=6 
+                vorgaenger.add(37);
                 break;
+                /* Wird nicht verwendet, danicht funktioniert
             case 6:
                 vorgaenger.clear();
                 vorgaenger.add(35);
                 break;
+                */
             case 7:
                 vorgaenger.clear();
                 vorgaenger.add(8);
@@ -803,11 +805,11 @@ public class Steuerung implements Befehle {
                 break;
             case 10:
                 vorgaenger.clear();
-                vorgaenger.add(40);
+                vorgaenger.add(44);
                 break;
             case 11:
                 vorgaenger.clear();
-                vorgaenger.add(12);
+                vorgaenger.add(43);
                 break;
             case 12:
                 vorgaenger.clear();
@@ -815,15 +817,15 @@ public class Steuerung implements Befehle {
                 break;
             case 13:
                 vorgaenger.clear();
-                vorgaenger.add(39);
+                vorgaenger.add(42);
                 break;
             case 14:
                 vorgaenger.clear();
-                vorgaenger.add(38);
+                vorgaenger.add(40);
                 break;
             case 15:
                 vorgaenger.clear();
-                vorgaenger.add(37);
+                vorgaenger.add(39);
                 break;
             case 16:
                 vorgaenger.clear();
@@ -835,7 +837,7 @@ public class Steuerung implements Befehle {
                 break;
             case 18:
                 vorgaenger.clear();
-                vorgaenger.add(43);
+                vorgaenger.add(47);
                 break;
             case 19:
                 vorgaenger.clear();
@@ -843,7 +845,7 @@ public class Steuerung implements Befehle {
                 break;
             case 20:
                 vorgaenger.clear();
-                vorgaenger.add(41);
+                vorgaenger.add(45);
                 break;
             case 21:
                 vorgaenger.clear();
@@ -851,7 +853,7 @@ public class Steuerung implements Befehle {
                 break;
             case 22:
                 vorgaenger.clear();
-                vorgaenger.add(44);
+                vorgaenger.add(48);
                 break;
             case 23:
                 vorgaenger.clear();
@@ -859,7 +861,7 @@ public class Steuerung implements Befehle {
                 break;
             case 24:
                 vorgaenger.clear();
-                vorgaenger.add(39);
+                vorgaenger.add(42);
                 break;
             case 25:
                 vorgaenger.clear();
@@ -867,7 +869,7 @@ public class Steuerung implements Befehle {
                 break;
             case 26:
                 vorgaenger.clear();
-                vorgaenger.add(44);
+                vorgaenger.add(48);
                 break;
             case 27:
                 vorgaenger.clear();
@@ -875,7 +877,7 @@ public class Steuerung implements Befehle {
                 break;
             case 28:
                 vorgaenger.clear();
-                vorgaenger.add(43);
+                vorgaenger.add(47);
                 break;
             case 29:
                 vorgaenger.clear();
@@ -903,47 +905,64 @@ public class Steuerung implements Befehle {
                 break;
             case 35:
                 vorgaenger.clear();
-                vorgaenger.add(7);
                 vorgaenger.add(34);
                 break;
             case 36:
                 vorgaenger.clear();
-                vorgaenger.add(16);
+                vorgaenger.add(7);
                 vorgaenger.add(35);
                 break;
             case 37:
                 vorgaenger.clear();
-                vorgaenger.add(25);
                 vorgaenger.add(36);
                 break;
             case 38:
                 vorgaenger.clear();
-                vorgaenger.add(15);
+                vorgaenger.add(16);
+                vorgaenger.add(37);
                 break;
             case 39:
                 vorgaenger.clear();
-                vorgaenger.add(14);
+                vorgaenger.add(25);
+                vorgaenger.add(38);
                 break;
             case 40:
                 vorgaenger.clear();
-                vorgaenger.add(1);
-                vorgaenger.add(12);
+                vorgaenger.add(15);
                 break;
             case 41:
+                vorgaenger.clear();
+                vorgaenger.add(5);
+                vorgaenger.add(40);
+                break;
+            case 42:
+                vorgaenger.clear();
+                vorgaenger.add(14);
+                break;
+            case 43:
+                vorgaenger.clear();
+                vorgaenger.add(12);
+                break;
+            case 44:
+                vorgaenger.clear();
+                vorgaenger.add(1);
+                vorgaenger.add(43);
+                break;
+            case 45:
                 vorgaenger.clear();
                 vorgaenger.add(11);
                 vorgaenger.add(21);
                 break;
-            case 42:
+            case 46:
                 vorgaenger.clear();
                 vorgaenger.add(9);
                 vorgaenger.add(19);
                 break;
-            case 43:
+            case 47:
                 vorgaenger.clear();
-                vorgaenger.add(42);
+                vorgaenger.add(46);
                 break;
-            case 44:
+            case 48:
                 vorgaenger.clear();
                 vorgaenger.add(23);
                 vorgaenger.add(27);
