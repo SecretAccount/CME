@@ -453,13 +453,19 @@
                                       <Component id="jBWeiche4Gerade" alignment="2" min="-2" pref="80" max="-2" attributes="0"/>
                                       <Component id="jBWeiche4Position" alignment="2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jBWeichenGrundstellung" max="32767" attributes="0"/>
+                                      <Component id="jBAlleWeichenRund" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                   <Component id="jLWeichen" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -497,18 +503,25 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLWeichen" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLWeichenModulAuswahl" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCBWeichenChefAuswahl" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jBWeichenPosition" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLWeichenModulAuswahl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCBWeichenChefAuswahl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jBWeichenPosition" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLWeiche1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLWeiche4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLWeiche2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jBWeichenGrundstellung" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLWeiche1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLWeiche4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLWeiche2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="81" pref="81" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jBAlleWeichenRund" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jBWeiche1Position" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                                       <Component id="jBWeiche2Position" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
@@ -724,6 +737,22 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeichenPositionActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jBWeichenGrundstellung">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Grundstellung"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWeichenGrundstellungActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jBAlleWeichenRund">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Weichen rund"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAlleWeichenRundActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

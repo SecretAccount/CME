@@ -80,6 +80,8 @@ public class GUI extends javax.swing.JFrame {
         jBWeiche4Gerade = new javax.swing.JButton();
         jBWeiche4Position = new javax.swing.JButton();
         jBWeichenPosition = new javax.swing.JButton();
+        jBWeichenGrundstellung = new javax.swing.JButton();
+        jBAlleWeichenRund = new javax.swing.JButton();
         jPRMK = new javax.swing.JPanel();
         jLRMK = new javax.swing.JLabel();
         jLRMKModulAuswahl = new javax.swing.JLabel();
@@ -507,6 +509,20 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jBWeichenGrundstellung.setText("Grundstellung");
+        jBWeichenGrundstellung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBWeichenGrundstellungActionPerformed(evt);
+            }
+        });
+
+        jBAlleWeichenRund.setText("Weichen rund");
+        jBAlleWeichenRund.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAlleWeichenRundActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPWeicheLayout = new javax.swing.GroupLayout(jPWeiche);
         jPWeiche.setLayout(jPWeicheLayout);
         jPWeicheLayout.setHorizontalGroup(
@@ -546,11 +562,16 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLWeiche4)
                             .addComponent(jBWeiche4Rund, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche4Gerade, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeiche4Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jBWeiche4Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBWeichenGrundstellung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBAlleWeichenRund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPWeicheLayout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(jLWeichen)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLWeichen)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPWeicheLayout.setVerticalGroup(
             jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,16 +601,21 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLWeichen)
                         .addGap(5, 5, 5)
-                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLWeichenModulAuswahl)
-                            .addComponent(jCBWeichenChefAuswahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBWeichenPosition))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLWeiche1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLWeiche4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLWeiche2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(81, 81, 81)
+                        .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPWeicheLayout.createSequentialGroup()
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLWeichenModulAuswahl)
+                                    .addComponent(jCBWeichenChefAuswahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBWeichenPosition))
+                                .addGap(27, 27, 27)
+                                .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLWeiche1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLWeiche4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLWeiche2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jBWeichenGrundstellung))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBAlleWeichenRund)
+                        .addGap(52, 52, 52)
                         .addGroup(jPWeicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBWeiche1Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBWeiche2Position, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2071,12 +2097,20 @@ public class GUI extends javax.swing.JFrame {
         }).start();
     }//GEN-LAST:event_jTGZufallsAutomatikActionPerformed
 
+    private void jBWeichenGrundstellungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWeichenGrundstellungActionPerformed
+        dieSteuerung.stelleWeichenAufGrundstellung();
+    }//GEN-LAST:event_jBWeichenGrundstellungActionPerformed
+
+    private void jBAlleWeichenRundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlleWeichenRundActionPerformed
+        dieSteuerung.stelleWeichenAufRund();
+    }//GEN-LAST:event_jBAlleWeichenRundActionPerformed
+
     public void aktualisiereLabelStatus() {
         //Status der gewählten Knoten auf GUI aktualisieren
         jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
         jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
     }
-
+    
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
@@ -2571,6 +2605,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAktualisieren;
+    private javax.swing.JButton jBAlleWeichenRund;
     private javax.swing.JButton jBAutomatikStarten;
     private javax.swing.JButton jBBeenden;
     private javax.swing.JButton jBGeschwFunktion;
@@ -2598,6 +2633,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBWeiche4Rund;
     private javax.swing.JButton jBWeicheGerade;
     private javax.swing.JButton jBWeicheRund;
+    private javax.swing.JButton jBWeichenGrundstellung;
     private javax.swing.JButton jBWeichenPosition;
     private javax.swing.JComboBox jCBCOMPort;
     private javax.swing.JComboBox jCBRMKModulAuswahl;
