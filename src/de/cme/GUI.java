@@ -21,11 +21,13 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     private Steuerung dieSteuerung;
+    private TestingThread testingThread;
     private int modulNr;
 
     public GUI() {
         initComponents();
         dieSteuerung = new Steuerung(this);
+        testingThread = new TestingThread(true);
         jBAktualisierenActionPerformed(null); //Ports suchen und anzeigen
     }
 
@@ -1397,7 +1399,8 @@ public class GUI extends javax.swing.JFrame {
     private void jBTestOneWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTestOneWayActionPerformed
         dieSteuerung.setStartPoint(getStartPoint());
         dieSteuerung.setEndPoint(getEndPoint());
-        TestingThread testingThread = new TestingThread(dieSteuerung.getStartPoint(), dieSteuerung.getEndPoint());
+        testingThread.setStartPoint(dieSteuerung.getStartPoint());
+        testingThread.setEndPoint(dieSteuerung.getEndPoint());
         testingThread.start();
     }//GEN-LAST:event_jBTestOneWayActionPerformed
 
@@ -1475,6 +1478,9 @@ public class GUI extends javax.swing.JFrame {
     private void jBSperreWegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSperreWegActionPerformed
         int vonKnoten = Integer.valueOf(JOptionPane.showInputDialog(this, "Weg sperren von Knoten: ", "Weg sperren", JOptionPane.QUESTION_MESSAGE));
         int bisKnoten = Integer.valueOf(JOptionPane.showInputDialog(this, "bis Knoten: ", "Weg sperren", JOptionPane.QUESTION_MESSAGE));
+        //In Test-Klasse Knoten entfernen
+        testingThread.setRemoveNodeFrom(vonKnoten);
+        testingThread.setRemoveNodeTo(bisKnoten);
         dieSteuerung.entferneKante(vonKnoten, bisKnoten);
     }//GEN-LAST:event_jBSperreWegActionPerformed
 
@@ -2110,7 +2116,7 @@ public class GUI extends javax.swing.JFrame {
         jLStartknotenNummer.setText(String.valueOf(dieSteuerung.getStartPoint()));
         jLEndknotenNummer.setText(String.valueOf(dieSteuerung.getEndPoint()));
     }
-    
+
     public void positionRund(int nummer) {
         // int nummer: 1-4 (Nummer der Weiche)
         switch (nummer) {
@@ -2228,15 +2234,15 @@ public class GUI extends javax.swing.JFrame {
                 }
                 break;
             /*Knoten 6 wird zur Zeit nicht berücksichtigt
-            case 6:
-                if (status) {
-                    //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
-                    jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png")));
-                } else {
-                    //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
-                    jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_rot.png")));
-                }
-                break;
+             case 6:
+             if (status) {
+             //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
+             jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_gruen.png")));
+             } else {
+             //Hardcoded Pfad wieder entfernen, wenn Knoten 6 wieder angezeigt werden soll
+             jLKnoten5.setIcon(new ImageIcon(getClass().getResource("/de/cme/img/Knoten/Knoten5_rot.png")));
+             }
+             break;
              */
             case 7:
                 if (status) {

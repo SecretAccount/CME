@@ -1387,8 +1387,8 @@ public class Steuerung implements Befehle {
         entferneKanten(removedEdges, dijkstra);
 
         weg = dijkstra.findeWeg(startPoint, endPoint);
-        //falsche Route, wenn Pfadgewicht >= 1000
-        routeWorking = (dijkstra.getPfadgewichtEndPfad() < 1000);
+        //falsche Route, wenn Pfadgewicht >= 10000
+        routeWorking = (dijkstra.getPfadgewichtEndPfad() < 10000);
 //        dijkstra.showList(); //Liste zum Testen zeigen, später entfernen (Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind)
 //        System.out.println("startPoint: " + startPoint);
 //        System.out.println("endPoint: " + endPoint);

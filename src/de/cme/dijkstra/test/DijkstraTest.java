@@ -44,4 +44,8 @@ public class DijkstraTest {
         dijkstra.findeWeg(von, bis);
 //        dijkstra.showList(); //Zeigt Fehler, wenn noch nicht alle Knoten und Kanten im Quellcode eingefügt sind
     }
+    
+    public void entferneKanten(int vonKnotennummer, int bisKnotennummer) {
+        dijkstra.entferneKante(vonKnotennummer, bisKnotennummer);
+    }
 }
